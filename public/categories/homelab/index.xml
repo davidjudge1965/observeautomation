@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Homelab on ObserveAutomation</title>
+    <link>http://localhost:1313/categories/homelab/</link>
+    <description>Recent content in Homelab on ObserveAutomation</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Jul 2025 17:38:12 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab</title>
+      <link>http://localhost:1313/homelab/</link>
+      <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
+      <guid>http://localhost:1313/homelab/</guid>
+      <description>David Judge&amp;#39;s Homelab efforts and musings</description>
+    </item>
+    <item>
+      <title>Speedtest tracking my network</title>
+      <link>http://localhost:1313/homelab/speedtest-tracking-my-network/</link>
+      <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/homelab/speedtest-tracking-my-network/</guid>
+      <description>&lt;h1 id=&#34;speedtext-tracking-my-network&#34;&gt;Speedtext tracking my network&lt;/h1&gt;
+&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.&lt;/p&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+&lt;h3 id=&#34;creating-an-encryption-key&#34;&gt;Creating an encryption key&lt;/h3&gt;
+&lt;p&gt;A key is required for encryption.  The following command generates a key which can be used in the APP_KEY that will be set later.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo -n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;base64:&amp;#39;&lt;/span&gt;; openssl rand -base64 32;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For ease of retrieval, I have saved that key in a file called APP_KEY.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing InfluxDB</title>
+      <link>http://localhost:1313/homelab/installing-influx-db/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/homelab/installing-influx-db/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;../../homelab/installing-influx-db/images/InfluxDB_280x250_q85.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;installing-influxdb&#34;&gt;Installing InfluxDB&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m now at the stage where I want to ensure that I can monitor my home lab.
+Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrix from proxmox which we can later view in Grafana.&lt;/p&gt;
+&lt;p&gt;The documentation for InfluxDB can be found &lt;a href=&#34;https://docs.influxdata.com/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This article is partly based on Christian Lempa&amp;rsquo;s &lt;a href=&#34;https://github.com/ChristianLempa&#34;&gt;work&lt;/a&gt; and &lt;a href=&#34;https://www.youtube.com/@christianlempa&#34;&gt;videos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I will install InfluxDB on my Docker server as it has more storage than my k3s cluster VMs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing Grafana to Docker</title>
+      <link>http://localhost:1313/homelab/installing-grafana-in-docker/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/homelab/installing-grafana-in-docker/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;../../homelab/installing-grafana-in-docker/images/grafana-icon.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;installing-grafana-to-docker&#34;&gt;Installing Grafana to Docker&lt;/h1&gt;
+&lt;p&gt;Content to be provided&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

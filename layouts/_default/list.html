@@ -1,0 +1,15 @@
+{{define "main"}}
+<h1>{{.Title}} </h1>
+{{range .Pages}}
+<div class="blog-preview">
+    {{with .Params.image}}
+    <img src="{{.}}" alt="{{$.Title}}">
+    {{end}}
+    <div class="content">
+        <h2><a href="{{.Permalink}}"> {{.Title}} </a></h2>
+        <p>{{.Summary}} </p>
+        <a class="read-more" href="{{.Permalink}} ">Read More →</a>
+    </div>
+</div>
+{{end}}
+{{end}}

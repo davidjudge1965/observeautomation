@@ -1,0 +1,33 @@
+{{define "main"}}
+<section class="hero" {{with .Site.Params.hero_image}} style="background-image: url('{{.}}');" {{end}} >
+    <div class="container">
+        <h1 class="hero-title">Welcome to my Portfolio</h1>
+        <p class="hero-text">
+        In this site I share I share my portfolio - mainly the work I've been doing on Agentic Automations.
+        <br>
+        I also share what work I've done in and the evolution of my home lab where I keep my technical skills up to date.
+        <br>
+        <br>
+        If you like what you see, reach out to me - my contact details are in the Contact tab.
+        <br>
+        If you really like what you see, reach out to me for a no-obligation conversation.
+
+        </p>
+    </div>
+</section>
+
+<h1>Latest Portfolio Entries</h1>
+{{range $i, $p := first 10 (where .Site.RegularPages "Type" "portfolio")}}
+<div class="blog-preview {{if modBool $i 2}}reverse{{end}}"   >
+    {{with $p.Params.image}}
+    <img src="{{.}}" alt="{{$p.Title}}">
+    {{end}}
+
+    <div class="content">
+        <h2>{{$p.Title}} </h2>
+        <p> {{$p.Summary}} </p>
+        <a href="{{$p.RelPermalink}}" class="read-more">Read More →</a>
+    </div>
+</div>
+{{end}}
+{{end}}
