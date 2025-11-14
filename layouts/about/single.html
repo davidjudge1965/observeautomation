@@ -1,10 +1,11 @@
 {{define "main"}}
 <section class="about-section">
     <h1> {{.Title}} </h1>
-    {{with .Params.image}}
-    <img src="{{.}}" alt="{{$.Title}}">
-    {{end}}
+
     <div class="content">
+        {{with .Params.image}}
+        <img id="aboutImage" src="{{.}}" alt="{{$.Title}}" width="200">
+        {{end}}
         {{.Content}}
     </div>
 </section>

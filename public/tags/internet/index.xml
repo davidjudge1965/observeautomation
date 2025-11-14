@@ -14,12 +14,7 @@
       <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/homelab/speedtest-tracking-my-network/</guid>
       <description>&lt;h1 id=&#34;speedtext-tracking-my-network&#34;&gt;Speedtext tracking my network&lt;/h1&gt;
-&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.&lt;/p&gt;
-&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
-&lt;h3 id=&#34;creating-an-encryption-key&#34;&gt;Creating an encryption key&lt;/h3&gt;
-&lt;p&gt;A key is required for encryption.  The following command generates a key which can be used in the APP_KEY that will be set later.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo -n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;base64:&amp;#39;&lt;/span&gt;; openssl rand -base64 32;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For ease of retrieval, I have saved that key in a file called APP_KEY.&lt;/p&gt;</description>
+&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
