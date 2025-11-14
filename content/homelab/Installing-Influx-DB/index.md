@@ -9,7 +9,9 @@ tags: [VMs,proxmox,monitoring,influxdb]
 
 # Installing InfluxDB
 I'm now at the stage where I want to ensure that I can monitor my home lab.
-Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrix from proxmox which we can later view in Grafana.
+Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrics from proxmox which we can later view in Grafana.
+
+<!--more-->
 
 The documentation for InfluxDB can be found [here](https://docs.influxdata.com/).
 

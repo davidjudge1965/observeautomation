@@ -10,7 +10,7 @@ tags: [VMs,proxmox,monitoring,internet]
 # Speedtext tracking my network
 
 I like to know what speed i'm getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.
-
+<!--more-->
 
 ## Steps
 

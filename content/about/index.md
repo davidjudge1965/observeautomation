@@ -2,7 +2,7 @@
 title: "About Me"
 date: 2025-08-22
 draft: false
-image: "/image/David_Judge_headshot_380x380px.png"
+image: "/image/author.jpg"
 ---
 
 # Welcome to My website 🌍  

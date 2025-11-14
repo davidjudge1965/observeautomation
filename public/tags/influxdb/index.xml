@@ -16,10 +16,7 @@
       <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;../../homelab/installing-influx-db/images/InfluxDB_280x250_q85.png&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;installing-influxdb&#34;&gt;Installing InfluxDB&lt;/h1&gt;
 &lt;p&gt;I&amp;rsquo;m now at the stage where I want to ensure that I can monitor my home lab.
-Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrix from proxmox which we can later view in Grafana.&lt;/p&gt;
-&lt;p&gt;The documentation for InfluxDB can be found &lt;a href=&#34;https://docs.influxdata.com/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This article is partly based on Christian Lempa&amp;rsquo;s &lt;a href=&#34;https://github.com/ChristianLempa&#34;&gt;work&lt;/a&gt; and &lt;a href=&#34;https://www.youtube.com/@christianlempa&#34;&gt;videos&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I will install InfluxDB on my Docker server as it has more storage than my k3s cluster VMs.&lt;/p&gt;</description>
+Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrics from proxmox which we can later view in Grafana.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing Grafana to Docker</title>

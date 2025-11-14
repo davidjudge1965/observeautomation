@@ -18,7 +18,7 @@ body{
 }
 
 header{
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background: #4facfe;
     padding: 15px 0;
     color: white;
 }
@@ -50,7 +50,7 @@ nav a:hover{
     background-size: cover;
     color: white;
     padding: 100px 0;
-    text-align: center;
+    text-align: justify;
     border-radius: 12px;
     margin-bottom: 40px;
     position: relative;
@@ -81,10 +81,11 @@ nav a:hover{
     letter-spacing: 1px;
     margin-bottom: 20px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #fad416, #00f2fe);
+    background: #00f2fe;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
 .hero-text{
@@ -94,6 +95,7 @@ nav a:hover{
     line-height: 1.6;
     font-weight: 500;
     color: #f8f9fa;
+    text-align: justify;
 }
 
 .about-section{
@@ -102,7 +104,12 @@ nav a:hover{
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     margin-top: 40px;
-    text-align: judtify;
+    text-align: justify;
+}
+
+#aboutImage {
+    float:left;
+    margin 10px;
 }
 
 .about-section h1{
