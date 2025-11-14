@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Deploy | ObserveAutomation </title>
+    <link rel="stylesheet" href="../../css/style.css">  
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <div class="site-title">ObserveAutomation </div>
+
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about">About</a> 
+                
+                <a href="../../homelab/">Homelab</a>
+                <a href="../../portfolio/">Portfolio</a>
+                
+                <a href="../../contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" >
+        
+<h1>Deploy </h1>
+
+<div class="blog-preview">
+    
+    <div class="content">
+        <h2><a href="http://localhost:1313/homelab/speedtest-tracking-my-network/"> Speedtest tracking my network </a></h2>
+        <p><h1 id="speedtext-tracking-my-network">Speedtext tracking my network</h1>
+<p>I like to know what speed i&rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.</p>
+<h2 id="steps">Steps</h2>
+<h3 id="creating-an-encryption-key">Creating an encryption key</h3>
+<p>A key is required for encryption.  The following command generates a key which can be used in the APP_KEY that will be set later.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo -n <span style="color:#e6db74">&#39;base64:&#39;</span>; openssl rand -base64 32;
+</span></span></code></pre></div><p>For ease of retrieval, I have saved that key in a file called APP_KEY.</p> </p>
+        <a class="read-more" href="http://localhost:1313/homelab/speedtest-tracking-my-network/ ">Read More →</a>
+    </div>
+</div>
+
+<div class="blog-preview">
+    
+    <div class="content">
+        <h2><a href="http://localhost:1313/homelab/installing-influx-db/"> Installing InfluxDB </a></h2>
+        <p><p><img alt="Alt" loading="lazy" src="../../homelab/installing-influx-db/images/InfluxDB_280x250_q85.png"></p>
+<h1 id="installing-influxdb">Installing InfluxDB</h1>
+<p>I&rsquo;m now at the stage where I want to ensure that I can monitor my home lab.
+Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrix from proxmox which we can later view in Grafana.</p>
+<p>The documentation for InfluxDB can be found <a href="https://docs.influxdata.com/">here</a>.</p>
+<p>This article is partly based on Christian Lempa&rsquo;s <a href="https://github.com/ChristianLempa">work</a> and <a href="https://www.youtube.com/@christianlempa">videos</a>.</p>
+<p>I will install InfluxDB on my Docker server as it has more storage than my k3s cluster VMs.</p> </p>
+        <a class="read-more" href="http://localhost:1313/homelab/installing-influx-db/ ">Read More →</a>
+    </div>
+</div>
+
+<div class="blog-preview">
+    
+    <img src="../../images/cloud-init-logo-vector.png" alt="Deploy">
+    
+    <div class="content">
+        <h2><a href="http://localhost:1313/homelab/installing-grafana-in-docker/"> Installing Grafana to Docker </a></h2>
+        <p><p><img alt="Alt" loading="lazy" src="../../homelab/installing-grafana-in-docker/images/grafana-icon.png"></p>
+<h1 id="installing-grafana-to-docker">Installing Grafana to Docker</h1>
+<p>Content to be provided</p> </p>
+        <a class="read-more" href="http://localhost:1313/homelab/installing-grafana-in-docker/ ">Read More →</a>
+    </div>
+</div>
+
+
+    </main>
+
+    <footer>
+        <p>© 2025 ObserveAutomation  </p>
+    </footer>
+</body>
+</html>

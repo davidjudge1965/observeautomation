@@ -1,0 +1,9 @@
+baseURL = 'https://www.observeautomation.com/'
+relativeURLs = true 
+canonifyURLs = true 
+languageCode = 'en-us'
+title = "ObserveAutomation"
+theme = "PaperMod"
+
+[params]
+hero_image="/image/blog.jpg"
