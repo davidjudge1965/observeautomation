@@ -15,13 +15,11 @@ Searching for roles can be very time-consuming especially when the job title you
 
 ## Summarising (using GenAI) and keyword search
 
-![Alt](./images/Creating_Snippets_Directory.png)
-
 I use 2 main automations:
 * job analysis workflow
 * moving applied-to jobs to my tracker
 
-The first automation us triggered when I send a job spec to the automation.  The high-level logic is:
+The first automation is triggered when I send a job spec to the automation.  The high-level logic is:
 
 ![Alt](./images/Jobseeker_Flow_Excalidraw.png)
 
