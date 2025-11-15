@@ -59,9 +59,9 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;-follow-us&#34;&gt;🌐 Follow Us&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;🌍 &lt;a href=&#34;https://observeautomation.com.com&#34;&gt;Website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🌍 &lt;a href=&#34;https://observeautomation.com.com&#34;&gt;This Website&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;📘 &lt;a href=&#34;https://facebook.com/davidjudge&#34;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[in] &lt;a href=&#34;https://linkedin.com/in/davidjudge&#34;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[in] &lt;a href=&#34;https://linkedin.com/in/davidjudge&#34;&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     <item>
@@ -79,16 +79,7 @@
       <description>&lt;p&gt;Football is more than just a game—it’s a passion that connects people across the globe.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>About me</title>
-      <link>http://localhost:1313/about-previous/</link>
-      <pubDate>Wed, 06 Aug 2025 15:00:41 +0100</pubDate>
-      <guid>http://localhost:1313/about-previous/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;me&#34; loading=&#34;lazy&#34; src=&#34;./image/author.jpg&#34;&gt;
-I&amp;rsquo;m an experienced infrastructure automation and observability specialist, working with enterprise customers in a wide variety of domains to simplify and streamline complex IT and business environments.&lt;/p&gt;
-&lt;p&gt;Over the years, I’ve helped teams automate repetitive tasks, improve observability of hybrid estates, and bring order to legacy systems that others often avoid. Whether it’s developing bespoke scripts, auditing infrastructure for improvement, or providing hands-on expertise during critical projects, I bring a steady, solutions-focused approach to every engagement.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Auto-labelling emails using AI</title>
+      <title>Auto-labelling emails using AI and n8n</title>
       <link>http://localhost:1313/portfolio/gmail-labelling/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/portfolio/gmail-labelling/</guid>
@@ -107,33 +98,6 @@ I&amp;rsquo;m an experienced infrastructure automation and observability special
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
       <guid>http://localhost:1313/homelab/proxmox-cloudinit/</guid>
       <description>Proxmox VM creation with CloudImage and CloudInit.</description>
-    </item>
-    <item>
-      <title>Speedtest tracking my network</title>
-      <link>http://localhost:1313/homelab/speedtest-tracking-my-network/</link>
-      <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/homelab/speedtest-tracking-my-network/</guid>
-      <description>&lt;h1 id=&#34;speedtext-tracking-my-network&#34;&gt;Speedtext tracking my network&lt;/h1&gt;
-&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Installing InfluxDB</title>
-      <link>http://localhost:1313/homelab/installing-influx-db/</link>
-      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/homelab/installing-influx-db/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;./homelab/installing-influx-db/images/InfluxDB_280x250_q85.png&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;installing-influxdb&#34;&gt;Installing InfluxDB&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;m now at the stage where I want to ensure that I can monitor my home lab.
-Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrics from proxmox which we can later view in Grafana.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Installing Grafana to Docker</title>
-      <link>http://localhost:1313/homelab/installing-grafana-in-docker/</link>
-      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/homelab/installing-grafana-in-docker/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;./homelab/installing-grafana-in-docker/images/grafana-icon.png&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;installing-grafana-to-docker&#34;&gt;Installing Grafana to Docker&lt;/h1&gt;
-&lt;p&gt;Content to be provided&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

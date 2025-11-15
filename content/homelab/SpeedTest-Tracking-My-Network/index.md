@@ -1,7 +1,7 @@
 ---
 title: Speedtest tracking my network
 date: 2025-06-04
-draft: false
+draft: true
 categories: [homelab,setup,deploy,monitoring]
 tags: [VMs,proxmox,monitoring,internet]
 ---

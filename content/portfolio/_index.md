@@ -4,7 +4,7 @@ draft: false
 title: 'Portfolio'
 description: "David Judge's portfolio"
 categories: ["Portfolio"]
-tags: ["n8n", "GenAI"]
+tags: ["n8n", "GenAI", "Automation"]
 ---
 
 # This section holds a portfolio of my work.
