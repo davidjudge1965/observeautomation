@@ -1,4 +1,4 @@
-name = "hosting-cloudflare-worker"
+name = "observeautomation"
 compatibility_date = "2025-11-15"
 
 [build]
