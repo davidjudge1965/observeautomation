@@ -34,13 +34,12 @@
     <p>Using my n8n automations skills and my knowledge of GenAI, I built some automations to save time and focus my job search.  The first automation saves me around 2 to 3 hours of reading job roles every day.</p>
 <p>Searching for roles can be very time-consuming especially when the job title you&rsquo;re searching for is a common one which applies to a wide variety of domains as my job title does.</p>
 <h2 id="summarising-using-genai-and-keyword-search">Summarising (using GenAI) and keyword search</h2>
-<p><img alt="Alt" loading="lazy" src="../../portfolio/job-search-optimisation-using-n8n/images/Creating_Snippets_Directory.png"></p>
 <p>I use 2 main automations:</p>
 <ul>
 <li>job analysis workflow</li>
 <li>moving applied-to jobs to my tracker</li>
 </ul>
-<p>The first automation us triggered when I send a job spec to the automation.  The high-level logic is:</p>
+<p>The first automation is triggered when I send a job spec to the automation.  The high-level logic is:</p>
 <p><img alt="Alt" loading="lazy" src="../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker_Flow_Excalidraw.png"></p>
 <p>Any roles that are processed by the automation are stored in a Google Sheet i refer to as my &ldquo;URL&rdquo; sheet.  Using the URL that triggered the automation as the unique key, the sheet is searched to see if it has already been processed and if it has, the automation stops there to save GenAI costs.</p>
 <p>If, however, the url is not already in the spreadsheet, the web page for the role is retrieved, passed through to OpenAI for analysis and the analysis is stored in the same Google Sheet.</p>
