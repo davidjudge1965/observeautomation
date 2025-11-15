@@ -6,7 +6,7 @@ description: "Job Search Optimisation automation using n8n"
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI"]
 layout: "single"
-image: "/images/Featured_Automated_Job_Search_Optimisation.jpg"
+image: "/image/AutomatedJobSearchOptinisation.jpg"
 ---
 Using my n8n automations skills and my knowledge of GenAI, I built some automations to save time and focus my job search.  The first automation saves me around 2 to 3 hours of reading job roles every day.
 

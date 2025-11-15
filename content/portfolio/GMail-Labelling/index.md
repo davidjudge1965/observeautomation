@@ -2,11 +2,11 @@
 date: '2025-08-01'
 draft: false
 title: "Auto-labelling emails using AI"
-description: "Auto-labelling Google Mails with automation using n8n and ChatGPT"
+description: "Auto-labelling Google Mail with automation using n8n and ChatGPT"
 categories: ["Portfolio"]
-tags: ["n8n", "GenAI"]
+tags: ["n8n", "GenAI", "GMail"]
 layout: "single"
-image: "/images/Featured_Automated_Job_Search_Optimisation.jpg"
+iimage: "/image/AutomatedEmailClassificationImage.png"
 ---
 I spend too long every day labelling (or categorising, if you prefer) the many emails I receive.  There has to be a better way!
 

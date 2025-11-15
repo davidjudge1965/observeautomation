@@ -9,6 +9,9 @@ tags: ["n8n", "GenAI"]
 
 # This section holds a portfolio of my work.
 
-This section has exmaples of my work in Automation.
+This section has examples of my work in Automation.
 
-Please reach out to me if you have any questions or if you would like a conversation about the challenges you face with Automation or working with AI.
+Please reach out to me if:
+* you have any questions, or 
+* you would like a conversation about Automation and AI,
+* Would like help implementing automation/AI in your business
