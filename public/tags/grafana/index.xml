@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Grafana on ObserveAutomation</title>
-    <link>http://localhost:1313/tags/grafana/</link>
+    <link>http://localhost:61253/tags/grafana/</link>
     <description>Recent content in Grafana on ObserveAutomation</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:61253/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing Grafana to Docker</title>
-      <link>http://localhost:1313/homelab/installing-grafana-in-docker/</link>
+      <link>http://localhost:61253/homelab/installing-grafana-in-docker/</link>
       <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/homelab/installing-grafana-in-docker/</guid>
+      <guid>http://localhost:61253/homelab/installing-grafana-in-docker/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;../../homelab/installing-grafana-in-docker/images/grafana-icon.png&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;installing-grafana-to-docker&#34;&gt;Installing Grafana to Docker&lt;/h1&gt;
 &lt;p&gt;Content to be provided&lt;/p&gt;</description>
