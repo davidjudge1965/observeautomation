@@ -1,7 +1,11 @@
 {{define "main"}}
-<section class="hero" {{with .Site.Params.hero_image}} style="background-image: url('{{.}}');" {{end}} >
+<section class="hero"  >
     <div class="container">
         <h1 class="hero-title">Welcome to my Portfolio</h1>
+        {{with .Site.Params.hero_image}} 
+        <img id="aboutImage" src="{{.}}" alt="{{$.Title}}" style="border:0px;margin:10px;float:left;width:40%;" >
+        {{end}}
+
         <p class="hero-text">
         In this site I share I share my portfolio - mainly the work I've been doing on Agentic Automations.
         <br>
