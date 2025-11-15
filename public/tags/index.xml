@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on ObserveAutomation</title>
-    <link>http://localhost:62182/tags/</link>
+    <link>http://localhost:55009/tags/</link>
     <description>Recent content in Tags on ObserveAutomation</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:62182/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:55009/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
-      <link>http://localhost:62182/tags/blog/</link>
+      <link>http://localhost:55009/tags/blog/</link>
       <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/blog/</guid>
+      <guid>http://localhost:55009/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>http://localhost:62182/tags/hugo/</link>
+      <link>http://localhost:55009/tags/hugo/</link>
       <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/hugo/</guid>
+      <guid>http://localhost:55009/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>GenAI</title>
-      <link>http://localhost:62182/tags/genai/</link>
+      <link>http://localhost:55009/tags/genai/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/genai/</guid>
+      <guid>http://localhost:55009/tags/genai/</guid>
       <description></description>
     </item>
     <item>
       <title>GMail</title>
-      <link>http://localhost:62182/tags/gmail/</link>
+      <link>http://localhost:55009/tags/gmail/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/gmail/</guid>
+      <guid>http://localhost:55009/tags/gmail/</guid>
       <description></description>
     </item>
     <item>
       <title>N8n</title>
-      <link>http://localhost:62182/tags/n8n/</link>
+      <link>http://localhost:55009/tags/n8n/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/n8n/</guid>
+      <guid>http://localhost:55009/tags/n8n/</guid>
       <description></description>
     </item>
     <item>
       <title>Automation</title>
-      <link>http://localhost:62182/tags/automation/</link>
+      <link>http://localhost:55009/tags/automation/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:62182/tags/automation/</guid>
+      <guid>http://localhost:55009/tags/automation/</guid>
       <description></description>
     </item>
     <item>
       <title>CloudInit</title>
-      <link>http://localhost:62182/tags/cloudinit/</link>
+      <link>http://localhost:55009/tags/cloudinit/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:62182/tags/cloudinit/</guid>
+      <guid>http://localhost:55009/tags/cloudinit/</guid>
       <description></description>
     </item>
     <item>
       <title>Homelab</title>
-      <link>http://localhost:62182/tags/homelab/</link>
+      <link>http://localhost:55009/tags/homelab/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:62182/tags/homelab/</guid>
+      <guid>http://localhost:55009/tags/homelab/</guid>
       <description></description>
     </item>
     <item>
       <title>Proxmox</title>
-      <link>http://localhost:62182/tags/proxmox/</link>
+      <link>http://localhost:55009/tags/proxmox/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:62182/tags/proxmox/</guid>
+      <guid>http://localhost:55009/tags/proxmox/</guid>
       <description></description>
     </item>
     <item>
       <title>Services</title>
-      <link>http://localhost:62182/tags/services/</link>
+      <link>http://localhost:55009/tags/services/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:62182/tags/services/</guid>
+      <guid>http://localhost:55009/tags/services/</guid>
       <description></description>
     </item>
     <item>
       <title>Internet</title>
-      <link>http://localhost:62182/tags/internet/</link>
+      <link>http://localhost:55009/tags/internet/</link>
       <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/internet/</guid>
+      <guid>http://localhost:55009/tags/internet/</guid>
       <description></description>
     </item>
     <item>
       <title>Monitoring</title>
-      <link>http://localhost:62182/tags/monitoring/</link>
+      <link>http://localhost:55009/tags/monitoring/</link>
       <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/monitoring/</guid>
+      <guid>http://localhost:55009/tags/monitoring/</guid>
       <description></description>
     </item>
     <item>
       <title>VMs</title>
-      <link>http://localhost:62182/tags/vms/</link>
+      <link>http://localhost:55009/tags/vms/</link>
       <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/vms/</guid>
+      <guid>http://localhost:55009/tags/vms/</guid>
       <description></description>
     </item>
     <item>
       <title>Influxdb</title>
-      <link>http://localhost:62182/tags/influxdb/</link>
+      <link>http://localhost:55009/tags/influxdb/</link>
       <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/influxdb/</guid>
+      <guid>http://localhost:55009/tags/influxdb/</guid>
       <description></description>
     </item>
     <item>
       <title>Grafana</title>
-      <link>http://localhost:62182/tags/grafana/</link>
+      <link>http://localhost:55009/tags/grafana/</link>
       <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62182/tags/grafana/</guid>
+      <guid>http://localhost:55009/tags/grafana/</guid>
       <description></description>
     </item>
   </channel>
