@@ -6,6 +6,7 @@ description: "David Judge's portfolio"
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "Automation"]
 ---
+![Homelabbing Section](/image/AutomationPageHeader.jpg)
 
 # This section holds a portfolio of my work.
 

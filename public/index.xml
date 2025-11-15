@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ObserveAutomation</title>
-    <link>http://localhost:61253/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on ObserveAutomation</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:61253/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Blog Post</title>
-      <link>http://localhost:61253/blog/my-first-post/</link>
+      <link>http://localhost:1313/blog/my-first-post/</link>
       <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/blog/my-first-post/</guid>
+      <guid>http://localhost:1313/blog/my-first-post/</guid>
       <description>&lt;p&gt;Flowers are one of nature’s most beautiful creations, admired for their colors, fragrance, and charm.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My Second Blog Post</title>
-      <link>http://localhost:61253/blog/my-second-post/</link>
+      <link>http://localhost:1313/blog/my-second-post/</link>
       <pubDate>Sun, 24 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/blog/my-second-post/</guid>
+      <guid>http://localhost:1313/blog/my-second-post/</guid>
       <description>&lt;p&gt;The world of flowers is filled with endless variety, each bloom unique in shape, scent, and color.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My Third Blog Post</title>
-      <link>http://localhost:61253/blog/my-third-post/</link>
+      <link>http://localhost:1313/blog/my-third-post/</link>
       <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/blog/my-third-post/</guid>
+      <guid>http://localhost:1313/blog/my-third-post/</guid>
       <description>&lt;p&gt;Flowers have always been a symbol of beauty and renewal across cultures.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About Me</title>
-      <link>http://localhost:61253/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;welcome-to-my-website-&#34;&gt;Welcome to My website 🌍&lt;/h1&gt;
 &lt;p&gt;I&amp;rsquo;m an experienced automation and observability specialist, working with small and large customers in a wide variety of domains to simplify and streamline activities.&lt;/p&gt;
 &lt;p&gt;Despite my strong technical background, I focus on pragmatic automation — the kind that reduces manual effort, lowers risk, and adds real operational value.&lt;/p&gt;
@@ -41,9 +41,9 @@
     </item>
     <item>
       <title>Contact</title>
-      <link>http://localhost:61253/contact/</link>
+      <link>http://localhost:1313/contact/</link>
       <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/contact/</guid>
+      <guid>http://localhost:1313/contact/</guid>
       <description>&lt;h1 id=&#34;-get-in-touch-with-me&#34;&gt;📞 Get in Touch with Me&lt;/h1&gt;
 &lt;p&gt;I’d love to hear from you! Whether you have questions, feedback, or collaboration ideas — feel free to reach out.&lt;/p&gt;
 &lt;hr&gt;
@@ -66,65 +66,38 @@
     </item>
     <item>
       <title>My Fourth Blog Post</title>
-      <link>http://localhost:61253/blog/my-fourth-post/</link>
+      <link>http://localhost:1313/blog/my-fourth-post/</link>
       <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/blog/my-fourth-post/</guid>
+      <guid>http://localhost:1313/blog/my-fourth-post/</guid>
       <description>&lt;p&gt;War is one of humanity’s darkest realities, leaving behind destruction, pain, and broken lives.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My Fifth Blog Post</title>
-      <link>http://localhost:61253/blog/my-fifth-post/</link>
+      <link>http://localhost:1313/blog/my-fifth-post/</link>
       <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/blog/my-fifth-post/</guid>
+      <guid>http://localhost:1313/blog/my-fifth-post/</guid>
       <description>&lt;p&gt;Football is more than just a game—it’s a passion that connects people across the globe.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Auto-labelling emails using AI and n8n</title>
-      <link>http://localhost:61253/portfolio/gmail-labelling/</link>
+      <link>http://localhost:1313/portfolio/gmail-labelling/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/portfolio/gmail-labelling/</guid>
+      <guid>http://localhost:1313/portfolio/gmail-labelling/</guid>
       <description>Auto-labelling Google Mail with automation using n8n and ChatGPT</description>
     </item>
     <item>
       <title>Job Search Optimisation automation using n8n</title>
-      <link>http://localhost:61253/portfolio/job-search-optimisation-using-n8n/</link>
+      <link>http://localhost:1313/portfolio/job-search-optimisation-using-n8n/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:61253/portfolio/job-search-optimisation-using-n8n/</guid>
+      <guid>http://localhost:1313/portfolio/job-search-optimisation-using-n8n/</guid>
       <description>Job Search Optimisation automation using n8n</description>
     </item>
     <item>
       <title>Proxmox and CloudInit</title>
-      <link>http://localhost:61253/homelab/proxmox-cloudinit/</link>
+      <link>http://localhost:1313/homelab/proxmox-cloudinit/</link>
       <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
-      <guid>http://localhost:61253/homelab/proxmox-cloudinit/</guid>
+      <guid>http://localhost:1313/homelab/proxmox-cloudinit/</guid>
       <description>Proxmox VM creation with CloudImage and CloudInit.</description>
-    </item>
-    <item>
-      <title>Speedtest tracking my network</title>
-      <link>http://localhost:61253/homelab/speedtest-tracking-my-network/</link>
-      <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/homelab/speedtest-tracking-my-network/</guid>
-      <description>&lt;h1 id=&#34;speedtext-tracking-my-network&#34;&gt;Speedtext tracking my network&lt;/h1&gt;
-&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Installing InfluxDB</title>
-      <link>http://localhost:61253/homelab/installing-influx-db/</link>
-      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/homelab/installing-influx-db/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;./homelab/installing-influx-db/images/InfluxDB_280x250_q85.png&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;installing-influxdb&#34;&gt;Installing InfluxDB&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;m now at the stage where I want to ensure that I can monitor my home lab.
-Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrics from proxmox which we can later view in Grafana.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Installing Grafana to Docker</title>
-      <link>http://localhost:61253/homelab/installing-grafana-in-docker/</link>
-      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:61253/homelab/installing-grafana-in-docker/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt&#34; loading=&#34;lazy&#34; src=&#34;./homelab/installing-grafana-in-docker/images/grafana-icon.png&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;installing-grafana-to-docker&#34;&gt;Installing Grafana to Docker&lt;/h1&gt;
-&lt;p&gt;Content to be provided&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
