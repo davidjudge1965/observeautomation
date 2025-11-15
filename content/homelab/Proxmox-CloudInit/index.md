@@ -5,7 +5,7 @@ description: "Proxmox VM creation with CloudImage and CloudInit."
 categoriea: ["Homelabbing"]
 tags: ["Homelab", "Proxmox", "CloudInit"]
 layout: "single"
-image: "/images/cloud-init-logo-vector.png"
+image: "/image/cloud-init-logo-vector.png"
 ---
 ![Alt](/images/proxmox-server-solutions-gmbh-logo-vector.png) 
 

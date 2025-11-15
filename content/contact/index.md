@@ -21,7 +21,7 @@ I’d love to hear from you! Whether you have questions, feedback, or collaborat
 ---
 
 ## 🌐 Follow Us  
-- 🌍 [Website](https://observeautomation.com.com)  
+- 🌍 [This Website](https://observeautomation.com.com)  
 - 📘 [Facebook](https://facebook.com/davidjudge)  
-- [in] [Twitter](https://linkedin.com/in/davidjudge)  
+- [in] [LinkedIn](https://linkedin.com/in/davidjudge)  
 

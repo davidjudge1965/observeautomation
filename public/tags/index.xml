@@ -30,10 +30,24 @@
       <description></description>
     </item>
     <item>
+      <title>GMail</title>
+      <link>http://localhost:1313/tags/gmail/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/gmail/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>N8n</title>
       <link>http://localhost:1313/tags/n8n/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/n8n/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>http://localhost:1313/tags/automation/</link>
+      <pubDate>Tue, 01 Jul 2025 17:38:12 +0100</pubDate>
+      <guid>http://localhost:1313/tags/automation/</guid>
       <description></description>
     </item>
     <item>
@@ -86,17 +100,17 @@
       <description></description>
     </item>
     <item>
-      <title>Influxdb</title>
-      <link>http://localhost:1313/tags/influxdb/</link>
-      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/influxdb/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Grafana</title>
       <link>http://localhost:1313/tags/grafana/</link>
       <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/grafana/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Influxdb</title>
+      <link>http://localhost:1313/tags/influxdb/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/influxdb/</guid>
       <description></description>
     </item>
   </channel>

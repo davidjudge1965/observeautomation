@@ -3,7 +3,7 @@
     <h1> {{.Title}} </h1>
     <div class="content">
         {{with .Params.image}}
-        <img id="aboutImage" src="{{.}}" alt="{{$.Title}}">
+        <img id="aboutImage" src="{{.}}" alt="{{$.Title}}" style="border:0px;margin:10px;float:left;width:200px;" >
         {{end}}
         {{.Content}}
     </div>

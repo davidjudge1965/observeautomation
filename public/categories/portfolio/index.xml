@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Auto-labelling emails using AI</title>
+      <title>Auto-labelling emails using AI and n8n</title>
       <link>http://localhost:1313/portfolio/gmail-labelling/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/portfolio/gmail-labelling/</guid>
-      <description>Auto-labelling Google Mails with automation using n8n and ChatGPT</description>
+      <description>Auto-labelling Google Mail with automation using n8n and ChatGPT</description>
     </item>
     <item>
       <title>Job Search Optimisation automation using n8n</title>

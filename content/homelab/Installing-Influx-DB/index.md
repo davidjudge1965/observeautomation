@@ -1,9 +1,10 @@
 ---
 title: Installing InfluxDB
 date: 2025-06-03
-draft: false
+draft: true
 categories: [homelab,setup,deploy,monitoring]
 tags: [VMs,proxmox,monitoring,influxdb]
+image: "/image/InfluxDB_280x250_q85.png"
 ---
 ![Alt](/images/InfluxDB_280x250_q85.png) 
 
