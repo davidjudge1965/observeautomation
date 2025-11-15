@@ -2,97 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/blog/</loc>
+    <loc>http://localhost:61253/tags/blog/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>http://localhost:61253/blog/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:61253/categories/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/hugo/</loc>
+    <loc>http://localhost:61253/tags/hugo/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/my-first-post/</loc>
+    <loc>http://localhost:61253/blog/my-first-post/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:61253/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:61253/tags/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/web-development/</loc>
+    <loc>http://localhost:61253/categories/web-development/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/my-second-post/</loc>
+    <loc>http://localhost:61253/blog/my-second-post/</loc>
     <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/my-third-post/</loc>
+    <loc>http://localhost:61253/blog/my-third-post/</loc>
     <lastmod>2025-08-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:61253/about/</loc>
     <lastmod>2025-08-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/contact/</loc>
+    <loc>http://localhost:61253/contact/</loc>
     <lastmod>2025-08-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/my-fourth-post/</loc>
+    <loc>http://localhost:61253/blog/my-fourth-post/</loc>
     <lastmod>2025-08-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/my-fifth-post/</loc>
+    <loc>http://localhost:61253/blog/my-fifth-post/</loc>
     <lastmod>2025-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/portfolio/gmail-labelling/</loc>
+    <loc>http://localhost:61253/portfolio/gmail-labelling/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/genai/</loc>
+    <loc>http://localhost:61253/tags/genai/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/gmail/</loc>
+    <loc>http://localhost:61253/tags/gmail/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/n8n/</loc>
+    <loc>http://localhost:61253/tags/n8n/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/portfolio/</loc>
+    <loc>http://localhost:61253/categories/portfolio/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automation/</loc>
+    <loc>http://localhost:61253/tags/automation/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cloudinit/</loc>
+    <loc>http://localhost:61253/tags/cloudinit/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/homelab/</loc>
+    <loc>http://localhost:61253/categories/homelab/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/homelab/</loc>
+    <loc>http://localhost:61253/homelab/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/homelab/</loc>
+    <loc>http://localhost:61253/tags/homelab/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/portfolio/job-search-optimisation-using-n8n/</loc>
+    <loc>http://localhost:61253/portfolio/job-search-optimisation-using-n8n/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/portfolio/</loc>
+    <loc>http://localhost:61253/portfolio/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/proxmox/</loc>
+    <loc>http://localhost:61253/tags/proxmox/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/homelab/proxmox-cloudinit/</loc>
+    <loc>http://localhost:61253/homelab/proxmox-cloudinit/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/services/</loc>
+    <loc>http://localhost:61253/categories/services/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/services/</loc>
+    <loc>http://localhost:61253/services/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/services/</loc>
+    <loc>http://localhost:61253/tags/services/</loc>
     <lastmod>2025-07-01T17:38:12+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/categories/deploy/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/tags/internet/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/categories/monitoring/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/tags/monitoring/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/categories/setup/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/homelab/speedtest-tracking-my-network/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/tags/vms/</loc>
+    <lastmod>2025-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/tags/influxdb/</loc>
+    <lastmod>2025-06-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/homelab/installing-influx-db/</loc>
+    <lastmod>2025-06-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/tags/grafana/</loc>
+    <lastmod>2025-06-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61253/homelab/installing-grafana-in-docker/</loc>
+    <lastmod>2025-06-02T00:00:00+00:00</lastmod>
   </url>
 </urlset>

@@ -6,6 +6,7 @@ description: "David Judge's Homelab efforts and musings"
 categories: ["homelab"]
 tags: ["Homelab", "GenAI"]
 ---
+![Homelabbing Section](/image/HomelabTopImage.jpg)
 
 # This section holds the Homelabbing articles
 
