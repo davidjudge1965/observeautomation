@@ -1,8 +1,86 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Job Search Optimisation automation using n8n | ObserveAutomation</title><link rel=stylesheet href=../../css/style.css></head><body><header><div class="container header-flex"><div class=site-title>ObserveAutomation</div><nav><a href=../../>Home</a>
-<a href=../../about>About</a>
-<a href=../../homelab/>Homelab</a>
-<a href=../../portfolio/>Portfolio</a>
-<a href=../../contact>Contact</a></nav></div></header><main class=container><div class=page-content><h1>Job Search Optimisation automation using n8n</h1><p><em>July 1, 2025</em></p><img src=../../image/AutomatedJobSearchOptimisation.jpg alt="Job Search Optimisation automation using n8n"><p>Using my n8n automations skills and my knowledge of GenAI, I built some automations to save time and focus my job search. The first automation saves me around 2 to 3 hours of reading job roles every day.</p><p>Searching for roles can be very time-consuming especially when the job title you&rsquo;re searching for is a common one which applies to a wide variety of domains as is the case for my job title.</p><h2 id=summarising-using-genai-and-keyword-search>Summarising (using GenAI) and keyword search</h2><p>I use 2 main automations:</p><ul><li>job analysis workflow</li><li>moving applied-to jobs to my tracker</li></ul><p>The first automation is triggered when I send a job spec to the automation. The high-level logic is:</p><p><img alt=Alt loading=lazy src=../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker_Flow_Excalidraw.png></p><p>Any roles that are processed by the automation are stored in a Google Sheet i refer to as my &ldquo;URL&rdquo; sheet. Using the URL that triggered the automation as the unique key, the sheet is searched to see if it has already been processed and if it has, the automation stops there to save GenAI costs.</p><p>If, however, the url is not already in the spreadsheet, the web page for the role is retrieved, passed through to OpenAI for analysis and the analysis is stored in the same Google Sheet.</p><p>The analysis step takes the job spec and produces:</p><ul><li>A precis of the company</li><li>Role location</li><li>Onsite/hybrid/remote</li><li>A summnary of the role</li><li>Skills required for the role</li><li>Requirements for the role</li><li>Does the job spec contain the terms:<ul><li>Automation</li><li>AIOps</li><li>Observability</li></ul></li></ul><p>To trigger the workflow, as I view the headlines and first paragraph or 2 of a role on LinkedIn (and others), I send the role to the webhook. I do this using a browser extension which allows me to right-click on a URL and select &ldquo;send to webhook&rdquo; in the drop-down.</p><p>I skim the &ldquo;URL&rdquo; spreadsheet to look for roles that fit my criteria and when I find one, I click on the link to read the full job spec and maybe apply to the position.</p><p>This automation has reduced the number of job specifications I need to read from up to 300 per day to a dozen or two.</p><p>For the more technically-minded, here&rsquo;s a screenshot of the actual workflow:
-<img alt=Alt loading=lazy src=../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker%20URL%20Grabber%20Workflow.png></p><h2 id=moving-applied-to-roles-to-the-tracker-spreadsheet>Moving applied-to roles to the tracker spreadsheet</h2><p>When I have applied for a role, I update my spreadsheet with &ldquo;applied&rdquo; in the appropriate column.</p><p>The 2nd automation looks in the &ldquo;URL&rdquo; spreadsheet for rows where I have entered &ldquo;applied&rdquo;, copies selected fields of the row to my tracker spreadsheet and then marks them as &ldquo;tracked&rdquo; in the original spreadsheet.</p><p>The workflow runs on a time trigger every day at 8pm automatically.</p><p>Here&rsquo;s the logic:
-<img alt=Alt loading=lazy src=../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker-Move-To-Tracking-Sheet-Flow.png></p><p>And here&rsquo;s the actual flow from n8n:
-<img alt=Alt loading=lazy src=../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker_Move_to_tracker_Workflow.png></p><h2 id=what-does-it-cost>What does it cost?</h2><p>The n8n server is running on my own homelab, so other than electrity, there&rsquo;s no direct cost for automation.</p><p>The analysis of the job role is done by an LLM in the cloud: OpenAI&rsquo;s GPT-4O-mini (via APIs) which is fast and relatively cheap for this not-very-taxing task. Each role processed costs less than £0.01 - I don&rsquo;t know exacly how much but my API credit balance goes down very, very slowly.</p></div></main><footer><p>© 2025 ObserveAutomation</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Job Search Optimisation automation using n8n | ObserveAutomation </title>
+    <link rel="stylesheet" href="../../css/style.css">  
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <div class="site-title">ObserveAutomation </div>
+
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about">About</a> 
+                
+                <a href="../../homelab/">Homelab</a>
+                <a href="../../portfolio/">Portfolio</a>
+                
+                <a href="../../contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" >
+        
+<div class="page-content">
+    <h1> Job Search Optimisation automation using n8n </h1>
+    <p><em> July 1, 2025 </em></p>
+    
+    <img src="../../image/AutomatedJobSearchOptimisation.jpg" alt="Job Search Optimisation automation using n8n">
+    
+    <p>Using my n8n automations skills and my knowledge of GenAI, I built some automations to save time and focus my job search.  The first automation saves me around 2 to 3 hours of reading job roles every day.</p>
+<p>Searching for roles can be very time-consuming especially when the job title you&rsquo;re searching for is a common one which applies to a wide variety of domains as is the case for my job title.</p>
+<h2 id="summarising-using-genai-and-keyword-search">Summarising (using GenAI) and keyword search</h2>
+<p>I use 2 main automations:</p>
+<ul>
+<li>job analysis workflow</li>
+<li>moving applied-to jobs to my tracker</li>
+</ul>
+<p>The first automation is triggered when I send a job spec to the automation.  The high-level logic is:</p>
+<p><img alt="Alt" loading="lazy" src="../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker_Flow_Excalidraw.png"></p>
+<p>Any roles that are processed by the automation are stored in a Google Sheet i refer to as my &ldquo;URL&rdquo; sheet.  Using the URL that triggered the automation as the unique key, the sheet is searched to see if it has already been processed and if it has, the automation stops there to save GenAI costs.</p>
+<p>If, however, the url is not already in the spreadsheet, the web page for the role is retrieved, passed through to OpenAI for analysis and the analysis is stored in the same Google Sheet.</p>
+<p>The analysis step takes the job spec and produces:</p>
+<ul>
+<li>A precis of the company</li>
+<li>Role location</li>
+<li>Onsite/hybrid/remote</li>
+<li>A summnary of the role</li>
+<li>Skills required for the role</li>
+<li>Requirements for the role</li>
+<li>Does the job spec contain the terms:
+<ul>
+<li>Automation</li>
+<li>AIOps</li>
+<li>Observability</li>
+</ul>
+</li>
+</ul>
+<p>To trigger the workflow, as I view the headlines and first paragraph or 2 of a role on LinkedIn (and others), I send the role to the webhook.  I do this using a browser extension which allows me to right-click on a URL and select &ldquo;send to webhook&rdquo; in the drop-down.</p>
+<p>I skim the &ldquo;URL&rdquo; spreadsheet to look for roles that fit my criteria and when I find one, I click on the link to read the full job spec and maybe apply to the position.</p>
+<p>This automation has reduced the number of job specifications I need to read from up to 300 per day to a dozen or two.</p>
+<p>For the more technically-minded, here&rsquo;s a screenshot of the actual workflow:
+<img alt="Alt" loading="lazy" src="../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker%20URL%20Grabber%20Workflow.png"></p>
+<h2 id="moving-applied-to-roles-to-the-tracker-spreadsheet">Moving applied-to roles to the tracker spreadsheet</h2>
+<p>When I have applied for a role, I update my spreadsheet with &ldquo;applied&rdquo; in the appropriate column.</p>
+<p>The 2nd automation looks in the &ldquo;URL&rdquo; spreadsheet for rows where I have entered &ldquo;applied&rdquo;, copies selected fields of the row to my tracker spreadsheet and then marks them as &ldquo;tracked&rdquo; in the original spreadsheet.</p>
+<p>The workflow runs on a time trigger every day at 8pm automatically.</p>
+<p>Here&rsquo;s the logic:
+<img alt="Alt" loading="lazy" src="../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker-Move-To-Tracking-Sheet-Flow.png"></p>
+<p>And here&rsquo;s the actual flow from n8n:
+<img alt="Alt" loading="lazy" src="../../portfolio/job-search-optimisation-using-n8n/images/Jobseeker_Move_to_tracker_Workflow.png"></p>
+<h2 id="what-does-it-cost">What does it cost?</h2>
+<p>The n8n server is running on my own homelab, so other than electrity, there&rsquo;s no direct cost for automation.</p>
+<p>The analysis of the job role is done by an LLM in the cloud: OpenAI&rsquo;s GPT-4O-mini (via APIs) which is fast and relatively cheap for this not-very-taxing task.  Each role processed costs less than £0.01 - I don&rsquo;t know exacly how much but my API credit balance goes down very, very slowly.</p>
+</div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 ObserveAutomation  </p>
+    </footer>
+</body>
+</html>
