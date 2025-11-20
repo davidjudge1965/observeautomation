@@ -1,6 +1,6 @@
 ---
 title: Speedtest tracking my network
-date: 2025-06-04
+date: 2025-10-04
 draft: false
 categories: [homelab,setup,deploy,monitoring]
 tags: [VMs,proxmox,monitoring,internet]
@@ -13,6 +13,12 @@ I like to know what speed i'm getting from my ISP.  I found a nifty docker conta
 <!--more-->
 
 ## Steps
+
+As so often I chose to use a contanerised version of "SpeedTest-Tracker".  [Github here](https://github.com/alexjustesen/speedtest-tracker)
+
+To set it up, you first need to generate a key which will be used to encrypt data.
+Then you need to create your docker-compose with any custom variables.
+Last but not least, you want to create a volume for the container to persist its data.
 
 
 ### Creating an encryption key
@@ -58,6 +64,9 @@ The admin name, email, password are used to set the initial login user.  I used 
 - ADMIN_EMAIL=david.judge@computer.org
 - ADMIN_PASSSWORD=DJAdminPassword
 
+To control the tyimezone used to disp[lay dates and times, I also added this varilable:
+- DISPLAY_TIMEZONE=Europe/London]
+
 I will update the APP_KEY value with the one I created in the first step.
 
 I will also create a Docker volume in `~/SpeedTest/data`.
@@ -69,7 +78,7 @@ Now I can get to https://dock:8443 where I have to create a user.
 At first I could not see anything - It seems the web page assumes the user is running in dark mode.  I had to select the text to see what was there:
 ![Alt](/images/SpeedTracker_Start_page.png)
 
-Selecting the first entry takes me to a sign-in page where I gave the initial user-email/password:
+Selecting the first entry takes me to a sign-in page where I gave the initial user-email/password.
 
 Interestingly, you can set the initial user / email / password as environment variables.  These are documented [here](https://docs.speedtest-tracker.dev/getting-started/environment-variables).  Look for the "ADMIN" entries.
 
@@ -78,4 +87,10 @@ You can also set the speedtest to run on a schedule by setting the SPEEDTEST_SCH
 SPEEDTEST_SCHEDULE=12 */2 * * *
 ```
 
+The dashboard looks like this (*more data is available if you scroll down):
+![SpeedTest-Tracker Dashboard](/images/SpeedTracker_dashboard.png)
 
+While I find this very useful... and in the above screenshot you can see that I had an issue, though it was not with my ISP but due to re-using some old Cat5 cables which cause the LAN speed to drop to 100MBits/s for a few days.
+However, if the internet is not reachable, nothing is recorded and you can't see the the connection dropped completely.
+
+When I get time, I may look at the code and see if I can create a pull request.
