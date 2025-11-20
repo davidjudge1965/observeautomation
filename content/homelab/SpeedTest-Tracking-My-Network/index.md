@@ -88,7 +88,7 @@ SPEEDTEST_SCHEDULE=12 */2 * * *
 ```
 
 The dashboard looks like this (*more data is available if you scroll down):
-![SpeedTest-Tracker Dashboard](/images/SpeedTracker_dashboard.png)
+![SpeedTest-Tracker Dashboard](/images/SpeedTracker_Dashboard.png)
 
 While I find this very useful... and in the above screenshot you can see that I had an issue, though it was not with my ISP but due to re-using some old Cat5 cables which caused the LAN speed between a couple switches to drop to 100MBits/s for a few days.
 However, if the internet is not reachable, nothing is recorded and you can't see the the connection dropped completely.
