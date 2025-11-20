@@ -7,7 +7,7 @@ tags: [VMs,proxmox,monitoring,internet]
 ---
 
 
-# Speedtext tracking my network
+# Speedtest tracking my network
 
 I like to know what speed i'm getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.
 <!--more-->
@@ -90,7 +90,7 @@ SPEEDTEST_SCHEDULE=12 */2 * * *
 The dashboard looks like this (*more data is available if you scroll down):
 ![SpeedTest-Tracker Dashboard](/images/SpeedTracker_dashboard.png)
 
-While I find this very useful... and in the above screenshot you can see that I had an issue, though it was not with my ISP but due to re-using some old Cat5 cables which cause the LAN speed to drop to 100MBits/s for a few days.
+While I find this very useful... and in the above screenshot you can see that I had an issue, though it was not with my ISP but due to re-using some old Cat5 cables which caused the LAN speed between a couple switches to drop to 100MBits/s for a few days.
 However, if the internet is not reachable, nothing is recorded and you can't see the the connection dropped completely.
 
-When I get time, I may look at the code and see if I can create a pull request.
+When I get time, I may look at the code and see if I can create a pull request.  No promises.
