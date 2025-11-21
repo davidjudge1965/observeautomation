@@ -64,8 +64,8 @@ The admin name, email, password are used to set the initial login user.  I used 
 - ADMIN_EMAIL=david.judge@computer.org
 - ADMIN_PASSSWORD=DJAdminPassword
 
-To control the tyimezone used to disp[lay dates and times, I also added this varilable:
-- DISPLAY_TIMEZONE=Europe/London]
+To control the timezone used to display dates and times in the GUI, I also added this variable:
+- DISPLAY_TIMEZONE=Europe/London
 
 I will update the APP_KEY value with the one I created in the first step.
 
