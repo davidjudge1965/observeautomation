@@ -1,20 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Monitoring on ObserveAutomation</title>
-    <link>http://localhost:1313/tags/monitoring/</link>
-    <description>Recent content in Monitoring on ObserveAutomation</description>
-    <generator>Hugo -- 0.152.2</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Speedtest tracking my network</title>
-      <link>http://localhost:1313/homelab/speedtest-tracking-my-network/</link>
-      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/homelab/speedtest-tracking-my-network/</guid>
-      <description>&lt;h1 id=&#34;speedtest-tracking-my-network&#34;&gt;Speedtest tracking my network&lt;/h1&gt;
-&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Monitoring on ObserveAutomation</title><link>https://observeautomation.com/tags/monitoring/</link><description>Recent content in Monitoring on ObserveAutomation</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://observeautomation.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Speedtest tracking my network</title><link>https://observeautomation.com/homelab/speedtest-tracking-my-network/</link><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate><guid>https://observeautomation.com/homelab/speedtest-tracking-my-network/</guid><description>&lt;h1 id="speedtest-tracking-my-network"&gt;Speedtest tracking my network&lt;/h1&gt;
+&lt;p&gt;I like to know what speed i&amp;rsquo;m getting from my ISP. I found a nifty docker container to do that. The web site also provides instructions for k8s deployment.&lt;/p&gt;</description></item></channel></rss>
