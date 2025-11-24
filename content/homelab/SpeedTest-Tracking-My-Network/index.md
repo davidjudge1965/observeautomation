@@ -93,4 +93,4 @@ The dashboard looks like this (*more data is available if you scroll down):
 While I find this very useful... and in the above screenshot you can see that I had an issue, though it was not with my ISP but due to re-using some old Cat5 cables which caused the LAN speed between a couple switches to drop to 100MBits/s for a few days.
 One caveat, though, is that if the internet is not reachable, nothing is recorded and you can't see the the connection dropped completely.
 
-When I get time, I may look at the code and see if I can create a pull request.  No promises..
+When I get time, I may look at the code and see if I can create a pull request.  No promises...
