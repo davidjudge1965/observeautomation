@@ -4,6 +4,7 @@ date: 2025-10-04
 draft: false
 categories: ["homelab","setup","deploy","monitoring"]
 tags: ["VMs","proxmox","monitoring","internet","ISP","broadband"]
+image: "/image/ExampleSpeedtestTrackerDashboard.jpeg"
 ---
 
 
