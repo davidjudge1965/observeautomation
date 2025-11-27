@@ -47,7 +47,7 @@ I skim the "URL" spreadsheet to look for roles that fit my criteria and when I f
 This automation has reduced the number of job specifications I need to read from up to 300 per day to a dozen or two.
 
 For the more technically-minded, here's a screenshot of the actual workflow:
-![Alt](./images/Jobseeker-URL-Grabber-Workflow.png)
+![Alt](./images/Jobseeker-URL-Grabber-Workflow-RevampedText.jpg)
 
 ## Moving applied-to roles to the tracker spreadsheet
 When I have applied for a role, I update my spreadsheet with "applied" in the appropriate column.
