@@ -2,7 +2,7 @@
 date: '2025-07-01T17:38:12+01:00'
 title: 'Proxmox and CloudInit'
 description: "Proxmox VM creation with CloudImage and CloudInit."
-categoriea: ["Homelabbing"]
+categories: ["Homelabbing"]
 tags: ["Homelab", "Proxmox", "CloudInit"]
 layout: "single"
 image: "/image/cloud-init-logo-vector.png"
@@ -137,6 +137,8 @@ users:
   - default
 package_upgrade: true
 ```
+Note that the keys in the above configurations are public keys, so dn't need to be hidden or obfuscated.
+
 The user-data configuration can be used for much more - later in this article you will see how I configured it to install the package `qemu-guest-agent` and start it - see the 'packages:' and 'runcmd:' sections of the user configuration a little further down.
 
 ### Configuring cloudinit custom configuration files
@@ -147,7 +149,7 @@ You can then use the yaml files for user and network to configure these aspect o
 
 These configuration files must reside on a PVE filesystem configured to contain snippets.  The next few paragraphs cover the creation of a directory in the pve GUI to hold the snippets.
 
-One thing to note is that once you are using cicustom files, changes via the GUI to the cloudinit configuration will have no effect ad the contents of the configurations will take precendence.
+One thing to note is that once you are using cicustom files, changes via the GUI to the cloudinit configuration will have no effect ad the contents of the configurations will take precedence.
 
 #### Creating a snippets directory
 The cloudinit configuration yaml files must be stored in a location that can be reached when the VM is starting - i.e. in a pve storage location.  To be able to create a snippet, you will first need to add a "snippet" storage if you haven't got one. To do this, in the Proxmox GUI, select your storage view and add a 'directory' storage:
