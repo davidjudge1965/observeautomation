@@ -1,4 +1,4 @@
-baseURL = 'https://observeautomation.com/'
+baseURL = 'https://www.observeautomation.com/'
 relativeURLs = true 
 canonifyURLs = true 
 languageCode = 'en-us'
