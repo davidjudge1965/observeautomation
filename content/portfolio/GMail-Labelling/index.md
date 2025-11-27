@@ -17,7 +17,7 @@ An automation could automatically read my emails and decide how to label them fo
 
 As with most projects, this one started with the realisation that I spent too much time sorting  my emails every day and that, once in a while, I would miss an important email due to the large number of emails I get daily.
 
-Before jumping into the design, I first listed my "requirements" for an automated solution:
+Before jumping deep into the design, I first listed my "requirements" for an automated solution:
 * It must read my new emails (Gmail) quickly and often
 * I must be able to somehow ignore emails from a) certain senders and b) advertisers
 * I must be able to specify the labels to use
