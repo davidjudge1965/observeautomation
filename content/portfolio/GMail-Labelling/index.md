@@ -38,7 +38,7 @@ I extended the automation to create draft replies to emails if required (but dis
 
 Here's the final n8n workflow with annotations:
 
-![Alt](./images/EmailProcessorworkflowwithcomments.png)
+![Alt](./images/EmailProcessorworkflowwithnewcomments.png)
 
 
 ## What does it cost?
