@@ -7,7 +7,6 @@ tags: ["Homelab", "Proxmox", "CloudInit"]
 layout: "single"
 image: "/image/cloud-init-logo-vector.png"
 ---
-![Alt](/images/proxmox-server-solutions-gmbh-logo-vector.png) 
 
 I wanted to build a few VMs for my k8s cluster - a master node which would hold the k8s control plane, and a few worker nodes.
 
