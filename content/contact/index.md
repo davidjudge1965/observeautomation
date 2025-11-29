@@ -2,7 +2,7 @@
 title: "Contact"
 date: 2025-08-22
 draft: false
-image: "/image/author.jpg"
+
 ---
 
 # 📞 Get in Touch with Me  
