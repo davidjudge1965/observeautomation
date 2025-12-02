@@ -1,5 +1,5 @@
 ---
-date: '2025-07-01T17:38:12+01:00'
+date: '2025-10-01T17:38:12+01:00'
 title: 'Proxmox and CloudInit'
 description: "Proxmox VM creation with CloudImage and CloudInit."
 categories: ["Homelabbing"]

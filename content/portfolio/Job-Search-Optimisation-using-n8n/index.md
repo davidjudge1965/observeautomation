@@ -1,5 +1,5 @@
 ---
-date: '2025-07-01T17:38:12+01:00'
+date: '2025-10-22T17:38:12+01:00'
 draft: false
 title: 'Job Search Optimisation automation using n8n'
 description: "Job Search Optimisation automation using n8n"
