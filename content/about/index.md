@@ -1,11 +1,9 @@
 ---
 title: "About Me"
-date: 2025-08-22
+date: 2025-10-22
 draft: false
 image: "/image/author.jpg"
 ---
-
-# Welcome to My website 🌍  
 
 I'm an experienced automation and observability specialist, working with small and large customers in a wide variety of domains to simplify and streamline activities.
 

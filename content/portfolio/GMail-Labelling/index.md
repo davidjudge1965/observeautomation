@@ -1,5 +1,5 @@
 ---
-date: '2025-08-01'
+date: '2025-10-21'
 draft: false
 title: "Auto-labelling emails using AI and n8n"
 description: "Auto-labelling Google Mail with automation using n8n and ChatGPT"

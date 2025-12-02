@@ -1,13 +1,12 @@
 ---
 title: "Contact"
-date: 2025-08-22
+date: 2025-10-22
 draft: false
-
 ---
 
 # 📞 Get in Touch with Me  
 
-I’d love to hear from you! Whether you have questions, feedback, or collaboration ideas — feel free to reach out.  
+I’d love to hear from you! Whether you have questions, feedback, or collaboration ideas - please reach out.  
 
 ---
 
