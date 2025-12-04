@@ -10,7 +10,7 @@ image: "/image/Scanning-Books.png"
 ---
 A local entrepreneur friend of mine buys books by the pallet and then resells them - sounds easy, right?
 
-A frustration he has is the time it takes to gather the information about each book (ISBN, author, synopsis etc.) that he needs in his inventory system.
+A frustration he has is the time it takes to gather the information about each book (ISBN, author, synopsis etc.).  He needs to get this into his inventory system.
 
 This problem is ripe for an automation which will bring his data entry down to minutes rather than hours per pallet.
 <!--more-->
