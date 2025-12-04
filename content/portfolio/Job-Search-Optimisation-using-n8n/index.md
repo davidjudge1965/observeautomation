@@ -8,7 +8,7 @@ tags: ["n8n", "GenAI", "automation", "classification"]
 layout: "single"
 image: "/image/AutomatedJobSearchOptimisation.jpg"
 ---
-Using my n8n automations skills and my knowledge of GenAI, I built some automations to save time and focus my job search.  The first automation saves me around 2 to 3 hours of reading job roles every day.
+Using my n8n automation skills and my knowledge of GenAI, I built some automations to save time and focus my job search.  The first automation saves me around 2 to 3 hours of reading job roles every day.
 
 Searching for roles can be very time-consuming especially when the job title you're searching for is a common one which applies to a wide variety of domains as is the case for my job title.  
 <!--more-->
