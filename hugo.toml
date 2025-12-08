@@ -7,3 +7,12 @@ theme = "PaperMod"
 
 [params]
 hero_image="/image/Observe Automation Logo Black on white background 2400x1600.png"
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-4BN5LK4X9N'
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = false
+    respectDoNotTrack = false
