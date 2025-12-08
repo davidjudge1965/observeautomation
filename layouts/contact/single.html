@@ -7,5 +7,121 @@
         {{end}}
         {{.Content}}
     </div>
+
+    
+<body>
+    <h1>Send me a message</h1>
+    
+    <div id="messageBox" class="message"></div>
+    
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Name *</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                placeholder="Your name"
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                placeholder="your@email.com"
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="body">Message *</label>
+            <textarea 
+                id="body" 
+                name="body" 
+                required 
+                placeholder="Your message here..."
+            ></textarea>
+        </div>        
+
+
+        <button type="submit" id="submitBtn">Send Message</button>
+    </form>
+
+     <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const messageBox = document.getElementById('messageBox');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!form) {
+                console.error('Contact form not found');
+                return;
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('Form submitted');
+                
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                messageBox.style.display = 'none';
+                messageBox.className = 'message';
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                console.log('Sending data:', data);
+                
+                try {
+                    const response = await fetch('https://n8n.lab.davidmjudge.me.uk/webhook/contactObserveAutomation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    console.log('Response status:', response.status);
+                    
+                    if (response.ok) {
+                        console.log('Success! Showing message box');
+                        console.log('MessageBox element:', messageBox);
+                        console.log('MessageBox display before:', messageBox.style.display);
+                        
+                        messageBox.className = 'message success';
+                        messageBox.textContent = 'Thank you! Your message has been sent successfully.';
+                        messageBox.style.display = 'block';
+                        
+                        console.log('MessageBox display after:', messageBox.style.display);
+                        console.log('MessageBox className:', messageBox.className);
+                        console.log('MessageBox textContent:', messageBox.textContent);
+                        
+                        form.reset();
+                    } else {
+                        throw new Error('Server responded with an error');
+                    }
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    messageBox.className = 'message error';
+                    messageBox.textContent = 'Sorry, there was an error sending your message. Please try again.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+                
+                return false; // Extra safety to prevent form submission
+            });
+        });
+    </script>
+</body>
 </section>
 {{end}}
