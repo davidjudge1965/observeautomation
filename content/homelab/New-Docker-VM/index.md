@@ -7,6 +7,8 @@ tags: ["Homelab", "Proxmox", "Docker"]
 layout: "single"
 image: "/image/Docker_Logo.png"
 draft: false
+ShowCodeCopyButtons: true
+# This is a comment.
 ---
 # Adding redundancy to my Docker environment
 I currently run 2 docker VMs but they are running on the same Proxmox instance.  However, should that PVE instance go down, I would have nowhere to run any of the containers, so my way of dealing with this is in 2 steps:
@@ -130,3 +132,79 @@ qm clone ${TEMPLATE_NUM} ${VM_NUM} --name ${VM_NAME} --full true
 qm start ${VM_NUM}
 ```
 
+## Installing Docker and other tools
+With the VM up and running, we now need to install the various tools that we want/need:
+* Docker
+* Docker Compose
+* vim
+* net-tools
+* htop
+* qemu-guest-agent
+
+I have a preference for installing software from official APT repositories where possible.
+
+Docker does have an official APT repository, but it must be installed and then an `apt update` must be run.
+
+However, before diving into that, let's remove the need for our user to have to provide a password for sudo commands.  The recommended approach for this is a manual edit using the `sudo visudo` command.
+Once in the editor we will add a line like this (for my user 'david'):
+`david ALL=(ALL) NOPASSWD: ALL`
+
+Once saved, I like to exit my session and log in again to check it's working.
+
+### Docker's APT repo
+
+First we need to add Docker's GPG key:
+
+```bash
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+```
+
+Then we add the APT repository to the list and run apt update:
+```bash
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+Now we're ready to actually install docker and the required piece for Docker.
+
+```bash
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+And the extra tools that I like:
+```bash
+sudo apt install -y vim htop net-tools qemu-guest-agent
+```
+
+The qemu guest agent (which lets me see things like the IP address from the PVE GUI) works best if the VM is shut down and then started (I'm told that a plain restart is not good enough and that it's not the same).  One needs to pause between the shutdown and start commands to let the shutdown to complete.
+
+On the proxmox server, the commands below will do the trick - here using 200 as the VM ID as that's what the earlier scripting created:
+```bash
+qm shutdown 200
+sleep 120
+qm start 200
+```
+
+### Last but not least: Access to Docker
+To enable a normal user (i.e. a non-privileged user) to use Docker, they must be added to the Docker group on the server:
+```bash
+sudo usermod -aG docker $USER
+```
+
+You will need to log out and log back in for that to take effect.  For efficiency, you may want to run this command before the shutdown/start of the VM.
+
+Just to be able to show that our docker VM is up and running I deployed Traefik... Here's the dashboard:
+![alt text](assets/Traefik_Dashboard.jpg)

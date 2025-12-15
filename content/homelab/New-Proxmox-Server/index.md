@@ -6,6 +6,7 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "Proxmox"]
 layout: "single"
 image: "/image/proxmox-server-solutions-gmbh-logo-vector.png"
+draft: false
 ---
 # I'm a bad person!
 
@@ -68,8 +69,5 @@ Reboot to complete the process:
 The next screen allows you to reboot without leaving the script.
 
 ![alt text](<assets/Helper Script Just before rebooting.jpg>)
-
-
-
 
 
