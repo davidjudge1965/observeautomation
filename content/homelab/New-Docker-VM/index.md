@@ -5,7 +5,7 @@ description: "Building a 3rd Docker VM using CloudInit."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Proxmox", "Docker"]
 layout: "single"
-image: "/image/proxmox-server-solutions-gmbh-logo-vector.png"
+image: "/image/Docker_Logo.png"
 draft: false
 ---
 # Adding redundancy to my Docker environment
