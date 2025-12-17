@@ -1,7 +1,7 @@
 ---
 date: '2025-12-17'
 draft: false
-title: 'Availability Scanner'
+title: 'Availability Checker'
 description: "Automated email with my availability"
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "availability"]
