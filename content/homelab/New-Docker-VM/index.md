@@ -141,7 +141,7 @@ With the VM up and running, we now need to install the various tools that we wan
 * htop
 * qemu-guest-agent
 
-I have a preference for installing software from official APT repositories where possible.
+I have a preference for installing software from official APT repositories where possible, so I am following the instructions [from Docker's documentation site](https://docs.docker.com/engine/install/ubuntu/).
 
 Docker does have an official APT repository, but it must be installed and then an `apt update` must be run.
 

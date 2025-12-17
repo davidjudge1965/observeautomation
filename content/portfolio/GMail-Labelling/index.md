@@ -42,6 +42,6 @@ Here's the final n8n workflow with annotations:
 
 
 ## What does it cost?
-The n8n server is running on my own homelab, so other than electrity, there's no direct cost for automation.
+The n8n server is running on my own homelab, so other than electricity, there's no direct cost for automation.
 
 The analysis of the job role is done by an LLM in the cloud: Anthropic Clause-3.5-sonnet (via APIs) which is fast but not cheap.  I have tried cheaper models but didn't get the consistency in the labelling I wanted.  Looking at my OpenRouter API balance I can see that each email processed costs between £0.01 and £0.10 (long and complex email conversations).
