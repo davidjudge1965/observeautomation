@@ -49,9 +49,11 @@ Include only working hours (09:00–18:00).
 
 In the above json.Days is replaced with the number of days to search, and json.buffer is the amount of time to leave around existing meetings when calculating the availability slots.
 
-This what the contents of the email look like:
+This what the contents of the AI-generated email look like:
 ```
-I have checked your calendar for today and the next 3 business days within working hours (09:00–18:00). Here are your available time slots with at least 30 minutes of free time between events:
+I have checked your calendar for today and the next 3 business days 
+within working hours (09:00–18:00). Here are your available time slots 
+with at least 30 minutes of free time between events:
 
 | Date          | Day            | Start Time | End Time   |
 |---------------|----------------|------------|------------|
@@ -71,4 +73,4 @@ Refresh: https://n8n.lab.davidmjudge.me.uk/webhook/getavailability
 ## What does it cost?
 The n8n server is running on my own homelab, so other than electricity, there's no direct cost for automation.
 
-The analysis of the job role is done by an LLM in the cloud: OpenAI ChatGPT 4.1-mini (via APIs) which is fast and cheap.  request processed costs less than £0.01.
+The analysis of the job role is done by an LLM in the cloud: OpenAI ChatGPT 4.1-mini (via APIs) which is fast and cheap.  Each request costs less than £0.01.
