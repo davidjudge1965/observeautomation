@@ -23,7 +23,7 @@ I use AI to find my availability while leaving me the 30 minutes buffer before a
 
 The last stage is to send me an email with the availability.  
 
-Just in case I know my diary has changed a fair bit, I include in the email a link to trigger the workflow manually.
+Just in case I know my diary has changed a fair bit, I include in the email a link to trigger the workflow manually which triggers a fresh email.
 
 While this automation does not save much time - probably only 3-4 minutes per time I need to find a slot, the fact it runs automatically every day at 8am means I don't have to go look for the information and the risk of picking an incorrect slot (or a typo) is greatly reduced.
 
