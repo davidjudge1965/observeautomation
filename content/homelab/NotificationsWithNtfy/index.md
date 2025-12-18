@@ -75,7 +75,11 @@ david@docker04:~/ntfy/etc/ntfy$ curl -H "Title: ${HOSTNAME} -- ssh login" \
 {"id":"QwMDCMvJjlqN","time":1766083567,"expires":1766126767,"event":"message","topic":"homelab","title":"docker04 -- ssh login","message":"This is a test message"}
 david@docker04:~/ntfy/etc/ntfy$ 
 ```
-Message appearing win Web UI
-Alt
+Message appearing in the ntfy Web UI:
+![Alt](assets/ntfy_after_2_alerts.jpg)
 
-Tew documentation site for ntfy.sh is: https://docs.ntfy.sh/
+
+
+
+
+The documentation site for ntfy.sh is: https://docs.ntfy.sh/
