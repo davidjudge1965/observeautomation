@@ -48,7 +48,7 @@ Again, I haven't documented this step as there are many videos out on the web th
 
 The first thing I did after installing Proxmox was to download and run some of the helper scripts.  They can be found [here.](https://community-scripts.github.io/ProxmoxVE/)
 
-The one I'm particularly keen to run is called "PVE Post Install" whose description is:<br>
+The one I'm particularly keen to run is called "PVE Post Install" whose description is:
 *This script provides options for managing Proxmox VE repositories, including disabling the Enterprise Repo, adding or correcting PVE sources, enabling the No-Subscription Repo, adding the test Repo, disabling the subscription nag, updating Proxmox VE, and rebooting the system.*
 
 This script will update the configuration to use the no-subscription repo and disable the nag screen you get every time you connect to the PVE web interface.
