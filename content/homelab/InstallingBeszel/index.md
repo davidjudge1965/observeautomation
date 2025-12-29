@@ -4,13 +4,11 @@ date: '2025-12-29T10:38:12+01:00'
 draft: false
 categories: [homelab,setup,deploy,monitoring]
 tags: [VMs,proxmox,monitoring,influxdb]
-image: "/image/InfluxDB_280x250_q85.png"
+image: "/image/Beszel_icon.png"
 ---
-![Alt](/images/InfluxDB_280x250_q85.png) 
+# It's time to get some insights into my home lab
 
-# It's time to get som insights into my home lab
-
-My home lab is getting messy and I don't have a full understanding of what's running where... on which of my 5 machines and 3 docker "hosts".
+My home lab is getting messy and I don't have a full understanding of what's running where... i.e. on which of my 5 machines and 3 docker "hosts".
 
 It's time to get some clarity and insights with Beszel
 
