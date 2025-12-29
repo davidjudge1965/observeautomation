@@ -18,6 +18,9 @@ It's time to get some clarity and insights with Beszel
 
 For my set-up, we will run one "central" instance of Beszel (in Docker) and, where needed, run Beszel Agents which will collect data and send it back to the central (and only) Beszel.
 
+> [!note] Key Information
+> This callout has a custom title to emphasize its importance.
+
 Spinning up the central Beszel container is straightforward.
 
 On the docker machine or VM:
