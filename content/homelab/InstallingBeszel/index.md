@@ -68,11 +68,11 @@ After which you are taken to the dashboard:
 
 As you can see, it's empty and we need to add systems to monitor.
 
-Let's start with monitoring "docker04 which is the VM (ono Proxmox) that's running the central Beszel.
+Let's start with monitoring "docker04" which is the VM (on Proxmox) that's running the central Beszel.
 
-To keep things simple at this stage, I'm going to configure the agent in it's own compose file though I will merge the 2 services into a single compose file for this server.
+To keep things simple at this stage, I'm going to configure the agent in it's own compose file though I will later merge the 2 services into a single compose file for this server.
 
-Clocking on "+ Add Server" (top right of the dashboard), we get a pop up and can provide information on what we're adding.  In this case, I'm going select "docker", name the "system" "docker04" and provide the fqdn for the server.  Beszel will populate the other fields: port, public key and the token.
+Clocking on "+ Add Server" (top right of the dashboard), we get a pop up and can provide information on what we're adding.  In this case, I'm going select "docker", name the system "docker04" and provide the fqdn for the server.  Beszel will populate the other fields: port, public key and the token.
 
 ![alt text](images/Completed_Add_System_docker04.jpg#center)
 
