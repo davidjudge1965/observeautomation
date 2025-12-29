@@ -1,0 +1,1 @@
+curl https://api.exchangerate.host/historical?access_key=822090b320d3f9d4f803c9af0f1974b3\&date=2025-02-01\&currencies=USD,GBP
