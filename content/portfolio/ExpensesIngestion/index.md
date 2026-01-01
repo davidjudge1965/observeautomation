@@ -89,4 +89,4 @@ The n8n server is running on my own homelab, so other than electricity, there's 
 
 Only image processing uses an AI model.  Currently I'm using Mistral and all my tests have been possible using the free tier so I have has no costs for the extraction of text from the PDFs or images.
 
-The analysis of the invoices is done by an LLM in the cloud: OpenAI gpt-4o-mini (via APIs) which is fast and cheap.  Looking at my API balance I can see that each email processed costs less than £0.01 per invoice.
+The analysis of the invoices is done by an LLM in the cloud: OpenAI gpt-4o-mini (via APIs) which is fast and cheap.  Looking at my API balance I can see that each invoice processed costs less than £0.01 per invoice.
