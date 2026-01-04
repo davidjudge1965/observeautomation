@@ -6,6 +6,7 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "ObserveAutomation", "n8n", "AI"]
 layout: "single"
 image: "/image/AI_Voice_Receptionist.png"
+draft: true
 ---
 # Not homelabbing: Creating an AI Voice receptionist for ObserveAutomation
 
