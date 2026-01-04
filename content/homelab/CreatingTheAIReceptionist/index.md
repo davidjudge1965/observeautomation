@@ -10,7 +10,7 @@ image: "/image/AI_Voice_Receptionist.png"
 # Not homelabbing: Creating an AI Voice receptionist for ObserveAutomation
 
 Both as an example of what can be done and as something I can sell to local businesses, I am creating an **AI Voice Receptionist** that can tell the caller about:
-- Who is ObserveAutomation 
+- Who or what is ObserveAutomation 
 - What services they provide (at a high level and in some detail is needed)
 - Opening hours etc.
 - Anything else I put into my FAQ
@@ -24,7 +24,7 @@ There are a fair number of moving pieces to creating the AI Voice Receptionist.
 
 We need a UK number - provided by Twillio.
 We need a Voice AI platform: VAPI.ai
-We need back-end services to deal with caller questions or requests
+We need back-end services to deal with caller questions or requests: my self-hosted n8n
 
 ## Twilio
 
@@ -46,16 +46,15 @@ For the next stage, VAPI, you will need the following information from you Twili
   - Auth Token
   - Phone Number
 
-![alt text](../../portfolio/Voice_Receptionist/assets/Twilio_Account_Keys_etc.jpg)
-
+![alt text](assets/Twilio_Account_Keys_etc.jpg)
 With all that set up, you can now start on the VAPI side of things.
 
 ## VAPI
-VAPI.ai is one of the tools for voice receptionists that are "out there".  However, it does seem to have a string following which is why I chose it.
+VAPI.ai is one of the tools for voice receptionists that are "out there".  However, it does seem to have a strong following which is why I chose it.
 
 VAPI allows you to:
 - Create assistants that know how to answer calls and take instructions. 
--  Create "tools" for the Assistant to use
+- Create "tools" for the Assistant to use
    -  How to answer questions (by calling n8n)
    -  How to transfer a call to a person
    -  How to end a call
@@ -80,10 +79,16 @@ There is more to configure but we'll return to this later.
 While you can already test the assistant by clicking on the "Talk to assistant", for the assistant to answer calls, you must first add the number to VAPI and associate it with the agent.
 
 To add the number from Twilio to VAPI, under Phone Numbers, click on "Create Phone Number".  In the pop-up, select Import from Twilio and provide the information (Account SID, Auth Token and Phone Number).  Don't forget to give it a friendly name.
-![alt text](../../portfolio/Voice_Receptionist/assets/VAPI_Import_Twilio_Number.jpg)
+![alt text](assets/VAPI_Import_Twilio_Number.jpg)
 
+Then, from "Phone Numbers", select the phone number and you can configure more details such as what Assistant to hand the call to.  
+![alt text](assets/VAPI_Setting_The_Assistant.jpg)
+
+And also a web hook VAPI can call.  I my case, this web hook calls an n8n workflow that takes the phone number an looks it up.  If it finds it, it returns the name of the caller.
+![alt text](assets/Incoming_Call_Flow.jpg)
 
 Now that that's in place, you can call the Voice receptionist from your verified phone nummber.
+
 
 As a teaser, here's a video of me testing my assistants (it has, at this stage, been given instructions and access to my FAQ).
 {{< youtube DDvwopqyUS4 >}}
