@@ -53,6 +53,9 @@ We have provided a number of such tools for VAPI:
 
  The 4th one will allow the caller to ask for an appointment on a date and time an,d if it's not available, provide availability information.
 
+### An example call
+Here's a call I recorded for this portfolio:
+{{< youtube DDvwopqyUS4 >}}
 
 
 
