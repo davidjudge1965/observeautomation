@@ -7,8 +7,9 @@ categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "Automation"]
 ---
 
-![alt text](/image/AutomationPageHeaderImage.jpg)
-# This section holds a portfolio of my work.
+
+# This section holds a portfolio of my work. 
+![alt text](/images/AutomationPageHeaderImage.jpg)
 
 For the past few months I've been building some 
 automations - some of the use AI but many don't - and I'm just super

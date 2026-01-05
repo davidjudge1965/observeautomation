@@ -8,7 +8,7 @@ layout: "single"
 image: "/image/AI_Voice_Receptionist.png"
 draft: true
 ---
-# Not homelabbing: Creating an AI Voice receptionist for ObserveAutomation
+# Creating an AI Voice receptionist for ObserveAutomation
 
 Both as an example of what can be done and as something I can sell to local businesses, I am creating an **AI Voice Receptionist** that can tell the caller about:
 - Who or what is ObserveAutomation 
@@ -18,7 +18,7 @@ Both as an example of what can be done and as something I can sell to local busi
 
 It should also be able to put the call through to my mobile if the caller asks for that.
 
-Last but not least, I should sound somewhat like me - as in the way I talk rather than the actual sound of my voice.
+Last but not least, I should sound like me - as in the way I talk rather than the actual sound of my voice.
 <!--more-->
 
 There are a fair number of moving pieces to creating the AI Voice Receptionist.
