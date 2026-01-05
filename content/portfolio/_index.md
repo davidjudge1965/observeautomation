@@ -10,8 +10,6 @@ tags: ["n8n", "GenAI", "Automation"]
 ![alt text](/image/AutomationPageHeaderImage.jpg)
 # This section holds a portfolio of my work.
 
-David Woz 'Ere
-
 For the past few months I've been building some 
 automations - some of the use AI but many don't - and I'm just super
 passionate about automation. 
