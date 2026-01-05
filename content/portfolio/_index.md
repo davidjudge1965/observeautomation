@@ -7,7 +7,7 @@ categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "Automation"]
 ---
 
-![alt text](../../static/image/AutomationPageHeaderImage.jpg)
+![alt text](/image/AutomationPageHeaderImage.jpg)
 # This section holds a portfolio of my work.
 
 For the past few months I've been building some 
