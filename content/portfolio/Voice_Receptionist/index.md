@@ -5,7 +5,7 @@ title: 'Voice Receptionist'
 description: "Answer your calls when you're out"
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "voice", "AI"]
-layout: "single"
+layout: "single_image_alone"
 image: "/image/AI_Voice_Receptionist.png"
 ---
 Can't get away from something when a call comes through?  Are your risking losing customers?
@@ -14,7 +14,11 @@ Maybe all the caller wanted was your opening hours or maybe just to book an appo
 
 <!--more-->
 
-Today, being tied to answering every call is no longer necessary.  An AI Receptionist can answer calls and handle queries based on your company's information, book appointments and, of course, hand-off the call to a real person.
+Today, being tied to answering every call is no longer necessary.  An AI Receptionist can answer calls for you and handle queries, book appointments and, of course, hand-off the call to a real person.
+
+Here's a call I recorded being answered by ObserveAutomation's AI Receptionist:
+{{<audio src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}
+
   
 ## This time the customer is me - my [ObserveAutomation](https://www.observeautomation.com) business
 
@@ -30,7 +34,7 @@ It should let the user leave me a message and send it to me (GMail or WhatsApp).
 
 Last but not least, allow them to book a meeting with me.
 
-And it should do this while sounding a bit like me - I mean my way of talking (tone, etc.).  While it is possible to train an AI to actually sound like me, that's not what I'm trying to do here and I think it might confuse customers.  
+And it should do this while sounding a bit like me - I mean my way of talking (tone, etc.).  While it is possible to train an AI to actually sound like me, that's not what I'm trying to do here as I think it might confuse customers.  
 
 
 At a very high level, this is what it looks like:
@@ -41,22 +45,17 @@ The core of the system handling the call is called VAPI and it is what talks to 
 
 VAPI is configured with some "tools" that it may call upon.  Some of the tools are intrinsic to VAPI, and some are external.  In this project, these external tools are configured in the automation platform ("n8n") and may be anything from a simple workflow to complex AI flows.
 
-We have provided a number of such tools for VAPI:
+We have provided a number of such "tools" for VAPI:
 
 1. Answers questions based on information in our FAQ
 2. Answers questions on ObserveAutomation's portfolio
 3. Answers questions on what services ObserveAutomation provides
 4. Finds availability for appointments and books the appointments
-5. Transfer the call
+5. Transfer the call to my mobile phone
 
  The first 3 are very similar: Instructions on how to answer questions and information (i.e. the FAQ, Services description, Portfolio description) are provided to an AI along with the caller's question.  The reply from the AI/workflow is spoken back to the caller.
 
  The 4th one will allow the caller to ask for an appointment on a date and time an,d if it's not available, provide availability information.
-
-### An example call
-Here's a call I recorded for this portfolio:
-{{< youtube DDvwopqyUS4 >}}
-
 
 
 ## What does it cost?
@@ -80,6 +79,6 @@ One thing to note is that the VAPI costs can vary depending on your choices.  If
 The n8n server is running on my own homelab, so other than electricity, there's no direct cost for automation.  However, for the AI used by n8n...
 
 ### AI Costs
-Deciding what information to give the caller is done by AI.  Mostly, in this case, by Gemini.
-I will monitor the costs over time and update this article.  But in a few days of testing, my billing page shows a total of $0.003 (i.e. a third of a pence).
+Deciding what information to give the caller is done by AI.  Mostly, in this case, by Google's Gemini.
+I will monitor the costs over time and update this article.  But in a few days of testing, my billing page shows a Gemini total of $0.003 (i.e. a third of a pence).
 

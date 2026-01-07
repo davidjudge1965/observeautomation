@@ -92,7 +92,7 @@ Now that that's in place, you can call the Voice receptionist from your verified
 
 
 As a teaser, here's a video of me testing my assistants (it has, at this stage, been given instructions and access to my FAQ).
-{{< youtube DDvwopqyUS4 >}}
+{{<audio src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}
 
 ## ElevenLabs
 ElevenLabs provides the text-to-speech and speech-to-text functionality for VAPI.  The costs of Eleven Labs is included in the costs for VAPI

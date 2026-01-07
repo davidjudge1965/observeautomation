@@ -1,0 +1,10 @@
+{{define "main"}}
+<div class="page-content">
+    <h1> {{.Title}} </h1>
+    <p><em> {{.Date.Format "January 2, 2006"}} </em></p>
+    {{with .Params.image}}
+    <img src="{{.}}" alt="{{$.Title}}" style="border:0px;margin:10px;float:center;width:40%;">
+    {{end}}
+    {{.Content}}
+</div>
+{{end}}

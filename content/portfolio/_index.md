@@ -3,8 +3,8 @@ date: '2025-07-01T17:38:12+01:00'
 draft: false
 title: 'Portfolio'
 description: "David Judge's portfolio"
-categories: ["Portfolio"]
-tags: ["n8n", "GenAI", "Automation"]
+categories: ["Products"]
+tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 ---
 
 
