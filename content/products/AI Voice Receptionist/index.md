@@ -40,7 +40,7 @@ It can transfer calls to a pre-determined phone number.
 
 Below if a recording of a conversation I had with my voice receptionist.
 
-{{<audio src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}
+{{<audio src="/media/OA_Receptionist_Example_Call.mp3" title="Title">}}
 
 When the call is finished, the AI Voice Receptionist can send you the transcript of the call.
 
