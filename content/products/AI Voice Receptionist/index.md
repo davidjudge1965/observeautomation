@@ -53,4 +53,4 @@ Estimated service charges: £200 (for 10 calls per day, 5 questions on each call
 
 **For an extra £15000 monthly revenue, the estimated total monthly cost is £599**
 
-For more information, please reach out to me through my [Contact Me page](https://www.observeautomation.com/contact/)
+For more information, please reach out to me through my [Contact Me](https://www.observeautomation.com/contact/) page
