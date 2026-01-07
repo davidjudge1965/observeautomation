@@ -6,7 +6,7 @@ categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
 image: "/image/AI_Voice_Receptionist.png"
-draft: true
+draft: false
 ---
 ## Why do we need AI Voice Receptionists?
 Recent data indicates that nearly 69% of all business enquiries still originate via phone calls yet analyses suggest that 47% of initial calls to UK SMEs go unanswered.
