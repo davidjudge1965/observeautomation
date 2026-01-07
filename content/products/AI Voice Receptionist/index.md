@@ -40,7 +40,7 @@ It can transfer calls to a pre-determined phone number.
 
 Below if a recording of a conversation I had with my voice receptionist.
 
-{{<audio src="/media/OA_Receptionist_Example_Call.mp3" title="Title">}}
+{{<audio src="OA_Receptionist_Example_Call.mp3" title="Title">}}
 
 When the call is finished, the AI Voice Receptionist can send you the transcript of the call.
 
@@ -51,6 +51,6 @@ Initial setup costs are around £450
 On-going maintenance cost is £399 per month  
 Estimated service charges: £200 (for 10 calls per day, 5 questions on each call, call duration 5 mins, 27 days per month)  
 
-**For an extra £15000 monthly revenue, the estimated total monthly cost is £599 **
+**For an extra £15000 monthly revenue, the estimated total monthly cost is £599**
 
 For more information, please reach out to me through my [Contact Me page](https://www.observeautomation.com/contact/)
