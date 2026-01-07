@@ -42,6 +42,10 @@ Below if a recording of a conversation I had with my voice receptionist.
 
 {{<audio src="OA_Receptionist_Example_Call.mp3" title="Title">}}
 
+
+
+{{<audio controls src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}
+
 When the call is finished, the AI Voice Receptionist can send you the transcript of the call.
 
 ## Costs
