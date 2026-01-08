@@ -49,8 +49,9 @@ When the call is finished, the AI Voice Receptionist can send you the transcript
 Initial setup costs are around £450
 
 On-going maintenance cost is £399 per month  
-Estimated service charges: £200 (for 10 calls per day, 5 questions on each call, call duration 5 mins, 27 days per month)  
+Estimated service charges: £200  
+>(For 10 calls per day, 5 questions on each call, call duration 5 mins, 27 days per month.)  
 
 **For an extra £15000 monthly revenue, the estimated total monthly cost is £599**
 
-For more information, please reach out to me through my [Contact Me](https://www.observeautomation.com/contact/) page
+For more information, please reach out to me through my [Contact Me](https://www.observeautomation.com/contact/) page.
