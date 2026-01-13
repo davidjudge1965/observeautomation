@@ -39,7 +39,7 @@ And it should do this while sounding a bit like me - I mean my way of talking (t
 
 At a very high level, this is what it looks like:
 
-![alt text](assets/High-Level_Workflow_Excalidraw.png)
+![High-level flow](assets/High-Level_Workflow_Excalidraw.png)
 
 The core of the system handling the call is called VAPI and it is what talks to the customer.  It has some information but mostly has instructions on how to answer in generic terms (for example: don't ask the same question twice).
 
@@ -71,7 +71,7 @@ VAPIs costs are built up in multiple parts:
 4. Voice API $0.022/min
 
 In the VAPI console you can see the cost of each assistant and when you hover over the graph the individual costs appears.
-![alt text](assets/VAPI_OA_Receptionist_Assistant_Costs.jpg)
+![VAPI costs for the assistant](assets/VAPI_OA_Receptionist_Assistant_Costs.jpg)
 
 One thing to note is that the VAPI costs can vary depending on your choices.  If you use a more costly AI for VAPI to respond to callers and the instructions it has, your costs will go up.  Also we chose a VAPI-provided voice but there are other providers... Should we have chosen Eleven Labs as our voice provider, the voice API costs would almost certainly have increased.
 

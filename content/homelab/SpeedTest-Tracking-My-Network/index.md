@@ -75,7 +75,7 @@ In Portainer, I added the yaml above and started the container.
 Now I can get to https://dock:8443 where I have to create a user.
 
 At first I could not see anything - It seems the web page assumes the user is running in dark mode.  I had to select the text to see what was there:
-![Alt](/images/SpeedTracker_Start_page.png)
+![SpeedTracker Start Page](/images/SpeedTracker_Start_page.png)
 
 Selecting the first entry takes me to a sign-in page where I gave the initial user-email/password.
 

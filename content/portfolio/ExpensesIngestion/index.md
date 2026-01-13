@@ -51,7 +51,7 @@ Last but not least we have a column "SendToQuickFile" to track which records hav
 
 Here's a screenshot of the spreadsheet showing the invoice (when you hover over the field):
 
-![alt text](assets/Spreadsheet_with_data_And_Image.jpg)
+![Spreadsheet with data and image](assets/Spreadsheet_with_data_And_Image.jpg)
 
 
 ## Second Stage: Recording "purchases" in QuickFile
@@ -64,12 +64,12 @@ As always, here a simplified list of the key steps:
 
 Here's a screenshot of the purchase records in QuickFile:
 
-![alt text](assets/Quickfile_Purchases_View.jpg)
+![Purchases in QuickFile](assets/Quickfile_Purchases_View.jpg)
 
 ## High-level Diagram of the flows
 I have mapped out the two flows in Excalidraw:
 
-![alt text](assets/Invoice_Processing_2_Flows_Excalidraw.jpg)
+![High-level diagram of the flow](assets/Invoice_Processing_2_Flows_Excalidraw.jpg)
 
 Currently I don't have many invoices coming in, but this saves me 15-20 minutes per week.
 
@@ -77,10 +77,10 @@ Currently I don't have many invoices coming in, but this saves me 15-20 minutes 
 ## Screenshots of the flows
 
 ### Ingestion of files places in the New Invoices folder
-![alt text](assets/InvoiceIngestionN8nFlow.jpg)
+![n8n flow for ingestion](assets/InvoiceIngestionN8nFlow.jpg)
 
 ### Creating Purchase records in QuickFile
-![alt text](assets/CreatePurchasesInQuickFile.jpg)
+![n8n flow pushing records to QuickFile](assets/CreatePurchasesInQuickFile.jpg)
 
 
 

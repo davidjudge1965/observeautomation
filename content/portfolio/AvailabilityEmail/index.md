@@ -15,7 +15,7 @@ This workflow pulls calendar entries from Google Calendar and determines what sl
 While this could be written as a simple workflow, it would need some code to work and I'm always striving to write no- or no-code, so the automation is agentic (i.e. autonomous).
 
 At a high-level, this is the workflow:
-![Alt](assets/AvailabilityFlowExcalidraw.jpg)
+![High-level workflow](assets/AvailabilityFlowExcalidraw.jpg)
 
 The workflow runs automatically at 8am every morning.  It starts by setting the parameters of the search for availability - i.e. next 5 days, leave 30 minutes between events.
 
@@ -28,7 +28,7 @@ Just in case I know my diary has changed a fair bit, I include in the email a li
 While this automation does not save much time - probably only 3-4 minutes per time I need to find a slot, the fact it runs automatically every day at 8am means I don't have to go look for the information and the risk of picking an incorrect slot (or a typo) is greatly reduced.
 
 For the more technically-minded, here's the flow from n8n:
-![alt text](assets/AvailabilityFlowN8N.jpg)
+![n8n workflow](assets/AvailabilityFlowN8N.jpg)
 
 The prompt for the AI is really quite simple:
 ```

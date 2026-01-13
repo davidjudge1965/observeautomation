@@ -21,6 +21,7 @@ As always, the first step after deciding where the container is run is to update
 ``` dns
 ntfy		IN	CNAME	docker04.lab.davidmjudge.me.uk.
 ```
+
 After a quick docker compose restart of our dns container, the new name is resolvable.
 
 ``` bash
@@ -33,9 +34,10 @@ Address:  192.168.178.54
 Aliases:  ntfy.lab.davidmjudge.me.uk
 ```
 
-TODO Do not let the container create the directories as they will be owned by root which causes problems
+> **Warning**
+> Do not let the ntfy container create the directories as they will be owned by root which causes problems
 
-I initially spun up an instance of ntfy.sh using the docker compose section of the [ntfy.sh documentation](https://docs.ntfy.sh/install/#docker). I could connect to the web UI directly using its IP address and port, but had a message telling me that the messaging API required an SSL-encrypted connection. And, as there were no traefik labels in the compose file, the container wasn’t detected and wasn’t being proxied.
+I initially spun up an instance of ntfy.sh using the docker compose section from the [ntfy.sh documentation](https://docs.ntfy.sh/install/#docker). I could connect to the web UI directly using its IP address and port, but had a message telling me that the messaging API required an SSL-encrypted connection. And, as there were no traefik labels in the compose file, the container wasn’t detected and wasn’t being proxied.
 
 A quick update of the ntfy compose.yml with some traefik labels fixed this and we now have a cert for ntfy.
 
@@ -82,7 +84,7 @@ david@docker04:~/ntfy/etc/ntfy$ curl -H "Title: ${HOSTNAME} -- ssh login" \
 david@docker04:~/ntfy/etc/ntfy$ 
 ```
 Message appearing in the ntfy Web UI:
-![Alt](assets/ntfy_after_2_alerts.jpg)
+![Message appearing in ntfy](assets/ntfy_after_2_alerts.jpg)
 
 ## ntfy from n8n
 The main use case for ntfy in my environment is sending notifications from n8n workflows for both within workflows and also for notification of errors in workflows.
@@ -91,7 +93,7 @@ Ntfy.sh does not have an integration of out the box.  However there are a few co
 
 This caught me out initially: On the whole, ntfy assumes that you will be using their cloud instance.  For the ntfy node to talk to my self-hosted server, I had to enable "custom server" and provide the full URL of my server `https://ntfy.lab.davidmjudge.me.uk`.
 
-![alt text](assets/ntfy_node_in_n8n.jpg)
+![Configurationof the ntfy node in n8n](assets/ntfy_node_in_n8n.jpg)
 
 The ntfy node also accepts JSON which allows for far richer notifications (e.g. levels like 'warn', 'critical', etc. and many more parameters).
 

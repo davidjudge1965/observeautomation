@@ -15,7 +15,7 @@ I didn't fancy building 4 VMs for my k8s cluster by manually installing the O/S 
 
 Deploying templates to VMs using [CloudInit](https://cloud-init.io/) starts with the creation of the VM template.  While this can be done via the Proxmox UI, I chose to use the command-line as much as possible.
 
-To create the template, there are a number of internet resources you can follow.  I based myself on Techno Tim's [Perfect Proxmox Template with Cloud Image and Cloud Init video](https://www.youtube.com/watch?v=shiIi38cJe4) though there are a number of very similar videos and blogs.  While the video is around 3 years old, I found it a good base.  Note that Tim also publishes a companion [blog](https://technotim.live/posts/cloud-init-cloud-image/) with the details of the commands etc.  However, I find that these resources don't provide enough context or explanations for the commands they use.  As part of my intention in these articles is to educate/explain, this article is somewhat longer and more wordy than the other resources you may read.
+To create the template, there are a number of internet resources you can follow.  I based myself on Techno Tim's [Perfect Proxmox Template with Cloud Image and Cloud Init video](https://www.youtube.com/watch?v=shiIi38cJe4) though there are a number of very similar videos and blogs.  While the video is around 3 years old, I found it a good base.  Note that [Tim also publishes a companion blog](https://technotim.live/posts/cloud-init-cloud-image/) with the details of the commands etc.  However, I find that these resources don't provide enough context or explanations for the commands they use.  As part of my intention in these articles is to educate/explain, this article is somewhat longer and more wordy than the other resources you may read.
 
 At the end of this article, I have compiled some resources that have been useful to me and may be to you.
 
@@ -152,7 +152,7 @@ One thing to note is that once you are using cicustom files, changes via the GUI
 
 #### Creating a snippets directory
 The cloudinit configuration yaml files must be stored in a location that can be reached when the VM is starting - i.e. in a pve storage location.  To be able to create a snippet, you will first need to add a "snippet" storage if you haven't got one. To do this, in the Proxmox GUI, select your storage view and add a 'directory' storage:
-![Alt](/images/Creating_Snippets_Directory.png)
+![Creating the Snippets directory](/images/Creating_Snippets_Directory.png)
 
 I created a storage called "snip" and gave it a the following location in the pve's filesystem: `/snipfiles`.  When the snippet location is created it creates a "snippets subfolder in "/snipfiles:
 ```
@@ -249,7 +249,7 @@ While it is not possible today to view the cloudinit settings you have set in th
 ```
 cicustom: user=snip:snippets/user-data.yaml,network=snip:snippets/network-data.yaml
 ```
-To create the 4 VMs that started this article, I will eventually create 4 separate sets of config files and will prefix the filename with the hostnamename or id of the node - e.g. for the 3rd worker node, I would copy  user-data.yaml to kworker_*3*_-user-data.yaml and then customise it.
+To create the 4 VMs that started this article, I will eventually create 4 separate sets of config files and will prefix the filename with the hostname or id of the node - e.g. for the 3rd worker node, I would copy  user-data.yaml to kworker_*3*_-user-data.yaml and then customise it.
 
 ### Clone the template into a new VM
 Here we clone the template to a new VM with ID 210 (which must be an available ID), making a full clone (independent from the template) and placing it in the 'data4tb' storage.
@@ -261,9 +261,9 @@ qm clone 8200 210 --full true --storage data4tb
 All that's left to do is start the VM
 
 # Parting thoughts
-The process of creating the VMs for my k3s cluster can now start.  My next step will be to write a script to take the "base" cloudinit data files and copy them to ```hostname```-user-data.yaml and ```hostname```-network-data.yaml and to customise them with data secific to the new vm such as hostname, fqdn and IP address.
+The process of creating the VMs for my k3s cluster can now start.  My next step will be to write a script to take the "base" cloudinit data files and copy them to ```hostname```-user-data.yaml and ```hostname```-network-data.yaml and to customise them with data specific to the new vm such as hostname, fqdn and IP address.
 
-I think I will porbably write an article about that as I suspect not everyone knows the techniques that can be used to make this easy.  Watch this space.
+I think I will probably write an article about that as I suspect not everyone knows the techniques that can be used to make this easy.  Watch this space.
 
 And if you've made it this far, many thanks for your perseverance.  If you've found this useful, please let me know - either comment where you found the link (probably a LinkedIn post, or maybe my github), and maybe a like if you think the article is worthy of one.
 

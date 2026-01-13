@@ -33,7 +33,7 @@ What I'm planning is using a phone to automatically scan the ISBN and send it to
 ## Mapping the requirements to the high-level flow
 
 Here's a graphical high-level flow:
-![Alt](/images/BooKScanner-Flow-Excalidraw.png)
+![High-level flow](/images/BooKScanner-Flow-Excalidraw.png)
 
 Implementing this saves my friend 12-20 hours a week.
 
@@ -41,19 +41,19 @@ Implementing this saves my friend 12-20 hours a week.
 
 Surprisingly the easiest part of this solution was the automation.  It was up and running in an hour or two.
 
-![Alt](images/BookScanner-n8n-flow.jpg)
+![n8n workflow](images/BookScanner-n8n-flow.jpg)
 
 I initially tried to vibe-code a web-based scanning app to be accessed from a phone but I finally decided that there had to be "an app for that" and sure enough there was.
 
 Here's a screenshot of the app:
 
-![Alt text](images/IBSN-WebHook-AndroidApp-400wide.png)
+![Webhook Android App](images/IBSN-WebHook-AndroidApp-400wide.png)
 
 You click on the "Scan Code" and the camera displays what it sees.  As soon as it see the barcode it scans it.  This happens so fast I wasn't able to catch the moment when the book's barcode was in view.
 
 When the app has scanned the book's barcode (you can see it at the bottom of the app screenshot above), it is instantly sent to the automation which does its thing and adds the book to the Google Sheets:
 
-![alt text](images/SheetAfterAddition.jpg)
+![Google sheet after book addition](images/SheetAfterAddition.jpg)
 
 
 ## What does it cost?

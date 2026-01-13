@@ -6,7 +6,7 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "ObserveAutomation", "n8n", "AI"]
 layout: "single"
 image: "/image/AI_Voice_Receptionist.png"
-draft: true
+draft: false
 ---
 # Creating an AI Voice receptionist for ObserveAutomation
 
@@ -47,7 +47,7 @@ For the next stage, VAPI, you will need the following information from you Twili
   - Auth Token
   - Phone Number
 
-![alt text](assets/Twilio_Account_Keys_etc.jpg)
+![Twilio Account Keys](assets/Twilio_Account_Keys_etc.jpg)
 With all that set up, you can now start on the VAPI side of things.
 
 ## VAPI
@@ -64,7 +64,7 @@ I am using VAPI's Pay as you go plan and I started with £10.  After a few days 
 
 ### Initial set up
 
-To start with VAPI, you need to create an Assistant.
+To start with VAPI, you need to create an Assistant which defines how you call is answered and handled.
 
 The Assistant is where you will define they key elements and behaviours of VAPI.  At this stage (and we'll add more stuff later) you need to:
 1. Give the assistant a name - "OA Receptionist" in my case.  This name is not seen outside VAPI.
@@ -76,17 +76,17 @@ The Assistant is where you will define they key elements and behaviours of VAPI.
 
 There is more to configure but we'll return to this later.
 
-### Connecting the Twilio phone number to the assistant
+### Connecting the Twilio phone number to the "assistant"
 While you can already test the assistant by clicking on the "Talk to assistant", for the assistant to answer calls, you must first add the number to VAPI and associate it with the agent.
 
 To add the number from Twilio to VAPI, under Phone Numbers, click on "Create Phone Number".  In the pop-up, select Import from Twilio and provide the information (Account SID, Auth Token and Phone Number).  Don't forget to give it a friendly name.
-![alt text](assets/VAPI_Import_Twilio_Number.jpg)
+![Importing the Twilio number into VAPI](assets/VAPI_Import_Twilio_Number.jpg)
 
 Then, from "Phone Numbers", select the phone number and you can configure more details such as what Assistant to hand the call to.  
-![alt text](assets/VAPI_Setting_The_Assistant.jpg)
+![Setting the assistant in the phone number configuration](assets/VAPI_Setting_The_Assistant.jpg)
 
 And also a web hook VAPI can call.  I my case, this web hook calls an n8n workflow that takes the phone number an looks it up.  If it finds it, it returns the name of the caller.
-![alt text](assets/Incoming_Call_Flow.jpg)
+![Incoming Call Webhook call](assets/Incoming_Call_Flow.jpg)
 
 Now that that's in place, you can call the Voice receptionist from your verified phone nummber.
 

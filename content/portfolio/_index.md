@@ -9,7 +9,7 @@ tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 
 
 # This section holds a portfolio of my work. 
-![alt text](/images/AutomationPageHeaderImage.jpg)
+![ObserveAutomation Header Image for the Portfolio section](/images/AutomationPageHeaderImage.jpg)
 
 For the past few months I've been building some 
 automations - some of the use AI but many don't - and I'm just super
