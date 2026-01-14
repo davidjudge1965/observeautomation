@@ -1,0 +1,23 @@
+{{/* VAPI chatbot partial. Configure site.Params.vapi.endpoint and site.Params.vapi.key in your config. */}}
+<link rel="stylesheet" href="/css/vapi-chatbot.css">
+<div id="vapi-chatbot" class="vapi-collapsed" aria-hidden="true">
+  <button id="vapi-toggle" class="vapi-toggle" aria-label="Open chat">💬</button>
+  <div id="vapi-panel" class="vapi-panel" role="dialog" aria-modal="true">
+    <div class="vapi-header">
+      <span>Assistant</span>
+      <button id="vapi-close" aria-label="Close">✕</button>
+    </div>
+    <div id="vapi-messages" class="vapi-messages" ></div>
+    <form id="vapi-form" class="vapi-form">
+      <input id="vapi-input" type="text" placeholder="Ask me..." autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+<script>
+window.VAPI_CONFIG = {
+  endpoint: '{{ with site.Params.vapi.endpoint }}{{ . }}{{ end }}',
+  key: '{{ with site.Params.vapi.key }}{{ . }}{{ end }}'
+};
+</script>
+<script src="/js/vapi-chatbot.js" defer></script>

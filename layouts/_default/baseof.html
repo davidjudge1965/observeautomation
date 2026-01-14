@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{.Title}} | {{.Site.Title}} </title>
     <link rel="stylesheet" href="/css/style.css">  
+        <style>
+            /* Ensure Vapi widget is anchored to viewport below the top bar */
+            vapi-widget { position: fixed !important; top: 15px !important; right: 18px !important; z-index: 99999 !important; }
+        </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BN5LK4X9N"></script>
@@ -40,5 +44,68 @@
     <footer>
         <p>© {{now.Year}} {{.Site.Title}}    <a href="/contact" style="color: white;">Contact</a> </p>
     </footer>
+
+    <!-- Vapi Web Widget (official embed) -->
+    <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+    <vapi-widget
+        public-key="{{ with .Site.Params.vapi.publicKey }}{{ . }}{{ end }}"
+        assistant-id="{{ with .Site.Params.vapi.assistantId }}{{ . }}{{ end }}"
+        mode="voice"
+        position="top-right"
+        theme="light"
+        size="compact"
+    ></vapi-widget>
+        <script>
+        (function(){
+            const desired = '30px';
+
+            function setFixedTop(el){
+                if(!el) return;
+                // prefer transforming the host element so shadow DOM visuals move too
+                const host = document.querySelector('vapi-widget');
+                if(host){
+                    try{ host.style.setProperty('position', 'fixed', 'important'); host.style.setProperty('top', desired, 'important'); host.style.setProperty('right', '18px', 'important'); host.style.setProperty('z-index', '99999', 'important'); } catch(e){ host.style.position='fixed'; host.style.top=desired; host.style.right='18px'; host.style.zIndex='99999'; }
+                    return true;
+                }
+                let node = el;
+                while(node && node !== document.body){
+                    const cs = window.getComputedStyle(node);
+                    if(cs.position === 'fixed' || cs.position === 'absolute'){
+                        try{ node.style.setProperty('top', desired, 'important'); } catch(e){ node.style.top = desired; }
+                        node.style.right = node.style.right || '18px';
+                        return true;
+                    }
+                    node = node.parentElement;
+                }
+                return false;
+            }
+
+            function scanAndAdjust(){
+                // Look for button text usually shown on the widget
+                const textCandidates = Array.from(document.querySelectorAll('button, div, span'));
+                for(const el of textCandidates){
+                    const txt = (el.textContent || '').trim();
+                    if(!txt) continue;
+                    if(txt.includes('Talk with AI') || txt.includes('Talk with') || txt.includes('Chat')){
+                        if(setFixedTop(el)) return true;
+                    }
+                }
+                // fallback: try host element
+                const host = document.querySelector('vapi-widget');
+                if(host) return setFixedTop(host);
+                return false;
+            }
+
+            const observer = new MutationObserver(()=>{ scanAndAdjust(); });
+            observer.observe(document.body, { childList:true, subtree:true });
+
+            // Try immediately and a few retries
+            scanAndAdjust();
+            const retries = [200, 600, 1200, 2500];
+            const timers = retries.map(d => setTimeout(scanAndAdjust, d));
+            // stop observing after a short while
+            setTimeout(()=>{ observer.disconnect(); timers.forEach(t=>clearTimeout(t)); }, 8000);
+        })();
+        </script>
 </body>
 </html>

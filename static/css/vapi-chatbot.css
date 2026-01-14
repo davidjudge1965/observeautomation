@@ -1,0 +1,19 @@
+/* Minimal styles for top-right VAPI chatbot */
+#vapi-chatbot { position: fixed; top: 18px; right: 18px; z-index: 9999; font-family: system-ui,Segoe UI,Roboto,Arial; }
+.vapi-toggle { background:#0066cc; color:#fff; border:none; border-radius:999px; width:52px; height:52px; font-size:20px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+.vapi-panel { display:none; width:320px; max-width:calc(100vw - 32px); height:420px; background:var(--bg,#ffffff); color:var(--fg,#111); border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.18); overflow:hidden; margin-top:8px; }
+.vapi-collapsed .vapi-panel { display:none; }
+.vapi-panel-open .vapi-panel { display:flex; flex-direction:column; }
+.vapi-header { display:flex; justify-content:space-between; align-items:center; padding:10px 12px; background:linear-gradient(90deg,#f4f6f8,#eef3fb); font-weight:600; }
+.vapi-messages { padding:12px; flex:1; overflow:auto; background:transparent; }
+.vapi-form { display:flex; padding:8px; gap:8px; border-top:1px solid rgba(0,0,0,0.06); }
+.vapi-form input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); }
+.vapi-form button { padding:8px 12px; border-radius:8px; border:none; background:#0b63d6; color:white; cursor:pointer; }
+.vapi-msg { margin-bottom:8px; padding:8px 10px; border-radius:8px; max-width:85%; }
+.vapi-msg.user { background:#e8f0ff; margin-left:auto; }
+.vapi-msg.bot { background:#f3f4f6; margin-right:auto; }
+@media (prefers-color-scheme: dark) {
+  .vapi-panel { background:#0b1020; color:#e6eef8; }
+  .vapi-header { background:linear-gradient(90deg,#071024,#0d1730); }
+  .vapi-form input { background:#071024; border:1px solid rgba(255,255,255,0.06); color:#e6eef8; }
+}

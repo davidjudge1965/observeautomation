@@ -18,3 +18,8 @@ ShowCodeCopyButtons= true
   [privacy.googleAnalytics]
     disable = false
     respectDoNotTrack = false
+
+[params.vapi]
+publicKey = "9a52eda7-9f64-41f7-9686-29bb583c17d3"      # from dashboard (public)
+assistantId = "d3ec99e6-0e5b-4277-8198-688dd495daf0" # from Assistants list
+
