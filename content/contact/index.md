@@ -8,6 +8,8 @@ draft: false
 
 I’d love to hear from you! Whether you have questions, feedback, or collaboration ideas - please reach out.  
 
+If you'd like to find out more about Observe Automation, have a chat with my AI Voice Receptionist by clicking on the button on the top-left of this screen.
+
 ---
 
 ## 📧 Email Us  
