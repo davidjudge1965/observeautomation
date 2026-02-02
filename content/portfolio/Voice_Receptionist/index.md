@@ -6,7 +6,7 @@ description: "Answer your calls when you're out"
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "voice", "AI"]
 layout: "single_image_alone"
-image: "/image/AI_Voice_Receptionist.png"
+image: "/image/AI_Voice_Receptionist.webp"
 ---
 Can't get away from something when a call comes through?  Are your risking losing customers?
 

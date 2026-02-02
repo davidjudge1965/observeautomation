@@ -5,7 +5,7 @@ description: "Automatically processing invoices or receipts placed in Google Dri
 categories: ["Portfolio"]
 tags: ["Portfolio", "n8n", "GenAI"]
 layout: "single"
-image: "/image/InvoicesAndAccount.png"
+image: "/image/InvoicesAndAccount.webp"
 draft: false
 ---
 # I hate book-keeping

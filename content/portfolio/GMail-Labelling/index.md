@@ -6,7 +6,7 @@ description: "Auto-labelling Google Mail with automation using n8n and ChatGPT"
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "GMail"]
 layout: "single"
-image: "/image/EmailLabellingSketch.jpg"
+image: "/image/EmailLabellingSketch.webp"
 ---
 I spend too long every day labelling (or categorising, if you prefer) the many emails I receive.  There has to be a better way!
 

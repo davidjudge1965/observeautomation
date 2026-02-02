@@ -5,7 +5,7 @@ description: "Creating an AI Voice receptionist for ObserveAutomation."
 categories: ["Homelabbing"]
 tags: ["Homelab", "ObserveAutomation", "n8n", "AI"]
 layout: "single"
-image: "/image/AI_Voice_Receptionist.png"
+image: "/image/AI_Voice_Receptionist.webp"
 draft: false
 ---
 # Creating an AI Voice receptionist for ObserveAutomation

@@ -5,7 +5,7 @@ description: "Creating a home page to access my homelab services and configurato
 categories: ["Homelabbing"]
 tags: ["Homelab", "Homepage"]
 layout: "single"
-image: "/image/AI_Voice_Receptionist.png"
+image: "/image/AI_Voice_Receptionist.webp"
 draft: true
 ---
 # Creating a homepage for my homelab
