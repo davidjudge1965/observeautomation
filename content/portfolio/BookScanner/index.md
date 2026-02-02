@@ -6,7 +6,7 @@ description: "Speeding up the scanning of many books"
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "classification"]
 layout: "single"
-image: "/image/Scanning-Books.png"
+image: "/image/Scanning-Books.webp"
 ---
 A local entrepreneur friend of mine buys books by the pallet and then resells them - sounds easy, right?
 
