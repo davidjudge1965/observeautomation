@@ -88,16 +88,19 @@ Then, from "Phone Numbers", select the phone number and you can configure more d
 
 ![Setting the assistant in the phone number configuration](assets/VAPI_Setting_The_Assistant.jpg)
 
-When a call comes in, VAPI can call an external webhook.  I my case, this calls an n8n workflow that takes the phone number an looks it up in my CRM (a Google Sheet for now).  If it finds the phone number, it returns the name of the caller so that the assistant can call them by their name.
+When a call comes in, you can have VAPI call an external webhook (see below).  I my case, this calls an n8n workflow that takes the phone number an looks it up in my CRM (a Google Sheet for now).  If it finds the phone number, it returns the name of the caller so that the assistant can call them by their name.
+
+![Phone Nr. Webhook Setup](assets/VAPI_WebHook_Call_Setting.webp)
+
+In this instance the n8n workflow that's called does this:
 
 ![Incoming Call Webhook call](assets/Incoming_Call_Flow.jpg)
 
 Now that that's in place, you can call the Voice receptionist from your verified phone number and be greeted by your name
-
 
 As a teaser, here's ann audio recording of me testing my assistant (it has, at this stage, been given instructions and access to my FAQ).
 
 {{<audio src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}
 
 ## ElevenLabs
-ElevenLabs provides the fantastic text-to-speech and speech-to-text functionality I've chose in VAPI.  The costs of Eleven Labs is included in the costs for VAPI.
+ElevenLabs provides the fantastic text-to-speech and speech-to-text functionality I've chosen in VAPI.  The costs of Eleven Labs is included in the costs for VAPI.
