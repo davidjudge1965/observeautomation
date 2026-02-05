@@ -15,6 +15,7 @@ Both as an example of what can be done and as something I can sell to local busi
 - What services they provide (at a high level and in some detail is needed)
 - Opening hours etc.
 - Anything else I put into my FAQ
+- At the end of the call, add an entry in my CRM
 
 It should also be able to put the call through to my mobile if the caller asks for that.
 
@@ -37,7 +38,7 @@ Once you've created a free/trial Twilio account, go to Phone Numbers > Manage > 
 
 You then need to create a "regulatory" bundle.  I chose the "personal" type as my company is not registered.  The 2nd step of this process is providing documentation proving who you are.  I used my passport and driving license.  The regulatory guidelines for Twillio UK numbers are [here](https://www.twilio.com/en-us/guidelines/gb/regulatory).
 
-To be able to call your Twilio number as a "trial" user, you must register a Verified Caller.  Note that this is not required on paid plans.  However, until I go live with the AI Voice Assistant, that's enough for my needs.
+To be able to call your Twilio number as a "trial" user, you must register a Verified Caller.  Note that this is not required on paid plans.  However, until I go live with the AI Voice Assistant, that's enough for my needs.  And as an added benefit it means not just anyone can ring and ramp up my LLM costs.
 
 To add a Verified Caller ID, head to Phone Numbers > Manage > Verified Caller ID and click on Add a new Caller ID.
 
@@ -62,11 +63,11 @@ VAPI allows you to:
 
 I am using VAPI's Pay as you go plan and I started with £10.  After a few days of testing I still have over £8 available.
 
-### Initial set up
+### Initial VAPI set up
 
-To start with VAPI, you need to create an Assistant which defines how you call is answered and handled.
+Once you've created your free account, to start with VAPI, you need to create an Assistant which defines how you call is answered and handled.
 
-The Assistant is where you will define they key elements and behaviours of VAPI.  At this stage (and we'll add more stuff later) you need to:
+The Assistant is where you will define the key elements and behaviours of VAPI.  At this stage (and we'll add more stuff later) you need to:
 1. Give the assistant a name - "OA Receptionist" in my case.  This name is not seen outside VAPI.
 2. Select the AI Provider and model - I've used OpenAI and the "GPT 4.1" which is a good balance between cost and latency.
 3. Select who speaks first - as the assistant is a receptionist, I want it to speak first.
@@ -77,22 +78,26 @@ The Assistant is where you will define they key elements and behaviours of VAPI.
 There is more to configure but we'll return to this later.
 
 ### Connecting the Twilio phone number to the "assistant"
-While you can already test the assistant by clicking on the "Talk to assistant", for the assistant to answer calls, you must first add the number to VAPI and associate it with the agent.
+While you can already test the assistant by clicking on the "Talk to assistant" in the VAPI UI, for the assistant to answer phone calls, you must first add the number to VAPI and associate it with the agent.
 
 To add the number from Twilio to VAPI, under Phone Numbers, click on "Create Phone Number".  In the pop-up, select Import from Twilio and provide the information (Account SID, Auth Token and Phone Number).  Don't forget to give it a friendly name.
+
 ![Importing the Twilio number into VAPI](assets/VAPI_Import_Twilio_Number.jpg)
 
 Then, from "Phone Numbers", select the phone number and you can configure more details such as what Assistant to hand the call to.  
+
 ![Setting the assistant in the phone number configuration](assets/VAPI_Setting_The_Assistant.jpg)
 
-And also a web hook VAPI can call.  I my case, this web hook calls an n8n workflow that takes the phone number an looks it up.  If it finds it, it returns the name of the caller.
+When a call comes in, VAPI can call an external webhook.  I my case, this calls an n8n workflow that takes the phone number an looks it up in my CRM (a Google Sheet for now).  If it finds the phone number, it returns the name of the caller so that the assistant can call them by their name.
+
 ![Incoming Call Webhook call](assets/Incoming_Call_Flow.jpg)
 
-Now that that's in place, you can call the Voice receptionist from your verified phone nummber.
+Now that that's in place, you can call the Voice receptionist from your verified phone number and be greeted by your name
 
 
-As a teaser, here's a video of me testing my assistants (it has, at this stage, been given instructions and access to my FAQ).
+As a teaser, here's ann audio recording of me testing my assistant (it has, at this stage, been given instructions and access to my FAQ).
+
 {{<audio src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}
 
 ## ElevenLabs
-ElevenLabs provides the text-to-speech and speech-to-text functionality for VAPI.  The costs of Eleven Labs is included in the costs for VAPI
+ElevenLabs provides the fantastic text-to-speech and speech-to-text functionality I've chose in VAPI.  The costs of Eleven Labs is included in the costs for VAPI.
