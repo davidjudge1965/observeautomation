@@ -6,6 +6,9 @@ title = "ObserveAutomation"
 theme = "PaperMod"
 environment = "production"
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
 hero_image="/image/Observe Automation Logo Black on white background 2400x1600.webp"
 ShowCodeCopyButtons= true

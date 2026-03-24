@@ -1,0 +1,494 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  #oa-roi-calc-trades *, #oa-roi-calc-trades *::before, #oa-roi-calc-trades *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  #oa-roi-calc-trades {
+    font-family: 'DM Sans', sans-serif;
+    background: #0f1117;
+    color: #e8e6e0;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 680px;
+    margin: 2rem auto;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+
+  #oa-roi-calc-trades .calc-header {
+    background: linear-gradient(135deg, #1a1d26 0%, #0f1117 100%);
+    padding: 2.5rem 2.5rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #oa-roi-calc-trades .calc-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255, 182, 50, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  #oa-roi-calc-trades .calc-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  #oa-roi-calc-trades .calc-header p {
+    font-size: 0.9rem;
+    color: #a8a8a0;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  #oa-roi-calc-trades .calc-body {
+    padding: 2rem 2.5rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  #oa-roi-calc-trades .field-group {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  #oa-roi-calc-trades .field-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a0a098;
+  }
+
+  #oa-roi-calc-trades .input-row {
+    display: flex;
+    align-items: center;
+    background: #1a1d26;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+    overflow: hidden;
+  }
+
+  #oa-roi-calc-trades .input-row:focus-within {
+    border-color: rgba(255, 182, 50, 0.5);
+  }
+
+  #oa-roi-calc-trades .input-prefix {
+    padding: 0 0.75rem;
+    font-size: 0.9rem;
+    color: #ffb632;
+    font-weight: 500;
+    background: rgba(255, 182, 50, 0.06);
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    min-height: 44px;
+  }
+
+  #oa-roi-calc-trades .input-suffix {
+    padding: 0 0.75rem;
+    font-size: 0.85rem;
+    color: #9a9890;
+    border-left: 1px solid rgba(255,255,255,0.06);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  #oa-roi-calc-trades .input-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.65rem 0.75rem;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    color: #e8e6e0;
+    font-weight: 500;
+    min-width: 0;
+  }
+
+  #oa-roi-calc-trades .input-row input::placeholder { color: #3a3c44; }
+
+  #oa-roi-calc-trades .input-row input[type=range] {
+    padding: 0.5rem 0.75rem;
+    accent-color: #ffb632;
+    cursor: pointer;
+  }
+
+  #oa-roi-calc-trades .range-val {
+    padding: 0 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffb632;
+    min-width: 3rem;
+    text-align: right;
+  }
+
+  #oa-roi-calc-trades .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  #oa-roi-calc-trades .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 0.5rem 0;
+  }
+
+  /* Cost breakdown panel */
+  #oa-roi-calc-trades .cost-breakdown {
+    background: #131620;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  #oa-roi-calc-trades .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  #oa-roi-calc-trades .breakdown-row:last-child { border-bottom: none; }
+  #oa-roi-calc-trades .breakdown-label { color: #a8a8a0; }
+  #oa-roi-calc-trades .breakdown-val   { color: #c8c4bc; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  #oa-roi-calc-trades .breakdown-note {
+    display: block;
+    font-size: 0.75rem;
+    color: #a8a8a0;
+    padding: 0.35rem 1rem 0.5rem;
+    font-style: italic;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  #oa-roi-calc-trades .breakdown-total {
+    background: rgba(255, 182, 50, 0.05);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  #oa-roi-calc-trades .breakdown-total .breakdown-label { color: #a0a098; }
+  #oa-roi-calc-trades .breakdown-total .breakdown-val   { color: #ffb632; font-size: 1rem; }
+
+  /* Results */
+  #oa-roi-calc-trades .results {
+    margin: 0 2.5rem 2rem;
+    background: linear-gradient(135deg, #1a1d26, #141720);
+    border: 1px solid rgba(255, 182, 50, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  #oa-roi-calc-trades .results-header {
+    padding: 1rem 1.5rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  #oa-roi-calc-trades .results-header span {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ffb632;
+  }
+
+  #oa-roi-calc-trades .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  #oa-roi-calc-trades .result-cell {
+    padding: 1.25rem 1.5rem;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  #oa-roi-calc-trades .result-cell:nth-child(2n)        { border-right: none; }
+  #oa-roi-calc-trades .result-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+  #oa-roi-calc-trades .result-cell .label {
+    font-size: 0.75rem;
+    color: #b0b0a8;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+  }
+
+  #oa-roi-calc-trades .result-cell .value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 1;
+  }
+
+  #oa-roi-calc-trades .result-cell .value.danger  { color: #ff6b6b; }
+  #oa-roi-calc-trades .result-cell .value.good    { color: #5ce65c; }
+
+  #oa-roi-calc-trades .result-cell .sub {
+    font-size: 0.72rem;
+    color: #9a9890;
+    margin-top: 0.2rem;
+  }
+
+  /* Verdict */
+  #oa-roi-calc-trades .verdict {
+    margin: 0 2.5rem 2.5rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 182, 50, 0.07);
+    border: 1px solid rgba(255, 182, 50, 0.2);
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #c8c4bc;
+  }
+
+  #oa-roi-calc-trades .verdict strong { color: #ffb632; font-weight: 600; }
+
+  /* Disclaimer */
+  #oa-roi-calc-trades .disclaimer {
+    margin: 0 2.5rem 2.5rem;
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #9a9890;
+  }
+
+  #oa-roi-calc-trades .disclaimer p { margin-bottom: 0.5rem; }
+  #oa-roi-calc-trades .disclaimer p:last-of-type { margin-bottom: 0.9rem; }
+
+  #oa-roi-calc-trades .cta-link {
+    display: inline-block;
+    padding: 0.55rem 1.25rem;
+    background: #ffb632;
+    color: #0f1117;
+    font-size: 0.83rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  #oa-roi-calc-trades .cta-link:hover {
+    background: #ffc84a;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 520px) {
+    #oa-roi-calc-trades .calc-body   { padding: 1.5rem; }
+    #oa-roi-calc-trades .calc-header { padding: 1.75rem 1.5rem 1.5rem; }
+    #oa-roi-calc-trades .results     { margin-left: 1.5rem; margin-right: 1.5rem; }
+    #oa-roi-calc-trades .verdict     { margin: 0 1.5rem 2rem; }
+    #oa-roi-calc-trades .two-col     { grid-template-columns: 1fr; }
+    #oa-roi-calc-trades .results-grid { grid-template-columns: 1fr; }
+    #oa-roi-calc-trades .result-cell { border-right: none; }
+    #oa-roi-calc-trades .disclaimer  { margin-left: 1.5rem; margin-right: 1.5rem; }
+  }
+</style>
+
+<div class="calc-wrap" id="oa-roi-calc-trades">
+  <div class="calc-header">
+    <h2>What are missed calls costing<br>your <em>trades business</em>?</h2>
+    <p>Plumbers, heating engineers, and electricians lose jobs every day to unanswered phones — from small repairs to full installations. Enter your numbers to see the real cost.</p>
+  </div>
+
+  <div class="calc-body">
+
+    <div class="two-col">
+      <div class="field-group">
+        <label>Standard job value (e.g. fix a small leak)</label>
+        <div class="input-row">
+          <span class="input-prefix">£</span>
+          <input type="number" id="tr-stdValue" placeholder="150" min="0" value="150">
+        </div>
+      </div>
+      <div class="field-group">
+        <label>High-value job (e.g. replace a bath)</label>
+        <div class="input-row">
+          <span class="input-prefix">£</span>
+          <input type="number" id="tr-highValue" placeholder="1500" min="0" value="1500">
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Estimated missed calls per day</label>
+      <div class="input-row">
+        <input type="range" id="tr-missedCalls" min="1" max="30" value="4"
+          oninput="document.getElementById('tr-missedCallsVal').textContent=this.value; tradesCalc()">
+        <span class="range-val" id="tr-missedCallsVal">4</span>
+        <span class="input-suffix">calls / day</span>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>% of missed calls that are high-value jobs</label>
+      <div class="input-row">
+        <input type="range" id="tr-highPct" min="0" max="50" value="10"
+          oninput="document.getElementById('tr-highPctVal').textContent=this.value+'%'; tradesCalc()">
+        <span class="range-val" id="tr-highPctVal">10%</span>
+        <span class="input-suffix">high-value</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field-group">
+      <label>Monthly management / service fee</label>
+      <div class="input-row">
+        <span class="input-prefix">£</span>
+        <input type="number" id="tr-svcFee" placeholder="200" min="0" value="200">
+      </div>
+    </div>
+
+    <div class="cost-breakdown">
+      <div class="breakdown-row">
+        <span class="breakdown-label">Management fee</span>
+        <span class="breakdown-val" id="tr-bd-svc">£200</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">Estimated call &amp; AI costs</span>
+        <span class="breakdown-val" id="tr-bd-calls">—</span>
+      </div>
+      <span class="breakdown-note" id="tr-bd-note">Based on — calls/month × 2.5 min avg × £0.13/min</span>
+      <div class="breakdown-row breakdown-total">
+        <span class="breakdown-label">Total estimated monthly cost</span>
+        <span class="breakdown-val" id="tr-bd-total">—</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="results">
+    <div class="results-header"><span>Your numbers</span></div>
+    <div class="results-grid">
+      <div class="result-cell">
+        <div class="label">Monthly revenue at risk</div>
+        <div class="value danger" id="tr-r-monthly">—</div>
+        <div class="sub" id="tr-r-monthly-sub"></div>
+      </div>
+      <div class="result-cell">
+        <div class="label">Annual revenue at risk</div>
+        <div class="value danger" id="tr-r-annual">—</div>
+        <div class="sub" id="tr-r-annual-sub"></div>
+      </div>
+      <div class="result-cell" style="grid-column: 1 / -1;">
+        <div class="label">Total monthly cost vs. revenue at risk</div>
+        <div class="value good" id="tr-r-ratio">—</div>
+        <div class="sub" id="tr-r-ratio-sub"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict" id="tr-verdict">
+    Adjust the sliders above to see your personalised figures.
+  </div>
+
+  <div class="disclaimer">
+    <p>&#9432;&nbsp; These figures are estimates based on the values you have entered. Actual results will vary depending on your call volumes, the proportion of calls diverted to the AI, and other factors specific to your business.</p>
+    <p>To get a personalised assessment and accurate pricing for your situation, book a free no-obligation consultation.</p>
+    <a class="cta-link" href="/contact">Book a free consultation &rarr;</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  const COST_PER_MIN  = 0.13;
+  const AVG_CALL_MINS = 2.5;
+  const WORKING_DAYS  = 22;
+
+  function fmt(n) {
+    if (n >= 1000000) return '£' + (n / 1000000).toFixed(1) + 'm';
+    if (n >= 1000)    return '£' + (n / 1000).toFixed(1) + 'k';
+    return '£' + Math.round(n).toLocaleString('en-GB');
+  }
+
+  function fmtExact(n) {
+    return '£' + n.toFixed(2);
+  }
+
+  function tradesCalc() {
+    const stdVal  = parseFloat(document.getElementById('tr-stdValue').value)  || 0;
+    const highVal = parseFloat(document.getElementById('tr-highValue').value) || 0;
+    const missed  = parseInt(document.getElementById('tr-missedCalls').value) || 0;
+    const highPct = parseInt(document.getElementById('tr-highPct').value)     || 0;
+    const svcFee  = parseFloat(document.getElementById('tr-svcFee').value)    || 0;
+
+    // Revenue at risk
+    const stdPerDay   = missed * (1 - highPct / 100);
+    const highPerDay  = missed * (highPct / 100);
+    const dailyRisk   = stdPerDay * stdVal + highPerDay * highVal;
+    const monthlyRisk = dailyRisk * WORKING_DAYS;
+    const annualRisk  = monthlyRisk * 12;
+
+    // Call & AI costs
+    const monthlyCallCount = missed * WORKING_DAYS;
+    const callCostPerCall  = AVG_CALL_MINS * COST_PER_MIN;
+    const monthlyCallCost  = monthlyCallCount * callCostPerCall;
+    const totalMonthlyCost = svcFee + monthlyCallCost;
+
+    // ROI ratio
+    const ratio = totalMonthlyCost > 0 ? monthlyRisk / totalMonthlyCost : 0;
+
+    // Breakdown panel
+    document.getElementById('tr-bd-svc').textContent   = fmt(svcFee);
+    document.getElementById('tr-bd-calls').textContent = fmtExact(monthlyCallCost);
+    document.getElementById('tr-bd-note').textContent  =
+      `Based on ${monthlyCallCount} calls/month × ${AVG_CALL_MINS} min avg × £${COST_PER_MIN}/min`;
+    document.getElementById('tr-bd-total').textContent = fmt(totalMonthlyCost);
+
+    // Results
+    document.getElementById('tr-r-monthly').textContent     = fmt(monthlyRisk);
+    document.getElementById('tr-r-monthly-sub').textContent = fmt(dailyRisk) + ' per working day';
+
+    document.getElementById('tr-r-annual').textContent     = fmt(annualRisk);
+    document.getElementById('tr-r-annual-sub').textContent = 'based on ' + WORKING_DAYS + ' working days/month';
+
+    if (ratio > 0) {
+      document.getElementById('tr-r-ratio').textContent     = Math.round(ratio) + '×';
+      document.getElementById('tr-r-ratio-sub').textContent =
+        'revenue at risk vs. ' + fmt(totalMonthlyCost) + '/month total cost';
+    } else {
+      document.getElementById('tr-r-ratio').textContent     = '—';
+      document.getElementById('tr-r-ratio-sub').textContent = 'enter your management fee above';
+    }
+
+    // Verdict
+    let msg = '';
+    if (monthlyRisk === 0) {
+      msg = 'Adjust the sliders above to see your personalised figures.';
+    } else if (ratio >= 10) {
+      msg = `<strong>The case is clear.</strong> You're putting <strong>${fmt(monthlyRisk)}/month</strong> at risk from missed calls — that's <strong>${Math.round(ratio)}× your total monthly cost of ${fmt(totalMonthlyCost)}</strong>. A single recovered bathroom or boiler job could cover months of service fees.`;
+    } else if (ratio >= 3) {
+      msg = `<strong>Strong ROI.</strong> With <strong>${fmt(monthlyRisk)}/month</strong> in jobs at risk, the service pays for itself if it captures just <strong>${Math.ceil(100 / ratio)}%</strong> of those missed calls — and one unanswered installation enquiry can be worth more than a full month's cost.`;
+    } else if (ratio >= 1) {
+      msg = `<strong>Marginal but positive.</strong> The numbers work at these figures. Factor in the time saved screening sales calls while you're on a job, and the value of never missing an emergency call-out — that peace of mind adds up.`;
+    } else if (monthlyRisk > 0) {
+      msg = `At these figures the direct ROI is tight. The value is more likely in <strong>time saved on unwanted calls</strong> and the consistency of capturing every enquiry when you're on-site and can't answer.`;
+    }
+    document.getElementById('tr-verdict').innerHTML = msg;
+  }
+
+  ['tr-stdValue', 'tr-highValue', 'tr-svcFee'].forEach(id => {
+    document.getElementById(id).addEventListener('input', tradesCalc);
+  });
+
+  tradesCalc();
+})();
+</script>
