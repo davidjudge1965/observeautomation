@@ -1,39 +1,76 @@
 {{define "main"}}
-<section class="hero"  >
-    <div class="container">
-        <h1 class="hero-title">Welcome to my Portfolio</h1>
-        {{with .Site.Params.hero_image}} 
-        <img id="aboutImage" src="{{.}}" alt="{{$.Title}}" style="border:0px;margin:10px;float:left;width:40%;" >
-        {{end}}
 
-        <p class="hero-text">
-        I'm passionate about helping people and businesses helping them use AI and
-        automation to build value for their businesses.
-        <br> <br>
-        In this site I share my portfolio - showing examples of how my AI and automations have helped in practical ways.
-        <br> <br>
-        I also show you what I've been up to in my home lab.  This is where I try new tools and processes 
-        and how I keep my technical skills up to date.
-        <br> <br>
-        If you like what you see (even if you're not sure this is for you or would help 
-        you), reach out to me for a no-obligation conversation - my contact details are in the Contact tab.
-
-        </p>
-    </div>
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">AI that answers for your business</h1>
+    <p class="hero-text">
+      When you're on the job, with a customer, or simply flat out — your phone is still ringing. Missed calls become lost customers. Cold calls interrupt your day for nothing.
+      <br><br>
+      Observe Automation builds practical AI tools that fix specific problems for small businesses. Not experiments — tools that handle real work and pay for themselves quickly.
+      <br><br>
+      The flagship product is an <strong>AI Voice Receptionist</strong> that answers every call you can't, captures every enquiry, and deals with the time-wasters so you never have to stop what you're doing.
+    </p>
+  </div>
 </section>
 
-<h1>Latest Portfolio Entries</h1>
-{{range $i, $p := first 10 (where .Site.RegularPages "Type" "portfolio")}}
-<div class="blog-preview {{if modBool $i 2}}reverse{{end}}"   >
-    {{with $p.Params.image}}
-    <img src="{{.}}" alt="{{$p.Title}}">
-    {{end}}
-
-    <div class="content">
-        <h2>{{$p.Title}} </h2>
-        <p> {{$p.Summary}} </p>
-        <a href="{{$p.RelPermalink}}" class="read-more">Read More →</a>
+<section class="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Your phone rings</h3>
+        <p>You're busy and can't pick up. Without a receptionist, the call goes to voicemail — or nowhere. The customer tries someone else.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>The AI answers</h3>
+        <p>Your AI receptionist picks up immediately, handles the enquiry professionally, and screens out cold callers and time-wasters.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>You get the details</h3>
+        <p>A full transcript lands in your inbox the moment the call ends. You call back prepared — knowing who it is, what they need, and where they are.</p>
+      </div>
     </div>
-</div>
-{{end}}
+  </div>
+</section>
+
+<section class="products-section">
+  <div class="container">
+    <h2 class="section-title">Products</h2>
+    <div class="product-grid">
+      {{range first 10 (where .Site.RegularPages "Type" "products")}}
+      <div class="product-card">
+        {{with .Params.image}}
+        <img src="{{.}}" alt="{{$.Title}}">
+        {{end}}
+        <div class="product-card-body">
+          <h3>{{.Title}}</h3>
+          <p>{{.Summary}}</p>
+          <a href="{{.RelPermalink}}" class="read-more">Find out more →</a>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+<section class="signpost">
+  <div class="container">
+    <div class="signpost-grid">
+      <div class="signpost-card">
+        <h3>Real-world automation</h3>
+        <p>Browse examples of AI and automation in action — real problems, real businesses, real results. See what's possible before you commit to anything.</p>
+        <a href="/portfolio" class="read-more">See the portfolio →</a>
+      </div>
+      <div class="signpost-card">
+        <h3>Technical &amp; homelab</h3>
+        <p>How I build and test new tools — exploring AI, automation, and self-hosted infrastructure. For the technically curious.</p>
+        <a href="/homelab" class="read-more">Explore the homelab →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{end}}

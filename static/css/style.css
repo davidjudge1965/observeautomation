@@ -51,26 +51,17 @@ nav a:hover{
 }
 
 .hero{
-    background-size: 100% 100%;
+    background: linear-gradient(135deg, #0a1628 0%, #142240 100%);
     color: white;
-    padding: 100px 0;
-    text-align: justify;
-    border-radius: 12px;
-    margin-bottom: 40px;
+    padding: 70px 60px;
+    border-radius: 16px;
+    margin-bottom: 0;
     position: relative;
     margin-top: 30px;
 }
 
 .hero::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    z-index: 0;
+    display: none;
 }
 
 .hero-title, .hero-text{
@@ -80,25 +71,21 @@ nav a:hover{
 
 .hero-title{
     font-family: "Poppins", sans-serif;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    background: #063b9e;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     text-align: center;
 }
 
 .hero-text{
-    font-size: 1.4rem;
-    max-width: 700px;
+    font-size: 1.05rem;
+    max-width: 680px;
     margin: 0 auto;
-    line-height: 1.6;
-    font-weight: 600;
-    color: #063b9e;
+    line-height: 1.75;
+    font-weight: 400;
+    color: rgba(255,255,255,0.82);
     text-align: left;
 }
 
@@ -270,6 +257,166 @@ nav a:hover{
     color: #ffa751;
 }
 
+
+/* ── How it works ── */
+.how-it-works {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 50px 40px 40px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #063b9e;
+    margin-bottom: 2rem;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.step {
+    background: white;
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    text-align: center;
+}
+
+.step-num {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #4facfe;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #063b9e;
+    margin: 0 0 0.5rem;
+}
+
+.step p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Product cards ── */
+.products-section {
+    background: #eef3fb;
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 50px 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.product-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-card-body h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #4facfe;
+    margin: 0 0 0.6rem;
+}
+
+.product-card-body p {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.6;
+    flex: 1;
+    margin: 0 0 1.25rem;
+}
+
+/* ── Signpost ── */
+.signpost {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-top: 16px;
+    margin-bottom: 40px;
+    padding: 50px 40px 50px;
+}
+
+.signpost-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.signpost-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    border-top: 4px solid #4facfe;
+}
+
+.signpost-card:last-child {
+    border-top-color: #00c9a7;
+}
+
+.signpost-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #063b9e;
+    margin: 0 0 0.6rem;
+}
+
+.signpost-card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+    .steps,
+    .product-grid,
+    .signpost-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 footer{
     margin-top: 40px;
