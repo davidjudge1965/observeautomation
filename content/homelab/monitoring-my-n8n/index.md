@@ -5,7 +5,7 @@ description: "Monitoring the behaviour of my n8n instance im my home lab"
 categories: ["Homelabbing"]
 tags: ["Homelab", "ObserveAutomation", "n8n", "AI"]
 layout: "single"
-image: "/image/AI_Voice_Receptionist.png"
+image: "/image/MonitoringHomelabPhoto.jpg"
 draft: true
 ---
  I recently had an issue - while building and testing my [AI Voice Receptionist]( {{< ref "CreatingTheAIReceptionist" >}}) - when my traefik + n8n stack did not respond in a timely manner causing the voice conversation to pause for multiple seconds which, for a voice conversation, is not acceptable.
