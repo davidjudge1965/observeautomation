@@ -6,6 +6,7 @@ categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
 image: "/image/BusyTradespersonWhilePhoneRinging.jpg"
+hero_position: "center top"
 draft: false
 ---
 

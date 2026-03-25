@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $dir ===\")",
+      "Read(//c/Users/david/OneDrive/GitHub/observeautomation/content/portfolio/$dir/**)",
+      "Bash(done)"
+    ]
+  }
+}

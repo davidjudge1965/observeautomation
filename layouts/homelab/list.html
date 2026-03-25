@@ -1,0 +1,48 @@
+{{define "main"}}
+
+<article class="product-page">
+  {{with .Params.image}}
+  <div class="product-hero" style="background-image: url('{{.}}'); background-position: {{ if $.Params.hero_position }}{{ $.Params.hero_position }}{{ else }}center{{ end }}">
+    <div class="product-hero-overlay">
+      <h1>{{$.Title}}</h1>
+    </div>
+  </div>
+  {{end}}
+  <div class="product-body">
+    {{.Content}}
+  </div>
+</article>
+
+<section class="products-section">
+  <div class="product-grid product-grid--logos">
+    {{range .Pages}}
+    <div class="product-card">
+      {{with .Params.image}}
+      <img src="{{.}}" alt="{{$.Title}}">
+      {{end}}
+      <div class="product-card-body">
+        <h3>{{.Title}}</h3>
+        <p>{{.Description}}</p>
+        <a href="{{.RelPermalink}}" class="read-more">Read more →</a>
+      </div>
+    </div>
+    {{end}}
+  </div>
+</section>
+
+<section class="signpost" style="margin-top: 1rem;">
+  <div class="signpost-grid">
+    <div class="signpost-card">
+      <h3>See it applied to real business problems</h3>
+      <p>The portfolio shows how the same tools and infrastructure get put to work solving practical problems for real businesses.</p>
+      <a href="/portfolio" class="read-more">See the portfolio →</a>
+    </div>
+    <div class="signpost-card">
+      <h3>Want this kind of setup for your business?</h3>
+      <p>If you're interested in what self-hosted automation could do for your organisation, I'm happy to have that conversation.</p>
+      <a href="/contact" class="read-more">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+{{end}}

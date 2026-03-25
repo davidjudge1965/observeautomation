@@ -1,26 +1,12 @@
 ---
-date: '2025-07-01T17:38:12+01:00'
+date: '2025-07-01'
 draft: false
 title: 'Portfolio'
-description: "David Judge's portfolio"
-categories: ["Products"]
-tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
+description: "Real automation projects — built to solve real problems."
+image: "/image/PortfolioHeroPhoto.jpg"
+hero_position: "center center"
 ---
 
+Real automation and AI projects, built and running. Each one started with a specific problem — something that was taking too long, getting missed, or just shouldn't need a human in the loop.
 
-# This section holds a portfolio of my work. 
-![ObserveAutomation Header Image for the Portfolio section](/images/AutomationPageHeaderImage.jpg)
-
-For the past few months I've been building some 
-automations - some of the use AI but many don't - and I'm just super
-passionate about automation. 
-
-I have started a business called ObserveAutomation to provide automation/AI strategy and services to customers in the UK, helping people out with my automation/AI skills and systems.
-
-I share here some of the work I've been doing with a focus on showing how it delivers value.  There are few slightly technical bits to show how the result were achieved.
-
-
-Please reach out to me if:
-* you have any questions, or 
-* you would like a conversation about Automation and AI, or
-* Would like help implementing automation/AI in your business.
+Dive in to see what was built, how it works, and what difference it made.

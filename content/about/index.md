@@ -5,16 +5,32 @@ draft: false
 image: "/image/author.jpg"
 ---
 
-I'm an experienced AI, automation and observability specialist, working with small and large customers in a wide variety of domains to simplify and streamline activities and helping them to drive value (increasing sales, saving time, etc.).
+I build practical AI tools for small businesses, and take on contract work helping larger organisations get more from their infrastructure, automation, and observability.
 
-Despite my strong technical background, I focus on pragmatic automation — the kind that reduces manual effort, lowers risk, and adds real operational value.  For example my [AI Voice Receptionist](<../products/AI Voice Receptionist/index.md>) can catch business that could be lost due to missed calls.  Research shows this could lead to an extra £15k in sales per month.
+Those two things are more connected than they sound. The same skills that help an enterprise untangle a complex hybrid estate are the ones that let me build an AI receptionist that sounds natural, captures every enquiry, and costs a fraction of a human hire.
 
-Over the years, I’ve helped teams automate repetitive tasks, improve observability of hybrid estates, and bring order to legacy systems that others often avoid. Whether it’s developing bespoke automatons and scripts, auditing infrastructure for improvement, or providing hands-on expertise during critical projects, I bring a steady, solutions- and value-focused approach to every engagement.
-
-I work as a contractor through my own UK-based service company, and I’m available for short- or medium-term projects - especially where deep infrastructure knowledge and strong scripting or automation skills are needed to unlock progress and deliver value.
-
-Please feel free to reach out to me using the information in my [Contact Me](../contact/index.md) page.
-
-If you'd like to find out more about Observe Automation, have a chat with my AI Voice Receptionist by clicking on the button on the top-left of this screen.
+*If you'd like to hear it in my own words — here's a short introduction to how I work, and why eliminating unnecessary drudgery from people's days is what drives everything I build.*
 
 {{< youtube mCTlN2D9CRc >}}
+
+---
+
+### For small business owners
+
+I built the AI Voice Receptionist because I kept seeing the same problem: owner-operated businesses losing customers not because their service was poor, but simply because they couldn't get to the phone. Florists missing wedding enquiries. Plumbers losing emergency call-outs to whoever picked up first.
+
+The AI receptionist fixes that. It's not a generic chatbot — it's trained specifically on your business, handles your actual questions, and screens out the time-wasters. I build it, set it up, and manage it on an ongoing basis so you don't have to think about it.
+
+[See it for florists →](/products/floristreceptionist)
+
+[See it for trades →](/products/tradesreceptionist)
+
+---
+
+### For organisations looking for contract expertise
+
+I've spent years helping teams in finance, infrastructure, and operations automate the work that was slowing them down — scripting, workflow automation, observability across hybrid estates, and untangling legacy systems that others tend to avoid.
+
+I bring a steady, pragmatic approach and a bias toward solutions that actually get used. I work through my UK-based service company and am available for short- or medium-term engagements, particularly where deep infrastructure knowledge and strong automation skills are needed to move things forward.
+
+[Get in touch →](/contact)

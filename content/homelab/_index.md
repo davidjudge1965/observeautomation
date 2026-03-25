@@ -1,19 +1,14 @@
 ---
-date: '2025-07-01T17:38:12+01:00'
+date: '2025-07-01'
 draft: false
 title: 'Homelab'
-description: "David Judge's Homelab efforts and musings"
+description: "The infrastructure behind ObserveAutomation — documented."
 categories: ["homelab"]
-tags: ["Homelab", "GenAI"]
+tags: ["Homelab", "n8n", "Docker", "Proxmox"]
+image: "/image/HomelabHeroPhoto.jpg"
+hero_position: "center center"
 ---
-![Homelabbing Section](/image/HomelabTopImage.jpg)
 
-# This section holds the Homelabbing articles
+The homelab is where things get built, tested, and occasionally broken. These articles document the infrastructure behind ObserveAutomation — from bare metal Proxmox hosts to containerised services, monitoring stacks, and the automation platform that runs it all.
 
-This section has articles about my efforts and musing on homelabbing.  It is unabashedly technical.
-
-I cover areas such as deploying tools and applications, how I host my own instance of n8n and (soon) many other aspects of setting up, running and managing (with a bit of monitoring) my home lab.
-
-I use my home lab for my own purposes (such as hosting my own n8n in which I run my automations), mainly for learning new products and technologies, but also for (what I consider to be) fun.
-
-Please reach out to me if you have any questions.
+This section is unabashedly technical. If you're a fellow tinkerer, you're in the right place.

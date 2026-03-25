@@ -1,0 +1,15 @@
+{{define "main"}}
+<article class="product-page">
+
+  <div class="product-hero" style="background-image: url('{{ .Params.image }}'); background-position: {{ if .Params.hero_position }}{{ .Params.hero_position }}{{ else }}center{{ end }}">
+    <div class="product-hero-overlay">
+      <h1>{{ .Title }}</h1>
+    </div>
+  </div>
+
+  <div class="product-body">
+    {{ .Content }}
+  </div>
+
+</article>
+{{end}}

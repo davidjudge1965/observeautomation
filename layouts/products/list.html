@@ -1,0 +1,48 @@
+{{define "main"}}
+
+<article class="product-page">
+  {{with .Params.image}}
+  <div class="product-hero" style="background-image: url('{{.}}'); background-position: {{ if $.Params.hero_position }}{{ $.Params.hero_position }}{{ else }}center{{ end }}">
+    <div class="product-hero-overlay">
+      <h1>{{$.Title}}</h1>
+    </div>
+  </div>
+  {{end}}
+  <div class="product-body">
+    {{.Content}}
+  </div>
+</article>
+
+<section class="products-section">
+  <div class="product-grid">
+    {{range .Pages}}
+    <div class="product-card">
+      {{with .Params.image}}
+      <img src="{{.}}" alt="{{$.Title}}">
+      {{end}}
+      <div class="product-card-body">
+        <h3>{{.Title}}</h3>
+        <p>{{.Summary}}</p>
+        <a href="{{.RelPermalink}}" class="read-more">Find out more →</a>
+      </div>
+    </div>
+    {{end}}
+  </div>
+</section>
+
+<section class="signpost" style="margin-top: 1rem;">
+  <div class="signpost-grid">
+    <div class="signpost-card">
+      <h3>Not sure which fits?</h3>
+      <p>Both products can be tailored to your specific business. Get in touch for a free conversation about what would work best for you.</p>
+      <a href="/contact" class="read-more">Get in touch →</a>
+    </div>
+    <div class="signpost-card">
+      <h3>Something else in mind?</h3>
+      <p>If you have a specific problem you'd like to solve with AI or automation, I'm happy to talk through whether it's something I can help with.</p>
+      <a href="/contact" class="read-more">Start a conversation →</a>
+    </div>
+  </div>
+</section>
+
+{{end}}

@@ -89,58 +89,73 @@ nav a:hover{
     text-align: left;
 }
 
-.about-section{
+.about-section {
     background: white;
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     margin-top: 40px;
-    text-align: justify;
+    text-align: center;
 }
 
-#aboutImage {
-    float:left;
+.about-section img.about-photo {
+    display: block;
+    width: 280px;
+    max-width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #f0f6ff;
+    margin: 0 auto 1.25rem;
+    border: 4px solid #4facfe;
+    box-shadow: 0 4px 16px rgba(79,172,254,0.25);
+    float: none;
 }
 
-.about-section h1{
-    font-size: 2.5rem;
+.about-section h1 {
+    font-size: 2rem;
     font-weight: 800;
-    color: #4facfe;
-    margin-bottom: 20px;
+    color: #063b9e;
+    margin-bottom: 1.5rem;
 }
 
-.about-section p{
-    font-size: 1.1rem;
+.about-content {
+    text-align: left;
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    font-size: 1rem;
     line-height: 1.8;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto 25px auto;
+    color: #444;
+    margin-bottom: 1.1rem;
 }
 
-.about-section h2{
-    font-size: 1.8rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: #00c9a7;
+.about-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #063b9e;
+    border-left: 4px solid #4facfe;
+    padding-left: 0.75rem;
+    margin: 2rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.about-section ul{
-    list-style: none;
-    padding: 0;
+.about-content hr {
+    border: none;
+    border-top: 1px solid #eaeaea;
+    margin: 2rem 0;
 }
 
-.about-section ul li{
-    font-size: 1.1rem;
-    padding: 8px 0;
-}
-
-.about-section a{
+.about-content a {
     color: #4facfe;
     text-decoration: none;
     font-weight: 600;
 }
 
-.about-section a:hover{
+.about-content a:hover {
     color: #ffa751;
 }
 
@@ -258,6 +273,139 @@ nav a:hover{
 }
 
 
+/* ── Product pages ── */
+.product-page {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.product-hero {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.product-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(transparent, rgba(10,22,40,0.85));
+}
+
+.product-hero-overlay h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.product-body {
+    padding: 2.5rem 3rem;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.product-body h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #063b9e;
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eef3fb;
+}
+
+.product-body p {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.product-body strong {
+    color: #063b9e;
+}
+
+.product-body em {
+    color: #555;
+}
+
+.product-body a {
+    color: #4facfe;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.product-body a:hover {
+    color: #ffa751;
+}
+
+/* Feature lists (>-) */
+.product-body blockquote {
+    margin: 0 0 1.25rem;
+    padding: 0.9rem 1.25rem;
+    background: #f7f9ff;
+    border-left: 4px solid #4facfe;
+    border-radius: 0 8px 8px 0;
+}
+
+.product-body blockquote ul,
+.product-body blockquote ol {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.product-body blockquote li,
+.product-body blockquote p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #333;
+    margin: 0;
+    padding: 0.15rem 0;
+}
+
+/* Stat callouts (>>-) — outer wrapper unstyled, inner amber */
+.product-body blockquote:has(> blockquote) {
+    background: transparent;
+    border-left: none;
+    padding: 0;
+}
+
+.product-body blockquote blockquote {
+    background: rgba(255, 182, 50, 0.07);
+    border-left: 4px solid #ffb632;
+    border-radius: 0 8px 8px 0;
+    margin: 0 0 1.25rem;
+}
+
+/* Regular lists */
+.product-body ul,
+.product-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-body ul li,
+.product-body ol li {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #444;
+    padding: 0.2rem 0;
+}
+
+@media (max-width: 700px) {
+    .product-hero              { height: 260px; }
+    .product-hero-overlay h1   { font-size: 1.4rem; }
+    .product-body              { padding: 1.5rem; }
+}
+
 /* ── How it works ── */
 .how-it-works {
     background: #ffffff;
@@ -344,6 +492,13 @@ nav a:hover{
     height: 280px;
     object-fit: cover;
     object-position: center top;
+}
+
+.product-grid--logos .product-card img {
+    object-fit: contain;
+    object-position: center;
+    background: #f7f9ff;
+    padding: 1.5rem;
 }
 
 .product-card-body {
