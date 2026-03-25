@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Site.LanguageCode }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{.Title}} | {{.Site.Title}} </title>
-    <link rel="stylesheet" href="/css/style.css">  
-        <style>
-            /* Ensure Vapi widget is anchored to viewport below the top bar */
-            vapi-widget { position: fixed !important; top: 15px !important; right: 18px !important; z-index: 99999 !important; }
-        </style>
+    <title>{{ if .IsHome }}{{ .Site.Title }} — AI automation for small business{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+    {{- $description := .Description | default .Site.Params.description | default "AI automation and voice receptionist solutions for small businesses across the UK." }}
+    <meta name="description" content="{{ $description }}">
+
+    {{- $ogImage := .Params.image | default "/image/Observe Automation Logo Black on white background 2400x1600.webp" }}
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — AI automation for small business{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage | strings.TrimPrefix "/" }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }} — AI automation for small business{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ $ogImage | strings.TrimPrefix "/" }}">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Ensure Vapi widget is anchored to viewport below the top bar */
+        vapi-widget { position: fixed !important; top: 15px !important; right: 18px !important; z-index: 99999 !important; }
+    </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BN5LK4X9N"></script>
@@ -44,6 +61,48 @@
     <footer>
         <p>© {{now.Year}} {{.Site.Title}}    <a href="/contact" style="color: white;">Contact</a> </p>
     </footer>
+
+    <!-- Structured data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ObserveAutomation",
+      "description": "AI automation and voice receptionist solutions for small businesses across the UK.",
+      "url": "https://www.observeautomation.com",
+      "logo": "https://www.observeautomation.com/image/Observe%20Automation%20Logo%20Black%20on%20white%20background%202400x1600.webp",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leighton Buzzard",
+        "addressRegion": "Buckinghamshire",
+        "addressCountry": "GB"
+      },
+      "serviceArea": [
+        { "@type": "City", "name": "Leighton Buzzard" },
+        { "@type": "City", "name": "Milton Keynes" },
+        { "@type": "City", "name": "Aylesbury" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Voice Receptionist",
+              "description": "AI-powered phone answering service for small businesses. Never miss a call again.",
+              "url": "https://www.observeautomation.com/products/"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 
     <!-- Vapi Web Widget (official embed) -->
     <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>

@@ -2,7 +2,7 @@
 
 ## About this project
 
-This is the personal portfolio and product site for ObserveAutomation, built with **Hugo** (static site generator). The site is hosted at **https://www.observeautomation.com** and the source is managed in this GitHub repository.
+Personal portfolio and product site for ObserveAutomation, built with **Hugo** (static site generator). Hosted at **https://www.observeautomation.com**, source managed in this GitHub repository.
 
 The owner is building a consultancy around **AI and automation for small businesses**, primarily using **n8n** as the automation platform combined with various LLMs. The site serves as a portfolio to attract clients.
 
@@ -10,12 +10,14 @@ The owner is building a consultancy around **AI and automation for small busines
 
 ## Hugo setup
 
-- **Framework**: Hugo with a custom theme
-- **Config file**: `hugo.toml` (or `config.toml`) in the project root
+- **Framework**: Hugo with the **PaperMod** theme (largely overridden with custom layouts)
+  - GitHub: https://github.com/adityatelange/hugo-PaperMod/
+  - Wiki: https://github.com/adityatelange/hugo-PaperMod/wiki
+- **Config file**: `hugo.toml` in the project root
 - **Content directory**: `content/`
 - **Layouts directory**: `layouts/`
 - **Shortcodes**: `layouts/shortcodes/`
-- **Static assets**: `assets/` (images, media)
+- **Static assets**: `static/` (images go in `static/image/`, referenced as `/image/filename`)
 - **Local dev server**: `hugo server -D` — runs at `http://localhost:1313`
 
 ### Important Hugo config
@@ -33,72 +35,115 @@ title: 'Page Title'
 description: "Page description here."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI"]
-layout: "single"
-image: "/image/image-filename.png"
+image: "/image/image-filename.jpg"
+hero_position: "center center"
 draft: false
 ---
 ```
+
+Note: `layout: "single"` is NOT needed for pages in sections that have their own `layouts/<section>/single.html`.
+
+---
+
+## Site structure
+
+### Sections and layouts
+
+| Section | List layout | Single layout | Notes |
+|---|---|---|---|
+| `/products/` | `layouts/products/list.html` | `layouts/products/single.html` | Card grid + signposts |
+| `/portfolio/` | `layouts/portfolio/list.html` | `layouts/_default/single.html` | Card grid + signposts |
+| `/homelab/` | `layouts/homelab/list.html` | `layouts/homelab/single.html` | Card grid + signposts |
+| `/about/` | — | `layouts/about/single.html` | Circular photo + content |
+| `/contact/` | — | `layouts/contact/single.html` | Form + GDPR notice |
+| Homepage | `layouts/index.html` | — | Hero + how-it-works + product cards + signposts |
+
+### Key layout pattern
+All section list pages (products, portfolio, homelab) share the same structure:
+1. Hero image with title overlay (uses `image` and `hero_position` front matter)
+2. Intro text from `_index.md` content
+3. Card grid iterating `.Pages`
+4. Two signpost CTA cards at the bottom
+
+### `hero_position` front matter param
+Controls `background-position` on hero images. Set per page, e.g. `hero_position: "center top"` to prevent heads being cropped. Defaults to `center` if omitted.
 
 ---
 
 ## Key files
 
-### Product pages
-- `content/products/AI Voice Receptionist/index.md` — live AI Voice Receptionist page (original)
-- `content/products/ReceptionistV2/index.md` — rewritten AI Voice Receptionist page (in progress)
+### Images (all in `static/image/`)
+- `ProductsHeroPhoto.jpg` — Products section hero
+- `PortfolioHeroPhoto.jpg` — Portfolio section hero
+- `HomelabHeroPhoto.jpg` — Homelab section hero
+- `BusyTradespersonWhilePhoneRinging.jpg` — Trades Receptionist product hero
+- `FloristInShopOnPhone.jpg` — Florist Receptionist product hero
 
-### Shortcodes
-- `layouts/shortcodes/roi-calculator.html` — ROI calculator widget (embedded in product pages)
+### Product pages (`content/products/`)
+- `FloristReceptionist/index.md` — Florist AI Voice Receptionist page (live)
+- `TradesReceptionist/index.md` — Trades AI Voice Receptionist page (live)
+- `AI Voice Receptionist/index.md` — Original receptionist page (`draft: true`, hidden)
 
-### Layouts
-- `layouts/_default/single.html` — single page layout
-- `layouts/_default/baseof.html` — base layout
+### Shortcodes (`layouts/shortcodes/`)
+- `roi-calculator.html` — Generic ROI calculator (`{{< roi-calculator >}}`)
+- `roi-calculator-florist.html` — Florist defaults (`{{< roi-calculator-florist >}}`)
+- `roi-calculator-trades.html` — Trades defaults (`{{< roi-calculator-trades >}}`)
+- `audio-player.html` — Styled audio player (`{{< audio-player src="..." title="..." >}}`)
 
 ---
 
-## The ROI Calculator
+## ROI Calculators
 
-A self-contained HTML/CSS/JS widget embedded via Hugo shortcode. Key details:
+Three variants — generic, florist, trades. Each is a self-contained HTML/CSS/JS shortcode.
 
-- **Shortcode call**: `{{< roi-calculator >}}`
-- **File**: `layouts/shortcodes/roi-calculator.html`
-- **Scoping**: All CSS must be scoped to `#oa-roi-calc` to prevent styles leaking into the surrounding page. The outer div has `id="oa-roi-calc"` and every CSS rule is prefixed with `#oa-roi-calc`.
-- **Styling**: Dark theme (`#0f1117` background), amber accent (`#ffb632`), DM Serif Display + DM Sans fonts via Google Fonts
+### CSS scoping
+Each calculator is scoped to a unique ID to prevent style leakage:
+- Generic: `#oa-roi-calc`
+- Florist: `#oa-roi-calc-florist` (element IDs prefixed `fl-`)
+- Trades: `#oa-roi-calc-trades` (element IDs prefixed `tr-`)
 
-### Calculator inputs
-- Standard order / job value (£)
-- High-value order value (£) — e.g. wedding/funeral for florists
-- Estimated missed calls per day (slider, 1–30)
-- % of calls that are high-value (slider, 0–50%)
-- Monthly management / service fee (£)
+JS in each is wrapped in an IIFE with a uniquely named function.
 
-### Calculator outputs
-- Monthly revenue at risk
-- Annual revenue at risk
-- Cost breakdown (management fee + call costs)
-- Total monthly cost vs. revenue at risk ratio
-- Dynamic verdict message
-- Disclaimer + "Book a free consultation" CTA linking to `/contact`
-
-### Call cost constants (in the JS)
+### Shared constants
 ```javascript
 const COST_PER_MIN  = 0.13;   // £0.13 per minute
 const AVG_CALL_MINS = 2.5;    // average call length
-const WORKING_DAYS  = 22;     // working days per month
 ```
+- Trades/generic: `WORKING_DAYS = 22`
+- Florist: `WORKING_DAYS = 26` (6-day week)
 
-### Future variants planned
-- `roi-calculator-florist.html` — pre-filled with florist defaults (£60 standard, £800 high-value)
-- `roi-calculator-trades.html` — pre-filled with trades defaults
+### Defaults by variant
+| Variant | Std value | High value | Missed calls/day | High-value % | Svc fee |
+|---|---|---|---|---|---|
+| Florist | £60 | £800 | 10 | 10% | £200 |
+| Trades | £150 | £1,500 | 4 | 10% | £200 |
+
+---
+
+## CSS conventions (`static/css/style.css`)
+
+### Card image behaviour
+- `.product-card img` — `object-fit: cover`, `object-position: center top` (for photos)
+- `.product-grid--logos .product-card img` — `object-fit: contain`, `background: #f7f9ff`, `padding: 1.5rem` (for logo images, used in homelab)
+
+Apply `product-grid--logos` class to the `.product-grid` div when cards contain logos rather than photos.
+
+### Blockquote styling in `.product-body`
+- `> text` (single blockquote) — blue left border panel (`#4facfe`)
+- `>> text` (nested blockquote) — amber left border callout (`#ffb632`); outer wrapper is transparent via `:has(> blockquote)`
+
+### Section panel colours
+- `.how-it-works` — white background
+- `.products-section` — `#eef3fb` (light blue-grey)
+- `.signpost` — white background
 
 ---
 
 ## Pricing model (AI Voice Receptionist)
 
 - **Setup fee**: £500 (one-off)
-- **Monthly management fee**: £200–£300/month depending on complexity
+- **Monthly management fee**: from £200/month
 - **Call/AI costs**: Passed through at cost — £0.13/min, ~2.5 min avg = ~£0.33/call
-- **Typical total monthly cost**: £260–£400/month all-in
 - **Minimum contract**: 3 months, then rolling monthly
 
 ---
@@ -106,28 +151,25 @@ const WORKING_DAYS  = 22;     // working days per month
 ## Target market
 
 Primary verticals for the AI Voice Receptionist:
-- **Florists** — high value missed calls (standard £60, weddings £thousands, funerals £600–£1,000)
-- **Trades** — plumbers, electricians, heating engineers (£110–£1,200 per job)
+- **Florists** — standard job £60, weddings £thousands, funerals £600–£1,000
+- **Trades** — plumbers, electricians, heating engineers (£110–£1,500 per job)
 - **Salons and pet services** — booking-dependent businesses
 - **Independent retailers** — flooring shops, etc.
-- **Pubs and hospitality** — lower ROI case, value is time-saving not revenue protection
 
 ---
 
 ## Content and tone guidelines
 
-- Write for **sceptical small business owners**, not tech enthusiasts
-- Lead with **pain and cost**, not technology features
-- Use **concrete £ figures** wherever possible
-- Avoid jargon — "answers your calls" not "AI-powered voice automation"
-- The audio demo recording is at `media/OA_Receptionist_Example_Call.mp3` — always link to it on the product page
-- Audio shortcode format: `{{<audio src="media/OA_Receptionist_Example_Call.mp3" title="AI Voice Receptionist Example Call">}}`
+- **Products/portfolio**: Write for sceptical small business owners. Lead with pain and cost, not features. Concrete £ figures. No jargon.
+- **Homelab**: Unabashedly technical. Audience is fellow tinkerers and organisations evaluating technical depth.
+- Audio demo: `static/media/OA_Receptionist_Example_Call.mp3` — always link on receptionist product pages
+- Audio shortcode: `{{< audio-player src="media/OA_Receptionist_Example_Call.mp3" title="Hear the AI receptionist in action" >}}`
 
 ---
 
-## Current work in progress
+## Pending / next steps
 
-1. **ReceptionistV2 page** — rewritten product page being tested at `/products/receptionistv2/`. Once approved it will replace the live page at `/products/ai-voice-receptionist/`.
-2. **ROI calculator** — embedded in ReceptionistV2. CSS scoping issues have been resolved using `#oa-roi-calc` ID. The calculator is working correctly.
-3. **New hero image** — the current robot sketch image needs replacing with a professional photo. Owner is generating one via Midjourney/DALL-E. Suggested prompt: *"Professional photo of a friendly receptionist at a modern small business front desk answering a phone, warm lighting, shallow depth of field, no text, clean background — commercial photography style"*
-4. **Vertical-specific pages** — future pages targeting florists, trades, etc. each with a tailored calculator variant.
+- Mobile responsiveness check across all changed pages
+- Individual homelab article pages — review content and layout
+- Individual portfolio article pages — review content and layout
+- Navigation review
