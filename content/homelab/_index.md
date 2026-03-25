@@ -2,7 +2,7 @@
 date: '2025-07-01'
 draft: false
 title: 'Homelab'
-description: "The infrastructure behind ObserveAutomation — documented."
+description: "Proxmox, Docker, n8n and monitoring stacks — technical articles from the ObserveAutomation homelab. Self-hosted infrastructure, documented in detail."
 categories: ["homelab"]
 tags: ["Homelab", "n8n", "Docker", "Proxmox"]
 image: "/image/HomelabHeroPhoto.jpg"

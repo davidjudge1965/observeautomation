@@ -2,7 +2,7 @@
 date: '2025-07-01'
 draft: false
 title: 'Portfolio'
-description: "Real automation projects — built to solve real problems."
+description: "Automation and AI projects built with n8n — from AI voice receptionists to workflow automation. Real work, real results, by ObserveAutomation."
 image: "/image/PortfolioHeroPhoto.jpg"
 hero_position: "center center"
 ---

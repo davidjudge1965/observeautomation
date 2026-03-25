@@ -1,7 +1,7 @@
 ---
 date: '2026-01-07'
 title: 'Every missed call is a missed bouquet sale'
-description: "Never miss a customer call again — an AI receptionist that answers your phone, handles common questions, and redirects time-wasting sales calls so you can focus on the job."
+description: "AI voice receptionist for florists. Never miss a wedding enquiry, bouquet order, or funeral booking. Answers every call, 24/7. From £200/month, UK-based."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"

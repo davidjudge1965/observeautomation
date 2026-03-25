@@ -1,7 +1,7 @@
 ---
 date: '2026-01-07'
 title: 'Every missed call is a missed job'
-description: "You're on a job when your phone rings. By the time you're free, they've already booked someone else. An AI receptionist that answers every call, captures every enquiry, and screens out the time-wasters."
+description: "AI voice receptionist for plumbers, electricians and heating engineers. Answer every call while you're on the tools. Capture every job. From £200/month, UK."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
