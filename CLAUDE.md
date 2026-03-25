@@ -167,8 +167,42 @@ Primary verticals for the AI Voice Receptionist:
 
 ---
 
+## SEO status
+
+### Phase 1 — Technical foundations (complete)
+- `enableRobotsTXT = true` in hugo.toml
+- Google Analytics 4 active (ID: `G-4BN5LK4X9N`, hardcoded in baseof.html)
+- Google Search Console registered since 2026-02-01, sitemap submitted
+- Open Graph + Twitter Card meta tags in baseof.html (uses page `image` + `description` from front matter, with site-level fallbacks)
+- Meta description tag in baseof.html; site-level fallback in `hugo.toml` `[params] description`
+- LocalBusiness + Service structured data (schema.org) in baseof.html — validated clean in Google Rich Results Test
+- `html lang` set to `en-GB`
+
+### Phase 2 — Keyword strategy (defined, not yet fully implemented)
+Primary targets: `AI voice receptionist UK`, `AI receptionist for florists UK`, `AI receptionist for tradespeople UK`, `business automation Milton Keynes`
+Local towns: Leighton Buzzard, Milton Keynes, Aylesbury
+
+### Phase 3 — Meta descriptions (complete)
+All key pages now have unique, keyword-rich descriptions:
+- Homepage: via `hugo.toml` `[params] description`
+- Florist Receptionist, Trades Receptionist, Products, Portfolio, Homelab, About, Contact: all updated in front matter
+
+### Phase 4 — Blog (next)
+- Blog nav link is commented out in baseof.html — needs enabling when first post is ready
+- Priority topics: florist missed call cost, trades missed call cost, AI vs human receptionist explainer
+- Hugo section for blog likely already exists (check `content/blog/` or `content/posts/`)
+
+### Phase 5 — Local SEO (pending)
+- Google Business Profile — not yet created
+- Full street address + postcode can be added to LocalBusiness schema when ready (currently town/region only)
+- Telephone number to be added when test number is retired
+
+---
+
 ## Pending / next steps
 
+- **SEO Phase 4**: Blog — first two posts (florist pain, trades pain)
+- **SEO Phase 5**: Google Business Profile
 - Mobile responsiveness check across all changed pages
 - Individual homelab article pages — review content and layout
 - Individual portfolio article pages — review content and layout
