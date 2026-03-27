@@ -44,7 +44,7 @@ I also built a feature that can draft replies to emails — but deliberately lef
 
 ## What it costs to run
 
-The sorting itself runs on software on my own server, so the main cost is the AI that reads and classifies each email.  For a customer, this would run on their own server or "VPS" (Virtual Private Server) whose cost is typically between £% and £8 per month.
+The sorting itself runs on software on my own server, so the main cost is the AI that reads and classifies each email.  For a customer, this would run on their own server or "VPS" (Virtual Private Server) whose cost is typically between £5 and £8 per month.
 
 For a typical business inbox, that works out to between 1p and 10p per email — depending on how long and complex the email is. For most businesses, the total monthly cost is a few pounds.
 
