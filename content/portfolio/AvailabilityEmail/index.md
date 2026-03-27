@@ -2,7 +2,7 @@
 date: '2025-12-17'
 draft: false
 title: 'Availability Finder'
-description: "Automating a daily email with my availability"
+description: "An n8n automation that checks my Google Calendar every morning and emails me a clean table of available slots — no manual diary-checking needed."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "availability"]
 layout: "single"
@@ -66,7 +66,7 @@ with at least 30 minutes of free time between events:
 
 Please let me know if you need any other scheduling assistance!
 
-Refresh: https://n8n.lab.davidmjudge.me.uk/webhook/getavailability
+Refresh: https://[your-n8n-server]/webhook/[webhook-name]
 
 ```
 

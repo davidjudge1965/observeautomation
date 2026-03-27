@@ -2,7 +2,7 @@
 date: '2025-10-22T17:38:12+01:00'
 draft: false
 title: 'Job Search Optimisation automation using n8n'
-description: "Job Search Optimisation automation using n8n"
+description: "Cutting 300 daily job listings down to a manageable shortlist using AI analysis and n8n automation — saving 2–3 hours of reading every day."
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "automation", "classification"]
 layout: "single"

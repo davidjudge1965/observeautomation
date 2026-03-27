@@ -1,7 +1,7 @@
 ---
 date: '2025-12-23'
 title: 'Invoice/Receipt Processing'
-description: "Automatically processing invoices or receipts placed in Google Drive."
+description: "Automating invoice and receipt processing with AI — drop a PDF in Google Drive, get it read, converted and recorded in the accounting system automatically."
 categories: ["Portfolio"]
 tags: ["Portfolio", "n8n", "GenAI"]
 layout: "single"
