@@ -10,7 +10,8 @@
       "Bash(python3 -c \"from PIL import Image; print\\(''ok''\\)\")",
       "Bash(python -c \"from PIL import Image; print\\(''ok''\\)\")",
       "Bash(python -m pip install Pillow -q)",
-      "Bash(python -c \":*)"
+      "Bash(python -c \":*)",
+      "Bash(gh api:*)"
     ]
   }
 }
