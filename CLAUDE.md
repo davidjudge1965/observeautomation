@@ -187,10 +187,13 @@ All key pages now have unique, keyword-rich descriptions:
 - Homepage: via `hugo.toml` `[params] description`
 - Florist Receptionist, Trades Receptionist, Products, Portfolio, Homelab, About, Contact: all updated in front matter
 
-### Phase 4 — Blog (next)
-- Blog nav link is commented out in baseof.html — needs enabling when first post is ready
-- Priority topics: florist missed call cost, trades missed call cost, AI vs human receptionist explainer
-- Hugo section for blog likely already exists (check `content/blog/` or `content/posts/`)
+### Phase 4 — Blog (in progress)
+- Blog section live: `content/blog/`, `layouts/blog/list.html`, nav link enabled
+- Hero image: `BlogHeroPhoto.jpg`
+- **Post 1**: `missed-calls-tradespeople` — published 2026-03-25
+- **Post 2**: `missed-calls-florists` — scheduled 2026-03-27 (future-dated, auto-publishes)
+- ROI calculator florist default still uses £60 for standard order — may need updating to £50
+- **Next blog topics**: Invoice/receipt processing, Gmail labelling (portfolio → blog adaptations)
 
 ### Phase 5 — Local SEO (pending)
 - Google Business Profile — not yet created
