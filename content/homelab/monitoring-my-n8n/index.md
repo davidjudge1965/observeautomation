@@ -116,7 +116,7 @@ First, within InfluxDB's UI I created a new "bucket" called homelab.
 
 I then created a configuration for the "Metrics" configuration of PVE:
 
-![alt text](assets/Creating_PVE_Config.jpg)
+![Creating the Proxmox VE metrics configuration for InfluxDB](assets/Creating_PVE_Config.jpg)
 
 Note that the influxDB organisation "docs" comes out of the box.
 

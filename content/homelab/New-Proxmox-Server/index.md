@@ -56,18 +56,18 @@ This script will update the configuration to use the no-subscription repo and di
 Running the script is easy.  Select you PVE server in the PVE Web UI, then select Shell.
 From the documentation of PVE Post INstall, copy the command and paste it into the Shell window.
 
-![alt text](<assets/Shell Window before running the helper script.jpg>)
+![Proxmox shell window before running the post-install helper script](assets/Shell Window before running the helper script.jpg)
 
 Once you've answered all the prompts, the script applies the changes:
 
-![Alt](<assets/Helper Script running.jpg>)
+![Proxmox post-install helper script running and applying changes](assets/Helper Script running.jpg)
 
 Reboot to complete the process:
 
-![alt text](<assets/Helper Script Prompt to Reboot.jpg>)
+![Helper script prompting to reboot after changes applied](assets/Helper Script Prompt to Reboot.jpg)
 
 The next screen allows you to reboot without leaving the script.
 
-![alt text](<assets/Helper Script Just before rebooting.jpg>)
+![Helper script final screen just before rebooting Proxmox](assets/Helper Script Just before rebooting.jpg)
 
 

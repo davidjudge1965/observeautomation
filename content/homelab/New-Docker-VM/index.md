@@ -207,4 +207,4 @@ sudo usermod -aG docker $USER
 You will need to log out and log back in for that to take effect.  For efficiency, you may want to run this command before the shutdown/start of the VM.
 
 Just to be able to show that our docker VM is up and running I deployed Traefik... Here's the dashboard:
-![alt text](assets/Traefik_Dashboard.jpg)
+![Traefik reverse proxy dashboard running on the Docker VM](assets/Traefik_Dashboard.jpg)

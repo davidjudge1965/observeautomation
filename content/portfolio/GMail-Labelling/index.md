@@ -30,7 +30,7 @@ An analysis of the requirements allowed me to confirm that all of the requiremen
 
 Thus we have this high-level flow:
 
-![Alt](./images/Email_Processor_Flow.png)
+![High-level flow diagram of the Gmail labelling automation](./images/Email_Processor_Flow.png)
 
 I wanted the user to be able to update the configuration without having to learn n8n, so I placed the configuration items (emails to exclude, those to mark as advertisers and the labels to use) in a Google Sheet that they can access through their browser.  It's an interface they're used to so they adapted very quickly.
 
@@ -38,7 +38,7 @@ I extended the automation to create draft replies to emails if required (but dis
 
 Here's the final n8n workflow with annotations:
 
-![Alt](./images/EmailProcessorworkflowwithnewcomments.png)
+![Annotated n8n workflow for the Gmail email processor](./images/EmailProcessorworkflowwithnewcomments.png)
 
 
 ## What does it cost?

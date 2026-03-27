@@ -60,7 +60,7 @@ Here's the logic:
 ![Move to Tracker Logic](./images/Jobseeker-Move-To-Tracking-Sheet-Flow.png)
 
 And here's the actual flow from n8n:
-![Move to tracker n8n flow(./images/Jobseeker_Move_to_tracker_Workflow.png)
+![Move to tracker n8n workflow in Job Search Optimisation](./images/Jobseeker_Move_to_tracker_Workflow.png)
 
 
 ## What does it cost?

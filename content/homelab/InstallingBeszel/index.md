@@ -60,11 +60,11 @@ To access the dashboard, point your browser to http://<your_IP>:8090
 
 In your browser you are prompted to create the Beszel administrator account:
 
-![alt text](images/Beszel_Create_Admin_Login.jpg#center)
+![Beszel create administrator account screen](images/Beszel_Create_Admin_Login.jpg#center)
 
 After which you are taken to the dashboard:
 
-![alt text](images/Beszel_empty_dashboard.jpg)
+![Beszel empty dashboard before adding any systems](images/Beszel_empty_dashboard.jpg)
 
 As you can see, it's empty and we need to add systems to monitor.
 
@@ -74,7 +74,7 @@ To keep things simple at this stage, I'm going to configure the agent in it's ow
 
 Clocking on "+ Add Server" (top right of the dashboard), we get a pop up and can provide information on what we're adding.  In this case, I'm going select "docker", name the system "docker04" and provide the fqdn for the server.  Beszel will populate the other fields: port, public key and the token.
 
-![alt text](images/Completed_Add_System_docker04.jpg#center)
+![Completed Add System dialog for docker04 in Beszel](images/Completed_Add_System_docker04.jpg#center)
 
 Once this is all entered, clicking on "Copy docker compose" which lets me copy the compose file.  Below you can see the docker compose file being created along with the data directory.
 
@@ -107,7 +107,7 @@ Last but not least, I click on the "Add system" to add the entry to the dashboar
 > You must click on "Add system" for the  Beszel dashbaord to receive data from the agent!
 
 
-![alt text](images/Bescel_Dashboard_after_adding_docker04.jpg)
+![Beszel dashboard after adding docker04 as a monitored system](images/Bescel_Dashboard_after_adding_docker04.jpg)
 
 As I start the agent, we can see the logs showing it's connecting to the Beszel server:
 ``` bash
@@ -125,4 +125,4 @@ w Enable Watch   d Detach
 ```
 
 Shortly after we start to see data coming into Beszel:
-![alt text](images/Beszel_Dashboard_With_docker04_Data.jpg)
+![Beszel dashboard showing live metrics from docker04](images/Beszel_Dashboard_With_docker04_Data.jpg)

@@ -195,17 +195,22 @@ All key pages now have unique, keyword-rich descriptions:
 - ROI calculator florist default still uses £60 for standard order — may need updating to £50
 - **Next blog topics**: Invoice/receipt processing, Gmail labelling (portfolio → blog adaptations)
 
-### Phase 5 — Local SEO (pending)
-- Google Business Profile — not yet created
+### Phase 5 — Local SEO (largely complete)
+- Google Business Profile created, verified, and live
+- Description set in plain English (not jargon)
+- Hours: By appointment
+- Service: "AI Consultancy for Small Business" — one service; products/portfolio are examples, not separate services
+- Category still showing "IT support and services" — needs updating to something more accurate
+- Logo uploaded: OA_Logo_Square.jpg (720×720, generated from site logo)
 - Full street address + postcode can be added to LocalBusiness schema when ready (currently town/region only)
-- Telephone number to be added when test number is retired
+- Telephone number to be added to schema and Contact page when test number is retired
 
 ---
 
 ## Pending / next steps
 
-- **SEO Phase 4**: Blog — first two posts (florist pain, trades pain)
-- **SEO Phase 5**: Google Business Profile
+- **SEO Phase 4**: Blog — first two posts done; next: invoice/receipt processing, Gmail labelling (adapted from portfolio)
+- **SEO Phase 5**: Google Business Profile live — fix category ("IT support and services" is wrong)
 - Mobile responsiveness check across all changed pages
 - Individual homelab article pages — review content and layout
 - Individual portfolio article pages — review content and layout

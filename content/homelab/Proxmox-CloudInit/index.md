@@ -78,7 +78,7 @@ qm create --boot order=scsi0
 ### Add a Cloudinit 'drive' to the VM
 The cloudinit drive (usually an ISO file - pve will (re-)generate it for you) contains the parameters for the cloudinit operation that will take place when the VM boots.
 The parameters/values can be set in the Proxmox GUI and this is done later in this process:
-![Alt](/images/VM_Cloudinit_parameters.png)
+![VM CloudInit parameters configuration in the Proxmox GUI](images/VM_Cloudinit_parameters.png)
 
 Note that the first command will create the cloud-init disk - though it's actually an ISO file rather than a generic disk.  It will output the progress of the creation of the disk.
 
