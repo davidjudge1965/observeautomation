@@ -18,7 +18,7 @@ Nearly 70% of business enquiries still arrive by phone. Yet almost half of all c
 For most small businesses, a missed call isn't just an inconvenience. It's lost revenue:
 
 
->- A **florist** missing 10 calls a day at £60 per order loses up to **£16,200 a month** — and a single missed wedding or funeral enquiry could cost £600 to £2,000 or more
+>- A **florist** missing 10 calls a day at £50 per order loses up to **£13,000 a month** — and a single missed wedding or funeral enquiry could cost £600 to £2,000 or more
 >- A **salon or grooming business** missing booking calls loses appointments that simply go to a competitor
 
 

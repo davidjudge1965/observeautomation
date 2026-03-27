@@ -8,43 +8,6 @@ The owner is building a consultancy around **AI and automation for small busines
 
 ---
 
-## Hugo setup
-
-- **Framework**: Hugo with the **PaperMod** theme (largely overridden with custom layouts)
-  - GitHub: https://github.com/adityatelange/hugo-PaperMod/
-  - Wiki: https://github.com/adityatelange/hugo-PaperMod/wiki
-- **Config file**: `hugo.toml` in the project root
-- **Content directory**: `content/`
-- **Layouts directory**: `layouts/`
-- **Shortcodes**: `layouts/shortcodes/`
-- **Static assets**: `static/` (images go in `static/image/`, referenced as `/image/filename`)
-- **Local dev server**: `hugo server -D` — runs at `http://localhost:1313`
-
-### Important Hugo config
-Unsafe HTML rendering must be enabled for shortcodes with raw HTML to work:
-```toml
-[markup.goldmark.renderer]
-  unsafe = true
-```
-
-### Front matter format (use this exact format for all content files)
-```yaml
----
-date: '2026-01-07'
-title: 'Page Title'
-description: "Page description here."
-categories: ["Products"]
-tags: ["Products", "n8n", "GenAI"]
-image: "/image/image-filename.jpg"
-hero_position: "center center"
-draft: false
----
-```
-
-Note: `layout: "single"` is NOT needed for pages in sections that have their own `layouts/<section>/single.html`.
-
----
-
 ## Site structure
 
 ### Sections and layouts
@@ -52,21 +15,26 @@ Note: `layout: "single"` is NOT needed for pages in sections that have their own
 | Section | List layout | Single layout | Notes |
 |---|---|---|---|
 | `/products/` | `layouts/products/list.html` | `layouts/products/single.html` | Card grid + signposts |
+| `/services/` | `layouts/services/list.html` | — | Hero + 6 service cards + signposts |
 | `/portfolio/` | `layouts/portfolio/list.html` | `layouts/_default/single.html` | Card grid + signposts |
+| `/blog/` | `layouts/blog/list.html` | `layouts/_default/single.html` | Card grid with post dates + signposts |
 | `/homelab/` | `layouts/homelab/list.html` | `layouts/homelab/single.html` | Card grid + signposts |
 | `/about/` | — | `layouts/about/single.html` | Circular photo + content |
 | `/contact/` | — | `layouts/contact/single.html` | Form + GDPR notice |
 | Homepage | `layouts/index.html` | — | Hero + how-it-works + product cards + signposts |
 
+### Navigation order
+Home · Products · Services · Portfolio · Blog · Homelab · About · Contact
+
 ### Key layout pattern
-All section list pages (products, portfolio, homelab) share the same structure:
+All section list pages share the same structure:
 1. Hero image with title overlay (uses `image` and `hero_position` front matter)
 2. Intro text from `_index.md` content
 3. Card grid iterating `.Pages`
 4. Two signpost CTA cards at the bottom
 
 ### `hero_position` front matter param
-Controls `background-position` on hero images. Set per page, e.g. `hero_position: "center top"` to prevent heads being cropped. Defaults to `center` if omitted.
+Controls `background-position` on hero images. E.g. `hero_position: "center top"` prevents heads being cropped. Defaults to `center` if omitted.
 
 ---
 
@@ -76,66 +44,20 @@ Controls `background-position` on hero images. Set per page, e.g. `hero_position
 - `ProductsHeroPhoto.jpg` — Products section hero
 - `PortfolioHeroPhoto.jpg` — Portfolio section hero
 - `HomelabHeroPhoto.jpg` — Homelab section hero
+- `ServicesHeroPhoto.jpg` — Services section hero
+- `BlogHeroPhoto.jpg` — Blog section hero
 - `BusyTradespersonWhilePhoneRinging.jpg` — Trades Receptionist product hero
 - `FloristInShopOnPhone.jpg` — Florist Receptionist product hero
+- `OA_Logo_Square.jpg` — 720×720 square logo crop (Google Business Profile)
 
 ### Product pages (`content/products/`)
-- `FloristReceptionist/index.md` — Florist AI Voice Receptionist page (live)
-- `TradesReceptionist/index.md` — Trades AI Voice Receptionist page (live)
+- `FloristReceptionist/index.md` — Florist AI Voice Receptionist (live)
+- `TradesReceptionist/index.md` — Trades AI Voice Receptionist (live)
 - `AI Voice Receptionist/index.md` — Original receptionist page (`draft: true`, hidden)
 
 ### Shortcodes (`layouts/shortcodes/`)
-- `roi-calculator.html` — Generic ROI calculator (`{{< roi-calculator >}}`)
-- `roi-calculator-florist.html` — Florist defaults (`{{< roi-calculator-florist >}}`)
-- `roi-calculator-trades.html` — Trades defaults (`{{< roi-calculator-trades >}}`)
+- `roi-calculator.html`, `roi-calculator-florist.html`, `roi-calculator-trades.html` — ROI calculators
 - `audio-player.html` — Styled audio player (`{{< audio-player src="..." title="..." >}}`)
-
----
-
-## ROI Calculators
-
-Three variants — generic, florist, trades. Each is a self-contained HTML/CSS/JS shortcode.
-
-### CSS scoping
-Each calculator is scoped to a unique ID to prevent style leakage:
-- Generic: `#oa-roi-calc`
-- Florist: `#oa-roi-calc-florist` (element IDs prefixed `fl-`)
-- Trades: `#oa-roi-calc-trades` (element IDs prefixed `tr-`)
-
-JS in each is wrapped in an IIFE with a uniquely named function.
-
-### Shared constants
-```javascript
-const COST_PER_MIN  = 0.13;   // £0.13 per minute
-const AVG_CALL_MINS = 2.5;    // average call length
-```
-- Trades/generic: `WORKING_DAYS = 22`
-- Florist: `WORKING_DAYS = 26` (6-day week)
-
-### Defaults by variant
-| Variant | Std value | High value | Missed calls/day | High-value % | Svc fee |
-|---|---|---|---|---|---|
-| Florist | £60 | £800 | 10 | 10% | £200 |
-| Trades | £150 | £1,500 | 4 | 10% | £200 |
-
----
-
-## CSS conventions (`static/css/style.css`)
-
-### Card image behaviour
-- `.product-card img` — `object-fit: cover`, `object-position: center top` (for photos)
-- `.product-grid--logos .product-card img` — `object-fit: contain`, `background: #f7f9ff`, `padding: 1.5rem` (for logo images, used in homelab)
-
-Apply `product-grid--logos` class to the `.product-grid` div when cards contain logos rather than photos.
-
-### Blockquote styling in `.product-body`
-- `> text` (single blockquote) — blue left border panel (`#4facfe`)
-- `>> text` (nested blockquote) — amber left border callout (`#ffb632`); outer wrapper is transparent via `:has(> blockquote)`
-
-### Section panel colours
-- `.how-it-works` — white background
-- `.products-section` — `#eef3fb` (light blue-grey)
-- `.signpost` — white background
 
 ---
 
@@ -151,7 +73,7 @@ Apply `product-grid--logos` class to the `.product-grid` div when cards contain 
 ## Target market
 
 Primary verticals for the AI Voice Receptionist:
-- **Florists** — standard job £60, weddings £thousands, funerals £600–£1,000
+- **Florists** — standard order £50, weddings £thousands, funerals £600–£1,000
 - **Trades** — plumbers, electricians, heating engineers (£110–£1,500 per job)
 - **Salons and pet services** — booking-dependent businesses
 - **Independent retailers** — flooring shops, etc.
@@ -160,7 +82,7 @@ Primary verticals for the AI Voice Receptionist:
 
 ## Content and tone guidelines
 
-- **Products/portfolio**: Write for sceptical small business owners. Lead with pain and cost, not features. Concrete £ figures. No jargon.
+- **Products/portfolio/blog**: Write for sceptical small business owners. Lead with pain and cost, not features. Concrete £ figures. Short punchy sentences. No jargon.
 - **Homelab**: Unabashedly technical. Audience is fellow tinkerers and organisations evaluating technical depth.
 - Audio demo: `static/media/OA_Receptionist_Example_Call.mp3` — always link on receptionist product pages
 - Audio shortcode: `{{< audio-player src="media/OA_Receptionist_Example_Call.mp3" title="Hear the AI receptionist in action" >}}`
@@ -170,48 +92,38 @@ Primary verticals for the AI Voice Receptionist:
 ## SEO status
 
 ### Phase 1 — Technical foundations (complete)
-- `enableRobotsTXT = true` in hugo.toml
-- Google Analytics 4 active (ID: `G-4BN5LK4X9N`, hardcoded in baseof.html)
-- Google Search Console registered since 2026-02-01, sitemap submitted
-- Open Graph + Twitter Card meta tags in baseof.html (uses page `image` + `description` from front matter, with site-level fallbacks)
-- Meta description tag in baseof.html; site-level fallback in `hugo.toml` `[params] description`
-- LocalBusiness + Service structured data (schema.org) in baseof.html — validated clean in Google Rich Results Test
-- `html lang` set to `en-GB`
+- `enableRobotsTXT = true`, GA4 active (ID: `G-4BN5LK4X9N`), Search Console registered 2026-02-01
+- Open Graph + Twitter Card tags, meta descriptions, LocalBusiness schema — all in `baseof.html`, validated in Rich Results Test
+- `html lang="en-GB"`
 
-### Phase 2 — Keyword strategy (defined, not yet fully implemented)
+### Phase 2 — Keyword strategy (defined)
 Primary targets: `AI voice receptionist UK`, `AI receptionist for florists UK`, `AI receptionist for tradespeople UK`, `business automation Milton Keynes`
 Local towns: Leighton Buzzard, Milton Keynes, Aylesbury
 
 ### Phase 3 — Meta descriptions (complete)
-All key pages now have unique, keyword-rich descriptions:
-- Homepage: via `hugo.toml` `[params] description`
-- Florist Receptionist, Trades Receptionist, Products, Portfolio, Homelab, About, Contact: all updated in front matter
+All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, Trades, Products, Portfolio, Services, Homelab, About, Contact, Blog.
 
 ### Phase 4 — Blog (in progress)
-- Blog section live: `content/blog/`, `layouts/blog/list.html`, nav link enabled
-- Hero image: `BlogHeroPhoto.jpg`
-- **Post 1**: `missed-calls-tradespeople` — published 2026-03-25
-- **Post 2**: `missed-calls-florists` — scheduled 2026-03-27 (future-dated, auto-publishes)
-- ROI calculator florist default still uses £60 for standard order — may need updating to £50
-- **Next blog topics**: Invoice/receipt processing, Gmail labelling (portfolio → blog adaptations)
+- Post 1: `missed-calls-tradespeople` — live 2026-03-25
+- Post 2: `missed-calls-florists` — live 2026-03-27
+- Post 3: `email-sorting-automation` — live 2026-04-01
+- Post 4: invoice/receipt processing — deferred (automation being rewritten)
 
 ### Phase 5 — Local SEO (largely complete)
-- Google Business Profile created, verified, and live
-- Description set in plain English (not jargon)
-- Hours: By appointment
-- Service: "AI Consultancy for Small Business" — one service; products/portfolio are examples, not separate services
-- Category still showing "IT support and services" — needs updating to something more accurate
-- Logo uploaded: OA_Logo_Square.jpg (720×720, generated from site logo)
-- Full street address + postcode can be added to LocalBusiness schema when ready (currently town/region only)
-- Telephone number to be added to schema and Contact page when test number is retired
+- Google Business Profile live; description, hours (by appointment), logo (OA_Logo_Square.jpg) all set
+- Categories: "IT support and services" (primary, still wrong) + "Business management consultant"
+- Address (town/region only) and telephone to be added to schema when ready
 
 ---
 
 ## Pending / next steps
 
-- **SEO Phase 4**: Blog — first two posts done; next: invoice/receipt processing, Gmail labelling (adapted from portfolio)
-- **SEO Phase 5**: Google Business Profile live — fix category ("IT support and services" is wrong)
-- Mobile responsiveness check across all changed pages
-- Individual homelab article pages — review content and layout
-- Individual portfolio article pages — review content and layout
-- Navigation review
+- **Blog post 4**: Invoice/receipt processing — wait for automation rewrite
+- **Google Business Profile**: Fix primary category ("IT support and services" is not accurate)
+- **Homelab articles**: Review content and layout — user needs to create artefacts first
+- **"Monitoring n8n in my lab"**: Needs a better hero image (AI-generated image prompt available)
+- **Schema**: Add phone number and full address when test number is retired
+
+---
+
+@docs/CLAUDE-TECHNICAL.md

@@ -6,7 +6,7 @@ description: "Practical AI and automation services for small businesses and orga
 categories: ["Services"]
 tags: ["Services", "Automation", "AI"]
 image: "/image/ServicesHeroPhoto.jpg"
-hero_position: "center center"
+hero_position: "center top"
 ---
 
 Practical automation and AI, built and managed for you. Whether you need a specific solution or just want to understand where automation could make a difference — here's what I do.
