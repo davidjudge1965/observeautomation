@@ -84,6 +84,8 @@ Primary verticals for the AI Voice Receptionist:
 
 - **Products/portfolio/blog**: Write for sceptical small business owners. Lead with pain and cost, not features. Concrete £ figures. Short punchy sentences. No jargon.
 - **Homelab**: Unabashedly technical. Audience is fellow tinkerers and organisations evaluating technical depth.
+- **British English always**: "organise" not "organize", "recognise" not "recognize", "colour" not "color", etc.
+- **No em-dashes** (—): use a comma, colon, or restructure the sentence instead.
 - Audio demo: `static/media/OA_Receptionist_Example_Call.mp3` — always link on receptionist product pages
 - Audio shortcode: `{{< audio-player src="media/OA_Receptionist_Example_Call.mp3" title="Hear the AI receptionist in action" >}}`
 

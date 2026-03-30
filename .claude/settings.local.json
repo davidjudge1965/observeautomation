@@ -11,7 +11,13 @@
       "Bash(python -c \"from PIL import Image; print\\(''ok''\\)\")",
       "Bash(python -m pip install Pillow -q)",
       "Bash(python -c \":*)",
-      "Bash(gh api:*)"
+      "Bash(gh api:*)",
+      "Bash(claude config:*)",
+      "Read(//c/Users/david/.claude/**)",
+      "Read(//c/Users/david/AppData/Roaming/Claude/**)",
+      "WebSearch",
+      "WebFetch(domain:www.loql.io)",
+      "WebFetch(domain:www.dbwd.co.uk)"
     ]
   }
 }

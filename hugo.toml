@@ -1,11 +1,11 @@
 baseURL = 'https://www.observeautomation.com/'
-relativeURLs = true
-canonifyURLs = true
 languageCode = 'en-GB'
 title = "ObserveAutomation"
 theme = "PaperMod"
-environment = "production"
 enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 12
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -22,7 +22,11 @@ description = "AI automation and voice receptionist for UK small businesses. Nev
 [privacy]
   [privacy.googleAnalytics]
     disable = false
-    respectDoNotTrack = false
+    respectDoNotTrack = true
+
+[sitemap]
+  changeFreq = "weekly"
+  priority = 0.5
 
 [params.vapi]
 publicKey = "9a52eda7-9f64-41f7-9686-29bb583c17d3"      # from dashboard (public)

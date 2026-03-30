@@ -28,17 +28,23 @@ We need a UK number - provided by Twillio.
 We need a Voice AI platform: VAPI.ai
 We need back-end services to deal with caller questions or requests: my self-hosted n8n
 
+Pleased with the results, I have created 2 "products", one for florists and one for trades.  Here are the links:
+
+>[Florist Product](content/products/FloristReceptionist) and [Florist Blog](content/blog/missed-calls-florists)
+
+>[Trades Product](content/products/TradesReceptionist) and [Trades Blog](content/blog/missed-calls-tradespeople)
+
 ## Twilio
 
-Initially, I am using the "free" or "trial" plan that Twilio offers.  It has some limitations such as it will only answer questions from a "verified number" (my mobile).
+Initially, I am using the "free" or "trial" plan that Twilio offers.  It has some limitations such as it will only answer calls from a "verified number" (my mobile).
 
-Also, as I am in the UK, there are some regulatory hurdles: I need to create a "regulatory bundle".  This can be done as an individual or as a company.  However as a company, Observe Automation would need to be registered at Companies House and I haven't registered it yet.  The registration is relatively cheap but once it's done other costs come in such as accounting.
+Also, as I am in the UK, there are some regulatory hurdles: I will need to create a "regulatory bundle".  This can be done as an individual or as a company.  However as a company, Observe Automation would need to be registered at Companies House and I haven't registered it yet.  The registration is relatively cheap but once it's done other costs come in such as accounting costs.
 
-Once you've created a free/trial Twilio account, go to Phone Numbers > Manage > Buy A Number.  The free/trial Twilio account lets you create one number.  You will get charged for its usage, but the trial plan comes with a little more that £10 credit.  My monthly fee is around $0.84.
+Once you've created a free/trial Twilio account, go to Phone Numbers > Manage > Buy A Number.  The free/trial Twilio account lets you create one number.  You will get charged for its usage, but the trial plan comes with a little more that £10 credit.  My monthly fee is around $0.84 (around 60p).
 
-You then need to create a "regulatory" bundle.  I chose the "personal" type as my company is not registered.  The 2nd step of this process is providing documentation proving who you are.  I used my passport and driving license.  The regulatory guidelines for Twillio UK numbers are [here](https://www.twilio.com/en-us/guidelines/gb/regulatory).
+At this point you need to create the "regulatory" bundle.  I chose the "personal" type as my company is not registered.  The 2nd step of this process is providing documentation proving who you are.  I used my passport and driving license.  The regulatory guidelines for Twillio UK numbers are [here](https://www.twilio.com/en-us/guidelines/gb/regulatory).
 
-To be able to call your Twilio number as a "trial" user, you must register a Verified Caller.  Note that this is not required on paid plans.  However, until I go live with the AI Voice Assistant, that's enough for my needs.  And as an added benefit it means not just anyone can ring and ramp up my LLM costs.
+To be able to call your Twilio number as a "trial" user, you must register a "Verified Caller".  Note that this is not required on paid plans.  However, until I go live with the AI Voice Assistant, that's enough for my needs.  And as an added benefit it means not just anyone can ring and ramp up my LLM costs.
 
 To add a Verified Caller ID, head to Phone Numbers > Manage > Verified Caller ID and click on Add a new Caller ID.
 

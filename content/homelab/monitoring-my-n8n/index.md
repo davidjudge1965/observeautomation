@@ -12,6 +12,8 @@ draft: true
 
  At the time of writing, I was unable to determine the cause of the slow down.  Increasing the memory allocated to the VM that holds my stack made the problem go away, but not understanding how that fixed the problem is something I'm not happy with.
 
+ Note that this page is a work in progress and will be updated/completed soon.
+
 <!--more-->
 Initially, this article will be something of a stream of consciousness as I think through he best approach.
 
@@ -24,13 +26,13 @@ My stack is:
 - Traefik to provide SSL certs and to reverse-proxy n8n
 - n8n to process requests
 
-Traefik receives the requests sent to n8n.lab.davidmjudge.me.uk and sends them to the correct docker container.  That's the gist of what a reverse proxy does.  Another common proxy is Nginx Proxy Manager.  I chose Traefik as it is mostly configured using "labels" in the docker compose file for n8n (i.e. "Configuration as code") whereas Nginx requires configuration via a GUI.
+Traefik receives the requests sent to n8n.lab.davidmjudge.me.uk and sends them to the correct docker container.  That's the gist of what a reverse proxy does.  Another common proxy in the world of homelabbing is Nginx Proxy Manager, though other proxies are available.  I chose Traefik as it is mostly configured using "labels" in the docker compose file for n8n (i.e. "Configuration as code") whereas Nginx requires configuration via a GUI.
 
-For traefik to do its receive the https request for n8n, my DNS must map n8n.lab.davidmjudge.me to the docker VM (called docker04).  I have a  container running on a separate host to provide the DNS service.  For each service that runs in my environment I have an entry.  Below are examples of how n8n and traefik-dashboard are mapped to docker04.lab.davidmjudge.me.uk: 
+For traefik to do its work it must first receive the https request for n8n, my DNS must map n8n.lab.mydomain.com to the docker VM (that runs n8n.  I have a  container running on a separate host to provide the DNS service.  For each service that runs in my environment I have an entry.  Below are examples of how n8n and traefik-dashboard are mapped to docker04.lab.mydomain.com: 
 ``` bind
 ; CNAMES - Docker04
-traefik-dashboard	IN	CNAME	docker04.lab.davidmjudge.me.uk.
-n8n			        IN	CNAME	docker04.lab.davidmjudge.me.uk.
+traefik-dashboard	IN	CNAME	docker04.lab.mydomain.com.
+n8n			        IN	CNAME	docker04.lab.mydomain.com.
 ```
 ### Transactions in the stack
 Here is what my transactions look like, from the calling application (VAPI, for example) all the way through n8n and its response:
@@ -87,7 +89,7 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.influxdb.rule=Host(`influxdb2.lab.davidmjudge.me.uk`)"
+      - "traefik.http.routers.influxdb.rule=Host(`influxdb2.lab.mydomain.com`)"
       - "traefik.http.routers.influxdb.entrypoints=websecure"
       - "traefik.http.routers.influxdb.tls.certresolver=cloudflare" # Matches your CF_DNS_API_TOKEN setup
       - "traefik.http.services.influxdb.loadbalancer.server.port=8086"
@@ -105,7 +107,7 @@ networks:
     external: true
 ```
 
-I spun up the container from within VS Code and pointed my browser at https://influxdb2.lab.davidmjudge.me.uk and got the login screen:
+I spun up the container from within VS Code and pointed my browser at https://influxdb2.lab.mydomain.com and got the login screen:
 
 ![InfluxDB2 Login screen](assets/Influxdb2_login_screen.jpg)
 
@@ -119,6 +121,7 @@ I then created a configuration for the "Metrics" configuration of PVE:
 ![Creating the Proxmox VE metrics configuration for InfluxDB](assets/Creating_PVE_Config.jpg)
 
 Note that the influxDB organisation "docs" comes out of the box.
+
 
 
 I like the Christian Lempa video on Alloy:  https://www.youtube.com/watch?v=E654LPrkCjo
