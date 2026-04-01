@@ -11,7 +11,7 @@ draft: true
 
 <!-- VERSION A: General examples. Compare with ai-for-small-business-where-to-start-B before publishing. -->
 
-Nearly half of UK small businesses want to use AI. They have read about it, heard about it at networking events, probably tried ChatGPT a few times. And yet 41% say they do not know where to start.
+Nearly half of UK small businesses want to use AI. They have read about it and have maybe written a few prompts.  Yet 41% say they do not know where to start.
 
 That is not a technology problem. It is a communication problem.
 
@@ -36,14 +36,14 @@ The most common time drains for small businesses are predictable:
 - Phone calls that go unanswered while you are with a customer
 - Emails that pile up faster than they can be read
 - Admin that takes hours and earns nothing
-- Invoices, receipts, and paperwork that need to be processed manually
+- Manual processing of paperwork
 - Appointment bookings that require multiple messages back and forth
 
 These are not glamorous problems. They do not make for exciting conference talks. But they are what small business owners actually face, every day, and all of them can be addressed with tools that exist right now, at prices that make sense for a business of any size.
 
-## Starting small is not the same as thinking small
+## Starting small
 
-The instinct when exploring new technology is often to look for the comprehensive solution: the thing that will transform everything at once. This is almost always the wrong approach.
+The instinct when exploring new technology is often to look for the thing that will transform everything at once. This is almost always the wrong approach.
 
 The businesses that get the most from AI are typically the ones that started with one specific problem. A florist who was missing calls while serving customers. A heating engineer spending Sunday evenings on receipts. A retailer drowning in routine supplier emails.
 
@@ -59,7 +59,7 @@ The use case problem disappears when you start with your own frustrations rather
 
 ## The honest truth
 
-AI is not magic. It makes mistakes. It needs to be set up correctly and checked occasionally. It works best on repetitive, well-defined tasks, not on anything requiring complex human judgement.
+AI is not magic. It makes mistakes called "hallucinations". It needs to be set up correctly and checked occasionally. It works best on repetitive, well-defined tasks, that don't require complex human judgement, though there are ways to bring the human into the solution.
 
 It will not replace the things that make your business yours: your relationships, your expertise, your instincts. What it can do is take the repetitive, low-value work off your plate so you can spend more time on the things that only you can do.
 
