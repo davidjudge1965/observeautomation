@@ -5,7 +5,7 @@ description: "AI voice receptionist for plumbers, electricians and heating engin
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
-image: "/image/BusyTradespersonWhilePhoneRinging.jpg"
+image: "/image/BusyTradespersonWhilePhoneRinging.webp"
 hero_position: "center top"
 draft: false
 ---

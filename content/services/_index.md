@@ -5,7 +5,7 @@ title: 'Services'
 description: "Practical AI and automation services for small businesses and organisations — from AI voice receptionists to workflow automation and consultancy."
 categories: ["Services"]
 tags: ["Services", "Automation", "AI"]
-image: "/image/ServicesHeroPhoto.jpg"
+image: "/image/ServicesHeroPhoto.webp"
 hero_position: "center top"
 ---
 

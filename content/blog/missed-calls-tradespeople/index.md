@@ -4,7 +4,7 @@ title: 'The Real Cost of Missed Calls for Tradespeople'
 description: "Every missed call is a potential job gone to a competitor. Here's what it's actually costing UK plumbers, electricians and heating engineers — and what to do about it."
 categories: ["Blog"]
 tags: ["Trades", "Plumbers", "Electricians", "Missed Calls", "AI Receptionist"]
-image: "/image/BusyTradespersonWhilePhoneRinging.jpg"
+image: "/image/BusyTradespersonWhilePhoneRinging.webp"
 hero_position: "center top"
 draft: false
 ---
@@ -69,4 +69,4 @@ If you're a plumber, heating engineer, electrician, or gas engineer who suspects
 
 There's also a calculator where you can put in your own numbers and see what missed calls could be costing your business.
 
-Or if you'd rather just have a conversation, [get in touch](/contact) — no hard sell, just a straightforward chat about whether it makes sense for your business.
+Or [get in touch](/contact) for a no-cost, no-obligation call. No hard sell, just a straightforward chat about whether it makes sense for your business.

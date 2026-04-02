@@ -3,7 +3,7 @@ date: '2026-03-25'
 draft: false
 title: 'Blog'
 description: "Practical thinking on AI, automation, and what it means for small businesses and the people who run them."
-image: "/image/BlogHeroPhoto.jpg"
+image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
 ---
 

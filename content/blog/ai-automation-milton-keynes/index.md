@@ -4,7 +4,7 @@ title: 'AI Automation for Small Businesses in Milton Keynes'
 description: "Small businesses in Milton Keynes are using AI automation to stop missing calls, cut admin time, and compete with larger firms. Here's what's working."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Milton Keynes", "Local"]
-image: "/image/BlogHeroPhoto.jpg"
+image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
 draft: false
 ---
@@ -57,6 +57,6 @@ The cost is typically lower than people expect. The time saved is usually higher
 
 The best starting point is a single, specific problem: one task that eats your time, one process that keeps slipping, one gap you know is costing you revenue.
 
-If you're based in Milton Keynes or the surrounding area and want to talk through what automation could realistically do for your business, [get in touch](/contact/) for a no-obligation conversation.
+If you're based in Milton Keynes or the surrounding area and want to talk through what automation could realistically do for your business, [get in touch](/contact/) for a no-cost, no-obligation call.
 
 Or take a look at the [products](/products/) and [portfolio](/portfolio/) to see what's already been built for businesses like yours.

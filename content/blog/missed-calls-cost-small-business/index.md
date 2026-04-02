@@ -4,7 +4,7 @@ title: 'How Much Are Missed Calls Costing Your Business?'
 description: "Most small businesses don't know how many calls they're missing or what each one costs. The numbers are bigger than you'd expect — and the fix is simpler."
 categories: ["Blog"]
 tags: ["Missed Calls", "AI Receptionist", "Small Business", "Automation"]
-image: "/image/BlogHeroPhoto.jpg"
+image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
 draft: false
 ---
@@ -74,4 +74,4 @@ The best starting point is honest accounting: how many calls do you miss in a ty
 
 If the answer makes you uncomfortable, it's worth a conversation. If it's fine, it's fine.
 
-For trades, florists, and other service businesses that run on phone enquiries, the [AI voice receptionist](/products/) is the most direct fix. The [portfolio](/portfolio/) has worked examples with real numbers. Or [get in touch](/contact/) if you'd rather talk it through first.
+For trades, florists, and other service businesses that run on phone enquiries, the [AI voice receptionist](/products/) is the most direct fix. The [portfolio](/portfolio/) has worked examples with real numbers. Or [get in touch](/contact/) for a no-cost, no-obligation call.

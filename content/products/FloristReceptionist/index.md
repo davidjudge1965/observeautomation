@@ -5,7 +5,7 @@ description: "AI voice receptionist for florists. Never miss a wedding enquiry, 
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
-image: "/image/FloristInShopOnPhone.jpg"
+image: "/image/FloristInShopOnPhone.webp"
 draft: false
 ---
 

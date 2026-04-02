@@ -4,7 +4,7 @@ title: 'The Real Cost of Missed Calls for Florists'
 description: "A missed call to a florist isn't just a lost bunch of flowers. It could be a wedding, a funeral, or a Valentine's Day order worth hundreds. Here's what it's really costing you."
 categories: ["Blog"]
 tags: ["Florists", "Missed Calls", "AI Receptionist", "Small Business"]
-image: "/image/FloristInShopOnPhone.jpg"
+image: "/image/FloristInShopOnPhone.webp"
 hero_position: "center center"
 draft: false
 ---
@@ -73,4 +73,4 @@ If you run a flower shop and suspect missed calls are costing you more than you 
 
 There's also a calculator where you can put in your own numbers and see what missed calls could be costing your shop.
 
-Or if you'd rather just have a conversation, [get in touch](/contact) — no hard sell, just a straightforward chat about whether it makes sense for you.
+Or [get in touch](/contact) for a no-cost, no-obligation call. No hard sell, just a straightforward chat about whether it makes sense for you.

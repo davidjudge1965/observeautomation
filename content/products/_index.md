@@ -3,7 +3,7 @@ date: '2026-01-07'
 draft: false
 title: 'Products'
 description: "AI voice receptionist products for UK small businesses. Built, set up, and managed for you — no technical knowledge needed."
-image: "/image/ProductsHeroPhoto.jpg"
+image: "/image/ProductsHeroPhoto.webp"
 hero_position: "center top"
 ---
 

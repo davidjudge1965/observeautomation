@@ -4,7 +4,7 @@ title: 'What If Your Inbox Sorted Itself?'
 description: "Most business owners spend longer on email than they should. Here's how I automated the sorting — and stopped missing the emails that actually matter."
 categories: ["Blog"]
 tags: ["Email", "Automation", "Small Business", "Gmail"]
-image: "/image/BlogHeroPhoto.jpg"
+image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
 draft: false
 ---
@@ -56,4 +56,4 @@ If you find yourself spending time every day sorting emails, missing things in a
 
 The [full technical write-up is in my portfolio](/portfolio/gmail-labelling/) if you want to see exactly how it works under the hood.
 
-Or if you'd like to talk through whether something similar could work for your business, [get in touch](/contact) — no hard sell, just an honest conversation.
+Or [get in touch](/contact) for a no-cost, no-obligation call. No hard sell, just an honest conversation about whether something similar could work for your business.

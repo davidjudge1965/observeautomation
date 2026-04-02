@@ -4,7 +4,7 @@ title: 'AI Automation for Small Businesses in Leighton Buzzard'
 description: "Small businesses in Leighton Buzzard are using AI to handle missed calls, sort email, and cut admin. Here's what's working locally and how to get started."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Leighton Buzzard", "Local"]
-image: "/image/BlogHeroPhoto.jpg"
+image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
 draft: false
 ---
@@ -52,6 +52,6 @@ Most clients see a return on the monthly cost within the first month. Some withi
 
 ## Ready to talk?
 
-If you're based in Leighton Buzzard or the surrounding area and want to find out whether this makes sense for your business, [get in touch](/contact/) — no obligation, no sales pressure.
+If you're based in Leighton Buzzard or the surrounding area and want to find out whether this makes sense for your business, [get in touch](/contact/) for a no-cost, no-obligation call.
 
 You can also see the [products](/products/) available off the shelf, or browse the [portfolio](/portfolio/) for examples of what's been built for businesses similar to yours.

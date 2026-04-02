@@ -4,7 +4,7 @@ title: 'AI for small business: why most of the advice is not helping (and where 
 description: "Nearly half of UK small businesses want to use AI but do not know where to start. The problem is not the technology — it is that the advice is aimed at the wrong audience."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Getting Started"]
-image: "/image/BlogHeroPhoto.jpg"
+image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
 draft: false
 ---
@@ -68,3 +68,5 @@ Chances are at least one of them can be automated. The tools to do it exist. The
 To see what this looks like in practice, the [portfolio](/portfolio/) has examples of real automations built for small businesses, including the inbox sorting and AI receptionist examples above.
 
 But you do not need to go anywhere first. Just start with the list.
+
+If you would like a second opinion on where automation could make the most difference for your specific business, [get in touch](/contact/) for a no-cost, no-obligation call.

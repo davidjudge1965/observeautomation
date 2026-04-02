@@ -3,7 +3,7 @@ date: '2025-07-01'
 draft: false
 title: 'Portfolio'
 description: "Automation and AI projects built with n8n — from AI voice receptionists to workflow automation. Real work, real results, by ObserveAutomation."
-image: "/image/PortfolioHeroPhoto.jpg"
+image: "/image/PortfolioHeroPhoto.webp"
 hero_position: "center center"
 ---
 

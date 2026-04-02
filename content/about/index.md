@@ -2,7 +2,7 @@
 title: "About Me"
 date: 2025-10-22
 draft: false
-image: "/image/author.jpg"
+image: "/image/author.webp"
 description: "AI automation consultant based in Leighton Buzzard, UK. AI voice receptionists for small businesses and automation expertise for organisations."
 ---
 
