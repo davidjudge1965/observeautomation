@@ -9,9 +9,11 @@ hero_position: "center center"
 draft: false
 ---
 
-Most small business owners have a rough sense that they miss some calls. Fewer know how many. Almost none have worked out what those missed calls are actually worth.
+Your phone rings. You can't answer.
 
-The number is usually bigger than expected.
+They hang up. No message. They try the next number.
+
+Most business owners know this happens. Very few have sat down and worked out what it's actually costing them.
 
 ## The maths most people avoid
 
@@ -23,7 +25,7 @@ Now put a value on each of those calls. Not every call becomes a job. But the on
 
 For a plumber, a single call-out is £100–£300. A bathroom refit is £5,000–£10,000. A boiler replacement is £2,000–£4,000. For a florist, a walk-in bouquet is £40–£60. A wedding is thousands. A funeral arrangement is £600–£1,000.
 
-If your conversion rate from answered calls is around 30%, and you're missing five calls a day, and average job value is £200 — that's £300 a day, roughly £6,000 a month, going to competitors who happened to pick up.
+If your conversion rate from answered calls is around 30%, and you're missing five calls a day, and average job value is £200, that's £300 a day. Roughly £6,000 a month, going to competitors who happened to pick up.
 
 The exact numbers vary enormously by trade and situation. But very few businesses that run this calculation come away thinking the problem is smaller than they imagined.
 
@@ -42,7 +44,7 @@ None of these are failures of organisation or effort. They are just what happens
 
 ## What callers actually do
 
-Research consistently shows that the majority of callers who reach voicemail don't leave a message. They hang up and try the next number.
+Research shows that most callers who reach voicemail don't leave a message. They hang up and try the next number.
 
 This matters because unlike a website enquiry or an email, a missed call rarely comes back. The caller found someone else. They booked someone else. The job went somewhere else.
 
@@ -52,13 +54,13 @@ The handful who do leave a voicemail often need a callback within minutes to sti
 
 There are a few ways to handle missed calls, with different trade-offs:
 
-**Hire a human receptionist.** Effective, but expensive — typically £20,000–£35,000 a year for a full-time person, or £10–£15 per hour for a part-time or temporary solution. Works well if call volume justifies it and you have the space and management capacity.
+**Hire a human receptionist.** Effective, but expensive: typically £20,000–£35,000 a year for a full-time person, or £10–£15 per hour for a part-time solution. Fine if call volume justifies it and you have room to manage someone.
 
 **Use a call-answering service.** Cheaper, but often impersonal. Your callers speak to a generic call centre who take a message and email it to you. No product knowledge, no ability to answer questions, no judgement about urgency.
 
 **Use an AI voice receptionist.** Answers every call you can't, immediately. Greets callers in your business's name, answers common questions about your services, takes a message, and flags urgent calls for immediate callback. Costs from £200 a month. Available 24/7. No sick days, no lunch breaks.
 
-The AI option isn't right for everyone. If your business runs on deep relationship calls and complex conversations, you need a human. But for the majority of calls — initial enquiries, appointment requests, routine questions, messages — an AI handles it better than voicemail and at a fraction of the cost of a person.
+The AI option isn't right for everyone. If your business runs on deep relationship calls and complex conversations, you need a human. But for the majority of calls: initial enquiries, appointment requests, routine questions, messages, an AI handles it better than voicemail and at a fraction of the cost of a person.
 
 ## What the return looks like
 
