@@ -6,10 +6,8 @@ categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Getting Started"]
 image: "/image/BlogHeroPhoto.jpg"
 hero_position: "center center"
-draft: true
+draft: false
 ---
-
-<!-- VERSION B: Portfolio examples. Compare with ai-for-small-business-where-to-start-A before publishing. -->
 
 Nearly half of UK small businesses want to use AI. They have read about it, heard about it at networking events, probably tried ChatGPT a few times. And yet 41% say they do not know where to start.
 
@@ -67,6 +65,6 @@ Write down the three tasks you do most regularly that you find most tedious. Not
 
 Chances are at least one of them can be automated. The tools to do it exist. The cost is likely lower than you expect.
 
-To see what this looks like in practice, [https://www.observeautomation.com/portfolio](https://www.observeautomation.com/portfolio) has examples of real automations built for small businesses, including the inbox sorting and AI receptionist examples above.
+To see what this looks like in practice, the [portfolio](/portfolio/) has examples of real automations built for small businesses, including the inbox sorting and AI receptionist examples above.
 
 But you do not need to go anywhere first. Just start with the list.

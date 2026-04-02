@@ -132,3 +132,7 @@ There is a minimum initial term of 3 months. This gives the system time to bed i
 *Ready to stop missing calls?*
 
 [Get in touch for a free, no-obligation conversation →](/contact)
+
+---
+
+*Also available for tradespeople — see the [Trades AI Voice Receptionist](/products/tradesreceptionist/) for plumbers, electricians, and heating engineers.*

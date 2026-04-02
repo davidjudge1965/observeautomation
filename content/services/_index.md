@@ -10,3 +10,5 @@ hero_position: "center top"
 ---
 
 Practical automation and AI, built and managed for you. Whether you need a specific solution or just want to understand where automation could make a difference — here's what I do.
+
+Based in Leighton Buzzard, working with small businesses across Milton Keynes, Aylesbury, and the wider UK.
