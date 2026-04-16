@@ -6,7 +6,7 @@ categories: ["Blog"]
 tags: ["AI", "Automation", "n8n", "Small Business"]
 image: "/image/BlogHeroPhoto.webp"
 hero_position: "center center"
-draft: true
+draft: false
 ---
 
 A client said to me recently: "You could just ask AI to build you a tool, couldn't you?"
