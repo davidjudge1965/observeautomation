@@ -2,10 +2,6 @@
 
 **Source post:** [Why I build automations rather than just use AI to do everything](https://www.observeautomation.com/blog/why-agentic-automation-not-just-ai/)
 
-> ⚠️ This blog post is currently `draft: true` — publish it before posting this content.
-
----
-
 ## Post
 
 There's a question I get asked fairly regularly: "Can't you just ask AI to build the tool?"
