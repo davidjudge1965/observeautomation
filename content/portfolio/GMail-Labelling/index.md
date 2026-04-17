@@ -13,7 +13,7 @@ I spend too long every day labelling (or categorising, if you prefer) the many e
 An automation could automatically read my emails and decide how to label them for me... and more 
 <!--more-->
 
-# Auto-labelling emails
+## Auto-labelling emails
 
 As with most projects, this one started with the realisation that I spent too much time sorting  my emails every day and that, once in a while, I would miss an important email due to the large number of emails I get daily.
 

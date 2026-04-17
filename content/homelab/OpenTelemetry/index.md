@@ -10,7 +10,7 @@ draft: true
 ShowCodeCopyButtons: true
 # This is a comment.
 ---
-# The latest in monitoring and telemetry
+## The latest in monitoring and telemetry
 For some time I've been thinking I should write a bit more about monitoring my home lab and practice OpenTelemetry ("OTel").
 
 Initially, I want to deploy the OpenTelemetry demo and understand how it works, what data it reports, etc.

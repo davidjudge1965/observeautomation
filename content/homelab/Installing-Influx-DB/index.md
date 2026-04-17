@@ -8,7 +8,7 @@ image: "/image/InfluxDB_280x250_q85.png"
 ---
 ![Alt](/images/InfluxDB_280x250_q85.png) 
 
-# Installing InfluxDB
+## Installing InfluxDB
 I'm now at the stage where I want to ensure that I can monitor my home lab.
 Installing InfluxDB is a good initial stage which will allow me to gather, initially, metrics from proxmox which we can later view in Grafana.
 

@@ -8,7 +8,7 @@ layout: "single"
 image: "/image/InvoicesAndAccount.webp"
 draft: false
 ---
-# I hate book-keeping
+## I hate book-keeping
 
 To me, one of the most tedious aspects of running is a business is entering invoices/receipts/expenses into the accounting system and staying accurate.
 

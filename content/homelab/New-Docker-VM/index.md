@@ -10,7 +10,7 @@ draft: false
 ShowCodeCopyButtons: true
 # This is a comment.
 ---
-# Adding redundancy to my Docker environment
+## Adding redundancy to my Docker environment
 I currently run 2 docker VMs but they are running on the same Proxmox instance.  However, should that PVE instance go down, I would have nowhere to run any of the containers, so my way of dealing with this is in 2 steps:
 * Build a new Proxmox VE server
 * Create a new VM to host my containers

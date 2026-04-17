@@ -9,6 +9,6 @@ image: "/image/grafana-icon.png"
 
 ![Grafana Icon](/images/grafana-icon.png) 
 
-# Installing Grafana to Docker
+## Installing Grafana to Docker
 
 Content to be provided

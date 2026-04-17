@@ -8,7 +8,7 @@ layout: "single"
 image: "/image/AI_Voice_Receptionist.webp"
 draft: true
 ---
-# Creating a homepage for my homelab
+## Creating a homepage for my homelab
 
 Often I struggle to remember the correct URL for the services on my home lab.  How to solve this?
 

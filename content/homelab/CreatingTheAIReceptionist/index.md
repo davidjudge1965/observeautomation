@@ -8,7 +8,7 @@ layout: "single"
 image: "/image/AI_Voice_Receptionist.webp"
 draft: false
 ---
-# Creating an AI Voice receptionist for ObserveAutomation
+## Creating an AI Voice receptionist for ObserveAutomation
 
 Both as an example of what can be done and as something I can sell to local businesses, I am creating an **AI Voice Receptionist** that can tell the caller about:
 - Who or what is ObserveAutomation 

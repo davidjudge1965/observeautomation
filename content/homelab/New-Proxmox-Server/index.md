@@ -8,7 +8,7 @@ layout: "single"
 image: "/image/proxmox-server-solutions-gmbh-logo-vector.png"
 draft: false
 ---
-# I'm a bad person!
+## I'm a bad person!
 
 Well, actually, I'm a bad homelab manager.  I'be been running my Proxmox lab with no redundancy and few backups.  And I'd like this server to run Docker containers for me.  As I'm not enamoured with LXC, I will build a VM for my containers.
 

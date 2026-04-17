@@ -6,7 +6,7 @@ categories: [homelab,setup,deploy,monitoring]
 tags: [VMs,proxmox,monitoring,influxdb]
 image: "/image/Beszel_icon.png"
 ---
-# It's time to get some insights into my home lab
+## It's time to get some insights into my home lab
 
 My home lab is getting messy and I don't have a full understanding of what's running where... i.e. on which of my 5 machines and 3 docker "hosts".
 

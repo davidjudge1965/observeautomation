@@ -260,14 +260,14 @@ qm clone 8200 210 --full true --storage data4tb
 
 All that's left to do is start the VM
 
-# Parting thoughts
+## Parting thoughts
 The process of creating the VMs for my k3s cluster can now start.  My next step will be to write a script to take the "base" cloudinit data files and copy them to ```hostname```-user-data.yaml and ```hostname```-network-data.yaml and to customise them with data specific to the new vm such as hostname, fqdn and IP address.
 
 I think I will probably write an article about that as I suspect not everyone knows the techniques that can be used to make this easy.  Watch this space.
 
 And if you've made it this far, many thanks for your perseverance.  If you've found this useful, please let me know - either comment where you found the link (probably a LinkedIn post, or maybe my github), and maybe a like if you think the article is worthy of one.
 
-# Useful resources
+## Useful resources
 
 [Proxmox documentation](https://pve.proxmox.com/pve-docs/)
 

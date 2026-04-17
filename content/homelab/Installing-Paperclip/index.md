@@ -9,7 +9,7 @@ hero_position: "center center"
 draft: true
 ---
 
-# I'm getting excited by Paperclip
+## I'm getting excited by Paperclip
 ... and the concept of a zero-employee company.  So I decided to set it up to experiment.
 
 But first:
