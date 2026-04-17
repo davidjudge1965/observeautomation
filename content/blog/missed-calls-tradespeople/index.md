@@ -65,7 +65,7 @@ The AI option typically costs far less than employing a receptionist — and unl
 
 ## What to do next
 
-If you're a plumber, heating engineer, electrician, or gas engineer who suspects missed calls are costing you more than you think — the [AI Voice Receptionist for trades](/products/tradesreceptionist) page has full details on how it works, what's included, and what it costs.
+If you're a plumber, heating engineer, electrician, or gas engineer who suspects missed calls are costing you more than you think — the [AI Voice Receptionist for trades](/products/tradesreceptionist/) page has full details on how it works, what's included, and what it costs.
 
 There's also a calculator where you can put in your own numbers and see what missed calls could be costing your business.
 

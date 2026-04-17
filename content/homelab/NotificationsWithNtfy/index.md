@@ -89,7 +89,7 @@ Message appearing in the ntfy Web UI:
 ## ntfy from n8n
 The main use case for ntfy in my environment is sending notifications from n8n workflows for both within workflows and also for notification of errors in workflows.
 
-Ntfy.sh does not have an integration of out the box.  However there are a few community nodes.  I have chosen to use `@jyln/n8n-nodes-ntfy`.  [Here is a link to the documentation.](@jyln/n8n-nodes-ntfy)
+Ntfy.sh does not have an integration of out the box.  However there are a few community nodes.  I have chosen to use `@jyln/n8n-nodes-ntfy`.  [Here is a link to the documentation.](https://www.npmjs.com/package/@jyln/n8n-nodes-ntfy)
 
 This caught me out initially: On the whole, ntfy assumes that you will be using their cloud instance.  For the ntfy node to talk to my self-hosted server, I had to enable "custom server" and provide the full URL of my server `https://ntfy.lab.davidmjudge.me.uk`.
 

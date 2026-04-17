@@ -69,7 +69,7 @@ The AI option costs far less than a part-time member of staff — and it's avail
 
 ## What to do next
 
-If you run a flower shop and suspect missed calls are costing you more than you think, the [AI Voice Receptionist for florists](/products/floristreceptionist) page has full details on how it works, what's included, and what it costs.
+If you run a flower shop and suspect missed calls are costing you more than you think, the [AI Voice Receptionist for florists](/products/floristreceptionist/) page has full details on how it works, what's included, and what it costs.
 
 There's also a calculator where you can put in your own numbers and see what missed calls could be costing your shop.
 
