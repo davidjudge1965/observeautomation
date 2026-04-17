@@ -30,9 +30,9 @@ We need back-end services to deal with caller questions or requests: my self-hos
 
 Pleased with the results, I have created 2 "products", one for florists and one for trades.  Here are the links:
 
->[Florist Product](/products/FloristReceptionist/) and [Florist Blog](/blog/missed-calls-florists/)
+>[Florist Product](/products/floristreceptionist/) and [Florist Blog](/blog/missed-calls-florists/)
 
->[Trades Product](/products/TradesReceptionist/) and [Trades Blog](/blog/missed-calls-tradespeople/)
+>[Trades Product](/products/tradesreceptionist/) and [Trades Blog](/blog/missed-calls-tradespeople/)
 
 ## Twilio
 

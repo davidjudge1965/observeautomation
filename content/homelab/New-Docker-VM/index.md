@@ -17,7 +17,7 @@ I currently run 2 docker VMs but they are running on the same Proxmox instance. 
 
 <!--more-->
 
-I built the Proxmox VE server over the past weekend.  You can read about that here: [Proxmox Server 2](../New-Proxmox-Server/)
+I built the Proxmox VE server over the past weekend.  You can read about that here: [Proxmox Server 2](../new-proxmox-server/)
 
 To build the VM, I will use a script to run on the PVE server which leverages CloudInit.
 
