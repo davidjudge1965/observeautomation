@@ -1,7 +1,7 @@
 ---
 date: '2026-03-25'
 title: 'The Real Cost of Missed Calls for Tradespeople'
-description: "Every missed call is a potential job gone to a competitor. Here's what it's actually costing UK plumbers, electricians and heating engineers — and what to do about it."
+description: "Every missed call is a potential job gone to a competitor. What it's actually costing UK plumbers, electricians and heating engineers, and what to do about it."
 categories: ["Blog"]
 tags: ["Trades", "Plumbers", "Electricians", "Missed Calls", "AI Receptionist"]
 image: "/image/BusyTradespersonWhilePhoneRinging.webp"

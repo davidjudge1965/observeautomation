@@ -2,7 +2,7 @@
 date: '2025-12-02T17:38:12+01:00'
 draft: false
 title: 'Scanning pallets of books!'
-description: "Automating book inventory for a small reseller — scan an ISBN with a phone, get title, author and synopsis saved to a spreadsheet instantly. Saves 12–20 hours a week."
+description: "Scan an ISBN with a phone and get title, author and synopsis saved to a spreadsheet instantly. Built for a small book reseller. Saves 12-20 hours a week."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "classification"]
 layout: "single"

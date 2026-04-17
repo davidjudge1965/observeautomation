@@ -2,7 +2,7 @@
 date: '2026-01-02'
 draft: false
 title: 'Voice Receptionist'
-description: "Building an AI voice receptionist using VAPI, Twilio and n8n — answers calls, handles FAQs, books appointments and transfers urgent calls. Full technical walkthrough."
+description: "AI voice receptionist built with VAPI, Twilio and n8n: answers calls, handles FAQs, books appointments and transfers urgent calls. Full technical walkthrough."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "voice", "AI"]
 layout: "single_image_alone"

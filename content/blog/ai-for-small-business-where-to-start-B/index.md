@@ -1,7 +1,7 @@
 ---
 date: '2026-03-28'
 title: 'AI for small business: why most of the advice is not helping (and where to actually start)'
-description: "Nearly half of UK small businesses want to use AI but do not know where to start. The problem is not the technology — it is that the advice is aimed at the wrong audience."
+description: "Nearly half of UK small businesses want to use AI but don't know where to start. The problem: the advice is aimed at the wrong audience."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Getting Started"]
 image: "/image/BlogHeroPhoto.webp"
