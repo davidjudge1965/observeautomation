@@ -22,9 +22,9 @@ I built the AI Voice Receptionist because I kept seeing the same problem: owner-
 
 The AI receptionist fixes that. It's not a generic chatbot — it's trained specifically on your business, handles your actual questions, and screens out the time-wasters. I build it, set it up, and manage it on an ongoing basis so you don't have to think about it.
 
-[See it for florists →](/products/floristreceptionist)
+[See it for florists →](/products/floristreceptionist/)
 
-[See it for trades →](/products/tradesreceptionist)
+[See it for trades →](/products/tradesreceptionist/)
 
 ---
 
@@ -34,4 +34,4 @@ I've spent years helping teams in finance, infrastructure, and operations automa
 
 I bring a steady, pragmatic approach and a bias toward solutions that actually get used. I work through my UK-based service company and am available for short- or medium-term engagements, particularly where deep infrastructure knowledge and strong automation skills are needed to move things forward.
 
-[Get in touch →](/contact)
+[Get in touch →](/contact/)

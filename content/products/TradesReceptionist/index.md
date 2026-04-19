@@ -131,7 +131,7 @@ There's a minimum initial term of 3 months — enough time for the system to bed
 
 *Tired of missing jobs while you're on the tools?*
 
-[Get in touch for a free, no-obligation conversation →](/contact)
+[Get in touch for a free, no-obligation conversation →](/contact/)
 
 ---
 

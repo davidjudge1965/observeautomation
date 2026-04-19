@@ -73,4 +73,4 @@ If you run a flower shop and suspect missed calls are costing you more than you 
 
 There's also a calculator where you can put in your own numbers and see what missed calls could be costing your shop.
 
-Or [get in touch](/contact) for a no-cost, no-obligation call. No hard sell, just a straightforward chat about whether it makes sense for you.
+Or [get in touch](/contact/) for a no-cost, no-obligation call. No hard sell, just a straightforward chat about whether it makes sense for you.

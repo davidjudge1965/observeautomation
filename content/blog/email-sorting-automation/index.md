@@ -56,4 +56,4 @@ If you find yourself spending time every day sorting emails, missing things in a
 
 The [full technical write-up is in my portfolio](/portfolio/gmail-labelling/) if you want to see exactly how it works under the hood.
 
-Or [get in touch](/contact) for a no-cost, no-obligation call. No hard sell, just an honest conversation about whether something similar could work for your business.
+Or [get in touch](/contact/) for a no-cost, no-obligation call. No hard sell, just an honest conversation about whether something similar could work for your business.
