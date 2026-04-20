@@ -1,0 +1,1129 @@
+{
+  "name": "Late Payment Chasing",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "id": "nn-01",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "id": "nn-02",
+      "name": "Get Reminder Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        460,
+        400
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://invoiceninja.lab.davidmjudge.me.uk/api/v1/invoices",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "include",
+              "value": "client"
+            },
+            {
+              "name": "status_id[]",
+              "value": "2"
+            },
+            {
+              "name": "status_id[]",
+              "value": "3"
+            },
+            {
+              "name": "per_page",
+              "value": "100"
+            }
+          ]
+        },
+        "options": {},
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth"
+      },
+      "id": "nn-03",
+      "name": "Get Invoices",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        400
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "HEADER_AUTH_CREDENTIAL_ID",
+          "name": "Invoice Ninja Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "nn-04",
+      "name": "Split Out Invoices",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        900,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c-overdue",
+              "leftValue": "={{ !!$json.due_date && new Date($json.due_date) < new Date() }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nn-05",
+      "name": "Filter: Overdue",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1120,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef-01",
+              "name": "invoiceId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ef-02",
+              "name": "invoiceNumber",
+              "value": "={{ $json.number }}",
+              "type": "string"
+            },
+            {
+              "id": "ef-03",
+              "name": "clientName",
+              "value": "={{ $json.client?.name ?? 'Customer' }}",
+              "type": "string"
+            },
+            {
+              "id": "ef-04",
+              "name": "clientEmail",
+              "value": "={{ $json.client?.contacts?.[0]?.email ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "ef-05",
+              "name": "amount",
+              "value": "={{ $json.balance }}",
+              "type": "string"
+            },
+            {
+              "id": "ef-06",
+              "name": "dueDate",
+              "value": "={{ $json.due_date }}",
+              "type": "string"
+            },
+            {
+              "id": "ef-07",
+              "name": "daysOverdue",
+              "value": "={{ Math.floor(($now.toMillis() - DateTime.fromISO($json.due_date).toMillis()) / 86400000) }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nn-06",
+      "name": "Extract Invoice Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1340,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c-hasemail",
+              "leftValue": "={{ $json.clientEmail }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nn-07",
+      "name": "Filter: Has Email",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1560,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c-filterout",
+              "leftValue": "={{ $json.filterOut }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nn-08",
+      "name": "Stage 1: Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "s1-01",
+              "name": "stage",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "s1-02",
+              "name": "emailSubject",
+              "value": "=Payment reminder — Invoice {{ $json.invoiceNumber }}",
+              "type": "string"
+            },
+            {
+              "id": "s1-03",
+              "name": "emailBody",
+              "value": "=<p>Hi {{ $json.clientName }},</p><p>Just a quick note to let you know that invoice {{ $json.invoiceNumber }} for £{{ parseFloat($json.amount).toFixed(2) }} was due on {{ DateTime.fromISO($json.dueDate).toFormat('d MMMM yyyy') }}.</p><p>If you've already arranged payment, please ignore this message. If you have any questions, just reply and we'll be happy to help.</p><p>Thanks,<br>Observe Automation</p>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOthers": true
+        }
+      },
+      "id": "nn-09",
+      "name": "Stage 1: Set Email",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2220,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailBody }}",
+        "options": {
+          "senderName": "Observe Automation"
+        }
+      },
+      "id": "nn-10",
+      "name": "Stage 1: Send Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2440,
+        100
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Invoice ID": "={{ $('Stage 1: Set Email').item.json.invoiceId }}",
+            "Invoice Number": "={{ $('Stage 1: Set Email').item.json.invoiceNumber }}",
+            "Client Name": "={{ $('Stage 1: Set Email').item.json.clientName }}",
+            "Amount": "={{ $('Stage 1: Set Email').item.json.amount }}",
+            "Due Date": "={{ $('Stage 1: Set Email').item.json.dueDate }}",
+            "Stage": "={{ $('Stage 1: Set Email').item.json.stage }}",
+            "Sent At": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "nn-11",
+      "name": "Stage 1: Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2660,
+        100
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c-filterout",
+              "leftValue": "={{ $json.filterOut }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nn-12",
+      "name": "Stage 7: Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "s7-01",
+              "name": "stage",
+              "value": 7,
+              "type": "number"
+            },
+            {
+              "id": "s7-02",
+              "name": "emailSubject",
+              "value": "=Follow-up: Invoice {{ $json.invoiceNumber }} now 7 days overdue",
+              "type": "string"
+            },
+            {
+              "id": "s7-03",
+              "name": "emailBody",
+              "value": "=<p>Hi {{ $json.clientName }},</p><p>We're following up on invoice {{ $json.invoiceNumber }} for £{{ parseFloat($json.amount).toFixed(2) }}, which was due on {{ DateTime.fromISO($json.dueDate).toFormat('d MMMM yyyy') }} and is now 7 days overdue.</p><p>Could you let us know when we can expect payment, or get in touch if there's anything you need from us?</p><p>Thanks,<br>Observe Automation</p>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOthers": true
+        }
+      },
+      "id": "nn-13",
+      "name": "Stage 7: Set Email",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2220,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailBody }}",
+        "options": {
+          "senderName": "Observe Automation"
+        }
+      },
+      "id": "nn-14",
+      "name": "Stage 7: Send Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2440,
+        340
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Invoice ID": "={{ $('Stage 7: Set Email').item.json.invoiceId }}",
+            "Invoice Number": "={{ $('Stage 7: Set Email').item.json.invoiceNumber }}",
+            "Client Name": "={{ $('Stage 7: Set Email').item.json.clientName }}",
+            "Amount": "={{ $('Stage 7: Set Email').item.json.amount }}",
+            "Due Date": "={{ $('Stage 7: Set Email').item.json.dueDate }}",
+            "Stage": "={{ $('Stage 7: Set Email').item.json.stage }}",
+            "Sent At": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "nn-15",
+      "name": "Stage 7: Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2660,
+        340
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c-filterout",
+              "leftValue": "={{ $json.filterOut }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nn-16",
+      "name": "Stage 14: Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "s14-01",
+              "name": "stage",
+              "value": 14,
+              "type": "number"
+            },
+            {
+              "id": "s14-02",
+              "name": "emailSubject",
+              "value": "=Invoice {{ $json.invoiceNumber }} — payment now 14 days overdue",
+              "type": "string"
+            },
+            {
+              "id": "s14-03",
+              "name": "emailBody",
+              "value": "=<p>Hi {{ $json.clientName }},</p><p>Invoice {{ $json.invoiceNumber }} for £{{ parseFloat($json.amount).toFixed(2) }} is now 14 days overdue (original due date: {{ DateTime.fromISO($json.dueDate).toFormat('d MMMM yyyy') }}).</p><p>Please arrange payment at your earliest convenience, or contact us if there is an issue we should be aware of.</p><p>Regards,<br>Observe Automation</p>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOthers": true
+        }
+      },
+      "id": "nn-17",
+      "name": "Stage 14: Set Email",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2220,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailBody }}",
+        "options": {
+          "senderName": "Observe Automation"
+        }
+      },
+      "id": "nn-18",
+      "name": "Stage 14: Send Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2440,
+        580
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Invoice ID": "={{ $('Stage 14: Set Email').item.json.invoiceId }}",
+            "Invoice Number": "={{ $('Stage 14: Set Email').item.json.invoiceNumber }}",
+            "Client Name": "={{ $('Stage 14: Set Email').item.json.clientName }}",
+            "Amount": "={{ $('Stage 14: Set Email').item.json.amount }}",
+            "Due Date": "={{ $('Stage 14: Set Email').item.json.dueDate }}",
+            "Stage": "={{ $('Stage 14: Set Email').item.json.stage }}",
+            "Sent At": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "nn-19",
+      "name": "Stage 14: Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2660,
+        580
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c-filterout",
+              "leftValue": "={{ $json.filterOut }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "nn-20",
+      "name": "Stage 30: Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "s30-01",
+              "name": "stage",
+              "value": 30,
+              "type": "number"
+            },
+            {
+              "id": "s30-02",
+              "name": "emailSubject",
+              "value": "=Final notice — Invoice {{ $json.invoiceNumber }}",
+              "type": "string"
+            },
+            {
+              "id": "s30-03",
+              "name": "emailBody",
+              "value": "=<p>Hi {{ $json.clientName }},</p><p>This is a final notice regarding invoice {{ $json.invoiceNumber }} for £{{ parseFloat($json.amount).toFixed(2) }}, which is now 30 days overdue.</p><p>Please contact us within 5 working days to arrange payment or discuss the outstanding balance.</p><p>Regards,<br>Observe Automation</p>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "includeOthers": true
+        }
+      },
+      "id": "nn-21",
+      "name": "Stage 30: Set Email",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2220,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailBody }}",
+        "options": {
+          "senderName": "Observe Automation"
+        }
+      },
+      "id": "nn-22",
+      "name": "Stage 30: Send Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2440,
+        820
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Invoice ID": "={{ $('Stage 30: Set Email').item.json.invoiceId }}",
+            "Invoice Number": "={{ $('Stage 30: Set Email').item.json.invoiceNumber }}",
+            "Client Name": "={{ $('Stage 30: Set Email').item.json.clientName }}",
+            "Amount": "={{ $('Stage 30: Set Email').item.json.amount }}",
+            "Due Date": "={{ $('Stage 30: Set Email').item.json.dueDate }}",
+            "Stage": "={{ $('Stage 30: Set Email').item.json.stage }}",
+            "Sent At": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "nn-23",
+      "name": "Stage 30: Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2660,
+        820
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Process each invoice in turn\nconst results = [];\n\nfor (const item of $input.all()) {\n\n  // Is this invoice at least 1 day overdue?\n  const isOldEnough = item.json.daysOverdue >= 1;\n\n  // Check the reminder log to see if a Stage 1 reminder has already been sent\n  // for this invoice. .some() searches every row and returns true as soon as it\n  // finds one where both the Invoice ID and the Stage number match.\n  const alreadySent = $('Get Reminder Log').all()\n    .some(r => r.json['Invoice ID'] === item.json.invoiceId && Number(r.json['Stage']) === 1);\n\n  // && means both conditions must be true: the invoice must be old enough\n  // AND the reminder must not have been sent already.\n  const filterOut = isOldEnough && !alreadySent;\n\n  results.push({ json: { ...item.json, filterOut } });\n}\n\nreturn results;"
+      },
+      "id": "nn-08c",
+      "name": "Stage 1: Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Process each invoice in turn\nconst results = [];\n\nfor (const item of $input.all()) {\n\n  // Is this invoice at least 7 days overdue?\n  const isOldEnough = item.json.daysOverdue >= 7;\n\n  // Check the reminder log to see if a Stage 7 reminder has already been sent\n  // for this invoice. .some() searches every row and returns true as soon as it\n  // finds one where both the Invoice ID and the Stage number match.\n  const alreadySent = $('Get Reminder Log').all()\n    .some(r => r.json['Invoice ID'] === item.json.invoiceId && Number(r.json['Stage']) === 7);\n\n  // && means both conditions must be true: the invoice must be old enough\n  // AND the reminder must not have been sent already.\n  const filterOut = isOldEnough && !alreadySent;\n\n  results.push({ json: { ...item.json, filterOut } });\n}\n\nreturn results;"
+      },
+      "id": "nn-12c",
+      "name": "Stage 7: Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Process each invoice in turn\nconst results = [];\n\nfor (const item of $input.all()) {\n\n  // Is this invoice at least 14 days overdue?\n  const isOldEnough = item.json.daysOverdue >= 14;\n\n  // Check the reminder log to see if a Stage 14 reminder has already been sent\n  // for this invoice. .some() searches every row and returns true as soon as it\n  // finds one where both the Invoice ID and the Stage number match.\n  const alreadySent = $('Get Reminder Log').all()\n    .some(r => r.json['Invoice ID'] === item.json.invoiceId && Number(r.json['Stage']) === 14);\n\n  // && means both conditions must be true: the invoice must be old enough\n  // AND the reminder must not have been sent already.\n  const filterOut = isOldEnough && !alreadySent;\n\n  results.push({ json: { ...item.json, filterOut } });\n}\n\nreturn results;"
+      },
+      "id": "nn-16c",
+      "name": "Stage 14: Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Process each invoice in turn\nconst results = [];\n\nfor (const item of $input.all()) {\n\n  // Is this invoice at least 30 days overdue?\n  const isOldEnough = item.json.daysOverdue >= 30;\n\n  // Check the reminder log to see if a Stage 30 reminder has already been sent\n  // for this invoice. .some() searches every row and returns true as soon as it\n  // finds one where both the Invoice ID and the Stage number match.\n  const alreadySent = $('Get Reminder Log').all()\n    .some(r => r.json['Invoice ID'] === item.json.invoiceId && Number(r.json['Stage']) === 30);\n\n  // && means both conditions must be true: the invoice must be old enough\n  // AND the reminder must not have been sent already.\n  const filterOut = isOldEnough && !alreadySent;\n\n  results.push({ json: { ...item.json, filterOut } });\n}\n\nreturn results;"
+      },
+      "id": "nn-20c",
+      "name": "Stage 30: Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        820
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Reminder Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Reminder Log": {
+      "main": [
+        [
+          {
+            "node": "Get Invoices",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Invoices": {
+      "main": [
+        [
+          {
+            "node": "Split Out Invoices",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Invoices": {
+      "main": [
+        [
+          {
+            "node": "Filter: Overdue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Overdue": {
+      "main": [
+        [
+          {
+            "node": "Extract Invoice Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Invoice Fields": {
+      "main": [
+        [
+          {
+            "node": "Filter: Has Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Has Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 1: Check",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Stage 7: Check",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Stage 14: Check",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Stage 30: Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 1: Filter": {
+      "main": [
+        [
+          {
+            "node": "Stage 1: Set Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 1: Set Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 1: Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 1: Send Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 1: Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 7: Filter": {
+      "main": [
+        [
+          {
+            "node": "Stage 7: Set Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 7: Set Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 7: Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 7: Send Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 7: Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 14: Filter": {
+      "main": [
+        [
+          {
+            "node": "Stage 14: Set Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 14: Set Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 14: Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 14: Send Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 14: Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 30: Filter": {
+      "main": [
+        [
+          {
+            "node": "Stage 30: Set Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 30: Set Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 30: Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 30: Send Email": {
+      "main": [
+        [
+          {
+            "node": "Stage 30: Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 1: Check": {
+      "main": [
+        [
+          {
+            "node": "Stage 1: Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 7: Check": {
+      "main": [
+        [
+          {
+            "node": "Stage 7: Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 14: Check": {
+      "main": [
+        [
+          {
+            "node": "Stage 14: Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stage 30: Check": {
+      "main": [
+        [
+          {
+            "node": "Stage 30: Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

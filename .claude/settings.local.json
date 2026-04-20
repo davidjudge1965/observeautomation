@@ -17,7 +17,12 @@
       "Read(//c/Users/david/AppData/Roaming/Claude/**)",
       "WebSearch",
       "WebFetch(domain:www.loql.io)",
-      "WebFetch(domain:www.dbwd.co.uk)"
+      "WebFetch(domain:www.dbwd.co.uk)",
+      "Read(//c/Users/david/OneDrive/GitHub/observeautomation/content/**)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/david/OneDrive/GitHub/observeautomation/$dir/**)",
+      "Read(//c/Users/david/OneDrive/GitHub/observeautomation/**)",
+      "Bash(cat c:/Users/david/OneDrive/GitHub/Brand/content-templates/*)"
     ]
   }
 }

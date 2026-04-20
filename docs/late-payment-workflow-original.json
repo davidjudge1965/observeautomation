@@ -1,0 +1,214 @@
+{
+  "name": "Late Payment Chasing",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "name": "Get Reminder Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [460, 300],
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Build a lookup object so we can quickly check whether a reminder\n// has already been sent for a given invoice + stage combination.\n// Key format: \"invoiceId_stage\" e.g. \"a1b2c3_7\"\n// Value: true (we only care whether the key exists)\n\nconst logRows = $input.all();\nconst lookup = {};\n\nfor (const row of logRows) {\n  const invoiceId = row.json['Invoice ID'];\n  const stage = row.json['Stage'];\n\n  if (invoiceId && stage) {\n    const key = `${invoiceId}_${stage}`;\n    lookup[key] = true;\n  }\n}\n\nreturn [{ json: { lookup } }];"
+      },
+      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "name": "Build Log Lookup",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://invoiceninja.lab.davidmjudge.me.uk/api/v1/invoices",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "include", "value": "client" },
+            { "name": "status_id[]", "value": "2" },
+            { "name": "status_id[]", "value": "3" },
+            { "name": "per_page", "value": "100" }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Api-Token", "value": "={{ $env.IN_API_TOKEN }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+      "name": "Get Invoices",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Filter invoices to only those that are overdue (due date has passed).\n// Also calculate how many days overdue each invoice is.\n\nconst today = new Date();\ntoday.setHours(0, 0, 0, 0);\n\nconst invoices = $input.first().json.data;\nconst overdueInvoices = [];\n\nfor (const invoice of invoices) {\n  if (!invoice.due_date) continue;\n\n  const dueDate = new Date(invoice.due_date);\n  dueDate.setHours(0, 0, 0, 0);\n\n  if (dueDate < today) {\n    const msPerDay = 1000 * 60 * 60 * 24;\n    const daysOverdue = Math.floor((today - dueDate) / msPerDay);\n\n    overdueInvoices.push({\n      json: {\n        invoiceId:     invoice.id,\n        invoiceNumber: invoice.number,\n        clientName:    invoice.client?.name ?? 'Customer',\n        clientEmail:   invoice.client?.contacts?.[0]?.email ?? null,\n        amount:        invoice.balance,\n        dueDate:       invoice.due_date,\n        daysOverdue,\n      }\n    });\n  }\n}\n\nreturn overdueInvoices;"
+      },
+      "id": "e5f6a7b8-c9d0-1234-efab-345678901234",
+      "name": "Filter Overdue Invoices",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Stages triggered at these overdue thresholds (days):\n// Stage 1  → day 1–6\n// Stage 7  → day 7–13\n// Stage 14 → day 14–29\n// Stage 30 → day 30+\n// Each stage is sent once; lookup prevents duplicates.\n\nconst STAGES = [1, 7, 14, 30];\nconst { lookup } = $('Build Log Lookup').first().json;\nconst remindersToSend = [];\n\nfor (const item of $input.all()) {\n  const invoice = item.json;\n\n  if (!invoice.clientEmail) continue;\n\n  for (const stage of STAGES) {\n    if (invoice.daysOverdue < stage) continue;\n\n    const key = `${invoice.invoiceId}_${stage}`;\n    if (lookup[key]) continue;\n\n    remindersToSend.push({ json: { ...invoice, stage } });\n  }\n}\n\nreturn remindersToSend;"
+      },
+      "id": "f6a7b8c9-d0e1-2345-fabc-456789012345",
+      "name": "Determine Reminders",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Stage tones:\n// Stage 1  → friendly nudge\n// Stage 7  → polite follow-up\n// Stage 14 → direct request\n// Stage 30 → final notice\n\nconst results = [];\n\nfor (const item of $input.all()) {\n  const invoice = item.json;\n\n  const formattedAmount = `£${parseFloat(invoice.amount).toFixed(2)}`;\n  const formattedDueDate = new Date(invoice.dueDate).toLocaleDateString('en-GB', {\n    day: 'numeric', month: 'long', year: 'numeric'\n  });\n\n  const templates = {\n    1: {\n      subject: `Payment reminder — Invoice ${invoice.invoiceNumber}`,\n      body: `<p>Hi ${invoice.clientName},</p>\n<p>Just a quick note to let you know that invoice ${invoice.invoiceNumber} for ${formattedAmount} was due on ${formattedDueDate}.</p>\n<p>If you've already arranged payment, please ignore this message. If you have any questions, just reply and we'll be happy to help.</p>\n<p>Thanks,<br>Observe Automation</p>`\n    },\n    7: {\n      subject: `Follow-up: Invoice ${invoice.invoiceNumber} now 7 days overdue`,\n      body: `<p>Hi ${invoice.clientName},</p>\n<p>We're following up on invoice ${invoice.invoiceNumber} for ${formattedAmount}, which was due on ${formattedDueDate} and is now 7 days overdue.</p>\n<p>Could you let us know when we can expect payment, or get in touch if there's anything you need from us?</p>\n<p>Thanks,<br>Observe Automation</p>`\n    },\n    14: {\n      subject: `Invoice ${invoice.invoiceNumber} — payment now 14 days overdue`,\n      body: `<p>Hi ${invoice.clientName},</p>\n<p>Invoice ${invoice.invoiceNumber} for ${formattedAmount} is now 14 days overdue (original due date: ${formattedDueDate}).</p>\n<p>Please arrange payment at your earliest convenience, or contact us if there is an issue we should be aware of.</p>\n<p>Regards,<br>Observe Automation</p>`\n    },\n    30: {\n      subject: `Final notice — Invoice ${invoice.invoiceNumber}`,\n      body: `<p>Hi ${invoice.clientName},</p>\n<p>This is a final notice regarding invoice ${invoice.invoiceNumber} for ${formattedAmount}, which is now 30 days overdue.</p>\n<p>Please contact us within 5 working days to arrange payment or discuss the outstanding balance.</p>\n<p>Regards,<br>Observe Automation</p>`\n    }\n  };\n\n  const template = templates[invoice.stage];\n\n  results.push({\n    json: {\n      ...invoice,\n      emailSubject: template.subject,\n      emailBody:    template.body,\n    }\n  });\n}\n\nreturn results;"
+      },
+      "id": "a7b8c9d0-e1f2-3456-abcd-567890123456",
+      "name": "Build Email Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailBody }}",
+        "options": {
+          "senderName": "Observe Automation"
+        }
+      },
+      "id": "b8c9d0e1-f2a3-4567-bcde-678901234567",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1780, 300],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1rN6GWykfpnokVysW1JRRBO-zbrHXywSJHUl4EsWNclg",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Invoice ID":     "={{ $('Build Email Content').item.json.invoiceId }}",
+            "Invoice Number": "={{ $('Build Email Content').item.json.invoiceNumber }}",
+            "Client Name":    "={{ $('Build Email Content').item.json.clientName }}",
+            "Amount":         "={{ $('Build Email Content').item.json.amount }}",
+            "Due Date":       "={{ $('Build Email Content').item.json.dueDate }}",
+            "Stage":          "={{ $('Build Email Content').item.json.stage }}",
+            "Sent At":        "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "c9d0e1f2-a3b4-5678-cdef-789012345678",
+      "name": "Append to Reminder Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2000, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account for David"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [[{ "node": "Get Reminder Log", "type": "main", "index": 0 }]]
+    },
+    "Get Reminder Log": {
+      "main": [[{ "node": "Build Log Lookup", "type": "main", "index": 0 }]]
+    },
+    "Build Log Lookup": {
+      "main": [[{ "node": "Get Invoices", "type": "main", "index": 0 }]]
+    },
+    "Get Invoices": {
+      "main": [[{ "node": "Filter Overdue Invoices", "type": "main", "index": 0 }]]
+    },
+    "Filter Overdue Invoices": {
+      "main": [[{ "node": "Determine Reminders", "type": "main", "index": 0 }]]
+    },
+    "Determine Reminders": {
+      "main": [[{ "node": "Build Email Content", "type": "main", "index": 0 }]]
+    },
+    "Build Email Content": {
+      "main": [[{ "node": "Send Email", "type": "main", "index": 0 }]]
+    },
+    "Send Email": {
+      "main": [[{ "node": "Append to Reminder Log", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
