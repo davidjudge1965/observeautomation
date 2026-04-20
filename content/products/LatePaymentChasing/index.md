@@ -4,7 +4,7 @@ title: 'Stop chasing invoices. Get paid.'
 description: "Automated late payment reminders for small businesses. Connect to your invoicing system and send escalating, professional reminders on autopilot. From £100/month."
 categories: ["Products"]
 tags: ["Products", "n8n", "Automation", "Invoicing", "Late Payments"]
-image: "/image/OverdueInvoice.jpg"
+image: "/image/Late_Payment_Hero_Image.jpg"
 hero_position: "center center"
 draft: false
 ---
@@ -17,6 +17,7 @@ Meanwhile, 81% of UK tradespeople are chasing late payments right now. The avera
 
 This automation handles the chasing for you, every morning, automatically.
 
+<!--more-->
 
 ## What it does
 
@@ -98,7 +99,7 @@ Once an invoice is marked as paid in your invoicing system, the automation stops
 Yes — the subject line and body of each reminder are fully editable. If your tone is more formal, or you want to add specific payment instructions, that's straightforward to change.
 
 **Can I change the escalation timing?**
-Yes. The default thresholds (days 1, 7, 14, 30) can be adjusted to suit your payment terms. If you give clients 30 days to pay, for example, the sequence simply shifts.
+Yes. The default thresholds (days 1, 7, 14, 30 after the due date) can be adjusted to suit your payment terms. If you give clients 30 days to pay, for example, the sequence simply shifts.
 
 **What if a client disputes an invoice?**
 The automation sends reminders based on what's overdue in your invoicing system. If you put an invoice on hold or mark it as disputed, it won't be chased. You stay in control.

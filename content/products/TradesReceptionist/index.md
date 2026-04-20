@@ -18,6 +18,7 @@ That's not bad luck. That's how people look for tradespeople, especially when so
 
 The AI Voice Receptionist answers every call you can't — immediately, professionally, without interrupting the job you're on.
 
+<!--more-->
 
 ## The real cost of a missed call in the trades
 

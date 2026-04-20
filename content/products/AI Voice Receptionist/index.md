@@ -14,6 +14,8 @@ Recent data indicates that nearly 69% of all business enquiries still originate 
 What is the cost of these unanswered calls?  
 Mostly it's lost business (i.e. revenue) and how much depends on the business as each business is different.  
 
+<!--more-->
+
 Here are a couple examples:
 
 >Florist:
