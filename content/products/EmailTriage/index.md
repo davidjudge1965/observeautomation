@@ -1,7 +1,7 @@
 ---
 date: '2026-04-26'
 title: 'Stop sorting emails. Act on what matters.'
-description: "AI email triage for small businesses. Every incoming email is read, classified, and labelled automatically. Important emails rise to the top. Noise gets sorted. From £150/month."
+description: "AI email triage for small businesses using Gmail. Every incoming email is read, classified and labelled automatically, so important messages are never buried."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Email", "Automation"]
 image: "/image/EmailTriageHero.jpeg"

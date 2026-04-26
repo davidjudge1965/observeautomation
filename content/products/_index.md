@@ -2,7 +2,7 @@
 date: '2026-01-07'
 draft: false
 title: 'Products'
-description: "AI and automation products for UK small businesses. Built, set up, and managed for you — no technical knowledge needed."
+description: "AI and automation products for UK small businesses: an AI voice receptionist, email triage, and invoice chasing automation. Built, set up, and managed for you."
 image: "/image/ProductsHeroPhoto.webp"
 hero_position: "center top"
 ---

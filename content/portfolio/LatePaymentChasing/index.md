@@ -1,7 +1,7 @@
 ---
 date: '2026-04-20'
 title: 'Automated Late Payment Chasing'
-description: "Chasing late invoices feels awkward and keeps slipping down the to-do list. Every morning this automation checks what is overdue, works out which reminder to send, and fires it off — no manual effort, no missed follow-ups, no uncomfortable phone calls."
+description: "Invoices go unpaid because chasing feels awkward. This automation checks daily and sends the right escalating reminder automatically, no phone calls needed."
 categories: ["Portfolio"]
 tags: ["Portfolio", "n8n", "InvoiceNinja", "Automation"]
 image: "/image/OverdueInvoice.jpg"

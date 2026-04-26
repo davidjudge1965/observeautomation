@@ -1,7 +1,7 @@
 ---
 date: '2025-12-23'
 title: 'Invoice/Receipt Processing'
-description: "Entering invoices into an accounting system is slow, repetitive, and error-prone. Drop a PDF into a Google Drive folder and AI reads it, converts the currency if needed, and records it automatically. Around 10 minutes saved per invoice, at less than a penny each in AI costs."
+description: "Drop a PDF invoice into Google Drive. AI records it in your accounts automatically, including currency conversion. Saves around 10 minutes per invoice."
 categories: ["Portfolio"]
 tags: ["Portfolio", "n8n", "GenAI"]
 layout: "single"

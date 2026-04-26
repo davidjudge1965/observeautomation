@@ -2,7 +2,7 @@
 date: '2025-10-22T17:38:12+01:00'
 draft: false
 title: 'Job Search Optimisation automation using n8n'
-description: "Searching for a common job title generates hundreds of listings a day, most of which are not relevant. AI analysis now filters 300 daily listings down to a shortlist of a dozen or two that actually match the brief — saving 2 to 3 hours of reading every day."
+description: "A broad job search returns hundreds of daily listings. AI filters them to a relevant shortlist of a dozen or two, saving 2 to 3 hours of reading every day."
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "automation", "classification"]
 layout: "single"

@@ -2,7 +2,7 @@
 date: '2026-01-02'
 draft: false
 title: 'Voice Receptionist'
-description: "When you cannot answer the phone, callers rarely leave a message — they try the next person on the list. This is the full technical write-up of how ObserveAutomation's own AI receptionist was built: handling calls, answering FAQs, booking appointments, and handing off urgent queries."
+description: "Technical walkthrough: how ObserveAutomation's AI voice receptionist was built with VAPI, Twilio and n8n to handle FAQs, book appointments and transfer calls."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "voice", "AI"]
 layout: "single_image_alone"

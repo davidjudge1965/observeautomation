@@ -2,7 +2,7 @@
 date: '2025-12-02T17:38:12+01:00'
 draft: false
 title: 'Scanning pallets of books!'
-description: "A book reseller was spending up to four hours per pallet manually looking up ISBNs and typing in the details. Scan the barcode with a phone and the title, author, and synopsis go straight to a spreadsheet in seconds. Saves 12 to 20 hours a week."
+description: "Manual ISBN entry cost a book reseller hours per pallet. Now a phone scan records every title, author and synopsis instantly. Saves 12 to 20 hours a week."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "classification"]
 layout: "single"

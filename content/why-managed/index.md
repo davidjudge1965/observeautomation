@@ -1,7 +1,7 @@
 ---
 date: '2026-04-26'
 title: 'You own the stack. I run it.'
-description: "How ObserveAutomation's managed automation service works: you own the infrastructure and data, we run and maintain it. Clear explanation of ownership, IP licensing, and what the monthly fee covers."
+description: "You own the server and data, ObserveAutomation manages the n8n automation. What the monthly fee covers, how IP licensing works, and why there is no lock-in."
 draft: false
 ---
 

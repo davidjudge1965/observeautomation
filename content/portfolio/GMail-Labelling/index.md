@@ -2,7 +2,7 @@
 date: '2025-10-21'
 draft: false
 title: "Auto-labelling emails using AI and n8n"
-description: "Important emails were getting buried under newsletters and noise. Now every incoming message is read by AI, classified, and labelled before the inbox is opened — so the ones that need action are visible immediately. Configurable without any technical knowledge."
+description: "Incoming emails are read by AI and labelled automatically so urgent messages are never buried. Configurable via a Google Sheet with no coding needed."
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "GMail"]
 layout: "single"

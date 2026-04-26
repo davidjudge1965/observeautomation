@@ -6,7 +6,7 @@ image: "/image/author.webp"
 description: "AI and automation consultant based in Leighton Buzzard, UK. Practical automation tools for small businesses and automation expertise for larger organisations."
 ---
 
-I build practical AI tools for small businesses, and take on contract work helping larger organisations get more from their infrastructure, automation, and observability.
+I build practical AI and automation tools for small businesses using n8n, and take on contract work helping larger organisations get more from their infrastructure, automation, and observability.
 
 Those two things are more connected than they sound. The same skills that help an enterprise untangle a complex hybrid estate are the ones that let me build an AI receptionist that sounds natural, captures every enquiry, and costs a fraction of a human hire.
 

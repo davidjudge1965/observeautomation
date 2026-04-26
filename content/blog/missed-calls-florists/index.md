@@ -1,6 +1,6 @@
 ---
 date: '2026-03-27'
-title: 'The Real Cost of Missed Calls for Florists'
+title: 'What Missed Calls Are Costing UK Florists'
 description: "A missed call to a florist could be a wedding, funeral, or a Valentine's Day order worth hundreds. Here's what missed calls are really costing you."
 categories: ["Blog"]
 tags: ["Florists", "Missed Calls", "AI Receptionist", "Small Business"]

@@ -2,7 +2,7 @@
 date: '2025-12-17'
 draft: false
 title: 'Availability Finder'
-description: "Checking a diary for a free meeting slot means opening the calendar, scanning through it, doing the mental maths, and repeating when you need a different day. This automation checks the calendar every morning and emails a clean table of available slots, so the answer is always ready."
+description: "Checking a diary for a free meeting slot takes too long. This automation emails a clean table of available slots every morning, before you need to look."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "availability"]
 layout: "single"

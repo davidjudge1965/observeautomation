@@ -1,7 +1,7 @@
 ---
 date: '2026-04-26'
-title: 'Every invoice you enter by hand is ten minutes you will never get back'
-description: "How AI can read, extract, and file your invoices automatically — saving around ten minutes per invoice and eliminating the data-entry errors that creep in when you are tired or rushing."
+title: 'Stop entering invoices by hand. Let AI do it.'
+description: "How AI reads, extracts, and records supplier invoices automatically, including currency conversion. Saves around 10 minutes per invoice at less than a penny in AI costs."
 categories: ["Blog"]
 tags: ["Automation", "AI", "Invoices", "Bookkeeping", "Small Business"]
 image: "/image/InvoicesAndAccount.webp"

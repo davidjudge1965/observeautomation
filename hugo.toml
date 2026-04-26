@@ -3,6 +3,7 @@ languageCode = 'en-GB'
 title = "ObserveAutomation"
 theme = "PaperMod"
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
 
 [pagination]
   pagerSize = 12
