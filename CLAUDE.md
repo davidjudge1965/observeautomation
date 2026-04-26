@@ -133,11 +133,11 @@ Local towns: Leighton Buzzard, Milton Keynes, Aylesbury
 ### Phase 3 — Meta descriptions (complete)
 All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, Trades, Products, Portfolio, Services, Homelab, About, Contact, Blog.
 
-### Phase 4 — Blog (in progress)
+### Phase 4 — Blog (complete)
 - Post 1: `missed-calls-tradespeople` — live 2026-03-25
 - Post 2: `missed-calls-florists` — live 2026-03-27
 - Post 3: `email-sorting-automation` — live 2026-04-01
-- Post 4: invoice/receipt processing — deferred (automation being rewritten)
+- Post 4: `invoice-processing-automation` — live 2026-04-26
 
 ### Phase 5 — Local SEO (largely complete)
 - Google Business Profile live; description, hours (by appointment), logo (OA_Logo_Square.jpg) all set
@@ -148,8 +148,6 @@ All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, 
 
 ## Pending / next steps
 
-- **`/why-managed/` page**: Optional long-form page explaining the customer-owned infrastructure model, monthly fee justification, and IP licensing in full. Would be linked from product pages.
-- **Blog post 4**: Invoice/receipt processing — wait for automation rewrite
 - **Google Business Profile**: Fix primary category ("IT support and services" is not accurate)
 - **Homelab articles**: Review content and layout — user needs to create artefacts first
 - **"Monitoring n8n in my lab"**: Needs a better hero image (AI-generated image prompt available)
