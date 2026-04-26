@@ -16,12 +16,12 @@ The owner is building a consultancy around **AI and automation for small busines
 |---|---|---|---|
 | `/products/` | `layouts/products/list.html` | `layouts/products/single.html` | Card grid + signposts |
 | `/services/` | `layouts/services/list.html` | — | Hero + 6 service cards + signposts |
-| `/portfolio/` | `layouts/portfolio/list.html` | `layouts/_default/single.html` | Card grid + signposts |
+| `/portfolio/` | `layouts/portfolio/list.html` | `layouts/portfolio/single.html` | Card grid + signposts; single pages end with a 2-card CTA signpost |
 | `/blog/` | `layouts/blog/list.html` | `layouts/_default/single.html` | Card grid with post dates + signposts |
 | `/homelab/` | `layouts/homelab/list.html` | `layouts/homelab/single.html` | Card grid + signposts |
 | `/about/` | — | `layouts/about/single.html` | Circular photo + content |
 | `/contact/` | — | `layouts/contact/single.html` | Form + GDPR notice |
-| Homepage | `layouts/index.html` | — | Hero + how-it-works + product cards + signposts |
+| Homepage | `layouts/index.html` | — | Hero + 5-card "Common problems" grid (services-grid CSS) + product cards + signposts |
 
 ### Navigation order
 Home · Products · Services · Portfolio · Blog · Homelab · About · Contact
@@ -48,12 +48,15 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 - `BlogHeroPhoto.jpg` — Blog section hero
 - `BusyTradespersonWhilePhoneRinging.jpg` — Trades Receptionist product hero
 - `FloristInShopOnPhone.jpg` — Florist Receptionist product hero
+- `EmailTriageHero.jpeg` — Email Triage product hero
 - `OA_Logo_Square.jpg` — 720×720 square logo crop (Google Business Profile)
 
 ### Product pages (`content/products/`)
-- `FloristReceptionist/index.md` — Florist AI Voice Receptionist (live)
-- `TradesReceptionist/index.md` — Trades AI Voice Receptionist (live)
-- `AI Voice Receptionist/index.md` — Original receptionist page (`draft: true`, hidden)
+- `TradesReceptionist/index.md` — Trades AI Voice Receptionist (live, weight: 10)
+- `FloristReceptionist/index.md` — Florist AI Voice Receptionist (live, weight: 20)
+- `LatePaymentChasing/index.md` — Late Payment Chasing automation (live, weight: 30)
+- `EmailTriage/index.md` — Email Triage automation (live, weight: 40)
+- `AI Voice Receptionist/index.md` — Original generic receptionist page (`draft: true`, hidden)
 
 ### Shortcodes (`layouts/shortcodes/`)
 - `roi-calculator.html`, `roi-calculator-florist.html`, `roi-calculator-trades.html` — ROI calculators
@@ -61,31 +64,55 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 
 ---
 
-## Pricing model (AI Voice Receptionist)
+## Pricing model
 
+### AI Voice Receptionist (Florist and Trades)
 - **Setup fee**: £500 (one-off)
 - **Monthly management fee**: from £200/month
 - **Call/AI costs**: Passed through at cost — £0.13/min, ~2.5 min avg = ~£0.33/call
 - **Minimum contract**: 3 months, then rolling monthly
 
+### Late Payment Chasing
+- **Setup fee**: £350 (one-off)
+- **Monthly management fee**: £100/month (up to 20 invoice reminders)
+- **No per-transaction AI costs**
+- **Minimum contract**: 3 months, then rolling monthly
+
+### Email Triage
+- **Setup fee**: £300 (one-off); +£300 for automatic draft replies feature
+- **Monthly management fee**: £150/month
+- **AI costs**: £0.01–£0.10 per email, passed through at cost
+- **Minimum contract**: 3 months, then rolling monthly
+
+### General principles (applies to all products)
+- All products run on **customer-owned infrastructure**: customer has their own Hetzner (or equivalent) VPS and their own API accounts (Twilio, VAPI, OpenAI, OpenRouter, etc.). ObserveAutomation does not host on shared hardware — this is against n8n's terms of service for self-hosted multi-tenant deployments.
+- **Workflow IP belongs to ObserveAutomation**. Customers receive a non-transferable licence to use the workflow in their own business indefinitely, including after the engagement ends. They may not share, sell, or sublicense the workflow.
+- AI/API costs are always passed through at cost, with no markup, on the customer's own provider bills.
+
 ---
 
 ## Target market
 
-Primary verticals for the AI Voice Receptionist:
-- **Florists** — standard order £50, weddings £thousands, funerals £600–£1,000
-- **Trades** — plumbers, electricians, heating engineers (£110–£1,500 per job)
-- **Salons and pet services** — booking-dependent businesses
-- **Independent retailers** — flooring shops, etc.
+Primary audience: **any SMB owner** spending time on tasks that could be automated. The site positioning is "AI and automation for small businesses" — not receptionist-specific.
+
+Key verticals with specific product fit:
+- **Florists** — AI Voice Receptionist; standard order £50, weddings £thousands, funerals £600–£1,000
+- **Trades** — AI Voice Receptionist; plumbers, electricians, heating engineers (£110–£1,500 per job)
+- **Any business that invoices clients** — Late Payment Chasing
+- **Any SMB owner with a busy inbox** — Email Triage
+- **Salons and pet services** — booking-dependent, good fit for Voice Receptionist
+- **Independent retailers** — automation consulting and bespoke builds
 
 ---
 
 ## Content and tone guidelines
 
-- **Products/portfolio/blog**: Write for sceptical small business owners. Lead with pain and cost, not features. Concrete £ figures. Short punchy sentences. No jargon.
+- **Products/portfolio/blog**: Write for sceptical small business owners. Lead with pain and cost, not features. Concrete £ figures. No jargon.
+- **Sentence length**: Vary sentence length within paragraphs. A single short sentence lands hard after a longer one — but never open a paragraph with multiple consecutive short sentences or fragments. Complete sentences always; fragments only in H2 callout headers.
 - **Homelab**: Unabashedly technical. Audience is fellow tinkerers and organisations evaluating technical depth.
 - **British English always**: "organise" not "organize", "recognise" not "recognize", "colour" not "color", etc.
 - **No em-dashes** (—): use a comma, colon, or restructure the sentence instead.
+- **Positioning line**: "I remove manual work and reduce costs by automating bottlenecks." — use as an opener on about, services, and homepage.
 - Audio demo: `static/media/OA_Receptionist_Example_Call.mp3` — always link on receptionist product pages
 - Audio shortcode: `{{< audio-player src="media/OA_Receptionist_Example_Call.mp3" title="Hear the AI receptionist in action" >}}`
 
@@ -98,8 +125,9 @@ Primary verticals for the AI Voice Receptionist:
 - Open Graph + Twitter Card tags, meta descriptions, LocalBusiness schema — all in `baseof.html`, validated in Rich Results Test
 - `html lang="en-GB"`
 
-### Phase 2 — Keyword strategy (defined)
-Primary targets: `AI voice receptionist UK`, `AI receptionist for florists UK`, `AI receptionist for tradespeople UK`, `business automation Milton Keynes`
+### Phase 2 — Keyword strategy (defined, partially updated)
+Original targets: `AI voice receptionist UK`, `AI receptionist for florists UK`, `AI receptionist for tradespeople UK`, `business automation Milton Keynes`
+Broader targets added with repositioning: `AI automation for small businesses UK`, `email automation small business`, `invoice chasing automation`
 Local towns: Leighton Buzzard, Milton Keynes, Aylesbury
 
 ### Phase 3 — Meta descriptions (complete)
@@ -120,11 +148,13 @@ All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, 
 
 ## Pending / next steps
 
+- **`/why-managed/` page**: Optional long-form page explaining the customer-owned infrastructure model, monthly fee justification, and IP licensing in full. Would be linked from product pages.
 - **Blog post 4**: Invoice/receipt processing — wait for automation rewrite
 - **Google Business Profile**: Fix primary category ("IT support and services" is not accurate)
 - **Homelab articles**: Review content and layout — user needs to create artefacts first
 - **"Monitoring n8n in my lab"**: Needs a better hero image (AI-generated image prompt available)
 - **Schema**: Add phone number and full address when test number is retired
+- **SEO**: Meta descriptions for new Email Triage product page and updated homepage/services descriptions should be re-validated in Search Console after indexing
 
 ---
 

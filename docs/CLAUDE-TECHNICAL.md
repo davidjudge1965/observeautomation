@@ -39,6 +39,35 @@ draft: false
 
 Note: `layout: "single"` is NOT needed for pages in sections that have their own `layouts/<section>/single.html`.
 
+### Product page front matter — additional params
+All product pages require these additional fields to populate the three partials injected by the layout:
+
+```yaml
+what_you_need:
+  - "A **Hetzner** (or equivalent) cloud server account for your n8n instance"
+  - "A **Twilio** account for your phone number and call routing"
+  - "A **VAPI** account for the AI voice platform"
+  - "A **Google** account for FAQ lookup and calendar availability"
+what_you_need_costs: "£10–£20 per month"
+```
+
+- `what_you_need` — list of strings, rendered as `<ul>` with markdown (bold supported). Required per product; differs per product.
+- `what_you_need_costs` — string, rendered inline in the closing sentence of the "What you will need" section. Omit if no ongoing third-party costs apply.
+
+---
+
+## Product page partials
+
+Three partials are automatically injected after `{{ .Content }}` by `layouts/products/single.html`. They appear in this order: "What you will need", "What the monthly fee covers", "Ownership and licensing".
+
+| Partial | File | Content |
+|---|---|---|
+| What you will need | `layouts/partials/product-what-you-need.html` | Reads `what_you_need` list and `what_you_need_costs` from front matter. Renders nothing if `what_you_need` is absent. |
+| What the monthly fee covers | `layouts/partials/product-monthly-fee.html` | Static content, identical on all product pages. Covers monitoring, maintenance, n8n upgrades, LLM deprecation, AI costs on customer's own bill, included tweaks, no lock-in. |
+| Ownership and licensing | `layouts/partials/product-ownership.html` | Static content, identical on all product pages. States customer owns infrastructure/data; ObserveAutomation owns workflow IP; non-transferable usage licence. |
+
+These sections appear after the FAQ and CTA in the page content — they function as supporting transparency information rather than primary selling copy. Do not duplicate their content within the page markdown.
+
 ---
 
 ## ROI Calculators
