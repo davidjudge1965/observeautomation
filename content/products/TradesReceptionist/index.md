@@ -7,6 +7,7 @@ tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
 image: "/image/BusyTradespersonWhilePhoneRinging.webp"
 hero_position: "center top"
+weight: 10
 draft: false
 ---
 

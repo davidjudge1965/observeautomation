@@ -6,6 +6,7 @@ categories: ["Products"]
 tags: ["Products", "n8n", "Automation", "Invoicing", "Late Payments"]
 image: "/image/Late_Payment_Hero_Image.jpg"
 hero_position: "center center"
+weight: 30
 draft: false
 ---
 

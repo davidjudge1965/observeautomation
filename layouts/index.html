@@ -4,18 +4,18 @@
   <div class="container">
     <h1 class="hero-title">AI that answers for your business</h1>
     <p class="hero-text">
-      When you're on the job, with a customer, or simply flat out — your phone is still ringing. Missed calls become lost customers. Cold calls interrupt your day for nothing.
+      When you're on the job, with a customer, or simply flat out — your phone is still ringing. Missed calls become lost customers. Cold calls interrupt your day for nothing. And somewhere in a drawer, there's an invoice that should have been paid three weeks ago.
       <br><br>
       Observe Automation builds practical AI tools that fix specific problems for small businesses. Not experiments — tools that handle real work and pay for themselves quickly.
       <br><br>
-      The flagship product is an <strong>AI Voice Receptionist</strong> that answers every call you can't, captures every enquiry, and deals with the time-wasters so you never have to stop what you're doing.
+      Two products so far: an <strong>AI Voice Receptionist</strong> that answers every call you miss, and a <strong>Late Payment Chasing</strong> automation that chases every overdue invoice so you don't have to.
     </p>
   </div>
 </section>
 
 <section class="how-it-works">
   <div class="container">
-    <h2 class="section-title">How it works</h2>
+    <h2 class="section-title">How the AI Voice Receptionist works</h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
@@ -40,7 +40,7 @@
   <div class="container">
     <h2 class="section-title">Products</h2>
     <div class="product-grid">
-      {{range first 10 (where .Site.RegularPages "Type" "products")}}
+      {{range first 10 (sort (where .Site.RegularPages "Type" "products") "Weight")}}
       <div class="product-card">
         {{with .Params.image}}
         <img src="{{.}}" alt="{{$.Title}}">
