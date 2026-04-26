@@ -54,6 +54,8 @@ The time it saves is considerably more than that.
 
 If you find yourself spending time every day sorting emails, missing things in a busy inbox, or just wishing it was more organised — this kind of automation is straightforward to set up and run.
 
-The [full technical write-up is in my portfolio](/portfolio/gmail-labelling/) if you want to see exactly how it works under the hood.
+If you want to see exactly how it works under the hood, the [full technical write-up is in the portfolio](/portfolio/gmail-labelling/).
+
+If you want it set up and managed for your business, the [Email Triage product page](/products/emailtriage/) has the full details, pricing, and what is included.
 
 Or [get in touch](/contact/) for a no-cost, no-obligation call. No hard sell, just an honest conversation about whether something similar could work for your business.

@@ -1,0 +1,12 @@
+{{ if .Params.what_you_need }}
+<h2>What you will need</h2>
+<p>Your automation runs on infrastructure you own. You will need the following accounts before or during onboarding:</p>
+<ul>
+{{ range .Params.what_you_need }}
+  <li>{{ . | markdownify }}</li>
+{{ end }}
+</ul>
+{{ if .Params.what_you_need_costs }}
+<p>These accounts can be set up during onboarding if needed. Ongoing server and API costs are typically <strong>{{ .Params.what_you_need_costs }}</strong> in total, billed directly to you by the providers.</p>
+{{ end }}
+{{ end }}

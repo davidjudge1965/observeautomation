@@ -9,6 +9,9 @@
 
   <div class="product-body">
     {{ .Content }}
+    {{ partial "product-what-you-need.html" . }}
+    {{ partial "product-monthly-fee.html" . }}
+    {{ partial "product-ownership.html" . }}
   </div>
 
 </article>

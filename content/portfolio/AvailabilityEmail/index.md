@@ -2,15 +2,15 @@
 date: '2025-12-17'
 draft: false
 title: 'Availability Finder'
-description: "An n8n automation that checks my Google Calendar every morning and emails me a clean table of available slots — no manual diary-checking needed."
+description: "Checking a diary for a free meeting slot means opening the calendar, scanning through it, doing the mental maths, and repeating when you need a different day. This automation checks the calendar every morning and emails a clean table of available slots, so the answer is always ready."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "availability"]
 layout: "single"
 image: "/image/Calendar_for_Availability.jpg"
 ---
-Finding slots for a meeting can, depending on the week, be challenging.
+Finding a free meeting slot in a busy week means opening the calendar, scanning through it, doing the mental arithmetic, and going back and forth until something works. I did this several times a week until I automated it.
 
-This workflow pulls calendar entries from Google Calendar and determines what slots are available.
+This workflow pulls calendar entries from Google Calendar and works out what slots are available.
 <!--more-->
 While this could be written as a simple workflow, it would need some code to work and I'm always striving to write no- or no-code, so the automation is agentic (i.e. autonomous).
 

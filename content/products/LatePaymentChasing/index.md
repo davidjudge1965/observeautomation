@@ -8,6 +8,11 @@ image: "/image/Late_Payment_Hero_Image.jpg"
 hero_position: "center center"
 weight: 30
 draft: false
+what_you_need:
+  - "A **Hetzner** (or equivalent) cloud server account for your n8n instance"
+  - "An **Invoice Ninja** account — either existing or new — as your invoicing system"
+  - "A **Gmail** account for sending reminders to your clients"
+what_you_need_costs: "£5–£10 per month"
 ---
 
 ## You've done the work. The invoice is sitting there. And nobody's paid it.

@@ -3,7 +3,7 @@ title: "About Me"
 date: 2025-10-22
 draft: false
 image: "/image/author.webp"
-description: "AI automation consultant based in Leighton Buzzard, UK. AI voice receptionists for small businesses and automation expertise for organisations."
+description: "AI and automation consultant based in Leighton Buzzard, UK. Practical automation tools for small businesses and automation expertise for larger organisations."
 ---
 
 I build practical AI tools for small businesses, and take on contract work helping larger organisations get more from their infrastructure, automation, and observability.
@@ -18,13 +18,15 @@ Those two things are more connected than they sound. The same skills that help a
 
 ### For small business owners
 
-I built the AI Voice Receptionist because I kept seeing the same problem: owner-operated businesses losing customers not because their service was poor, but simply because they couldn't get to the phone. Florists missing wedding enquiries. Plumbers losing emergency call-outs to whoever picked up first.
+I remove manual work and reduce costs by automating bottlenecks.
 
-The AI receptionist fixes that. It's not a generic chatbot — it's trained specifically on your business, handles your actual questions, and screens out the time-wasters. I build it, set it up, and manage it on an ongoing basis so you don't have to think about it.
+Most small businesses have tasks that take up time without requiring skill or judgement: sorting emails, chasing unpaid invoices, answering the same questions on the phone, entering data from one system to another. AI and automation can handle most of these, running reliably in the background without supervision.
 
-[See it for florists →](/products/floristreceptionist/)
+I build these tools, set them up, and manage them on an ongoing basis so you don't have to think about them. There are ready-made products for the most common problems: an AI Voice Receptionist for businesses that rely on phone enquiries, a Late Payment Chasing automation for businesses that invoice clients, and an Email Triage tool for anyone whose inbox gets in the way of running their business.
 
-[See it for trades →](/products/tradesreceptionist/)
+If your problem is more specific, get in touch and I will tell you whether it is automatable and what it would cost.
+
+[See the products →](/products/)
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: '2026-04-20'
 title: 'Automated Late Payment Chasing'
-description: "Stop chasing invoices manually. This n8n workflow checks for overdue invoices every morning and sends escalating reminder emails automatically — so you get paid without the awkward follow-up calls."
+description: "Chasing late invoices feels awkward and keeps slipping down the to-do list. Every morning this automation checks what is overdue, works out which reminder to send, and fires it off — no manual effort, no missed follow-ups, no uncomfortable phone calls."
 categories: ["Portfolio"]
 tags: ["Portfolio", "n8n", "InvoiceNinja", "Automation"]
 image: "/image/OverdueInvoice.jpg"

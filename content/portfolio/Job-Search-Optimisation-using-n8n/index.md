@@ -2,15 +2,15 @@
 date: '2025-10-22T17:38:12+01:00'
 draft: false
 title: 'Job Search Optimisation automation using n8n'
-description: "Cutting 300 daily job listings down to a manageable shortlist using AI analysis and n8n automation — saving 2–3 hours of reading every day."
+description: "Searching for a common job title generates hundreds of listings a day, most of which are not relevant. AI analysis now filters 300 daily listings down to a shortlist of a dozen or two that actually match the brief — saving 2 to 3 hours of reading every day."
 categories: ["Portfolio"]
 tags: ["n8n", "GenAI", "automation", "classification"]
 layout: "single"
 image: "/image/AutomatedJobSearchOptimisation.jpg"
 ---
-Using my n8n automation skills and my knowledge of GenAI, I built some automations to save time and focus my job search.  The first automation saves me around 2 to 3 hours of reading job roles every day.
+Searching for a job with a common title generates hundreds of listings a day, most of which have nothing to do with what you actually do. I was spending two to three hours every day reading job specs that went nowhere — until I automated the filtering.
 
-Searching for roles can be very time-consuming especially when the job title you're searching for is a common one which applies to a wide variety of domains as is the case for my job title.  
+The first automation alone saves me around 2 to 3 hours of reading every day.  
 <!--more-->
 
 ## Summarising (using GenAI) and keyword search

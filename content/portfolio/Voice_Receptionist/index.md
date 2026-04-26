@@ -2,15 +2,15 @@
 date: '2026-01-02'
 draft: false
 title: 'Voice Receptionist'
-description: "AI voice receptionist built with VAPI, Twilio and n8n: answers calls, handles FAQs, books appointments and transfers urgent calls. Full technical walkthrough."
+description: "When you cannot answer the phone, callers rarely leave a message — they try the next person on the list. This is the full technical write-up of how ObserveAutomation's own AI receptionist was built: handling calls, answering FAQs, booking appointments, and handing off urgent queries."
 categories: ["Portfolio"]
 tags: ["n8n", "automation", "voice", "AI"]
 layout: "single_image_alone"
 image: "/image/AI_Voice_Receptionist.webp"
 ---
-Can't get away from something when a call comes through?  Are your risking losing customers?
+When a call comes through and you cannot get away from what you are doing, most callers do not leave a message — they try the next number on the list.
 
-Maybe all the caller wanted was your opening hours or maybe just to book an appointment.
+Maybe all they wanted was your opening hours, or to book an appointment. But if nobody answers, they will find someone who does.
 
 <!--more-->
 

@@ -9,6 +9,12 @@ image: "/image/BusyTradespersonWhilePhoneRinging.webp"
 hero_position: "center top"
 weight: 10
 draft: false
+what_you_need:
+  - "A **Hetzner** (or equivalent) cloud server account for your n8n instance"
+  - "A **Twilio** account for your phone number and call routing"
+  - "A **VAPI** account for the AI voice platform"
+  - "A **Google** account for FAQ lookup and calendar availability"
+what_you_need_costs: "£10–£20 per month"
 ---
 
 ## You're on a job. Your phone rings. You can't answer.
