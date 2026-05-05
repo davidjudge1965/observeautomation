@@ -1,7 +1,31 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(curl -s -o /tmp/r1.json -w '%{http_code}' -X POST https://n8n.lab.davidmjudge.me.uk/api/v1/workflows -H 'X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiNGRkMmQzZWUtOTdlZS00ZWNkLWJjYTktMWM5M2Y2NmRiODI3IiwiaWF0IjoxNzc3NDU1ODY1fQ.BsrigHKpwkMmJtMtGvPXFTb_9YPkyd16N9cu7W_ohp8' -H 'Content-Type: application/json' -d @c:/Users/david/OneDrive/GitHub/observeautomation/n8n-workflows/social-media-scheduler/buffer-get-profiles.json)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w 'HTTP %{http_code}' -H 'X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiNGRkMmQzZWUtOTdlZS00ZWNkLWJjYTktMWM5M2Y2NmRiODI3IiwiaWF0IjoxNzc3NDU1ODY1fQ.BsrigHKpwkMmJtMtGvPXFTb_9YPkyd16N9cu7W_ohp8' https://n8n.lab.davidmjudge.me.uk/api/v1/workflows)",
+      "Bash(curl -s -X POST https://n8n.lab.davidmjudge.me.uk/api/v1/workflows -H 'X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiNGRkMmQzZWUtOTdlZS00ZWNkLWJjYTktMWM5M2Y2NmRiODI3IiwiaWF0IjoxNzc3NDU1ODY1fQ.BsrigHKpwkMmJtMtGvPXFTb_9YPkyd16N9cu7W_ohp8' -H 'Content-Type: application/json' -d '{\"name\":\"Test\",\"nodes\":[],\"connections\":{}}')",
+      "Bash(curl -s -X POST https://n8n.lab.davidmjudge.me.uk/api/v1/workflows -H 'X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiNGRkMmQzZWUtOTdlZS00ZWNkLWJjYTktMWM5M2Y2NmRiODI3IiwiaWF0IjoxNzc3NDU1ODY1fQ.BsrigHKpwkMmJtMtGvPXFTb_9YPkyd16N9cu7W_ohp8' -H 'Content-Type: application/json' --data-binary @c:/Users/david/OneDrive/GitHub/observeautomation/n8n-workflows/social-media-scheduler/__TRACKED_VAR__)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(npx -y n8n-mcp --version)",
+      "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZWU0YjIzNDgtYzkwZS00Zjg2LWFhNTYtOGI5ZjgzOWE5ZDNhIiwiaWF0IjoxNzc3MzgzNDQ4fQ.QbZPyji6tUFwlc7KZMJnZk0TokR93DZ6FFdyancrxO8\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows?limit=5\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(w['id'], w['name']\\) for w in d.get\\('data',[]\\)]\")",
+      "Bash(N8N_HOST=\"https://n8n.lab.davidmjudge.me.uk\" N8N_API_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" echo '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\",\"params\":{}}')",
+      "Bash(npx -y n8n-mcp)",
+      "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows?limit=3\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d.get\\('message','OK'\\), len\\(d.get\\('data',[]\\)\\)\\)\")",
+      "Bash(curl -s \"https://n8n.lab.davidmjudge.me.uk/types/nodes.json\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows?limit=1\")",
+      "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows?limit=50\")",
+      "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows/8YwPjT38vsZm5naF\")",
+      "Bash(python3 -c \"import json,sys; w=json.load\\(sys.stdin\\); print\\(json.dumps\\({'name':w['name'],'nodes':w['nodes'],'connections':w['connections'],'settings':w['settings']}, indent=2\\)\\)\")"
+    ],
     "additionalDirectories": [
-      "c:\\Users\\david\\.claude\\projects\\c--Users-david-OneDrive-GitHub-observeautomation\\memory"
+      "c:\\Users\\david\\.claude\\projects\\c--Users-david-OneDrive-GitHub-observeautomation\\memory",
+      "c:\\Users\\david\\.claude",
+      "c:\\Users\\david\\OneDrive\\GitHub\\observeautomation\\n8n-workflows\\social-media-scheduler"
     ]
   }
 }

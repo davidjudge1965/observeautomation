@@ -4,7 +4,7 @@ title: 'Vibe coding is great. Just not for your business.'
 description: "Vibe coding is fast, fun, and produces impressive demos. Here's why I don't use it for client automations."
 categories: ["Blog"]
 tags: ["Automation", "Small Business", "n8n", "AI"]
-image: "/image/Hero-why-i-dont-vibe-code.png"
+image: "/image/Hero-why-i-dont-vibe-code.webp"
 hero_position: "center center"
 draft: false
 ---
