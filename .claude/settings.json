@@ -27,5 +27,15 @@
       "c:\\Users\\david\\.claude",
       "c:\\Users\\david\\OneDrive\\GitHub\\observeautomation\\n8n-workflows\\social-media-scheduler"
     ]
+  },
+  "mcpServers": {
+    "n8n-mcp": {
+      "type": "http",
+      "url": "https://n8n.lab.davidmjudge.me.uk/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJtY3Atc2VydmVyLWFwaSIsImp0aSI6ImM4YTQ5YmFmLTdmNTMtNDU4Ny04Y2Q3LWI5YTI1NmQ1YTRmZSIsImlhdCI6MTc3Nzk5MDI3OX0.qxzN-Y_vm0A4mJweK_AFmsI-m6H0aJAYpZ0rsqUSNRU"
+      }
+    }
   }
 }
+
