@@ -1,7 +1,7 @@
 ---
 date: '2026-04-20'
 title: 'Stop chasing invoices. Get paid.'
-description: "Automated late payment reminders for small businesses. Connect to your invoicing system and send escalating, professional reminders on autopilot. From £100/month."
+description: "Automated late payment reminders for small businesses. Connect to your invoicing system and send escalating, professional reminders on autopilot. From £150/month."
 categories: ["Products"]
 tags: ["Products", "n8n", "Automation", "Invoicing", "Late Payments"]
 image: "/image/Late_Payment_Hero_Image.jpg"
@@ -71,7 +71,7 @@ Everything needed to get your Late Payment Chasing automation live:
 >- Google Sheets reminder log so you always have a record
 >- Testing with real invoices before going live
 
-**Monthly service fee: £100/month**
+**Monthly service fee: £150/month**
 
 Ongoing management of your automation, for up to 20 invoice reminders per month:
 

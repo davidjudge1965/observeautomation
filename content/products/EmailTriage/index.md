@@ -81,7 +81,7 @@ Everything needed to get your Email Triage automation running on your own infras
 
 If you want the automation to prepare draft responses to emails that look like they need a reply, this can be added at setup or later. Every draft sits in your Gmail drafts folder. Nothing is ever sent without your review.
 
-**Monthly service fee: £150/month**
+**Monthly service fee: £200/month**
 
 Ongoing management of your automation:
 

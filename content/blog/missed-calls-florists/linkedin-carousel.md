@@ -121,7 +121,7 @@ The number climbs fast.
 **Body:**
 1. A member of staff: covers it, but costs £20,000+ a year
 2. Generic answering service: cheap, but callers get a bland response and often don't convert
-3. AI receptionist: answers every call, trained on your shop, from £200/month
+3. AI receptionist: answers every call, trained on your shop, from £300/month
 
 **Design notes:** Simple numbered list. Highlight option 3.
 

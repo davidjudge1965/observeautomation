@@ -1,7 +1,7 @@
 ---
 date: '2026-01-07'
 title: 'Every missed call is a missed job'
-description: "AI voice receptionist for plumbers, electricians and heating engineers. Answer every call while you're on the tools. Capture every job. From £200/month, UK."
+description: "AI voice receptionist for plumbers, electricians and heating engineers. Answer every call while you're on the tools. Capture every job. From £300/month, UK."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
@@ -90,7 +90,7 @@ Everything needed to get your AI Receptionist live:
 >- Configuration of call transfer rules — including emergency escalation
 >- Full testing before go-live
 
-**Monthly service fee: from £200/month**
+**Monthly service fee: from £300/month**
 
 Ongoing management of your AI Receptionist:
 

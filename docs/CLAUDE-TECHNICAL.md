@@ -97,8 +97,8 @@ const AVG_CALL_MINS = 2.5;    // average call length
 ### Defaults by variant
 | Variant | Std value | High value | Missed calls/day | High-value % | Svc fee |
 |---|---|---|---|---|---|
-| Florist | £50 | £800 | 10 | 10% | £200 |
-| Trades | £150 | £1,500 | 4 | 10% | £200 |
+| Florist | £50 | £800 | 10 | 10% | £300 |
+| Trades | £150 | £1,500 | 4 | 10% | £300 |
 
 ---
 

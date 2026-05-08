@@ -68,19 +68,19 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 
 ### AI Voice Receptionist (Florist and Trades)
 - **Setup fee**: £500 (one-off)
-- **Monthly management fee**: from £200/month
+- **Monthly management fee**: from £300/month
 - **Call/AI costs**: Passed through at cost — £0.13/min, ~2.5 min avg = ~£0.33/call
 - **Minimum contract**: 3 months, then rolling monthly
 
 ### Late Payment Chasing
 - **Setup fee**: £350 (one-off)
-- **Monthly management fee**: £100/month (up to 20 invoice reminders)
+- **Monthly management fee**: £150/month (up to 20 invoice reminders)
 - **No per-transaction AI costs**
 - **Minimum contract**: 3 months, then rolling monthly
 
 ### Email Triage
 - **Setup fee**: £300 (one-off); +£300 for automatic draft replies feature
-- **Monthly management fee**: £150/month
+- **Monthly management fee**: £200/month
 - **AI costs**: £0.01–£0.10 per email, passed through at cost
 - **Minimum contract**: 3 months, then rolling monthly
 
