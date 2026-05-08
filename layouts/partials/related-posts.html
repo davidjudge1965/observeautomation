@@ -1,0 +1,43 @@
+{{/* Related posts partial — surfaces up to 3 sibling pages from the same section that share a tag with the current page. Falls back to most-recent siblings if no tag overlap. */}}
+
+{{ $current := . }}
+{{ $section := .Section }}
+{{ $tags := .Params.tags | default slice }}
+
+{{ $siblings := where (where .Site.RegularPages "Section" $section) "Permalink" "ne" $current.Permalink }}
+
+{{ $related := slice }}
+{{ range $siblings }}
+  {{ if and $tags (.Params.tags) (intersect $tags .Params.tags) }}
+    {{ $related = $related | append . }}
+  {{ end }}
+{{ end }}
+
+{{ if lt (len $related) 3 }}
+  {{ range $siblings }}
+    {{ if not (in $related .) }}
+      {{ $related = $related | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $related = first 3 (sort $related "Date" "desc") }}
+
+{{ if $related }}
+<section class="related-posts" style="margin-top: 2rem;">
+  <h2>Related</h2>
+  <div class="related-grid">
+    {{ range $related }}
+    <a href="{{ .RelPermalink }}" class="related-card">
+      {{ with .Params.image }}
+      <img src="{{ . }}" alt="{{ $.Title }}">
+      {{ end }}
+      <div class="related-card-body">
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

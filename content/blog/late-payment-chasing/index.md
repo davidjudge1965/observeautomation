@@ -73,8 +73,8 @@ More importantly, businesses that chase promptly and consistently get paid faste
 
 ## Is this something your business could use?
 
-If you're spending time every month chasing invoices that should already have been paid, this kind of automation is worth looking at.
+If you're spending time every month chasing invoices that should already have been paid, this kind of automation is worth looking at. The flip side — [recording the supplier invoices that come in](/blog/invoice-processing-automation/) — is automated by the same kind of workflow.
 
-The [full technical write-up is in my portfolio](/portfolio/latepaymentchasing/) if you want to see exactly how it works.
+If you want this set up and managed for you, the [Late Payment Chasing product page](/products/latepaymentchasing/) has the pricing and what's included. The [full technical write-up is in my portfolio](/portfolio/latepaymentchasing/) if you want to see exactly how it works.
 
 Or [get in touch](/contact/) for a no-cost, no-obligation chat about whether it makes sense for your business.

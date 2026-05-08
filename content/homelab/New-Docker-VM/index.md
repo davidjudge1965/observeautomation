@@ -19,7 +19,7 @@ I currently run 2 docker VMs but they are running on the same Proxmox instance. 
 
 I built the Proxmox VE server over the past weekend.  You can read about that here: [Proxmox Server 2](../new-proxmox-server/)
 
-To build the VM, I will use a script to run on the PVE server which leverages CloudInit.
+To build the VM, I will use a script to run on the PVE server which leverages CloudInit. (For the underlying CloudInit setup itself, see the separate [Proxmox CloudInit walkthrough](/homelab/proxmox-cloudinit/).)
 
 I will break down the script here and will include the whole script at the end of this article.
 
@@ -208,3 +208,5 @@ You will need to log out and log back in for that to take effect.  For efficienc
 
 Just to be able to show that our docker VM is up and running I deployed Traefik... Here's the dashboard:
 ![Traefik reverse proxy dashboard running on the Docker VM](assets/Traefik_Dashboard.jpg)
+
+Once the VM is up, the next thing I install is [Beszel for monitoring](/homelab/installingbeszel/) — that gives me visibility into the host and the containers in one place.

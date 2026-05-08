@@ -19,7 +19,7 @@ But I do not vibe code for clients. Here is why.
 
 When you vibe code something, you get something that works. What you do not always get is something anyone can explain. The logic is there, somewhere, but it was generated rather than designed. The person who built it may not fully understand why it works. And when it stops working, because something changes, because an API updates, because your business grows, nobody knows where to start.
 
-For a personal project, that is fine. You tinker, you fix it, or you prompt your way to a new version.
+For a personal project, that is fine. You tinker, you fix it, or you prompt your way to a new version. (For the same reason, [I am cautious about handing critical decisions to an AI agent](/blog/why-agentic-automation-not-just-ai/) — the failure modes look different from traditional automation.)
 
 For a small business, that is a problem for future you.
 
@@ -45,4 +45,4 @@ Vibe coding produces impressive demos. It is fast, cheap, and for the right use 
 
 But impressive demos are not what a small business needs. What a small business needs is something that works on a Tuesday morning six months from now, when something small has changed and nobody can remember why anything is set up the way it is.
 
-That is what I build.
+That is what I build. More on the principles behind that on [the about page](/about/).

@@ -23,7 +23,7 @@ Now think about how many you don't pick up. Not because you're ignoring them, bu
 
 Now put a value on each of those calls. Not every call becomes a job. But the ones that do matter a great deal.
 
-For a plumber, a single call-out is £100–£300. A bathroom refit is £5,000–£10,000. A boiler replacement is £2,000–£4,000. For a florist, a walk-in bouquet is £40–£60. A wedding is thousands. A funeral arrangement is £600–£1,000.
+For a plumber, a single call-out is £100–£300. A bathroom refit is £5,000–£10,000. A boiler replacement is £2,000–£4,000. I broke down the [trades-specific numbers in detail here](/blog/missed-calls-tradespeople/). For a florist, a walk-in bouquet is £40–£60. A wedding is thousands. A funeral arrangement is £600–£1,000. The [florist-specific picture is covered separately](/blog/missed-calls-florists/).
 
 If your conversion rate from answered calls is around 30%, and you're missing five calls a day, and average job value is £200, that's £300 a day. Roughly £6,000 a month, going to competitors who happened to pick up.
 

@@ -10,7 +10,7 @@ image: "/image/cloud-init-logo-vector.png"
 
 I wanted to build a few VMs for my k8s cluster - a master node which would hold the k8s control plane, and a few worker nodes.
 
-I didn't fancy building 4 VMs for my k8s cluster by manually installing the O/S (Ubuntu 24.04) from the ISO and going through the installation GUI when faster and more reliable methods were available.  Enter CloudInit.
+I didn't fancy building 4 VMs for my k8s cluster by manually installing the O/S (Ubuntu 24.04) from the ISO and going through the installation GUI when faster and more reliable methods were available.  Enter CloudInit. (For an applied example of this approach being used to spin up a new Docker host, see [Docker Server #3 with CloudInit](/homelab/new-docker-vm/).)
 <!--more-->
 
 Deploying templates to VMs using [CloudInit](https://cloud-init.io/) starts with the creation of the VM template.  While this can be done via the Proxmox UI, I chose to use the command-line as much as possible.
@@ -266,6 +266,8 @@ The process of creating the VMs for my k3s cluster can now start.  My next step 
 I think I will probably write an article about that as I suspect not everyone knows the techniques that can be used to make this easy.  Watch this space.
 
 And if you've made it this far, many thanks for your perseverance.  If you've found this useful, please let me know - either comment where you found the link (probably a LinkedIn post, or maybe my github), and maybe a like if you think the article is worthy of one.
+
+Once new VMs come up, the [Beszel monitoring agent](/homelab/installingbeszel/) goes on early so they show up on the dashboard from day one.
 
 ## Useful resources
 

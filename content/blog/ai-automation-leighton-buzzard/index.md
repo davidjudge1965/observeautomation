@@ -52,6 +52,6 @@ Most clients see a return on the monthly cost within the first month. Some withi
 
 ## Ready to talk?
 
-If you're based in Leighton Buzzard or the surrounding area and want to find out whether this makes sense for your business, [get in touch](/contact/) for a no-cost, no-obligation call.
+If you're based in Leighton Buzzard or the surrounding area and want to find out whether this makes sense for your business, [get in touch](/contact/) for a no-cost, no-obligation call. Same offer for businesses in [Milton Keynes](/blog/ai-automation-milton-keynes/).
 
-You can also see the [products](/products/) available off the shelf, or browse the [portfolio](/portfolio/) for examples of what's been built for businesses similar to yours.
+To see how an engagement actually works, the [services page](/services/) lays it out, or browse the [products](/products/) available off the shelf and the [portfolio](/portfolio/) for examples of what's been built for businesses similar to yours.

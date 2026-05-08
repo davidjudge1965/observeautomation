@@ -35,7 +35,7 @@ What I'm planning is using a phone to automatically scan the ISBN and send it to
 Here's a graphical high-level flow:
 ![High-level flow](/images/BooKScanner-Flow-Excalidraw.png)
 
-Implementing this saves my friend 12-20 hours a week.
+Implementing this saves my friend 12-20 hours a week. The n8n side of this runs on the same kind of [self-hosted homelab setup](/homelab/) I use for my own automations.
 
 ## Now, for the technical bit
 
@@ -58,3 +58,5 @@ When the app has scanned the book's barcode (you can see it at the bottom of the
 
 ## What does it cost?
 The n8n server is running on my own homelab, and the book data is retrieved from a free Google API, so other than electricity, there's no direct cost for automation.
+
+For more examples of "tedious manual data entry, automated", see [the rest of the portfolio](/portfolio/).

@@ -13,7 +13,7 @@ Every business has them. Supplier invoices. Tool hire receipts. Software subscri
 
 It takes around ten minutes per invoice if you are careful. More if the currency is wrong or you need to look up an exchange rate. Less if you rush. Rushing is how errors creep in.
 
-It is not skilled work. It is just slow, repetitive, and easy to fall behind on.
+It is not skilled work. It is just slow, repetitive, and easy to fall behind on. The same applies to a busy inbox, which is why [Email Triage](/products/emailtriage/) exists — that one tackles the front end of the same time-sink.
 
 ## What the automation does
 
@@ -39,7 +39,7 @@ The exchange rate lookup uses a free API. The accounting integration uses the ac
 
 ## Is this something your business could use?
 
-If you process more than a handful of invoices or receipts a month, the time saving is immediate. The accuracy benefit is harder to put a number on, but easy to appreciate if you have ever had to track down a data-entry error that made it into your accounts and spent an afternoon working out where it came from.
+If you process more than a handful of invoices or receipts a month, the time saving is immediate. The same logic applies to chasing the invoices you send out: I covered that in [the late payment chasing post](/blog/late-payment-chasing/). The accuracy benefit is harder to put a number on, but easy to appreciate if you have ever had to track down a data-entry error that made it into your accounts and spent an afternoon working out where it came from.
 
 The [full technical write-up is in the portfolio](/portfolio/expensesingestion/) if you want to see how it was built.
 

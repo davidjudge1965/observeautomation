@@ -52,7 +52,7 @@ The time it saves is considerably more than that.
 
 ## Is this something your business could use?
 
-If you find yourself spending time every day sorting emails, missing things in a busy inbox, or just wishing it was more organised — this kind of automation is straightforward to set up and run.
+If you find yourself spending time every day sorting emails, missing things in a busy inbox, or just wishing it was more organised — this kind of automation is straightforward to set up and run. The same principle applies to [supplier invoices that need recording](/blog/invoice-processing-automation/): the bottleneck is the same, the fix is the same.
 
 If you want to see exactly how it works under the hood, the [full technical write-up is in the portfolio](/portfolio/gmail-labelling/).
 

@@ -8,7 +8,7 @@ tags: ["n8n", "GenAI", "automation", "classification"]
 layout: "single"
 image: "/image/AutomatedJobSearchOptimisation.jpg"
 ---
-Searching for a job with a common title generates hundreds of listings a day, most of which have nothing to do with what you actually do. I was spending two to three hours every day reading job specs that went nowhere — until I automated the filtering.
+Searching for a job with a common title generates hundreds of listings a day, most of which have nothing to do with what you actually do. I was spending two to three hours every day reading job specs that went nowhere — until I automated the filtering. The same pattern of "AI reads, classifies, surfaces only the relevant" runs through most of [the work I deliver to clients](/services/).
 
 The first automation alone saves me around 2 to 3 hours of reading every day.  
 <!--more-->
@@ -67,3 +67,5 @@ And here's the actual flow from n8n:
 The n8n server is running on my own homelab, so other than electricity, there's no direct cost for automation.
 
 The analysis of the job role is done by an LLM in the cloud: OpenAI's GPT-4O-mini (via APIs) which is fast and relatively cheap for this not-very-taxing task.  Each role processed costs less than £0.01 - I don't know exactly how much but my API credit balance goes down very, very slowly.
+
+For more examples of the kinds of automation that pay back quickly, see [the rest of the portfolio](/portfolio/).

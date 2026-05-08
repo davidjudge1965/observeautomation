@@ -37,7 +37,7 @@ A small business owner manually copying data from emailed invoices and receipts 
 
 None of these are exotic problems. They are the same friction that slows down hundreds of thousands of small businesses across the UK. And all three were solved with automation tools that cost a fraction of what the wasted time was worth.
 
-The florist's missed calls now get answered by an AI receptionist. The sole trader's inbox gets sorted automatically every morning, with urgent emails flagged before he opens his laptop. The invoice processing happens without anyone touching it.
+The florist's missed calls now get answered by an AI receptionist. The sole trader's inbox gets [sorted automatically every morning](/blog/email-sorting-automation/), with urgent emails flagged before he opens his laptop. The [invoice processing](/blog/invoice-processing-automation/) happens without anyone touching it.
 
 ## Starting small is not the same as thinking small
 

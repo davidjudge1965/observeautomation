@@ -14,7 +14,7 @@ Maybe all they wanted was your opening hours, or to book an appointment. But if 
 
 <!--more-->
 
-Today, being tied to answering every call is no longer necessary.  An AI Receptionist can answer calls for you and handle queries, book appointments and, of course, hand-off the call to a real person.
+Today, being tied to answering every call is no longer necessary. An AI Receptionist can answer calls for you and handle queries, book appointments and, of course, hand-off the call to a real person. Two off-the-shelf versions of this exist: one for [tradespeople](/products/tradesreceptionist/) and one for [florists](/products/floristreceptionist/).
 
 Here's a call I recorded being answered by ObserveAutomation's AI Receptionist:
 {{<audio src="media/OA_Receptionist_Example_Call.mp3" title="Title">}}

@@ -57,6 +57,6 @@ The cost is typically lower than people expect. The time saved is usually higher
 
 The best starting point is a single, specific problem: one task that eats your time, one process that keeps slipping, one gap you know is costing you revenue.
 
-If you're based in Milton Keynes or the surrounding area and want to talk through what automation could realistically do for your business, [get in touch](/contact/) for a no-cost, no-obligation call.
+If you're based in Milton Keynes or the surrounding area and want to talk through what automation could realistically do for your business, [get in touch](/contact/) for a no-cost, no-obligation call. The same patterns apply if you're nearby in [Leighton Buzzard](/blog/ai-automation-leighton-buzzard/).
 
-Or take a look at the [products](/products/) and [portfolio](/portfolio/) to see what's already been built for businesses like yours.
+To see how this is delivered, the [services page](/services/) walks through what an engagement looks like end to end, or take a look at the [products](/products/) and [portfolio](/portfolio/) to see what's already been built for businesses like yours.

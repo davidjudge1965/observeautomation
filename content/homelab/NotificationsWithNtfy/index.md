@@ -8,7 +8,7 @@ layout: "single"
 image: "/image/ntfy_banner.webp"
 ---
 
-As part of my wider monitoring of my home lab, I want active notifications that I can receive while at home even when my broadband is down - in fact, mainly when my broadband is down.
+As part of my wider monitoring of my home lab, I want active notifications that I can receive while at home even when my broadband is down - in fact, mainly when my broadband is down. ntfy works alongside [Beszel](/homelab/installingbeszel/), which handles the actual host-and-container monitoring.
 
 Most of my methods of notification (Email, slack, etc.) require an internet connection. But I’ve been having minor outages due to either my ISP or my new router and I want to be notified of these while the outage is on-going (i.e. when the internet is not accessible). 
 
@@ -147,3 +147,5 @@ networks:
 
 
 The documentation site for ntfy.sh is: https://docs.ntfy.sh/
+
+The same n8n notification approach gets used in client work — see the [portfolio](/portfolio/) for examples where ntfy alerts customers to events in their own workflows.

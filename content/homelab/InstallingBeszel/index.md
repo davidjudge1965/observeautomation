@@ -10,7 +10,7 @@ image: "/image/Beszel_icon.png"
 
 My home lab is getting messy and I don't have a full understanding of what's running where... i.e. on which of my 5 machines and 3 docker "hosts".
 
-It's time to get some clarity and insights with Beszel
+It's time to get some clarity and insights with Beszel. (Once Beszel flags a problem, the actual alerting goes through [ntfy](/homelab/notificationswithntfy/) so I get the push without needing email or Slack to be working.)
 
 <!--more-->
 
@@ -126,3 +126,5 @@ w Enable Watch   d Detach
 
 Shortly after we start to see data coming into Beszel:
 ![Beszel dashboard showing live metrics from docker04](images/Beszel_Dashboard_With_docker04_Data.jpg)
+
+Adding agents to other VMs follows the same pattern — see for example the [Docker VM #3 build](/homelab/new-docker-vm/) where Beszel agent goes on as part of the standard provisioning.

@@ -22,6 +22,8 @@ It should also be able to put the call through to my mobile if the caller asks f
 Last but not least, I should sound like me - as in the way I talk rather than the actual sound of my voice.
 <!--more-->
 
+For the customer-facing technical write-up of the same build, see [the Voice Receptionist portfolio entry](/portfolio/voice_receptionist/).
+
 There are a fair number of moving pieces to creating the AI Voice Receptionist.
 
 We need a UK number - provided by Twillio.

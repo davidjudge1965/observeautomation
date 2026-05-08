@@ -8,7 +8,7 @@ image: "/image/SpeedTracker_Dashboard.png"
 ---
 
 
-I like to know what speed i'm getting from my ISP.  I found a nifty docker container to do that.  The web site also provides instructions for k8s deployment.
+I like to know what speed i'm getting from my ISP. I found a nifty docker container to do that. The web site also provides instructions for k8s deployment. (For other monitoring I run on the same lab, see the [rest of the homelab posts](/homelab/).)
 <!--more-->
 
 ## Steps
@@ -93,3 +93,5 @@ While I find this very useful... and in the above screenshot you can see that I 
 One caveat, though, is that if the internet is not reachable, nothing is recorded and you can't see that the connection dropped completely.
 
 When I get time, I may look at the code and see if I can create a pull request.  No promises...
+
+This kind of low-cost, self-hosted monitoring is the foundation under most of the [client-facing automations in the portfolio](/portfolio/).

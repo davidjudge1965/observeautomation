@@ -21,7 +21,7 @@ The technique my client had seen has a name. Andrej Karpathy, one of the founder
 
 It is real, and it is genuinely impressive. By last year, a quarter of companies in Y Combinator's startup programme had codebases where 95% of the code was AI-generated. Developers are using it to move faster, prototype ideas in hours instead of days, and build things that would previously have needed a team.
 
-For a developer who knows what they are doing, it is a powerful accelerant. That is the honest case for it.
+For a developer who knows what they are doing, it is a powerful accelerant. That is the honest case for it. (I wrote separately about [why I do not vibe code for clients](/blog/why-i-dont-vibe-code/), and this post expands on the reasoning.)
 
 ## The 70% problem
 
