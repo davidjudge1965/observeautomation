@@ -20,6 +20,6 @@ The automations I build are visual, documented, and designed to be understood. I
 Most clients never need to edit their own workflows. But they could. That distinction matters more than it sounds.
 
 Full post on the blog:
-https://www.observeautomation.com/blog/why-i-dont-vibe-code/
+https://www.observeautomation.com/blog/why-i-dont-vibe-code/?utm_source=linkedin&utm_medium=social&utm_campaign=why-i-dont-vibe-code&utm_content=post
 
 #SmallBusiness #BusinessAutomation #AI #n8n #Automation

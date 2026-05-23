@@ -104,6 +104,8 @@ The cost of the underlying AI and telephony is billed transparently at cost — 
 
 There are no hidden markups on these costs.
 
+*For the full detail of what the monthly fee covers, response times, what counts as a chargeable change, and the licence terms, see the [Florist Service Scope document](/scope/florist-receptionist/).*
+
 
 
 ## Getting set up

@@ -105,6 +105,8 @@ The underlying AI and telephony is billed transparently at cost — typically **
 
 There are no hidden markups on these costs.
 
+*For the full detail of what the monthly fee covers, response times, what counts as a chargeable change, and the licence terms, see the [Trades Service Scope document](/scope/trades-receptionist/).*
+
 
 ## Getting set up
 

@@ -27,5 +27,5 @@ Full article — with the numbers and how the automation works — link in the c
 *Note: LinkedIn posts with links in the body get less reach. Add the URL as the first comment after posting.*
 
 **Comment text:**
-Full article: https://www.observeautomation.com/blog/late-payment-chasing/
-How it works: https://www.observeautomation.com/portfolio/latepaymentchasing/
+Full article: https://www.observeautomation.com/blog/late-payment-chasing/?utm_source=linkedin&utm_medium=social&utm_campaign=late-payment-chasing&utm_content=comment-blog
+How it works: https://www.observeautomation.com/portfolio/latepaymentchasing/?utm_source=linkedin&utm_medium=social&utm_campaign=late-payment-chasing&utm_content=comment-portfolio

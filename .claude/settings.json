@@ -20,12 +20,23 @@
       "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows?limit=1\")",
       "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows?limit=50\")",
       "Bash(curl -s -H \"X-N8N-API-KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNmNmYzFlNC0zMGI5LTQ1ZjgtYTQ3Mi02NGIwMmFhNmJiMGMiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDhjMzY1MzctMmZjOS00MzM2LWJkYjktODNlYmE5NDI3MTc4IiwiaWF0IjoxNzc3NzI1MTg3fQ._5Z6cExvY75-eI6hz8RogiVCzKk9ovarQk-r5tBbG6E\" \"https://n8n.lab.davidmjudge.me.uk/api/v1/workflows/8YwPjT38vsZm5naF\")",
-      "Bash(python3 -c \"import json,sys; w=json.load\\(sys.stdin\\); print\\(json.dumps\\({'name':w['name'],'nodes':w['nodes'],'connections':w['connections'],'settings':w['settings']}, indent=2\\)\\)\")"
+      "Bash(python3 -c \"import json,sys; w=json.load\\(sys.stdin\\); print\\(json.dumps\\({'name':w['name'],'nodes':w['nodes'],'connections':w['connections'],'settings':w['settings']}, indent=2\\)\\)\")",
+      "Bash(mkdir -p \"c:/Users/david/OneDrive/GitHub/observeautomation/ideas\" && mv \"c:/Users/david/.claude/plans/i-want-you-to-generic-snowglobe.md\" \"c:/Users/david/OneDrive/GitHub/observeautomation/ideas/uk-smb-pain-research.md\" && ls \"c:/Users/david/OneDrive/GitHub/observeautomation/ideas/\")",
+      "Bash(hugo server *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:1313/scope/florist-receptionist/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:1313/scope/trades-receptionist/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:1313/products/floristreceptionist/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:1313/products/tradesreceptionist/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:1313/products/)",
+      "Bash(curl -s http://localhost:1313/scope/florist-receptionist/)",
+      "Bash(curl -s http://localhost:1313/products/floristreceptionist/)",
+      "Bash(curl -s http://localhost:1313/products/tradesreceptionist/)"
     ],
     "additionalDirectories": [
       "c:\\Users\\david\\.claude\\projects\\c--Users-david-OneDrive-GitHub-observeautomation\\memory",
       "c:\\Users\\david\\.claude",
-      "c:\\Users\\david\\OneDrive\\GitHub\\observeautomation\\n8n-workflows\\social-media-scheduler"
+      "c:\\Users\\david\\OneDrive\\GitHub\\observeautomation\\n8n-workflows\\social-media-scheduler",
+      "c:\\Users\\david\\.claude\\plans"
     ]
   },
   "mcpServers": {
@@ -38,4 +49,3 @@
     }
   }
 }
-

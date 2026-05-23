@@ -41,5 +41,5 @@ What's the task on your list you'd most like to hand off?
 **Notes:**
 - Word count: ~280 words (within 150–400 target)
 - Type: Education (Type 2)
-- Link to blog post goes in first comment (LinkedIn best practice): https://www.observeautomation.com/blog/ai-for-small-business-where-to-start-b/
+- Link to blog post goes in first comment (LinkedIn best practice): https://www.observeautomation.com/blog/ai-for-small-business-where-to-start-b/?utm_source=linkedin&utm_medium=social&utm_campaign=ai-for-small-business-where-to-start-b&utm_content=comment-blog
 - Post Tue–Thu, 8–10am or 12–1pm

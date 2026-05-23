@@ -146,6 +146,32 @@ All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, 
 
 ---
 
+## Campaign tracking (UTM convention)
+
+GA4 (`G-4BN5LK4X9N`) automatically captures UTM parameters. Every URL posted on a social platform should be tagged so we can attribute traffic to the specific post and link role.
+
+**Format:**
+```
+?utm_source=<platform>&utm_medium=social&utm_campaign=<post-slug>&utm_content=<role>
+```
+
+**LinkedIn — always use these values:**
+- `utm_source=linkedin`
+- `utm_medium=social`
+- `utm_campaign=<blog-post-slug>` (lowercase, matches the URL segment under `/blog/`)
+- `utm_content` — where the link sits and what it points to:
+  - `post` — link in the LinkedIn post body
+  - `comment-blog` — comment link to the blog post
+  - `comment-portfolio` — comment link to a portfolio page
+  - `comment-product` — comment link to a product page
+  - Extend with the `comment-<target>` shape as needed
+
+**Apply to:** every link in `linkedin-version.md` files, every link posted manually to LinkedIn (post body, first comment, profile, DMs). Internal references inside the draft (e.g. "Source post:" notes that aren't being posted) stay untagged.
+
+**Viewing in GA4:** Reports → Acquisition → Traffic acquisition (switch primary dimension to Session campaign), or Explore with Session campaign + Session manual ad content as rows, filtered by `Session source = linkedin`.
+
+---
+
 ## Pending / next steps
 
 - **Google Business Profile**: Fix primary category ("IT support and services" is not accurate)
