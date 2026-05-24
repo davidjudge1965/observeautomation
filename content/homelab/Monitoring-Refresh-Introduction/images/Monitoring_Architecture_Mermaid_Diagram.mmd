@@ -1,0 +1,35 @@
+graph TD
+    proxmox[Proxmox host]
+    vms[Other VMs<br/>node_exporter]
+    n8n[n8n workflows<br/>OTel-instrumented]
+    endpoints[External endpoints]
+
+    blackbox[Blackbox exporter]
+    otel[OpenTelemetry Collector]
+
+    influx[(InfluxDB)]
+    prom[(Prometheus)]
+    loki[(Loki)]
+    tempo[(Tempo)]
+
+    grafana[Grafana UI]
+    alertmanager[Alertmanager]
+    ntfy([ntfy])
+
+    proxmox -->|push| influx
+    vms -->|scrape| prom
+    n8n --> otel
+    endpoints --> blackbox
+    blackbox -->|scrape| prom
+
+    otel --> prom
+    otel --> loki
+    otel --> tempo
+
+    influx --> grafana
+    prom --> grafana
+    loki --> grafana
+    tempo --> grafana
+
+    prom --> alertmanager
+    alertmanager --> ntfy

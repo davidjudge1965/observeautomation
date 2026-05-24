@@ -1,6 +1,6 @@
 ---
 date: '2026-05-21'
-title: 'New monitoring: an introduction'
+title: "Monitoring Refresh - An introduction"
 description: "I'm rebuilding my homelab monitoring from scratch with production-grade tools, step by step. Here's why, and what's coming."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "ObserveAutomation"]
@@ -23,48 +23,7 @@ Right now, the end state is a Grafana stack on a single VM, with OpenTelemetry C
 
 ![Diagram of the initial monitoring stack](images/Monitoring_Architecture_Mermaid_Diagram.png)
 
-
-```mermaid.js
-graph TD
-    proxmox[Proxmox host]
-    vms[Other VMs<br/>node_exporter]
-    n8n[n8n workflows<br/>OTel-instrumented]
-    endpoints[External endpoints]
-
-    blackbox[Blackbox exporter]
-    otel[OpenTelemetry Collector]
-
-    influx[(InfluxDB)]
-    prom[(Prometheus)]
-    loki[(Loki)]
-    tempo[(Tempo)]
-
-    grafana[Grafana UI]
-    alertmanager[Alertmanager]
-    ntfy([ntfy])
-
-    proxmox -->|push| influx
-    vms -->|scrape| prom
-    n8n --> otel
-    endpoints --> blackbox
-    blackbox -->|scrape| prom
-
-    otel --> prom
-    otel --> loki
-    otel --> tempo
-
-    influx --> grafana
-    prom --> grafana
-    loki --> grafana
-    tempo --> grafana
-
-    prom --> alertmanager
-    alertmanager --> ntfy
-```
-
-Full design notes and the decisions behind each component live in [`docs/architecture.md`](https://github.com/davidjudge1965/HomeLabMonitoring/blob/main/docs/architecture.md).
-
-Traefik handles ingress for the whole stack. Every UI exposed by the monitor VM is configured via Traefik labels on its container, with a CNAME in the Bind zone pointing at `monitor.lab.davidmjudge.me.uk`. No container publishes a port directly to the host. The conventions live in [`docs/dns-and-traefik.md`](https://github.com/davidjudge1965/HomeLabMonitoring/blob/main/docs/dns-and-traefik.md); the next post stands the monitor VM up and gets Traefik running before any of the observability components arrive.
+Traefik handles ingress for the whole stack. Every UI exposed by the monitor VM is configured via Traefik labels on its container, with a CNAME in the Bind zone pointing at `monitor.lab.davidmjudge.me.uk`. No container publishes a port directly to the host. The next post stands the monitor VM up and gets Traefik running before any of the observability components arrive.
 
 It is more than a homelab strictly needs. That is the point. The goal is not minimum viable monitoring; it is a properly designed observability platform, scaled down. Every component has to earn its place in the architecture, and every choice is the same one I would make at a larger scale.
 
