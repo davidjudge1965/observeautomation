@@ -11,7 +11,7 @@ draft: true
 
 When you have spent enough years designing observability platforms, you develop strong opinions about what a properly designed one looks like. Strong enough that an ad-hoc monitoring setup makes you twitch.
 
-Mine was making me twitch. So I am rebuilding it.
+Mine was making me twitch. More to the point, it wasn't telling me what I needed to know: three places to look when something broke, and none of them the right one. So I am rebuilding it.
 
 <!--more-->
 
@@ -22,6 +22,8 @@ Over the next few months I am replacing the monitoring stack on my own infrastru
 Most monitoring setups grow. They start with something pragmatic, then expand without a plan. A vendor product because the company already had it. A dashboard because someone built it for a different problem. A scrape config because someone needed a metric in a hurry. The end result is functional, but it is rarely what anyone would design from a blank sheet.
 
 What I want instead is a platform: the same shape I would build inside a small engineering team, scaled down to fit a homelab. Separate stores for metrics, logs, and traces, because their access patterns are different and pretending they aren't always ends in tears. Push-based ingest for the components that emit natively. Pull-based for everything else. A unified ingest layer for new instrumentation so the same plumbing decision is not made twice. Alerting routed through a single notification surface so noise can be tuned in one place.
+
+The point of all this discipline is reducing time-to-resolution. When something breaks at 2am, the question is always the same: what changed, what failed, what is the blast radius. A properly designed platform answers those in seconds, not in twenty minutes of dashboard-hopping across three tools that don't talk to each other. Faster diagnosis, faster recovery. That is what observability is supposed to deliver, and what an ad-hoc setup quietly fails to do.
 
 The specific tools matter less than the discipline of having a design at all. The series works through the actual choices in the homelab; I am using the open-source Grafana stack, but most of it could be substituted without changing the argument.
 
@@ -43,7 +45,7 @@ Each of those is a scope decision, not an oversight. The reason large platforms 
 
 ## What this is supposed to signal
 
-If you are hiring an observability practitioner, the question you are trying to answer is not "do they know the tools." Everyone knows the tools. The question is whether someone can walk into a system that has accreted over five years, see what is missing, see what is over-engineered, and make sensible decisions about what to do next.
+If you are hiring an observability practitioner, the question you are trying to answer is not "do they know the tools." Everyone knows the tools. The question is whether someone can walk into a system that has been bolted together over five years, see what is missing, see what is over-engineered, and make sensible decisions about what to do next. Because the difference between a strong observability hire and a weak one shows up in your MTTR.
 
 That is hard to test with a take-home exercise. The closest proxy is watching how someone builds the same kind of system for themselves, with no manager telling them where to stop and no tech-debt excuses available.
 
