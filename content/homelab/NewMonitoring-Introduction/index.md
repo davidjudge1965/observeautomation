@@ -11,13 +11,13 @@ draft: false
 
 I've been working in observability long enough to have strong opinions about what a properly designed platform looks like. The homelab should be where I get to run those opinions end to end without compromise. Until recently it has been monitored by a sensible-but-tactical mix: Beszel for container health, a handful of cron checks, the Proxmox dashboard when I remember to open it. That does what tactical monitoring is meant to do, but it falls well short of what I want the monitoring stack of my own infrastructure to look like.
 
-So I'm starting again, properly this time, on a fresh Ubuntu VM I'm calling monitor. I'll install one component at a time, each landing as its own post. I'm keeping the alternatives I considered next to the ones I picked, because the rejected options usually teach more than the accepted ones.
+So I'm starting again, properly this time, on a fresh Ubuntu VM I'm calling monitor. I'll install one component at a time, each landing as its own post. 
 
 <!--more-->
 
 ## What "properly" looks like
 
-The end state is a Grafana stack on a single VM, with OpenTelemetry Collector as the unifying ingest layer for new instrumentation, Prometheus for pull-based scraping, InfluxDB for the Proxmox metrics that the hypervisor pushes natively, Loki for logs, and Tempo for traces. Alerting routes through Alertmanager into ntfy.
+Right now, the end state is a Grafana stack on a single VM, with OpenTelemetry Collector as the unifying ingest layer for new instrumentation, Prometheus for pull-based scraping, InfluxDB for the Proxmox metrics that the hypervisor pushes natively, Loki for logs, and Tempo for traces. Alerting routes through Alertmanager into ntfy.
 
 ### Initial suggestion of the monitoring stack
 
