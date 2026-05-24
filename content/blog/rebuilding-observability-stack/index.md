@@ -6,7 +6,7 @@ categories: ["Blog"]
 tags: ["Blog", "Observability", "Engineering"]
 image: "/image/MonitoringHomelabPhoto.webp"
 hero_position: "center top"
-draft: true
+draft: false
 ---
 
 When you have spent enough years designing observability platforms, you develop strong opinions about what a properly designed one looks like. Strong enough that an ad-hoc monitoring setup makes you twitch.
