@@ -22,7 +22,9 @@
       "Bash(do echo:*)",
       "Read(//c/Users/david/OneDrive/GitHub/observeautomation/$dir/**)",
       "Read(//c/Users/david/OneDrive/GitHub/observeautomation/**)",
-      "Bash(cat c:/Users/david/OneDrive/GitHub/Brand/content-templates/*)"
+      "Bash(cat c:/Users/david/OneDrive/GitHub/Brand/content-templates/*)",
+      "Bash(git -C \"c:/Users/david/OneDrive/GitHub/observeautomation\" status)",
+      "Bash(git -C \"c:/Users/david/OneDrive/GitHub/observeautomation\" status --short --branch)"
     ]
   }
 }
