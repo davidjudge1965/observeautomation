@@ -6,7 +6,8 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "InfluxDB", "Proxmox", "Docker"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
-draft: false---
+draft: false
+---
 
 InfluxDB is step one for two reasons. First, Proxmox writes metrics natively to InfluxDB with no glue or exporter required. There is no easier way to get every hypervisor metric flowing into something Grafana can query. Second, treating Proxmox as the canonical push-based source sets a useful precedent: not everything in the final stack will be Prometheus-scraped, and the architecture reflects that from the start.
 
@@ -78,14 +79,14 @@ networks:
 Worth calling out:
 
 - **`DOCKER_INFLUXDB_INIT_*` env vars** drive InfluxDB's one-shot bootstrap on first run. They create the admin user, organisation, bucket, retention policy, and admin token. After the first successful start they're no-ops; the state lives in `./data/influxdb-config/`.
-- **Pre-set admin token** (`DOCKER_INFLUXDB_INIT_ADMIN_TOKEN`): a random secret you generate yourself and put in `.env` *before* the first `docker compose up -d`. InfluxDB reads it during the one-shot bootstrap, creates the admin user with that exact string as the admin's API token, and then ignores the env var on every subsequent boot (the value lives in `./data/influxdb-config/` from then on). Setting it up front avoids having to log into the UI to fetch a token before anything else can be configured. It's still the admin token, so treat it as such — `openssl rand -hex 32` is the standard way to produce one (64 hex chars, 256 bits of entropy).
+- **Pre-set admin token** (`DOCKER_INFLUXDB_INIT_ADMIN_TOKEN`): a random secret you generate yourself and put in `.env` *before* the first `docker compose up -d`. InfluxDB reads it during the one-shot bootstrap, creates the admin user with that exact string as the admin's API token, and then ignores the env var on every subsequent boot (the value lives in `./data/influxdb-config/` from then on). Setting it up front avoids having to log into the UI to fetch a token before anything else can be configured. It's still the admin token, so treat it as such. `openssl rand -hex 32` is the standard way to produce one (64 hex chars, 256 bits of entropy).
 - **No `ports:` published.** InfluxDB listens on port 8086 inside the container; Traefik routes to it from `https://influxdb.lab.davidmjudge.me.uk`. Both the UI and the write API live behind the same hostname.
 - **Both networks.** `proxy` for Traefik ingress, `monitoring` so Grafana can reach InfluxDB over the internal backplane as `influxdb:8086` once it arrives in step 3.
 
 ## `.env`
 
 ```
-# InfluxDB v2 — used only on first run; afterwards state lives in ./data/influxdb-config/
+# InfluxDB v2: used only on first run; afterwards state lives in ./data/influxdb-config/
 INFLUXDB_ADMIN_USER=admin
 INFLUXDB_ADMIN_PASSWORD=
 # Generate with: openssl rand -hex 32
@@ -186,12 +187,12 @@ Save. Proxmox starts pushing immediately.
 
 Back in the InfluxDB UI: **Data Explorer** → select the `proxmox` bucket. After a minute or two, the measurement list populates with the Proxmox schema:
 
-- `system` — host CPU, load average, uptime
-- `cpustat` — per-CPU metrics
-- `memory` — host memory
-- `blockstat` — per-VM disk I/O
-- `nics` — network interface counters
-- `proxmox-support` — pveproxy / pvestatd internal metrics
+- `system`: host CPU, load average, uptime
+- `cpustat`: per-CPU metrics
+- `memory`: host memory
+- `blockstat`: per-VM disk I/O
+- `nics`: network interface counters
+- `proxmox-support`: pveproxy / pvestatd internal metrics
 
 Build a quick query to confirm the flow. Under `_measurement` tick `cpustat`, under `_field` tick `avg15` (the 15-minute load average), under `host` tick your Proxmox node (mine is `pve`), then **Submit**. A line on the chart confirms the path end-to-end: Proxmox → Traefik → InfluxDB → query, with a fresh point every 10 seconds.
 

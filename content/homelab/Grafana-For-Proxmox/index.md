@@ -6,7 +6,8 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Grafana", "InfluxDB", "Proxmox", "Docker"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
-draft: false---
+draft: false
+---
 
 Proxmox has been pushing metrics into InfluxDB for a few days now, and the only way to look at them has been the InfluxDB Data Explorer. That's a sanity-check tool, not a dashboard. Grafana is the obvious next step: the UI everyone expects, the alerting engine the rest of the stack will lean on, and the place where every later datasource (Prometheus, Loki, Tempo) will eventually plug in side by side.
 
@@ -16,7 +17,7 @@ This post stands up Grafana on the monitor VM, wires it to the existing `proxmox
 
 ## Image and edition
 
-`grafana/grafana:12.0.2`. The OSS edition, despite the unqualified image name; `grafana/grafana-enterprise` is the licensed one and isn't needed for this stack. Pinned to a specific minor for the same reason InfluxDB is pinned to `2.7` — `latest` is a footgun that turns a routine `docker compose pull` into a surprise migration.
+`grafana/grafana:12.0.2`. The OSS edition, despite the unqualified image name; `grafana/grafana-enterprise` is the licensed one and isn't needed for this stack. Pinned to a specific minor for the same reason InfluxDB is pinned to `2.7`. `latest` is a trap that can turn a routine `docker compose pull` into a surprise migration.
 
 ## Why provision the datasource
 
@@ -24,7 +25,7 @@ The instinct on first install is to click through the UI: **Connections** -> **D
 
 That datasource then lives inside `data/grafana/grafana.db`. If the data dir ever gets nuked (deliberate redeploy, disk failure, "I'll just blow it away and start fresh") the datasource goes with it and the dashboards on top break silently with "datasource not found". The token sits in a SQLite blob, with no record of what permissions it was granted or what bucket it points at.
 
-Provisioning fixes both. The datasource is declared in a YAML file that's part of the repo. Wiping the data dir and rebooting re-creates it identically. The token still lives in `.env` (because it's a secret) but everything else — the URL, the org, the bucket, the query language version — is in version control.
+Provisioning fixes both. The datasource is declared in a YAML file that's part of the repo. Wiping the data dir and rebooting re-creates it identically. The token still lives in `.env` (because it's a secret) but everything else (the URL, the org, the bucket, the query language version) is in version control.
 
 `stack/02-grafana/provisioning/datasources/influxdb.yml`:
 
@@ -48,11 +49,11 @@ datasources:
 
 A few things worth calling out:
 
-- **`url: http://influxdb:8086`** — over the shared `monitoring` Docker network. Grafana resolves the container hostname `influxdb` to the InfluxDB container directly, no Traefik hop, no TLS to terminate twice. Cleaner and faster than going through `https://influxdb.lab.davidmjudge.me.uk`, and avoids the trust dance of a self-signed cert if you ever swap Traefik out.
-- **`version: Flux`** — InfluxDB v2's native query language. The datasource also supports InfluxQL for v1 compatibility, but Flux is the one to learn for v2; the bundled Grafana panels and the community dashboards both target Flux.
-- **`$INFLUXDB_TOKEN_GRAFANA_PROXMOX`** — Grafana interpolates env vars in provisioning files with a single `$`. The token is passed to the container via env (see compose below), not committed.
-- **`editable: false`** — locks the datasource in the UI. Anyone trying to "just tweak the token" has to come back to this file. Not paranoia; this is the difference between a config-as-code stack and a SQLite stack.
-- **`isDefault: true`** — every dashboard that doesn't specify a datasource explicitly will pick this one up. There's only one for now so it doesn't matter, but setting it now means importing the Proxmox dashboard later doesn't ask awkward questions.
+- **`url: http://influxdb:8086`**. Over the shared `monitoring` Docker network. Grafana resolves the container hostname `influxdb` to the InfluxDB container directly, no Traefik hop, no TLS to terminate twice. Cleaner and faster than going through `https://influxdb.lab.davidmjudge.me.uk`, and avoids the trust dance of a self-signed cert if you ever swap Traefik out.
+- **`version: Flux`**. InfluxDB v2's native query language. The datasource also supports InfluxQL for v1 compatibility, but Flux is the one to learn for v2; the bundled Grafana panels and the community dashboards both target Flux.
+- **`$INFLUXDB_TOKEN_GRAFANA_PROXMOX`**. Grafana interpolates env vars in provisioning files with a single `$`. The token is passed to the container via env (see compose below), not committed.
+- **`editable: false`**. Locks the datasource in the UI. Anyone trying to "just tweak the token" has to come back to this file. Not paranoia; this is the difference between a config-as-code stack and a SQLite stack.
+- **`isDefault: true`**. Every dashboard that doesn't specify a datasource explicitly will pick this one up. There's only one for now so it doesn't matter, but setting it now means importing the Proxmox dashboard later doesn't ask awkward questions.
 
 ## The compose
 
@@ -113,9 +114,9 @@ networks:
 
 Worth calling out:
 
-- **`GF_SERVER_ROOT_URL`** — Grafana uses this to build absolute URLs for share links, alert callbacks, and OAuth redirects. Without it, Grafana falls back to whatever the request came in on, which often produces broken links from alert notifications (Alertmanager doesn't see the original `Host` header). Set it once, set it correctly.
-- **`GF_USERS_ALLOW_SIGN_UP=false`** — Grafana ships with self-signup enabled. On a public-facing host with a real Let's Encrypt cert that's a small open door. Close it.
-- **Analytics off.** `GF_ANALYTICS_REPORTING_ENABLED` and `GF_ANALYTICS_CHECK_FOR_UPDATES` both off — same instinct as `sendAnonymousUsage: false` in Traefik's static config.
+- **`GF_SERVER_ROOT_URL`**. Grafana uses this to build absolute URLs for share links, alert callbacks, and OAuth redirects. Without it, Grafana falls back to whatever the request came in on, which often produces broken links from alert notifications (Alertmanager doesn't see the original `Host` header). Set it once, set it correctly.
+- **`GF_USERS_ALLOW_SIGN_UP=false`**. Grafana ships with self-signup enabled. On a public-facing host with a real Let's Encrypt cert that's a small open door. Close it.
+- **Analytics off.** `GF_ANALYTICS_REPORTING_ENABLED` and `GF_ANALYTICS_CHECK_FOR_UPDATES` both off, the same instinct as `sendAnonymousUsage: false` in Traefik's static config.
 - **`INFLUXDB_TOKEN_GRAFANA_PROXMOX`** is plain env, not `secureJsonData`-style: Grafana reads the env var, then the provisioning file consumes it. There's nothing to gain by making it a Docker secret in a single-node compose stack.
 - **No `ports:`.** Grafana listens on `:3000` inside the container; Traefik routes from `https://grafana.lab.davidmjudge.me.uk`.
 - **Both networks.** `proxy` for Traefik ingress, `monitoring` so Grafana can reach `influxdb:8086` over the internal backplane (and Prometheus, Loki, Tempo when they arrive).
@@ -130,7 +131,7 @@ GRAFANA_ADMIN_PASSWORD=
 INFLUXDB_TOKEN_GRAFANA_PROXMOX=
 ```
 
-A note on the admin password. Grafana's first-boot bootstrap reads `GF_SECURITY_ADMIN_PASSWORD` and sets the admin user accordingly. After that, changing the env var has no effect — the credential lives in Grafana's SQLite. If you want to rotate it later, change it in the UI; if you want to reset a forgotten one, `docker compose exec grafana grafana-cli admin reset-admin-password <new>` does the job.
+A note on the admin password. Grafana's first-boot bootstrap reads `GF_SECURITY_ADMIN_PASSWORD` and sets the admin user accordingly. After that, changing the env var has no effect. The credential lives in Grafana's SQLite. If you want to rotate it later, change it in the UI; if you want to reset a forgotten one, `docker compose exec grafana grafana-cli admin reset-admin-password <new>` does the job.
 
 ## The read-only token
 
@@ -213,7 +214,7 @@ sudo chmod -R g+rX data/grafana
 
 Capital `X` adds traverse on directories and read on files but doesn't make ordinary data files executable.
 
-That covers the files that already exist. Grafana keeps writing new ones — session blobs, the alert state DB, log rotations — and those inherit their permissions from the container's umask. Today that umask happens to allow group read, but it isn't a contract; an image upgrade could tighten it and silently strip your access. The robust fix is a *default* ACL, which forces every new file and directory created inside the tree to inherit group-read regardless of the process umask:
+That covers the files that already exist. Grafana keeps writing new ones (session blobs, the alert state DB, log rotations) and those inherit their permissions from the container's umask. Today that umask happens to allow group read, but it isn't a contract; an image upgrade could tighten it and silently strip your access. The robust fix is a *default* ACL, which forces every new file and directory created inside the tree to inherit group-read regardless of the process umask:
 
 ```bash
 sudo setfacl -R -d -m g:472:rX data/grafana
@@ -234,20 +235,20 @@ The same pattern repeats for every later step. Loki's image runs as UID 10001, P
 
 A couple of alternatives considered and not chosen:
 
-- **Named Docker volumes** would side-step the host-side ownership problem entirely — Docker chowns them on creation — but the volume lives somewhere under `/var/lib/docker/volumes/`, and rummaging in there as a normal user defeats the purpose. The bind-mount-plus-group pattern keeps the data dir somewhere you can `cd` into without `docker volume inspect`.
+- **Named Docker volumes** would side-step the host-side ownership problem entirely (Docker chowns them on creation), but the volume lives somewhere under `/var/lib/docker/volumes/`, and rummaging in there as a normal user defeats the purpose. The bind-mount-plus-group pattern keeps the data dir somewhere you can `cd` into without `docker volume inspect`.
 - **Userns-remap** in the Docker daemon maps every container UID into a private host range. Cleaner isolation, but it's a daemon-level toggle that affects every container on the host. Reasonable for a hardening pass later; overkill for adding a group on a homelab.
 
 ## Verifying the provisioned datasource
 
-**Connections** -> **Data sources**. `InfluxDB-Proxmox` should be there with a "Provisioned" tag. Open it: the URL, org, default bucket, and Flux version should match the file. The token field is greyed out (it came from env). The whole config is read-only — the **Save & Test** button at the bottom is the only thing you can do. Click it.
+**Connections** -> **Data sources**. `InfluxDB-Proxmox` should be there with a "Provisioned" tag. Open it: the URL, org, default bucket, and Flux version should match the file. The token field is greyed out (it came from env). The whole config is read-only. The **Save & Test** button at the bottom is the only thing you can do. Click it.
 
 ![Grafana Connections > Data sources page showing InfluxDB-Proxmox provisioned and locked, with Save & Test returning "datasource is working".](images/03-grafana-datasource-provisioned.webp)
 
 If the test fails:
 
-1. **`bad request: organisation not found`** — the org name in the provisioning file doesn't match what InfluxDB has. Check the value in InfluxDB UI -> top-left dropdown.
-2. **`unauthorized: invalid token`** — the env var isn't getting through. `docker compose exec grafana env | grep INFLUXDB` should show the token value; if it's empty, `.env` isn't being read.
-3. **`connection refused`** — the URL is wrong, or the `monitoring` network isn't shared. `docker compose exec grafana wget -O- http://influxdb:8086/health` should return `{"status":"pass",...}`.
+1. **`bad request: organisation not found`**. The org name in the provisioning file doesn't match what InfluxDB has. Check the value in InfluxDB UI -> top-left dropdown.
+2. **`unauthorized: invalid token`**. The env var isn't getting through. `docker compose exec grafana env | grep INFLUXDB` should show the token value; if it's empty, `.env` isn't being read.
+3. **`connection refused`**. The URL is wrong, or the `monitoring` network isn't shared. `docker compose exec grafana wget -O- http://influxdb:8086/health` should return `{"status":"pass",...}`.
 
 ## A smoke-test query
 
@@ -279,20 +280,20 @@ The instinct to leave it untouched and call the job done is wrong. A dashboard y
 1. **Cull.** Remove every panel that's never going to be the answer to a real question. The per-CPU breakdown panels go; aggregate CPU is enough. The per-process panels go; if a process is causing a problem, it'll show up on host load. The dashboard goes from 30+ panels to about 12.
 2. **Reorder.** The top row should answer "is the host healthy" (CPU, memory, load), the second row "are the VMs healthy" (per-VM CPU/memory rollups), the rest is reference material. Anyone glancing at the dashboard during an incident should get the answer in the first viewport.
 
-Save the modified dashboard as a copy with a new name like `Proxmox — Homelab`. The original import stays as a reference.
+Save the modified dashboard as a copy with a new name like `Proxmox - Homelab`. The original import stays as a reference.
 
-![Trimmed Proxmox dashboard saved as "Proxmox — Homelab": twelve panels, host health row at the top, VM health row below, reference panels collapsed into a row below the fold.](images/06-grafana-proxmox-dashboard-trimmed.webp)
+![Trimmed Proxmox dashboard saved as "Proxmox - Homelab": twelve panels, host health row at the top, VM health row below, reference panels collapsed into a row below the fold.](images/06-grafana-proxmox-dashboard-trimmed.webp)
 
 ## Why dashboards aren't (yet) provisioned
 
 Datasource provisioning was a freebie: one short YAML file, one read-only token, done. Dashboard provisioning is a deeper commitment. The dashboard JSON is long, generated by the UI editor, and changes every time you nudge a panel. Treating it as source code means either accepting messy diffs after every edit, or building a workflow that exports + commits the JSON on every save.
 
-That's worth doing. It's just not worth doing yet — the dashboard list is small, the alerts haven't been written, and the right time to lock everything down as code is after the shape has stabilised. The harden-the-platform post a few steps from here is where dashboard JSON, alert rules, and notification policies all get pulled into provisioning together.
+That's worth doing. It's just not worth doing yet. The dashboard list is small, the alerts haven't been written, and the right time to lock everything down as code is after the shape has stabilised. The harden-the-platform post a few steps from here is where dashboard JSON, alert rules, and notification policies all get pulled into provisioning together.
 
 ## Where we are
 
-Three steps in: Traefik, [InfluxDB collecting Proxmox metrics]({{< ref "/posts/homelab/InfluxDB-And-Proxmox" >}}), and Grafana on top reading them through a provisioned datasource — with a trimmed dashboard that answers "is everything healthy" at a glance.
+Three steps in: Traefik, [InfluxDB collecting Proxmox metrics]({{< ref "InfluxDB-And-Proxmox" >}}), and Grafana on top reading them through a provisioned datasource, with a trimmed dashboard that answers "is everything healthy" at a glance.
 
 ## What's next
 
-Prometheus. Pull-based scraping for everything that isn't Proxmox: node_exporter on every host, Traefik's `/metrics` endpoint (which has been sitting unused since step 0), and the first application-level metrics. Grafana picks it up as a second datasource alongside InfluxDB, and the split-tier observability pattern — InfluxDB for traditional infrastructure, Prometheus for ingress and apps — becomes visible.
+Prometheus. Pull-based scraping for everything that isn't Proxmox: node_exporter on every host, Traefik's `/metrics` endpoint (which has been sitting unused since step 0), and the first application-level metrics. Grafana picks it up as a second datasource alongside InfluxDB, and the split-tier observability pattern (InfluxDB for traditional infrastructure, Prometheus for ingress and apps) becomes visible.

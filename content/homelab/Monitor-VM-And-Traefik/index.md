@@ -6,7 +6,8 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Traefik", "Docker", "Ubuntu", "LetsEncrypt", "Cloudflare"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
-draft: false---
+draft: false
+---
 
 Before any of the observability components arrive, the foundation has to be right. That means a clean VM, a tidy Docker setup, and Traefik already in place as the ingress for everything that follows. Doing this once now means every later post (InfluxDB, Grafana, Prometheus, Loki) can drop straight into the same pattern: container with Traefik labels, CNAME in Bind, HTTPS automatically, no host port published.
 
@@ -38,7 +39,7 @@ docker network create monitoring
 ```
 
 - `proxy` is what Traefik watches. Every container with a UI joins it so Traefik can route to it.
-- `monitoring` is the shared backplane for the observability stack. Every component joins it, including Traefik (Prometheus needs to scrape Traefik's metrics endpoint, so it has to be able to reach Traefik). Component-to-component traffic — Grafana querying InfluxDB, OTel Collector writing to Prometheus, and so on — flows here.
+- `monitoring` is the shared backplane for the observability stack. Every component joins it, including Traefik (Prometheus needs to scrape Traefik's metrics endpoint, so it has to be able to reach Traefik). Component-to-component traffic (Grafana querying InfluxDB, OTel Collector writing to Prometheus, and so on) flows here.
 
 UI containers (Grafana, InfluxDB, Prometheus, Alertmanager) join both networks. Backend-only containers (Loki, Tempo, OTel Collector, node_exporter) join only `monitoring`.
 
@@ -57,7 +58,7 @@ stack/00-traefik/
 └── .env                 # CF_DNS_API_TOKEN
 ```
 
-### Static config — `traefik.yml`
+### Static config: `traefik.yml`
 
 Most of the operational behaviour lives here.
 
@@ -121,7 +122,7 @@ Three things worth calling out:
 - **`providers.docker.exposedByDefault: false`** is the safe default. Containers have to opt in by setting `traefik.enable=true`. Without it, every container on the `proxy` network would be advertised automatically, which is fine right up until the first time you bring up a half-configured workload and find it's quietly serving traffic.
 - **`api.dashboard: true`** plus **`api.insecure: true`** plus the implicit port 8080 entrypoint exposes the Traefik dashboard on `:8080` over plain HTTP. Same setup docker04 uses today. Reachable from inside the lab. The router doesn't forward 8080, so nothing outside can hit it. Hardening this further, by putting the dashboard behind Traefik itself with TLS and basic auth, is a fair-enough future improvement. The threat model here doesn't warrant the extra complexity yet.
 
-### Dynamic config — `config.yml`
+### Dynamic config: `config.yml`
 
 One middleware, defined once, available to any router that opts into it:
 
@@ -140,7 +141,7 @@ http:
 
 The reason `secure-headers` lives in the dynamic config rather than alongside the static config is operational: the file provider watches this file and reloads on change without restarting the container, so adding or tweaking middlewares is a hot operation.
 
-### Compose — `compose.yaml`
+### Compose: `compose.yaml`
 
 What actually runs:
 
@@ -188,7 +189,7 @@ networks:
 
 A quick note on the volume choice. I prefer bind-mounted folders to named Docker volumes, both here and across the rest of the repo. Backups are easier, and pulling out a specific file (an `acme.json` to migrate the certs to another host, a single config to inspect) is a plain `cp` instead of going through `docker volume inspect` or `docker run --rm -v ...`.
 
-### Environment — `.env`
+### Environment: `.env`
 
 One variable:
 

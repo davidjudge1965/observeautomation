@@ -6,7 +6,8 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Prometheus", "Traefik", "Grafana", "Docker"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
-draft: false---
+draft: false
+---
 
 Traefik has been emitting Prometheus metrics on its dedicated `:9090` entrypoint since step 0, and nothing has been reading them. That's the visible symptom of a deliberate gap in the stack: the Proxmox-via-InfluxDB path is fine for hypervisor metrics, but a homelab observability platform needs a pull-based scraper for everything else. Traefik's request counts, node_exporter on every VM, Blackbox probes, application instrumentation later on. All of it expects Prometheus.
 
@@ -93,7 +94,7 @@ Worth calling out:
 - **`--web.enable-lifecycle`** opens `POST /-/reload` so config edits don't need a container restart. The trade-off is real and worth being explicit about: the same flag also exposes `POST /-/quit` for graceful shutdown. On the trusted homelab LAN that's an acceptable risk for the operational win; the day the trust boundary widens, the right answer is a Traefik `basicAuth` middleware on this router rather than disabling the flag.
 - **`user: "65534:65534"`.** The image already runs as `nobody` (UID 65534); declaring it in compose is for the reader. Pairs with the chown step in the bring-up below.
 - **`./config/targets:/etc/prometheus/targets:ro`** mounts an empty directory today. The point is that adding the next node_exporter target won't need a compose edit.
-- **No Grafana-style admin password env vars.** Prometheus has no built-in auth. The homelab convention here is "trusted LAN, services without built-in auth still get a Traefik route" — same call as Traefik's own dashboard. When external access matters, the same `basicAuth` middleware that covers `/-/quit` covers the UI.
+- **No Grafana-style admin password env vars.** Prometheus has no built-in auth. The homelab convention here is "trusted LAN, services without built-in auth still get a Traefik route". Same call as Traefik's own dashboard. When external access matters, the same `basicAuth` middleware that covers `/-/quit` covers the UI.
 
 ## `.env`
 
@@ -219,7 +220,7 @@ The shape mirrors the InfluxDB datasource file from the previous post and the sa
 
 - **`url: http://prometheus:9090`** over the shared `monitoring` network, same internal-hostname pattern Grafana uses to reach InfluxDB. No Traefik hop, no TLS to terminate twice.
 - **`httpMethod: POST`** is the modern recommendation. GET works up to a URL-length ceiling; POST handles big PromQL queries without hitting it. There's no down-side at this scale.
-- **No `secureJsonData`.** Prometheus has no auth, so there's no token to interpolate. If a `basicAuth` middleware ever wraps the Traefik router, the datasource gets `basicAuth: true` and a `secureJsonData.basicAuthPassword` block — but it's worth landing the plain version first and adding hardening as its own deliberate step.
+- **No `secureJsonData`.** Prometheus has no auth, so there's no token to interpolate. If a `basicAuth` middleware ever wraps the Traefik router, the datasource gets `basicAuth: true` and a `secureJsonData.basicAuthPassword` block, but it's worth landing the plain version first and adding hardening as its own deliberate step.
 - **`isDefault: false`.** InfluxDB-Proxmox stays the default. Both datasources are queryable, but a freshly created panel that doesn't specify one still defaults to the same place as before. Avoids a subtle "all my old dashboards just changed datasource" surprise.
 
 Pick the file up with a restart of the Grafana stack:
@@ -229,7 +230,7 @@ cd ~/grafana
 docker compose restart grafana
 ```
 
-In Grafana, **Connections** -> **Data sources**. Both `InfluxDB-Proxmox` and `Prometheus` should be listed with a "Provisioned" tag. Open the new one and click **Save & Test** at the bottom — "Successfully queried the Prometheus API." is the expected response.
+In Grafana, **Connections** -> **Data sources**. Both `InfluxDB-Proxmox` and `Prometheus` should be listed with a "Provisioned" tag. Open the new one and click **Save & Test** at the bottom. "Successfully queried the Prometheus API." is the expected response.
 
 ![Grafana Connections > Data sources page after the Prometheus datasource lands: InfluxDB-Proxmox and Prometheus both listed with the Provisioned tag, the new Prometheus datasource opened to show Save & Test returning a green tick.](images/04-grafana-datasources-both-provisioned.webp)
 
@@ -275,7 +276,7 @@ The `node` job in Status -> Targets now lists one target. It'll be `DOWN` until 
 
 ## Where we are
 
-Four steps in: Traefik, [InfluxDB collecting Proxmox metrics]({{< ref "/posts/homelab/InfluxDB-And-Proxmox" >}}), [Grafana on top]({{< ref "/posts/homelab/Grafana-For-Proxmox" >}}), and now Prometheus scraping Traefik with Grafana picking it up as a second provisioned datasource alongside InfluxDB.
+Four steps in: Traefik, [InfluxDB collecting Proxmox metrics]({{< ref "InfluxDB-And-Proxmox" >}}), [Grafana on top]({{< ref "Grafana-For-Proxmox" >}}), and now Prometheus scraping Traefik with Grafana picking it up as a second provisioned datasource alongside InfluxDB.
 
 ## What's next
 
