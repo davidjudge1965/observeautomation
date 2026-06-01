@@ -6,6 +6,7 @@ categories: ["Homelabbing"]
 tags: ["Homelab", "ntfy"]
 layout: "single"
 image: "/image/ntfy_banner.webp"
+draft: flase
 ---
 
 As part of my wider monitoring of my home lab, I want active notifications that I can receive while at home even when my broadband is down - in fact, mainly when my broadband is down. ntfy works alongside [Beszel](/homelab/installingbeszel/), which handles the actual host-and-container monitoring.

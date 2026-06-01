@@ -33,8 +33,8 @@ Links in the comments.
 
 **Comment text:**
 Series introduction: https://www.observeautomation.com/homelab/monitoring-refresh-introduction/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-intro
-Post 1, monitor VM and Traefik: https://www.observeautomation.com/homelab/monitor-vm-and-traefik/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-traefik
-Post 2, InfluxDB for Proxmox metrics: https://www.observeautomation.com/homelab/influxdb-and-proxmox/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-influxdb
+Post 1, monitor VM and Traefik: https://www.observeautomation.com/homelab/rebuild-01-monitor-vm-and-traefik/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-traefik
+Post 2, InfluxDB for Proxmox metrics: https://www.observeautomation.com/homelab/rebuild-02-influxdb-and-proxmox/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-influxdb
 
 ---
 

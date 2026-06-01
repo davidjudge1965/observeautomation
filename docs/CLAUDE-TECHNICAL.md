@@ -33,9 +33,12 @@ categories: ["Products"]
 tags: ["Products", "n8n", "GenAI"]
 image: "/image/image-filename.jpg"
 hero_position: "center center"
+ShowCodeCopyButtons: true
 draft: false
 ---
 ```
+
+`ShowCodeCopyButtons: true` is a PaperMod parameter that adds a copy button to fenced code blocks. Harmless on pages without code, useful on any article that might gain a code block later — include it on every new article-style file by default.
 
 Note: `layout: "single"` is NOT needed for pages in sections that have their own `layouts/<section>/single.html`.
 
