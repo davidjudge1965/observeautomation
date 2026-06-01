@@ -29,8 +29,11 @@ Links in the comments.
 
 **Comment text:**
 Series introduction (the higher-level argument): https://www.observeautomation.com/blog/rebuilding-observability-stack/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-blog-progress-2
+
 Implementation series overview: https://www.observeautomation.com/homelab/monitoring-refresh-introduction/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-intro-progress-2
+
 Post 3, Grafana on top of InfluxDB: https://www.observeautomation.com/homelab/rebuild-03-grafana-for-proxmox/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-grafana
+
 Post 4, Prometheus as a second metric store: https://www.observeautomation.com/homelab/rebuild-04-prometheus-second-metric-store/?utm_source=linkedin&utm_medium=social&utm_campaign=rebuilding-observability-stack&utm_content=comment-homelab-prometheus
 
 ---
