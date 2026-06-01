@@ -17,7 +17,7 @@ This post stands up Grafana on the monitor VM, wires it to the existing `proxmox
 
 ## Image and edition
 
-`grafana/grafana:12.0.2`. The OSS edition, despite the unqualified image name; `grafana/grafana-enterprise` is the licensed one and isn't needed for this stack. Pinned to a specific minor for the same reason InfluxDB is pinned to `2.7`. `latest` is a trap that can turn a routine `docker compose pull` into a surprise migration.
+`grafana/grafana:12.0.2`. The OSS edition, despite the unqualified image name; `grafana/grafana-enterprise` is the licensed one and isn't needed for this stack. Pinned to a specific minor for the same reason InfluxDB is pinned to `2.7`. `latest` is a footgun that turns a routine `docker compose pull` into a surprise migration.
 
 ## Why provision the datasource
 
