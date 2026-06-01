@@ -141,7 +141,7 @@ All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, 
 
 ### Phase 5 — Local SEO (largely complete)
 - Google Business Profile live; description, hours (by appointment), logo (OA_Logo_Square.jpg) all set
-- Categories: "IT support and services" (primary, still wrong) + "Business management consultant"
+- Categories: "Business management consultant" (primary) + "Automation company" + "Business-to-Business service"
 - Address (town/region only) and telephone to be added to schema when ready
 
 ---
@@ -174,7 +174,6 @@ GA4 (`G-4BN5LK4X9N`) automatically captures UTM parameters. Every URL posted on 
 
 ## Pending / next steps
 
-- **Google Business Profile**: Fix primary category ("IT support and services" is not accurate)
 - **Homelab articles**: Review content and layout — user needs to create artefacts first
 - **"Monitoring n8n in my lab"**: Needs a better hero image (AI-generated image prompt available)
 - **Schema**: Add phone number and full address when test number is retired
