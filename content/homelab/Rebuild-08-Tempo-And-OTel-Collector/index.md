@@ -22,6 +22,37 @@ The two components are one architectural unit. A trace store with nothing produc
 
 This isn't a new pattern in the rebuild series. [Loki and Alloy]({{< ref "Rebuild-05-Loki-And-Alloy" >}}) did the same thing: log store and first agent stood up in one post, then [satellite Alloys]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}) [rolled out]({{< ref "Rebuild-07-Alloy-Across-The-Docker-Estate" >}}) in follow-up posts. Here, the trace pipeline is the post, and the first real producer (n8n instrumentation) is what the next post does.
 
+## The shape of the pipeline
+
+{{< mermaid >}}
+flowchart LR
+    P1["Workstation<br/>curl OTLP"]
+    P2["n8n on dock<br/>(next post)"]
+
+    TR["Traefik<br/>HTTPS termination"]
+    OC["OTel Collector<br/>otelcol.lab.davidmjudge.me.uk"]
+
+    PR[("Prometheus")]
+    LK[("Loki")]
+    TP[("Tempo")]
+
+    GF["Grafana"]
+
+    P1 -->|HTTPS| TR
+    P2 -.->|HTTPS| TR
+    TR -->|OTLP HTTP| OC
+
+    OC -->|remote-write| PR
+    OC -->|Loki API| LK
+    OC -->|OTLP gRPC| TP
+
+    PR --> GF
+    LK --> GF
+    TP --> GF
+{{< /mermaid >}}
+
+Solid arrows are live in this post. The dashed arrow from n8n is what the next post wires up. Producers always talk HTTPS to Traefik on monitor; Traefik terminates TLS and hands plaintext OTLP to the Collector on the internal `monitoring` Docker network. The Collector fans out to all three backends (plaintext, internal network). Grafana queries each backend directly, never via the Collector.
+
 ## Architecture, made explicit
 
 Four design calls earn their own paragraphs before the YAML lands. All four shaped the configs in real ways and the alternatives are worth being honest about.
