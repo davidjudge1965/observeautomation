@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects
+# Format: source destination status
+
+# /pricing/ was linked from old scope pages and may still be in
+# Ahrefs/Google's index. Send anyone landing there to the product
+# overview, which has the headline prices for all four products.
+/pricing/  /products/  301
+/pricing   /products/  301
