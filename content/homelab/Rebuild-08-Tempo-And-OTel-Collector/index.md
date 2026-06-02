@@ -391,7 +391,7 @@ Prometheus's `/api/v1/write` endpoint is gated behind a feature flag. The diff t
 - "--web.enable-remote-write-receiver"
 ```
 
-A footgun on the way: in Prometheus 2.x this was `--enable-feature=remote-write-receiver`. The feature was promoted from experimental to stable in 3.x and the flag was renamed under the `--web.` prefix. The old name returns 404 from `/api/v1/write` with a body that helpfully says `remote write receiver needs to be enabled with --web.enable-remote-write-receiver`. Prometheus tells you exactly which flag to use, but only if you remember to check the error message rather than the older docs.
+Worth knowing: in Prometheus 2.x this was `--enable-feature=remote-write-receiver`. The feature was promoted from experimental to stable in 3.x and the flag was renamed under the `--web.` prefix. The old name returns 404 from `/api/v1/write` with a body that helpfully says `remote write receiver needs to be enabled with --web.enable-remote-write-receiver`. Prometheus tells you exactly which flag to use, but only if you remember to check the error message rather than the older docs.
 
 `docker compose up -d` on monitor recreates the container with the new args. (Not `restart`, which re-runs the existing container with the old command.) The TSDB in the bind mount survives the recreate; the gap costs at most one scrape cycle per target.
 

@@ -1,12 +1,13 @@
 ---
 date: '2026-05-25'
 title: 'Prometheus, the second metric store'
-description: "Standing up Prometheus on the monitor VM as a second metric store. Scraping Traefik metrics, then wiring it into Grafana alongside InfluxDB."
+description: "Standing up Prometheus on the monitor VM behind Traefik, scraping Traefik's own metrics endpoint as the first target, and wiring it into Grafana as a second provisioned datasource alongside InfluxDB."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Prometheus", "Traefik", "Grafana", "Docker"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 Traefik has been emitting Prometheus metrics on its dedicated `:9090` entrypoint since step 0, and nothing has been reading them. That's the visible symptom of a deliberate gap in the stack: the Proxmox-via-InfluxDB path is fine for hypervisor metrics, but a homelab observability platform needs a pull-based scraper for everything else. Traefik's request counts, node_exporter on every VM, Blackbox probes, application instrumentation later on. All of it expects Prometheus.
@@ -27,7 +28,7 @@ So: InfluxDB is the push-based sink for things that want to send (Proxmox, event
 
 ## Image and edition
 
-`prom/prometheus:v3.1.0`. v3 has been the recommended line for the best part of a year now, with v2.x in maintenance; the TSDB format is forward-compatible and the PromQL changes that matter for a fresh build are wins (`info` function for joins, native histograms stable). Pinned to a specific minor for the same reason Grafana and InfluxDB are pinned: `latest` is a footgun that turns a routine `docker compose pull` into a surprise migration.
+`prom/prometheus:v3.1.0`. v3 has been the recommended line for the best part of a year now, with v2.x in maintenance; the TSDB format is forward-compatible and the PromQL changes that matter for a fresh build are wins (`info` function for joins, native histograms stable). Pinned to a specific minor for the same reason Grafana and InfluxDB are pinned: `latest` is a trap that turns a routine `docker compose pull` into a surprise migration.
 
 ## The compose
 

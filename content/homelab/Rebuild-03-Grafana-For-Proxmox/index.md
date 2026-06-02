@@ -7,6 +7,7 @@ tags: ["Homelab", "Observability", "Monitoring", "Grafana", "InfluxDB", "Proxmox
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 Proxmox has been pushing metrics into InfluxDB for a few days now, and the only way to look at them has been the InfluxDB Data Explorer, which is fine to use as a sanity check. Grafana is the obvious next step: the UI everyone expects, the alerting engine the rest of the stack will lean on, and the place where every later datasource (Prometheus, Loki, Tempo) will eventually plug in side by side.
@@ -17,7 +18,7 @@ This post stands up Grafana on the monitor VM, wires it to the existing `proxmox
 
 ## Image and edition
 
-`grafana/grafana:12.0.2`. The OSS edition, despite the unqualified image name; `grafana/grafana-enterprise` is the licensed one and isn't needed for this stack. Pinned to a specific minor for the same reason InfluxDB is pinned to `2.7`. `latest` is a footgun that turns a routine `docker compose pull` into a surprise migration.
+`grafana/grafana:12.0.2`. The OSS edition, despite the unqualified image name; `grafana/grafana-enterprise` is the licensed one and isn't needed for this stack. Pinned to a specific minor for the same reason InfluxDB is pinned to `2.7`. `latest` is a trap that turns a routine `docker compose pull` into a surprise migration.
 
 ## Why provision the datasource
 
