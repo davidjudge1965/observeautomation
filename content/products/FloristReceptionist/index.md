@@ -1,7 +1,7 @@
 ---
 date: '2026-01-07'
 title: 'Every missed call is a missed bouquet sale'
-description: "AI voice receptionist for florists. Never miss a wedding enquiry, bouquet order, or funeral booking. Answers every call, 24/7. From £300/month, UK-based."
+description: "AI voice receptionist for florists. Never miss a wedding enquiry, bouquet order, or funeral booking. Answers every call, 24/7. From £499/month, UK-based."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
@@ -76,35 +76,28 @@ Use the calculator to get a rough sense of the revenue at risk for your business
 
 
 
-## What's included
+## Pricing
 
+**Two public tiers, pick the one that fits your call volume:**
 
-**One-off setup fee: £500**
- 
-Everything needed to get your AI Receptionist live:
+| | **Standard** | **Plus** |
+|---|---|---|
+| Monthly fee | £499 | £749 |
+| Setup fee (one-off) | £500 | £750 |
+| Calls included per month | Up to 400 | Up to 800 |
+| Minutes included per month | Up to 1,000 | Up to 2,000 |
+| SMS confirmation + 24hr reminder | Add-on £20/mo | **Included** |
+| CRM read (HubSpot / Pipedrive) | Add-on £60/mo | **Included** |
 
->- Discovery session to understand your business, customers, and common questions
->- Building and testing your custom FAQ and call handling scripts
->- Integration with your calendar for appointment availability
->- Configuration of call transfer and escalation rules
->- Full testing before go-live
+Call and AI costs are bundled into the monthly fee up to your tier's allowance. Overage beyond the cap is £0.20 per minute, with email alerts at 70%, 90%, and 100% of your tier's usage. A **Lite** tier at £349/month (£350 setup, up to 150 calls / 400 minutes) is available by arrangement for low-volume sole traders.
 
-**Monthly service fee: from £300/month**
+**What the monthly fee covers:** continuous monitoring of call handling, script and seasonal-hours updates as your shop changes, AI model upgrades when providers deprecate older models, priority support, and call recordings stored on your own server.
 
-Ongoing management of your AI Receptionist:
+**Setup gets you live:** discovery session, custom FAQ and call handling scripts, calendar integration, call transfer and escalation rules, and full pre-launch testing.
 
-- Monitoring call handling quality
-- Updating scripts as your business changes (new services, seasonal hours, promotions)
-- AI model updates to keep the receptionist current and accurate
-- Priority support if anything needs changing
+**Prefer to hold the provider accounts yourself?** A pass-through arrangement is available where you pay Twilio, VAPI, and the LLM providers directly and receive a roughly 12.5% discount on the monthly fee. Mention it during your discovery call.
 
-**Call and AI costs: passed through at cost**
-
-The cost of the underlying AI and telephony is billed transparently at cost — typically **£0.13 per minute**, or roughly **£0.33 per call** based on an average call length of 2.5 minutes. For most businesses this adds £20–£80/month depending on call volumes.
-
-There are no hidden markups on these costs.
-
-*For the full detail of what the monthly fee covers, response times, what counts as a chargeable change, and the licence terms, see the [Florist Service Scope document](/scope/florist-receptionist/).*
+*For the full detail of what each tier covers, response times, what counts as a chargeable change, and the licence terms, see the [Florist Service Scope document](/scope/florist-receptionist/).*
 
 
 

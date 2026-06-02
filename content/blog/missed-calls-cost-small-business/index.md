@@ -58,7 +58,7 @@ There are a few ways to handle missed calls, with different trade-offs:
 
 **Use a call-answering service.** Cheaper, but often impersonal. Your callers speak to a generic call centre who take a message and email it to you. No product knowledge, no ability to answer questions, no judgement about urgency.
 
-**Use an AI voice receptionist.** Answers every call you can't, immediately. Greets callers in your business's name, answers common questions about your services, takes a message, and flags urgent calls for immediate callback. Costs from £300 a month. Available 24/7. No sick days, no lunch breaks.
+**Use an AI voice receptionist.** Answers every call you can't, immediately. Greets callers in your business's name, answers common questions about your services, takes a message, and flags urgent calls for immediate callback. Costs from £499 a month on the public Standard tier with call and AI costs bundled. Available 24/7. No sick days, no lunch breaks.
 
 The AI option isn't right for everyone. If your business runs on deep relationship calls and complex conversations, you need a human. But for the majority of calls: initial enquiries, appointment requests, routine questions, messages, an AI handles it better than voicemail and at a fraction of the cost of a person.
 

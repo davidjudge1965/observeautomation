@@ -119,7 +119,7 @@ Trained on your business: your prices, areas, availability.
 Transfers genuine emergencies to you directly.
 Filters out cold callers and time-wasters.
 
-From £300/month. Call costs around 33p each.
+From £499/month, call and AI costs bundled in.
 
 **Design notes:** Brighter slide. This is the solution. Could use a tick-list layout.
 

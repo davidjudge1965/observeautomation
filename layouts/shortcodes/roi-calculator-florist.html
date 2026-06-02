@@ -358,24 +358,16 @@
       <label>Monthly management / service fee</label>
       <div class="input-row">
         <span class="input-prefix">£</span>
-        <input type="number" id="fl-svcFee" placeholder="300" min="0" value="300">
+        <input type="number" id="fl-svcFee" placeholder="499" min="0" value="499">
       </div>
     </div>
 
     <div class="cost-breakdown">
-      <div class="breakdown-row">
-        <span class="breakdown-label">Management fee</span>
-        <span class="breakdown-val" id="fl-bd-svc">£200</span>
-      </div>
-      <div class="breakdown-row">
-        <span class="breakdown-label">Estimated call &amp; AI costs</span>
-        <span class="breakdown-val" id="fl-bd-calls">—</span>
-      </div>
-      <span class="breakdown-note" id="fl-bd-note">Based on — calls/month × 2.5 min avg × £0.13/min</span>
       <div class="breakdown-row breakdown-total">
-        <span class="breakdown-label">Total estimated monthly cost</span>
+        <span class="breakdown-label">Total monthly cost</span>
         <span class="breakdown-val" id="fl-bd-total">—</span>
       </div>
+      <span class="breakdown-note">Call and AI costs are bundled into the monthly fee up to your tier's allowance. Overage beyond is £0.20/min.</span>
     </div>
 
   </div>
@@ -414,8 +406,6 @@
 
 <script>
 (function () {
-  const COST_PER_MIN  = 0.13;
-  const AVG_CALL_MINS = 2.5;
   const WORKING_DAYS  = 26; /* florists typically work 6 days a week */
 
   function fmt(n) {
@@ -442,20 +432,13 @@
     const monthlyRisk = dailyRisk * WORKING_DAYS;
     const annualRisk  = monthlyRisk * 12;
 
-    // Call & AI costs
-    const monthlyCallCount = missed * WORKING_DAYS;
-    const callCostPerCall  = AVG_CALL_MINS * COST_PER_MIN;
-    const monthlyCallCost  = monthlyCallCount * callCostPerCall;
-    const totalMonthlyCost = svcFee + monthlyCallCost;
+    // Bundled tier: AI minutes included in fee up to allowance
+    const totalMonthlyCost = svcFee;
 
     // ROI ratio
     const ratio = totalMonthlyCost > 0 ? monthlyRisk / totalMonthlyCost : 0;
 
     // Breakdown panel
-    document.getElementById('fl-bd-svc').textContent   = fmt(svcFee);
-    document.getElementById('fl-bd-calls').textContent = fmtExact(monthlyCallCost);
-    document.getElementById('fl-bd-note').textContent  =
-      `Based on ${monthlyCallCount} calls/month × ${AVG_CALL_MINS} min avg × £${COST_PER_MIN}/min`;
     document.getElementById('fl-bd-total').textContent = fmt(totalMonthlyCost);
 
     // Results

@@ -56,7 +56,6 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 - `FloristReceptionist/index.md` — Florist AI Voice Receptionist (live, weight: 20)
 - `LatePaymentChasing/index.md` — Late Payment Chasing automation (live, weight: 30)
 - `EmailTriage/index.md` — Email Triage automation (live, weight: 40)
-- `AI Voice Receptionist/index.md` — Original generic receptionist page (`draft: true`, hidden)
 
 ### Shortcodes (`layouts/shortcodes/`)
 - `roi-calculator.html`, `roi-calculator-florist.html`, `roi-calculator-trades.html` — ROI calculators
@@ -67,10 +66,18 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 ## Pricing model
 
 ### AI Voice Receptionist (Florist and Trades)
-- **Setup fee**: £500 (one-off)
-- **Monthly management fee**: from £300/month
-- **Call/AI costs**: Passed through at cost — £0.13/min, ~2.5 min avg = ~£0.33/call
+Three tiers with AI minutes bundled into the monthly fee (the public default model):
+
+| Tier | Monthly | Setup | Calls / month | Minutes / month |
+|---|---|---|---|---|
+| **Lite** (by arrangement, low-volume sole traders) | £349 | £350 | up to 150 | up to 400 |
+| **Standard** (public starting tier) | £499 | £500 | up to 400 | up to 1,000 |
+| **Plus** (public premium) | £749 | £750 | up to 800 | up to 2,000 |
+
+- **Overage**: £0.20 per minute beyond either cap, with alerts at 70%, 90%, 100%
+- **Pass-through option**: customer holds the Twilio / VAPI / LLM accounts and pays providers direct; monthly fee approximately 12.5% lower than the equivalent bundled tier. Mentioned in scope pages, not the default offer.
 - **Minimum contract**: 3 months, then rolling monthly
+- **Decided 2026-06-02**: bundled is default, pass-through is the alternative. Site reconciled across product pages, scope pages, ROI calculators, and blog mentions.
 
 ### Late Payment Chasing
 - **Setup fee**: £350 (one-off)
@@ -85,9 +92,9 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 - **Minimum contract**: 3 months, then rolling monthly
 
 ### General principles (applies to all products)
-- All products run on **customer-owned infrastructure**: customer has their own Hetzner (or equivalent) VPS and their own API accounts (Twilio, VAPI, OpenAI, OpenRouter, etc.). ObserveAutomation does not host on shared hardware — this is against n8n's terms of service for self-hosted multi-tenant deployments.
+- All products run on **customer-owned infrastructure**: customer has their own Hetzner (or equivalent) VPS. For Late Payment Chasing and Email Triage, customer also has their own API accounts (OpenAI, OpenRouter, etc.). For the Receptionist on the default bundled tiers, ObserveAutomation holds the Twilio / VAPI / LLM accounts and bills the customer a single fee; on the pass-through option, the customer holds those accounts directly.
 - **Workflow IP belongs to ObserveAutomation**. Customers receive a non-transferable licence to use the workflow in their own business indefinitely, including after the engagement ends. They may not share, sell, or sublicense the workflow.
-- AI/API costs are always passed through at cost, with no markup, on the customer's own provider bills.
+- AI/API costs for non-Receptionist products are passed through at cost, with no markup, on the customer's own provider bills. For Receptionist on bundled tiers, costs are absorbed into the monthly fee up to allowance with overage at £0.20/min. On the Receptionist pass-through option, costs flow direct from providers to customer.
 
 ---
 

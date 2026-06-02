@@ -14,7 +14,7 @@ For florists, the numbers look different but the problem is identical. A missed 
 
 The reason it's hard to fix isn't effort or organisation. It's that one person cannot simultaneously do the work and answer the phone. The phone doesn't stop ringing because you're busy.
 
-There are three practical options: hire a receptionist (£20,000–£35,000 a year), use a call-answering service (cheaper but impersonal — a generic call centre with no knowledge of your business), or use an AI voice receptionist (from £300 a month, answers immediately, available 24/7, greets callers in your business's name and answers common questions).
+There are three practical options: hire a receptionist (£20,000–£35,000 a year), use a call-answering service (cheaper but impersonal — a generic call centre with no knowledge of your business), or use an AI voice receptionist (from £499 a month, answers immediately, available 24/7, greets callers in your business's name and answers common questions).
 
 The AI option isn't right for every business. If your work runs on complex relationship calls, you need a human. But for initial enquiries, appointment requests, and routine questions — which is the majority of inbound calls for most trades and service businesses — it handles it well.
 

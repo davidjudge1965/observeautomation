@@ -1,7 +1,7 @@
 ---
 date: '2026-01-07'
 title: 'Every missed call is a missed job'
-description: "AI voice receptionist for plumbers, electricians and heating engineers. Answer every call while you're on the tools. Capture every job. From £300/month, UK."
+description: "AI voice receptionist for plumbers, electricians and heating engineers. Answer every call while you're on the tools. Capture every job. From £499/month, UK."
 categories: ["Products"]
 tags: ["Products", "n8n", "GenAI", "Voice", "Receptionist"]
 layout: "single"
@@ -77,35 +77,28 @@ Use the calculator to see the revenue at risk from your missed calls — and how
 {{< roi-calculator-trades >}}
 
 
-## What's included
+## Pricing
 
+**Two public tiers, pick the one that fits your call volume:**
 
-**One-off setup fee: £500**
+| | **Standard** | **Plus** |
+|---|---|---|
+| Monthly fee | £499 | £749 |
+| Setup fee (one-off) | £500 | £750 |
+| Calls included per month | Up to 400 | Up to 800 |
+| Minutes included per month | Up to 1,000 | Up to 2,000 |
+| Outbound callback for missed callers | Add-on £40/mo | **Included** |
+| CRM read (HubSpot / Pipedrive) | Add-on £60/mo | **Included** |
 
-Everything needed to get your AI Receptionist live:
+Call and AI costs are bundled into the monthly fee up to your tier's allowance. Overage beyond the cap is £0.20 per minute, with email alerts at 70%, 90%, and 100% of your tier's usage. A **Lite** tier at £349/month (£350 setup, up to 150 calls / 400 minutes) is available by arrangement for low-volume sole traders.
 
->- Discovery session to understand your work, your customers, and your most common enquiries
->- Building and testing your custom call handling scripts and FAQ responses
->- Integration with your calendar for appointment availability
->- Configuration of call transfer rules — including emergency escalation
->- Full testing before go-live
+**What the monthly fee covers:** continuous monitoring of call handling, script and price updates as your business changes, AI model upgrades when providers deprecate older models, priority support, and call recordings stored on your own server.
 
-**Monthly service fee: from £300/month**
+**Setup gets you live:** discovery session, custom call handling scripts and FAQ responses, calendar integration, call transfer rules including emergency escalation, and full pre-launch testing.
 
-Ongoing management of your AI Receptionist:
+**Prefer to hold the provider accounts yourself?** A pass-through arrangement is available where you pay Twilio, VAPI, and the LLM providers directly and receive a roughly 12.5% discount on the monthly fee. Mention it during your discovery call.
 
-- Monitoring call handling quality
-- Updating scripts when your services, prices, or availability change
-- AI model updates to keep responses current and accurate
-- Priority support if anything needs adjusting
-
-**Call and AI costs: passed through at cost**
-
-The underlying AI and telephony is billed transparently at cost — typically **£0.13 per minute**, or roughly **£0.33 per call** based on an average of 2.5 minutes. For most trades businesses this adds £20–£60/month depending on call volumes.
-
-There are no hidden markups on these costs.
-
-*For the full detail of what the monthly fee covers, response times, what counts as a chargeable change, and the licence terms, see the [Trades Service Scope document](/scope/trades-receptionist/).*
+*For the full detail of what each tier covers, response times, what counts as a chargeable change, and the licence terms, see the [Trades Service Scope document](/scope/trades-receptionist/).*
 
 
 ## Getting set up
