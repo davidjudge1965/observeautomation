@@ -1,6 +1,6 @@
 ---
 title: "Scopes"
-_build:
+build:
   list: never
   render: never
 ---

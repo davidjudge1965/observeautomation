@@ -5,7 +5,7 @@ description: "Extending the log pipeline to a host without Docker. The runner VM
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "OpenTelemetry", "Systemd"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-06-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -15,6 +15,37 @@ The five stacks deployed so far all live on the monitor VM, and the Alloy from t
 This post takes a single step sideways from the build sequence to ship those logs into the existing Loki. Slightly out of order on purpose: doing it now is the cheapest end-to-end test that the central pipeline actually accepts pushes from a different box, and a non-Docker workload exercises a different Alloy shape (file tailing, native systemd, no compose) than the multi-host Docker roll-out queued up next.
 
 <!--more-->
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    PX["Proxmox"]
+    Client["LAN clients"]
+    subgraph runner["runner VM"]
+        RA["Alloy<br/>(systemd, file tail)"]:::new
+    end
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]
+        PR[("Prometheus")]
+        LK[("Loki")]
+        AL["Alloy"]
+        GF["Grafana"]
+    end
+    PX -->|HTTPS| TR
+    Client -->|HTTPS UI| TR
+    RA -->|HTTPS push| TR
+    TR --> LK
+    PR -.->|scrape| TR
+    AL -.->|push logs| LK
+    GF -.->|query| IDB
+    GF -.->|query| PR
+    GF -.->|query| LK
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+First off-host log producer. Runner's Alloy is a native systemd install (not Docker) tailing Python script logs and pushing through Loki's public Traefik endpoint.
 
 ## Why this is out of sequence
 

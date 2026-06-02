@@ -5,7 +5,7 @@ description: "Standing up Prometheus on the monitor VM behind Traefik, scraping 
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Prometheus", "Traefik", "Grafana", "Docker"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-04-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -15,6 +15,31 @@ Traefik has been emitting Prometheus metrics on its dedicated `:9090` entrypoint
 This post stands up Prometheus on the monitor VM behind Traefik, points it at Traefik as the first scrape target, and wires it into Grafana as a second provisioned datasource alongside the InfluxDB one from last time.
 
 <!--more-->
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    PX["Proxmox"]
+    Client["LAN clients"]
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]
+        PR[("Prometheus")]:::new
+        GF["Grafana"]
+    end
+    PX -->|HTTPS| TR
+    Client -->|HTTPS UI| TR
+    TR --> IDB
+    TR --> PR
+    TR --> GF
+    PR -.->|scrape :9090| TR
+    GF -.->|query| IDB
+    GF -.->|query| PR
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+Prometheus joins as the pull-based metric store. It scrapes Traefik's own `:9090` metrics endpoint as the first target; file-SD will add `node_exporter` agents later.
 
 ## Two metric stores isn't a mistake
 

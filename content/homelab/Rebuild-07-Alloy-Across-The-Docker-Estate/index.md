@@ -5,7 +5,7 @@ description: "Rolling Alloy onto the other two Docker hosts in the lab, dock and
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "Grafana", "Docker"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-07-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -15,6 +15,45 @@ The Loki on monitor has been collecting logs from exactly one Docker host since 
 This post rolls Alloy onto both Docker hosts using a single template, parameterised by one environment variable so the per-host change is one line of `.env` and the config file itself is byte-identical across hosts. By the end, `{host=~".+"}` in Loki returns containers from all three Docker hosts plus the runner satellite from [last post]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}), and the `host` label is the primary axis for any query that wants to focus on one instance.
 
 <!--more-->
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    PX["Proxmox"]
+    Client["LAN clients"]
+    subgraph runner["runner"]
+        RA["Alloy"]
+    end
+    subgraph dock["dock"]
+        DA["Alloy<br/>(Docker)"]:::new
+    end
+    subgraph docker04["docker04"]
+        D4A["Alloy<br/>(Docker)"]:::new
+    end
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]
+        PR[("Prometheus")]
+        LK[("Loki")]
+        AL["Alloy"]
+        GF["Grafana"]
+    end
+    PX -->|HTTPS| TR
+    Client -->|HTTPS UI| TR
+    RA -->|HTTPS push| TR
+    DA -->|HTTPS push| TR
+    D4A -->|HTTPS push| TR
+    TR --> LK
+    PR -.->|scrape| TR
+    AL -.->|push logs| LK
+    GF -.->|query| IDB
+    GF -.->|query| PR
+    GF -.->|query| LK
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+Two more Alloys land on `dock` and `docker04`, sharing the same Docker template. The `host` label disambiguates same-named containers across all four agents writing to Loki now.
 
 ## What changes from monitor's Alloy
 

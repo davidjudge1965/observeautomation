@@ -5,7 +5,7 @@ description: "Provisioning the Ubuntu VM that will host the observability stack,
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Traefik", "Docker", "Ubuntu", "LetsEncrypt", "Cloudflare"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-01-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -15,6 +15,20 @@ Before any of the observability components arrive, the foundation has to be righ
 I already run Traefik elsewhere in the lab. The docker04 instance terminates traffic for n8n, ntfy, homepage, dockhand, and a handful of other services. The monitor VM gets its own Traefik for the same reason any production team would: keep the blast radius small, and let each host stand alone during upgrades or rebuilds. The configuration here mirrors docker04's pattern closely, with one or two adaptations.
 
 <!--more-->
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    Client["LAN clients"]
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]:::new
+    end
+    Client -->|HTTPS| TR
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+One VM, one ingress. Every component that lands in the posts that follow will sit behind this HTTPS termination, addressable on a `*.lab.davidmjudge.me.uk` CNAME.
 
 ## The VM
 

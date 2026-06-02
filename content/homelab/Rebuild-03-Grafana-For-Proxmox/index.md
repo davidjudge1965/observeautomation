@@ -5,7 +5,7 @@ description: "Standing up Grafana behind Traefik, wiring it to the Proxmox bucke
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Grafana", "InfluxDB", "Proxmox", "Docker"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-03-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -15,6 +15,27 @@ Proxmox has been pushing metrics into InfluxDB for a few days now, and the only 
 This post stands up Grafana on the monitor VM, wires it to the existing `proxmox` bucket as a *provisioned* datasource rather than a UI-clicked one, and drops in a community Proxmox dashboard.
 
 <!--more-->
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    PX["Proxmox"]
+    Client["LAN clients"]
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]
+        GF["Grafana"]:::new
+    end
+    PX -->|HTTPS| TR
+    Client -->|HTTPS UI| TR
+    TR --> IDB
+    TR --> GF
+    GF -.->|query| IDB
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+Grafana joins and pulls InfluxDB on the internal `monitoring` Docker network. The dashed query arrow is traffic that never leaves Docker; the solid arrows are HTTPS through Traefik.
 
 ## Image and edition
 

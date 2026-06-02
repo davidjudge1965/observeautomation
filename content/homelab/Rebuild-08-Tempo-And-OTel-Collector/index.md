@@ -5,7 +5,7 @@ description: "Standing up Tempo as the homelab's trace store and the OpenTelemet
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "OpenTelemetry", "Tempo", "Tracing", "Grafana", "Docker"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-08-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -22,36 +22,55 @@ The two components are one architectural unit. A trace store with nothing produc
 
 This isn't a new pattern in the rebuild series. [Loki and Alloy]({{< ref "Rebuild-05-Loki-And-Alloy" >}}) did the same thing: log store and first agent stood up in one post, then [satellite Alloys]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}) [rolled out]({{< ref "Rebuild-07-Alloy-Across-The-Docker-Estate" >}}) in follow-up posts. Here, the trace pipeline is the post, and the first real producer (n8n instrumentation) is what the next post does.
 
-## The shape of the pipeline
+## The stack so far
 
 {{< mermaid >}}
 flowchart LR
-    P1["Workstation<br/>curl OTLP"]
-    P2["n8n on dock<br/>(next post)"]
-
-    TR["Traefik<br/>HTTPS termination"]
-    OC["OTel Collector<br/>otelcol.lab.davidmjudge.me.uk"]
-
-    PR[("Prometheus")]
-    LK[("Loki")]
-    TP[("Tempo")]
-
-    GF["Grafana"]
-
-    P1 -->|HTTPS| TR
-    P2 -.->|HTTPS| TR
-    TR -->|OTLP HTTP| OC
-
-    OC -->|remote-write| PR
-    OC -->|Loki API| LK
-    OC -->|OTLP gRPC| TP
-
-    PR --> GF
-    LK --> GF
-    TP --> GF
+    PX["Proxmox"]
+    Client["LAN clients"]
+    WS["Workstation<br/>OTLP curl"]
+    N8N["n8n on dock<br/>(next post)"]
+    subgraph runner["runner"]
+        RA["Alloy"]
+    end
+    subgraph dock["dock"]
+        DA["Alloy"]
+    end
+    subgraph docker04["docker04"]
+        D4A["Alloy"]
+    end
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]
+        PR[("Prometheus")]
+        LK[("Loki")]
+        AL["Alloy"]
+        TP[("Tempo")]:::new
+        OC["OTel<br/>Collector"]:::new
+        GF["Grafana"]
+    end
+    PX -->|HTTPS| TR
+    Client -->|HTTPS UI| TR
+    WS -->|HTTPS OTLP| TR
+    N8N -.->|HTTPS OTLP| TR
+    RA -->|HTTPS push| TR
+    DA -->|HTTPS push| TR
+    D4A -->|HTTPS push| TR
+    TR --> OC
+    OC -.->|remote-write| PR
+    OC -.->|Loki API| LK
+    OC -.->|OTLP gRPC| TP
+    TR --> LK
+    PR -.->|scrape| TR
+    AL -.->|push logs| LK
+    GF -.->|query| IDB
+    GF -.->|query| PR
+    GF -.->|query| LK
+    GF -.->|query| TP
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
 {{< /mermaid >}}
 
-Solid arrows are live in this post. The dashed arrow from n8n is what the next post wires up. Producers always talk HTTPS to Traefik on monitor; Traefik terminates TLS and hands plaintext OTLP to the Collector on the internal `monitoring` Docker network. The Collector fans out to all three backends (plaintext, internal network). Grafana queries each backend directly, never via the Collector.
+Tempo and the OTel Collector close the trace gap. OTLP producers push to the Collector via Traefik; the Collector fans out to all three backends with a consistent `service_name` label across signals. The dashed arrow from n8n is what the next post wires up.
 
 ## Architecture, made explicit
 

@@ -5,7 +5,7 @@ description: "Standing up Loki on the monitor VM behind Traefik, shipping every 
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "Grafana", "Docker"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-05-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -17,6 +17,36 @@ This post stands up Loki on the monitor VM behind Traefik, drops Grafana Alloy a
 <!--more-->
 
 In the next post, we'll cover how to get Alloy to collect from a different host - see [Rolling Alloy to a host]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}})
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    PX["Proxmox"]
+    Client["LAN clients"]
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]
+        PR[("Prometheus")]
+        LK[("Loki")]:::new
+        AL["Alloy"]:::new
+        GF["Grafana"]
+    end
+    PX -->|HTTPS| TR
+    Client -->|HTTPS UI| TR
+    TR --> IDB
+    TR --> PR
+    TR --> LK
+    TR --> GF
+    PR -.->|scrape| TR
+    AL -.->|push logs| LK
+    GF -.->|query| IDB
+    GF -.->|query| PR
+    GF -.->|query| LK
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+Loki is the log store; Alloy reads every container's stdout from the Docker daemon socket and pushes to Loki. Grafana now queries three signal stores from the same UI.
 
 ## A store and an agent, both deliberate
 

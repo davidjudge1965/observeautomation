@@ -5,7 +5,7 @@ description: "Standing up InfluxDB v2 on the monitor VM and pointing Proxmox at 
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "InfluxDB", "Proxmox", "Docker"]
 layout: "single"
-image: "/image/MonitoringHomelabPhoto.webp"
+image: "/image/Rebuild-02-Stack-Diagram.webp"
 draft: false
 ShowCodeCopyButtons: true
 ---
@@ -15,6 +15,24 @@ InfluxDB is step one for two reasons. First, Proxmox writes metrics natively to 
 This post stands up InfluxDB v2 on the monitor VM, behind Traefik, then walks through wiring Proxmox up as the first source.
 
 <!--more-->
+
+## The stack so far
+
+{{< mermaid >}}
+flowchart LR
+    PX["Proxmox<br/>cluster"]:::new
+    Client["LAN clients"]
+    subgraph monitor["Monitor VM"]
+        TR["Traefik"]
+        IDB[("InfluxDB")]:::new
+    end
+    PX -->|HTTPS metrics push| TR
+    Client -->|HTTPS UI| TR
+    TR --> IDB
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{< /mermaid >}}
+
+First time-series store. Proxmox pushes hypervisor metrics through Traefik to InfluxDB; the UI is reachable at `influxdb.lab.davidmjudge.me.uk`.
 
 ## Why v2, not v3
 
