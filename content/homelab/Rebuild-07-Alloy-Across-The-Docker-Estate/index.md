@@ -1,7 +1,7 @@
 ---
 date: '2026-05-29'
 title: 'Alloy across the Docker estate'
-description: "Rolling Alloy onto the other two Docker hosts in the lab, dock and docker04, with the central Loki picking up logs from all three. Same compose as monitor's stripped down to alloy-only, parameterised by HOST_LABEL in .env so the per-host knob is one line. Shows how the host label makes queries addressable by Docker instance, and flags the temporary container-name collisions that exist while the wider stack roll-out completes."
+description: "Rolling Alloy onto the lab's other Docker hosts so the central Loki picks up logs from all three. Per-host knob is a one-line .env change."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "Grafana", "Docker"]
 layout: "single"

@@ -1,7 +1,7 @@
 ---
 date: '2025-12-15T10:38:12+01:00'
 title: 'Docker Server #3 with CloudInit'
-description: "Building a 3rd Docker VM using CloudInit."
+description: "Building a third Docker VM with CloudInit on a new Proxmox server, so a single PVE failure no longer takes the container estate down."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Proxmox", "Docker"]
 layout: "single"

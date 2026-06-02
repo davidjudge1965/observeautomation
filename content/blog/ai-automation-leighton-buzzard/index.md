@@ -1,6 +1,6 @@
 ---
 date: '2026-04-01'
-title: 'AI Automation for Small Businesses in Leighton Buzzard'
+title: "Small Business AI in Leighton Buzzard"
 description: "Small businesses in Leighton Buzzard are using AI to handle missed calls, sort email, and cut admin. Here's what's working locally and how to get started."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Leighton Buzzard", "Local"]

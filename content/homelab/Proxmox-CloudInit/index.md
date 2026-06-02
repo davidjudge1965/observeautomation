@@ -1,7 +1,7 @@
 ---
 date: '2025-10-01T17:38:12+01:00'
 title: 'Proxmox and CloudInit'
-description: "Proxmox VM creation with CloudImage and CloudInit."
+description: "Building Proxmox VMs with CloudImage and CloudInit instead of manual ISO installs, with a k8s cluster as the worked example."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Proxmox", "CloudInit"]
 layout: "single"

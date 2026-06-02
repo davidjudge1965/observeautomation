@@ -1,7 +1,7 @@
 ---
 date: '2026-05-28'
 title: 'Loki and Alloy, centralised logs'
-description: "Standing up Loki on the monitor VM behind Traefik, shipping every container's stdout with Grafana Alloy, and wiring it into Grafana as a third provisioned datasource alongside InfluxDB and Prometheus."
+description: "Standing up Loki on the monitor VM, shipping container stdout with Grafana Alloy, and wiring it into Grafana as a third datasource."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "Grafana", "Docker"]
 layout: "single"

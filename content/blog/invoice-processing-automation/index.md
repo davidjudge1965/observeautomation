@@ -1,7 +1,7 @@
 ---
 date: '2026-04-26'
 title: 'Stop entering invoices by hand. Let AI do it.'
-description: "How AI reads, extracts, and records supplier invoices automatically, including currency conversion. Saves around 10 minutes per invoice at less than a penny in AI costs."
+description: "How AI reads, extracts, and records supplier invoices automatically. Saves around 10 minutes per invoice at less than a penny in AI costs."
 categories: ["Blog"]
 tags: ["Automation", "AI", "Invoices", "Bookkeeping", "Small Business"]
 image: "/image/InvoicesAndAccount.webp"

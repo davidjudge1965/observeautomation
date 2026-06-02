@@ -1,6 +1,6 @@
 ---
 date: '2026-04-01'
-title: 'AI Automation for Small Businesses in Milton Keynes'
+title: "Small Business AI in Milton Keynes"
 description: "Small businesses in Milton Keynes are using AI automation to stop missing calls, cut admin time, and compete with larger firms. Here's what's working."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Milton Keynes", "Local"]

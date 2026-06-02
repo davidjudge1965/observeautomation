@@ -1,7 +1,7 @@
 ---
 date: '2025-12-14T17:38:12+01:00'
 title: 'Proxmox Server 2'
-description: "Building a 2nd Proxmox server."
+description: "Building a second Proxmox server to add redundancy to the homelab and host Docker containers in proper VMs instead of LXC."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Proxmox"]
 layout: "single"

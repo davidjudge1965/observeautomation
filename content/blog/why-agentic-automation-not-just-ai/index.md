@@ -1,6 +1,6 @@
 ---
 date: '2026-04-02'
-title: 'Why I build automations rather than just use AI to do everything'
+title: "Why I build automations, not just AI"
 description: "Everyone is talking about using AI to build tools. Here is why I use an automation platform instead, and why that is better news for your business."
 categories: ["Blog"]
 tags: ["AI", "Automation", "n8n", "Small Business"]

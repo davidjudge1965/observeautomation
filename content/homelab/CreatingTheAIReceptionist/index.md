@@ -1,7 +1,7 @@
 ---
 date: '2026-01-03'
 title: 'AI Voice Receptionist'
-description: "Creating an AI Voice receptionist for ObserveAutomation."
+description: "Building an AI Voice Receptionist for ObserveAutomation, both as a portfolio piece and as a product I can sell to local small businesses."
 categories: ["Homelabbing"]
 tags: ["Homelab", "ObserveAutomation", "n8n", "AI"]
 layout: "single"

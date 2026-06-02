@@ -1,7 +1,7 @@
 ---
 date: '2026-05-04'
 title: "You don't need AI"
-description: "Every article, every advert, every conference is selling AI. Here is an honest look at what most small businesses actually need, and it is simpler than you think."
+description: "Every article and advert is selling AI. Here is an honest look at what small businesses actually need, and it is simpler than you think."
 categories: ["Blog"]
 tags: ["AI", "Automation", "Small Business", "Getting Started"]
 image: "/image/BlogHeroPhoto.webp"

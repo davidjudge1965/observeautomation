@@ -1,7 +1,7 @@
 ---
 date: '2026-04-20'
 title: 'Stop chasing invoices. Get paid.'
-description: "Automated late payment reminders for small businesses. Connect to your invoicing system and send escalating, professional reminders on autopilot. From £150/month."
+description: "Automated late payment reminders for UK small businesses. Connect to your invoicing system and send escalating reminders on autopilot. From £150/month."
 categories: ["Products"]
 tags: ["Products", "n8n", "Automation", "Invoicing", "Late Payments"]
 image: "/image/Late_Payment_Hero_Image.jpg"

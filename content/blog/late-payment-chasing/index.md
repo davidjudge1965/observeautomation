@@ -1,7 +1,7 @@
 ---
 date: '2026-04-20'
 title: 'The Invoice Is Sent. Now the Real Work Begins.'
-description: "Late payments cost UK small businesses £22,000 a year on average — and 86 hours chasing them. Here's what that actually looks like, and what you can do about it."
+description: "Late payments cost UK small businesses £22,000 a year on average, plus 86 hours chasing them. Here's what that looks like and how to fix it."
 categories: ["Blog"]
 tags: ["Invoicing", "Late Payments", "Cash Flow", "Automation", "Small Business"]
 image: "/image/OverdueInvoice.jpg"

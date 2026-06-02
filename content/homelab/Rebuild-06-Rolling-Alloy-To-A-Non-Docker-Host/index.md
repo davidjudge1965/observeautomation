@@ -1,7 +1,7 @@
 ---
 date: '2026-05-28'
 title: 'Rolling Alloy to a non-Docker host'
-description: "Extending the log pipeline to a host without Docker. The runner VM gets a native systemd Alloy from Grafana's apt repo, tails the eMailJobScraper Python logs with loki.source.file, and pushes them over TLS to the central Loki. Proves the public push API works for satellite agents, surfaces a directory-traversal trap on the way through, and previews what Alloy's OpenTelemetry lineage buys for later."
+description: "Extending the log pipeline to a non-Docker host. A native systemd Alloy tails Python logs and pushes them to the central Loki over TLS."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "OpenTelemetry", "Systemd"]
 layout: "single"

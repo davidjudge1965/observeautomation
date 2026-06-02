@@ -1,7 +1,7 @@
 ---
 date: "2026-05-17"
 title: "Service Scope: Florist AI Voice Receptionist"
-description: "Detailed scope of what each tier of the ObserveAutomation AI Voice Receptionist for florists covers, included call and minute allowances, add-ons, response times, customer responsibilities, and licence terms."
+description: "What each tier of the ObserveAutomation AI Voice Receptionist for florists covers: call allowances, add-ons, response times, and licence terms."
 categories: ["Scope"]
 tags: ["Scope", "Receptionist", "Florist"]
 image: "/image/FloristInShopOnPhone.webp"
@@ -48,8 +48,6 @@ This document has four parts: what is included in your monthly fee, the call and
 | Priority response SLA | 2 business days | 1 business day | 4 business hours |
 
 Whichever cap is reached first (calls or minutes) triggers overage. Email alerts at 70%, 90%, and 100% give you time to act before overage kicks in.
-
-For the headline prices and an at-a-glance comparison, see the [pricing page](/pricing/).
 
 ---
 

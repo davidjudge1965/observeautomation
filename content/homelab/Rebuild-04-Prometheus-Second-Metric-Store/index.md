@@ -1,7 +1,7 @@
 ---
 date: '2026-05-25'
 title: 'Prometheus, the second metric store'
-description: "Standing up Prometheus on the monitor VM behind Traefik, scraping Traefik's own metrics endpoint as the first target, and wiring it into Grafana as a second provisioned datasource alongside InfluxDB."
+description: "Standing up Prometheus on the monitor VM as a second metric store. Scraping Traefik metrics, then wiring it into Grafana alongside InfluxDB."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Prometheus", "Traefik", "Grafana", "Docker"]
 layout: "single"

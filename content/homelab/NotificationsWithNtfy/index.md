@@ -1,7 +1,7 @@
 ---
 date: '2025-12-18'
 title: 'Notifications with ntfy'
-description: "Enabling notifications in my home lab and network."
+description: "Using ntfy for homelab notifications that still work when broadband is down. Sits alongside Beszel for host and container monitoring."
 categories: ["Homelabbing"]
 tags: ["Homelab", "ntfy"]
 layout: "single"

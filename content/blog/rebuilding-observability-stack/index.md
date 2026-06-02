@@ -1,7 +1,7 @@
 ---
 date: "2026-05-24"
-title: "Rebuilding my observability stack: what 'properly designed' actually means"
-description: "A senior observability practitioner rebuilds his monitoring stack from scratch. Why the design matters more than the tools, what scope discipline looks like, and what to expect when hiring someone for this kind of work."
+title: "Rebuilding my observability stack"
+description: "A senior observability practitioner rebuilds his monitoring stack from scratch. Why design matters more than tools, and what scope discipline looks like."
 categories: ["Blog"]
 tags: ["Blog", "Observability", "Engineering"]
 image: "/image/MonitoringHomelabPhoto.webp"
