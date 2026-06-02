@@ -1,19 +1,4 @@
-{{- /*
-  collapse.html — click-to-expand wrapper around any markdown content.
-
-  Usage (percent form — inner content rendered as markdown):
-
-      {{%/* collapse summary="Show full compose.yaml" */%}}
-      ```yaml
-      services:
-        tempo:
-          ...
-      ```
-      {{%/* /collapse */%}}
-
-  Native <details>/<summary> — no JS, browser handles the toggle.
-  PaperMod's ShowCodeCopyButtons still attaches to inner <pre> elements.
-*/ -}}
+{{- /* collapse.html: click-to-expand wrapper using native <details>/<summary>. Use the percent form {{%/ collapse summary="..." /%}}...{{%/ /collapse /%}} so the inner content renders as markdown. */ -}}
 <details class="collapsible-code">
   <summary>{{ .Get "summary" | default "Show more" }}</summary>
 {{ .Inner }}
