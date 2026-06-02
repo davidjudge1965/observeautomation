@@ -62,7 +62,7 @@ This is the only stack in the rebuild series so far that needs more than one Tra
 
 ## Tempo on monitor
 
-The compose at `stack/05-tempo/compose.yaml`:
+The compose:
 
 {{% collapse summary="Show full compose.yaml" %}}
 
@@ -114,7 +114,7 @@ networks:
 
 Two routers, same hostname, different `PathPrefix` matchers. Traefik evaluates the more specific rule first because the longer-matching rule wins by default; no explicit priority needed.
 
-The config at `stack/05-tempo/config/tempo-config.yaml` is shorter than Loki's:
+The Tempo config is shorter than Loki's:
 
 {{% collapse summary="Show full tempo-config.yaml" %}}
 
@@ -209,7 +209,7 @@ curl -sS -I https://tempo.lab.davidmjudge.me.uk/ready
 
 Different status codes from the two paths is the proof that Traefik is dispatching to two different container ports. If both returned the same thing, the path-routing rule wouldn't be matching as intended.
 
-Once those three pass, Tempo is alive. The next step is wiring it into Grafana so the trace UI exists; the Tempo datasource provisioning at `stack/02-grafana/provisioning/datasources/tempo.yml`:
+Once those three pass, Tempo is alive. The next step is wiring it into Grafana so the trace UI exists. The Tempo datasource provisioning:
 
 ```yaml
 apiVersion: 1
@@ -272,7 +272,7 @@ This trap is also in the [stack/04-loki/]({{< ref "Rebuild-05-Loki-And-Alloy" >}
 
 ## The OTel Collector on monitor
 
-The Collector is stateless forwarding by design. No bind mount for state, no `.env` for per-host knobs, just a config file mounted read-only. The compose at `stack/06-otel-collector/compose.yaml`:
+The Collector is stateless forwarding by design. No bind mount for state, no `.env` for per-host knobs, just a config file mounted read-only. The compose:
 
 {{% collapse summary="Show full compose.yaml" %}}
 
@@ -315,7 +315,7 @@ Contrib distribution rather than core: the `loki` exporter ships only in contrib
 
 The Traefik router targets `:4318` (OTLP HTTP). The `:4317` gRPC port stays unexposed; in-monitor producers reach it as `otelcol:4317` over the `monitoring` Docker network. One CNAME, one router, no path-prefix routing needed because OTLP HTTP carries metrics, logs, and traces all under `/v1/*` and they're all destined for the same listener.
 
-The config at `stack/06-otel-collector/config/otel-collector-config.yaml` has four sections: receivers, processors, exporters, service pipelines.
+The Collector config has four sections: receivers, processors, exporters, service pipelines.
 
 {{% collapse summary="Show full otel-collector-config.yaml" %}}
 
@@ -385,7 +385,7 @@ Five details worth calling out beyond the obvious structure.
 
 ### Prerequisite: Prometheus accepts remote-write
 
-Prometheus's `/api/v1/write` endpoint is gated behind a feature flag. The diff to `stack/03-prometheus/compose.yaml` is one line in the command array:
+Prometheus's `/api/v1/write` endpoint is gated behind a feature flag. The diff to the Prometheus compose is one line in the command array:
 
 ```yaml
 - "--web.enable-remote-write-receiver"
