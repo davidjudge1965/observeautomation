@@ -6,3 +6,11 @@
 # overview, which has the headline prices for all four products.
 /pricing/  /products/  301
 /pricing   /products/  301
+
+# /scope/ was an auto-generated Hugo section index with no real
+# content and no inbound links (Ahrefs orphan warning). Section
+# index is now suppressed; redirect any stragglers to /products/.
+# The individual /scope/florist-receptionist/ and
+# /scope/trades-receptionist/ pages are unaffected.
+/scope/    /products/  301
+/scope     /products/  301
