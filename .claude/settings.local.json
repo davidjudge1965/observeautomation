@@ -24,7 +24,10 @@
       "Read(//c/Users/david/OneDrive/GitHub/observeautomation/**)",
       "Bash(cat c:/Users/david/OneDrive/GitHub/Brand/content-templates/*)",
       "Bash(git -C \"c:/Users/david/OneDrive/GitHub/observeautomation\" status)",
-      "Bash(git -C \"c:/Users/david/OneDrive/GitHub/observeautomation\" status --short --branch)"
+      "Bash(git -C \"c:/Users/david/OneDrive/GitHub/observeautomation\" status --short --branch)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(python -c ' *)"
     ]
   }
 }
