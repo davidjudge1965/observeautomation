@@ -1,17 +1,18 @@
 ---
 date: '2026-05-29'
 title: 'Alloy across the Docker estate'
-description: "Rolling Alloy onto the lab's other Docker hosts so the central Loki picks up logs from all three. Per-host knob is a one-line .env change."
+description: "Rolling Alloy onto the other two Docker hosts in the lab, dock and docker04, with the central Loki picking up logs from all three. Same compose as monitor's stripped down to alloy-only, parameterised by HOST_LABEL in .env so the per-host knob is one line. Shows how the host label makes queries addressable by Docker instance, and flags the temporary container-name collisions that exist while the wider stack roll-out completes."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "Grafana", "Docker"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 The Loki on monitor has been collecting logs from exactly one Docker host since it landed: monitor itself. The two satellite Docker hosts in the lab, `dock` and `docker04`, are still on the "ssh in and `docker logs`" workflow that the central-logging story is meant to retire. There are also containers running across all three hosts with overlapping or identical names. Some of those are duplicate containers I'll be decommissioning as this build-out lands, but several are real workloads I want to be able to differentiate cleanly in Grafana ("Traefik on monitor" vs. "Traefik on dock") rather than mash them together into a single stream.
 
-This post rolls Alloy onto both Docker hosts using a single template under `stack/04-loki/agents/docker-host/`, parameterised by one environment variable so the per-host change is one line of `.env` and the config file itself is byte-identical across hosts. By the end, `{host=~".+"}` in Loki returns containers from all three Docker hosts plus the runner satellite from [last post]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}), and the `host` label is the primary axis for any query that wants to focus on one instance.
+This post rolls Alloy onto both Docker hosts using a single template, parameterised by one environment variable so the per-host change is one line of `.env` and the config file itself is byte-identical across hosts. By the end, `{host=~".+"}` in Loki returns containers from all three Docker hosts plus the runner satellite from [last post]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}), and the `host` label is the primary axis for any query that wants to focus on one instance.
 
 <!--more-->
 
@@ -286,7 +287,7 @@ The architecturally interesting consequence is that "ssh in to look at logs" is 
 
 ## Where we are
 
-Loki on monitor now has four agents pushing to it: monitor's own in-stack Alloy, the runner satellite from [last post]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}), and the new Alloys on dock and docker04 sharing the same template under `stack/04-loki/agents/docker-host/`.
+Loki on monitor now has four agents pushing to it: monitor's own in-stack Alloy, the runner satellite from [last post]({{< ref "Rebuild-06-Rolling-Alloy-To-A-Non-Docker-Host" >}}), and the new Alloys on dock and docker04 sharing the same template.
 
 ## What's next
 

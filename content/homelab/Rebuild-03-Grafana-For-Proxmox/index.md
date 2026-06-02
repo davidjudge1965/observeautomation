@@ -28,7 +28,7 @@ That datasource then lives inside `data/grafana/grafana.db`. If the data dir eve
 
 Provisioning fixes both. The datasource is declared in a YAML file that's part of the repo. Wiping the data dir and rebooting re-creates it identically. The token still lives in `.env` (because it's a secret) but everything else (the URL, the org, the bucket, the query language version) is in version control.
 
-`stack/02-grafana/provisioning/datasources/influxdb.yml`:
+The InfluxDB datasource:
 
 ```yaml
 apiVersion: 1
@@ -58,7 +58,7 @@ A few things worth calling out:
 
 ## The compose
 
-`stack/02-grafana/` layout:
+Layout:
 
 ```
 stack/02-grafana/

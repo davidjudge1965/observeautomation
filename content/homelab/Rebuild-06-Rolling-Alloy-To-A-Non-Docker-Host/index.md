@@ -1,12 +1,13 @@
 ---
 date: '2026-05-28'
 title: 'Rolling Alloy to a non-Docker host'
-description: "Extending the log pipeline to a non-Docker host. A native systemd Alloy tails Python logs and pushes them to the central Loki over TLS."
+description: "Extending the log pipeline to a host without Docker. The runner VM gets a native systemd Alloy from Grafana's apt repo, tails the eMailJobScraper Python logs with loki.source.file, and pushes them over TLS to the central Loki. Proves the public push API works for satellite agents, surfaces a directory-traversal trap on the way through, and previews what Alloy's OpenTelemetry lineage buys for later."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "OpenTelemetry", "Systemd"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 The five stacks deployed so far all live on the monitor VM, and the Alloy from the [last post]({{< ref "Rebuild-05-Loki-And-Alloy" >}}) is shipping logs from every container on that one host. There's a second machine in the lab whose logs I want in the same place: `runner`, the VM that hosts a set of Python job-scraping scripts under `/opt/eMailJobScraper/`. The scrapers write per-invocation log files like `scraper_20260528_165802.log`, and right now the only way to read any of it is `ssh runner` and `tail -f`. Same SSH-and-tail dance the central-logging story is meant to end, one host earlier than the planned roll-out.
@@ -45,7 +46,7 @@ Three diffs from the [Alloy already running on monitor]({{< ref "Rebuild-05-Loki
 
 ## Folder layout
  
-Per-host satellite agents live under `stack/04-loki/agents/<host>/`, one folder per VM that pushes to the central Loki:
+Per-host satellite agents live in one folder per VM that pushes to the central Loki:
 
 ```
 stack/04-loki/agents/runner/
@@ -53,11 +54,11 @@ stack/04-loki/agents/runner/
 └── README.md
 ```
 
-No compose, no `.env`, no `data/`. Alloy is a systemd service installed from Grafana's apt repo; its state lives under `/var/lib/alloy/` on the host (package-managed, off the repo). The `stack/NN-*` numbering remains for the build-step axis; rolling Alloy to a new host is a different axis (per-host, not per-step), and keeping satellites under the stack they push to means the data flow is what's adjacent in the repo, which is what matters when you're debugging where a log line came from.
+No compose, no `.env`, no `data/`. Alloy is a systemd service installed from Grafana's apt repo; its state lives under `/var/lib/alloy/` on the host (package-managed, off the repo). The numbered build-step layout remains for the build-step axis; rolling Alloy to a new host is a different axis (per-host, not per-step), and keeping satellites under the stack they push to means the data flow is what's adjacent in the repo, which is what matters when you're debugging where a log line came from.
 
 ## The Alloy config
 
-`stack/04-loki/agents/runner/config.alloy`:
+The runner's Alloy config:
 
 ```hcl
 local.file_match "scraper" {
@@ -158,7 +159,7 @@ sudo -u alloy cat /opt/eMailJobScraper/logs/scraper_*.log | head -1
 
 That last command is the one that costs five seconds and would have saved the diagnosis loop. Running as the agent's own user is the only definitive check. Anything `david` can read (because they own the tree), anything `root` can read (because root bypasses traversal), neither tells you anything useful about whether the agent can read. The `sudo -u alloy cat` is what the agent's first poll does internally; if a human can do it, the agent can.
 
-That's now the documented step in `stack/04-loki/agents/runner/README.md` and it'll be the documented step for every future satellite agent that reads files on a non-Docker host. Easier to write the verification line than to debug the silence.
+That's now the documented step in the runner agent's README and it'll be the documented step for every future satellite agent that reads files on a non-Docker host. Easier to write the verification line than to debug the silence.
 
 ## Deploying the config and starting the service
 

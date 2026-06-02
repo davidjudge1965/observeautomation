@@ -7,6 +7,7 @@ tags: ["Homelab", "Observability", "Monitoring", "InfluxDB", "Proxmox", "Docker"
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 InfluxDB is step one for two reasons. First, Proxmox writes metrics natively to InfluxDB with no glue or exporter required. There is no easier way to get every hypervisor metric flowing into something Grafana can query. Second, treating Proxmox as the canonical push-based source sets a useful precedent: not everything in the final stack will be Prometheus-scraped, and the architecture reflects that from the start.
@@ -23,7 +24,7 @@ Pinned to `influxdb:2.7`, the last stable in the 2.x line.
 
 ## The compose
 
-`stack/01-influxdb/` layout:
+Layout:
 
 ```
 stack/01-influxdb/

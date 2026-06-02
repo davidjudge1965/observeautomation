@@ -1,12 +1,13 @@
 ---
 date: '2026-05-28'
 title: 'Loki and Alloy, centralised logs'
-description: "Standing up Loki on the monitor VM, shipping container stdout with Grafana Alloy, and wiring it into Grafana as a third datasource."
+description: "Standing up Loki on the monitor VM behind Traefik, shipping every container's stdout with Grafana Alloy, and wiring it into Grafana as a third provisioned datasource alongside InfluxDB and Prometheus."
 categories: ["Homelabbing"]
 tags: ["Homelab", "Observability", "Monitoring", "Loki", "Alloy", "Grafana", "Docker"]
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 Five containers have been printing useful things to stdout for the last four posts and none of it has been captured or made queryable. Traefik logs every routed request, Prometheus complains noisily when a scrape target goes away, Grafana names the user behind each provisioning reload, and the only way to read any of it has been `docker compose logs -f` on the monitor VM. That's a tactical answer that works when there's one host. It stops working the moment Alloy rolls to a second VM and "ssh to whichever box might have the answer" turns into a hunt across every box.
@@ -35,7 +36,7 @@ So: single-binary today, filesystem storage on a bind mount, the same TSDB v13 s
 
 ## The compose
 
-`stack/04-loki/` layout:
+Layout:
 
 ```
 stack/04-loki/
@@ -185,7 +186,7 @@ One variable, looked up once per host. Retention lives inside `loki-config.yaml`
 
 ## The Loki config
 
-`stack/04-loki/config/loki-config.yaml`:
+The Loki config:
 
 ```yaml
 auth_enabled: false
@@ -243,7 +244,7 @@ The shape is upstream's single-binary template with three deliberate additions:
 
 ## The Alloy config
 
-This is the file that earns the post. Alloy's config language (river) is HCL-shaped: components, references between them, pipelines built declaratively rather than scripted. `stack/04-loki/config/alloy-config.alloy`:
+This is the file that earns the post. Alloy's config language (river) is HCL-shaped: components, references between them, pipelines built declaratively rather than scripted. The Alloy config:
 
 ```hcl
 discovery.docker "containers" {
@@ -359,9 +360,9 @@ The list comes back with every container running on the monitor VM: `traefik`, `
 
 ## Wiring Grafana as a third datasource
 
-Two datasource files in `stack/02-grafana/provisioning/datasources/` already (InfluxDB-Proxmox and Prometheus). Loki is one more:
+Two datasources are already provisioned (InfluxDB-Proxmox and Prometheus). Loki is one more:
 
-`stack/02-grafana/provisioning/datasources/loki.yml`:
+The Loki datasource:
 
 ```yaml
 apiVersion: 1

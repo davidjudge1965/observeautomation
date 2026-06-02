@@ -7,6 +7,7 @@ tags: ["Homelab", "Observability", "Monitoring", "Traefik", "Docker", "Ubuntu", 
 layout: "single"
 image: "/image/MonitoringHomelabPhoto.webp"
 draft: false
+ShowCodeCopyButtons: true
 ---
 
 Before any of the observability components arrive, the foundation has to be right. That means a clean VM, a tidy Docker setup, and Traefik already in place as the ingress for everything that follows. Doing this once now means every later post (InfluxDB, Grafana, Prometheus, Loki) can drop straight into the same pattern: container with Traefik labels, CNAME in Bind, HTTPS automatically, no host port published.
@@ -45,7 +46,7 @@ UI containers (Grafana, InfluxDB, Prometheus, Alertmanager) join both networks. 
 
 ## Traefik configuration
 
-The Traefik setup lives at `stack/00-traefik/` in the repo. Four files do the work:
+The Traefik setup is four files:
 
 ```
 stack/00-traefik/

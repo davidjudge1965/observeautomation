@@ -32,7 +32,7 @@ So: InfluxDB is the push-based sink for things that want to send (Proxmox, event
 
 ## The compose
 
-`stack/03-prometheus/` layout:
+Layout:
 
 ```
 stack/03-prometheus/
@@ -107,7 +107,7 @@ That's it. No admin user to seed, no token to mint, no first-boot bootstrap. Ret
 
 ## The scrape config
 
-`stack/03-prometheus/config/prometheus.yml`:
+The Prometheus config:
 
 ```yaml
 global:
@@ -199,7 +199,7 @@ Two series, both at `1`. That's end-to-end: Prometheus is up, it scraped itself,
 
 Last post provisioned InfluxDB-Proxmox as Grafana's default datasource. Adding Prometheus alongside it is one more YAML file in the same directory.
 
-`stack/02-grafana/provisioning/datasources/prometheus.yml`:
+The Prometheus datasource:
 
 ```yaml
 apiVersion: 1
