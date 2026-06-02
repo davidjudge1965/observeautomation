@@ -23,6 +23,9 @@ Unsafe HTML rendering must be enabled for shortcodes with raw HTML to work:
   unsafe = true
 ```
 
+### Build options front matter — `build:`, not `_build:`
+Hugo 0.145.0 (Jan 2025) renamed the page-level build-options key from `_build:` to `build:`. The leading underscore was deprecated and will be removed in a future release. The block contents (`list: never`, `render: never`, `publishResources: false`, etc.) are unchanged. Search the repo for `_build:` and rewrite to `build:` whenever a deprecation warning appears in `hugo server` output.
+
 ### Front matter format (use this exact format for all content files)
 ```yaml
 ---
@@ -73,6 +76,47 @@ These sections appear after the FAQ and CTA in the page content — they functio
 
 ---
 
+## Shortcodes — collapse and mermaid
+
+Two shortcodes added 2026-06-02 to support technical posts (used heavily by the homelab Rebuild-NN series).
+
+### `collapse.html`
+
+Wraps an inner markdown block in native `<details>/<summary>`. No JS — the browser handles the toggle. PaperMod's `ShowCodeCopyButtons` JS still attaches to inner `<pre>` elements; the copy button is wired even while the block is collapsed, and remains functional once expanded.
+
+Usage — **percent form** so the inner content is processed as markdown (a code fence inside an angle-bracket shortcode is passed through verbatim and won't render):
+
+```markdown
+{{%/* collapse summary="Show full compose.yaml" */%}}
+```yaml
+services:
+  tempo:
+    image: grafana/tempo:2.6.1
+```
+{{%/* /collapse */%}}
+```
+
+Note the documentation-escape syntax (`{{%/*  */%}}`) only appears when *referring* to the shortcode inside another markdown file; the actual call site uses `{{% collapse %}}...{{% /collapse %}}` with no `/*  */`.
+
+### `mermaid.html`
+
+Renders an inline Mermaid diagram. Loads `mermaid@11` ESM from jsDelivr once per page on the first invocation, tracked via `Page.Scratch`. Theme is `neutral`, which adapts reasonably to both PaperMod's light and dark modes.
+
+Usage — **angle-bracket form** so the diagram source is passed through unmodified (markdown processing would mangle the Mermaid arrows):
+
+```markdown
+{{</* mermaid */>}}
+flowchart LR
+    A[Producer] -->|HTTPS| B[Traefik]
+    B --> C[(Backend)]
+    classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9;
+{{</* /mermaid */>}}
+```
+
+The homelab Rebuild-NN series uses one mermaid diagram per post in a "The stack so far" section right after the `<!--more-->` cut-off, with each post highlighting its newly-added components via `:::new` and the `classDef new` style above. Keep layout consistent across the series (external producers left, monitor VM subgraph centre, dotted arrows for internal queries, solid arrows for HTTPS through Traefik) so the diagram visibly grows over the eight-post arc.
+
+---
+
 ## ROI Calculators
 
 Three variants — generic, florist, trades. Each is a self-contained HTML/CSS/JS shortcode in `layouts/shortcodes/`.
@@ -90,18 +134,18 @@ Each calculator is scoped to a unique ID to prevent style leakage:
 JS in each is wrapped in an IIFE with a uniquely named function.
 
 ### Shared constants
-```javascript
-const COST_PER_MIN  = 0.13;   // £0.13 per minute
-const AVG_CALL_MINS = 2.5;    // average call length
-```
 - Trades/generic: `WORKING_DAYS = 22`
 - Florist: `WORKING_DAYS = 26` (6-day week)
+
+The Receptionist moved to bundled-minute tier pricing on 2026-06-02, so trades and florist calculators no longer compute a separate per-minute call cost — `totalMonthlyCost = svcFee` and the breakdown panel shows a single "Total monthly cost" row plus a static note that AI minutes are bundled up to the tier's allowance. The generic `roi-calculator.html` is untouched and still on the old pass-through model (with `COST_PER_MIN = 0.13` and `AVG_CALL_MINS = 2.5`); it is not currently embedded on any page (`grep` content/ for `roi-calculator` to verify).
 
 ### Defaults by variant
 | Variant | Std value | High value | Missed calls/day | High-value % | Svc fee |
 |---|---|---|---|---|---|
-| Florist | £50 | £800 | 10 | 10% | £300 |
-| Trades | £150 | £1,500 | 4 | 10% | £300 |
+| Florist | £50 | £800 | 10 | 10% | £499 |
+| Trades | £150 | £1,500 | 4 | 10% | £499 |
+
+Svc fee default is Standard-tier price (£499). Users on Lite or Plus override the field manually.
 
 ---
 
@@ -130,3 +174,6 @@ Apply `product-grid--logos` class to the `.product-grid` div when cards contain 
 
 ### Blog
 - `.post-date` — muted date display on blog cards
+
+### Inline code chips
+- `:not(pre) > code` — backtick-wrapped inline code in markdown renders as a tinted chip: `font-size: 0.95em`, monospace stack with `JetBrains Mono` / `SF Mono` / `Cascadia Code` / `Consolas` fallbacks, background `#eef3fb` (matches `.products-section`), text `#1f3a93` (navy), `padding: 0.15em 0.4em`, `border-radius: 4px`, `word-break: break-word` so long identifiers break cleanly. Selector deliberately excludes fenced code blocks. Added 2026-06-02 because bare monospace was reading as visually smaller than surrounding paragraph text.

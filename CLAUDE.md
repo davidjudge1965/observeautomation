@@ -21,6 +21,7 @@ The owner is building a consultancy around **AI and automation for small busines
 | `/homelab/` | `layouts/homelab/list.html` | `layouts/homelab/single.html` | Card grid + signposts |
 | `/about/` | — | `layouts/about/single.html` | Circular photo + content |
 | `/contact/` | — | `layouts/contact/single.html` | Form + GDPR notice |
+| `/scope/` | — | `layouts/_default/single.html` | Service scope detail pages (Trades + Florist Receptionist). Auto-generated section index is suppressed via `content/scope/_index.md` with `build.render: never`; only the two child pages build. `/scope/` itself 301s to `/products/` via `static/_redirects`. |
 | Homepage | `layouts/index.html` | — | Hero + 5-card "Common problems" grid (services-grid CSS) + product cards + signposts |
 
 ### Navigation order
@@ -60,6 +61,12 @@ Controls `background-position` on hero images. E.g. `hero_position: "center top"
 ### Shortcodes (`layouts/shortcodes/`)
 - `roi-calculator.html`, `roi-calculator-florist.html`, `roi-calculator-trades.html` — ROI calculators
 - `audio-player.html` — Styled audio player (`{{< audio-player src="..." title="..." >}}`)
+- `collapse.html` — Click-to-expand wrapper around a markdown block, using native `<details>/<summary>` (no JS). Use the percent form so inner content renders as markdown: `{{% collapse summary="Show full compose.yaml" %}}...code fence...{{% /collapse %}}`. Plays fine with `ShowCodeCopyButtons`.
+- `mermaid.html` — Inline Mermaid diagram via the `mermaid@11` ESM build from jsDelivr. Loads once per page on first invocation. Use the angle-bracket form so the inner block is passed through verbatim: `{{< mermaid >}}flowchart LR ... {{< /mermaid >}}`. Theme is `neutral`.
+
+### Infrastructure
+- `static/_redirects` — Cloudflare Pages redirect rules. Currently: `/pricing/` → `/products/` (catches stragglers from old links and Google index), `/scope/` → `/products/` (catches anyone hitting the now-suppressed section index). Add new path-level redirects here; Cloudflare Pages picks the file up at build time. Host-level redirects (e.g., non-www → www) live in the Cloudflare dashboard as Redirect Rules, not in this file.
+- `wrangler.toml` — Cloudflare Pages build config. Build command `./build.sh`, output `./public`, 404 handling serves `public/404.html`.
 
 ---
 
@@ -119,6 +126,9 @@ Key verticals with specific product fit:
 - **Homelab**: Unabashedly technical. Audience is fellow tinkerers and organisations evaluating technical depth.
 - **British English always**: "organise" not "organize", "recognise" not "recognize", "colour" not "color", etc.
 - **No em-dashes** (—): use a comma, colon, or restructure the sentence instead.
+- **Never use "footgun"** anywhere in published prose. Substitute trap, pitfall, snag, hazard, or rephrase. Applies to every register including homelab posts.
+- **Never reference paths in the private `davidjudge1965/HomeLabMonitoring` repo** from published observeautomation posts — neither as `github.com/...` links (404 for public readers) nor as inline-code `stack/...` paths (the directory isn't shipped to observeautomation either). When a post needs to mention a workshop file, describe it by purpose ("the compose", "the Tempo config") and let the in-article code block do the work.
+- **Homelab Rebuild-NN series uses cumulative "stack so far" Mermaid diagrams**. Each post opens with a `{{< mermaid >}}` flowchart of the lab at that point in the build, with new components highlighted via `classDef new stroke:#2e7d32,stroke-width:3px,fill:#c8e6c9`. Keep layout consistent across posts (external producers left, `Monitor VM` subgraph centre, dotted arrows for queries, solid for HTTPS through Traefik).
 - **Positioning line**: "I remove manual work and reduce costs by automating bottlenecks." — use as an opener on about, services, and homepage.
 - Audio demo: `static/media/OA_Receptionist_Example_Call.mp3` — always link on receptionist product pages
 - Audio shortcode: `{{< audio-player src="media/OA_Receptionist_Example_Call.mp3" title="Hear the AI receptionist in action" >}}`
@@ -150,6 +160,15 @@ All pages have unique keyword-rich descriptions: Homepage (hugo.toml), Florist, 
 - Google Business Profile live; description, hours (by appointment), logo (OA_Logo_Square.jpg) all set
 - Categories: "Business management consultant" (primary) + "Automation company" + "Business-to-Business service"
 - Address (town/region only) and telephone to be added to schema when ready
+
+### Phase 6 — Site audit cleanup (complete 2026-06-02)
+Ahrefs site audit triage in one session. All red and yellow issues addressed:
+- **Canonical domain**: Cloudflare Redirect Rule 301s `observeautomation.com` → `https://www.observeautomation.com/$1` with query string preserved (UTMs survive). Cleared the "Page in multiple sitemaps (51)" warning — every page had been listed under both www and non-www sitemaps.
+- **`/pricing/` 404s**: removed the broken links from both scope pages (the pricing table sits inline above them) and added `static/_redirects` so external clickers get 301'd to `/products/`.
+- **`/scope/` orphan**: Hugo was auto-generating an empty section index page with no inbound links. Suppressed via `content/scope/_index.md` with `build.render: never` and a 301 to `/products/` in `_redirects`.
+- **Meta description lengths**: 11 descriptions trimmed under 160 chars (the four Rebuild-XX posts were the worst at 200–429 chars); 5 too-short descriptions expanded.
+- **Title lengths**: 5 titles flagged by Ahrefs as too long (>70 char rendered) shortened to fit Google's display width.
+- **Google indexing**: sitemap resubmitted in Search Console; URL Inspection + Request Indexing fired against homepage, all four product pages, and the updated blog post.
 
 ---
 
